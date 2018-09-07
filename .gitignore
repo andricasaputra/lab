@@ -5,3 +5,13 @@ composer.json
 /assets/img/*.png
 
 /assets/img/*.jpg
+
+*.sql
+
+data_login.php
+
+header_login.php
+
+index.php
+
+session.php
