@@ -1,0 +1,716 @@
+[05-Sep-2018 09:36:18 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php:144
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php on line 144
+[05-Sep-2018 09:36:24 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php:144
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php on line 144
+[05-Sep-2018 09:47:42 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php:144
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php on line 144
+[05-Sep-2018 10:38:31 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel_multi.php:155
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel_multi.php on line 155
+[05-Sep-2018 10:38:40 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php:144
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php on line 144
+[05-Sep-2018 10:38:51 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php:144
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_penyerahansampel.php on line 144
+[05-Sep-2018 13:24:35 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_permin_pengujian.php:146
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_permin_pengujian.php on line 146
+[05-Sep-2018 13:25:29 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_distribusi_sampel.php:227
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_distribusi_sampel.php on line 227
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:38 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:39 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$target_pengujian3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 158
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0

@@ -1,0 +1,6 @@
+[05-Sep-2018 10:34:09 Asia/Jakarta] PHP Notice:  Undefined variable: ttd_penyelia_data_teknis in /home/skph4384/public_html/lab/kh/lab_parasit/views/edit_kh/editdata_data_teknis_kh.php on line 211
+[05-Sep-2018 10:34:09 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 10:34:09 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/views/edit_kh/editdata_data_teknis_kh.php:0
+[05-Sep-2018 10:34:09 Asia/Jakarta] PHP Notice:  Undefined variable: ttd_analis_data_teknis in /home/skph4384/public_html/lab/kh/lab_parasit/views/edit_kh/editdata_data_teknis_kh.php on line 245
+[05-Sep-2018 10:34:09 Asia/Jakarta] PHP Stack trace:
+[05-Sep-2018 10:34:09 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/views/edit_kh/editdata_data_teknis_kh.php:0

@@ -1,0 +1,1079 @@
+<?php
+
+require_once ('header.php');
+
+$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
+
+$content ='
+
+<style>
+
+    .table1 {
+
+        border :0px;
+
+        width: 100%;
+
+    }
+
+
+    th{
+
+        border: 0.7px solid black;
+
+        border-collapse: collapse;
+
+        padding: 3px;
+
+    }
+
+
+
+    .tabel1 td {
+
+        padding:8px;
+
+        vertical-align: text-bottom;
+
+    }
+
+
+    .table2  {
+
+        text-align: center;
+
+        border: 0.7px solid black;
+
+        border-collapse: collapse;
+
+        page-break-after: always;
+
+    }
+
+
+    .table2 th {
+
+       padding-top: 10px;
+
+       padding-bottom: 10px;
+
+    }
+
+    .table2 td {
+
+       vertical-align: text-top;
+
+       text-align: center;
+
+       padding:  7px 0px;
+
+       border: 0.7px solid black;
+
+       align: bottom;
+
+    }
+
+    div#garis {
+
+        width: 90%;
+
+        margin:auto;
+
+        margin-left:-3px;
+
+        margin-bottom: 20px
+
+    }
+
+    hr {
+
+        border: none;
+
+        height: 1px;
+
+        color: black; 
+
+        background-color: black;
+
+    }
+
+
+    .lower th td {
+
+       border: 0px;
+
+       width: 100%;
+
+       text-align: center;
+
+       vertical-align: text-top;
+
+    }
+
+
+</style>
+
+<page backtop="35mm" backleft="12mm" backright="10mm" backbottom="10mm">
+
+     <page_header> 
+
+        <div style="margin-left: 34px">
+
+            <strong><img src="'.$logo.'" width="698px; height:150px"></strong>
+
+        </div>
+
+    </page_header>
+
+    <page_footer>
+
+        <div id="garis">
+
+            <hr width="75%">
+
+            <i>F.4.4.1 1; Ter.1; Rev.0;</i>
+
+        </div>
+
+    </page_footer>
+
+     ';
+
+
+
+    $no=1;
+
+                
+    if($_GET['id'] && $_GET['no_sertifikat'] !== ''){
+
+        $tampil  = $objectPrint->tampil($_GET['id'], $_GET['no_sertifikat']);
+
+        $tampil2 = $objectHasil->tampil($_GET['id']);
+
+        $tampil3 = $objectPrint->Scan($_GET['id']);
+
+        while($data3 = $tampil3->fetch_object()):
+
+                $ttd_penyelia_hasil_uji = $data3->ttd_penyelia_hasil_uji;
+
+                $ttd_mt_hasil_uji = $data3->ttd_mt_hasil_uji;
+
+        endwhile;
+
+
+    }else {
+
+
+        echo "<script>window.close()</script>";
+
+        exit;
+
+    }
+
+    $rtitle = "sertifikat hasil pengujian laboratorium karantina tumbuhan";
+
+        while ($data=$tampil->fetch_object()):
+
+        $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
+
+        $title = ucwords($rtitle).' | '.$data->no_sertifikat;
+
+$content .= '
+
+    <div align="center">
+
+        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+
+        Nomor : '.$data->no_sertifikat.'
+
+    </div>
+
+    <p></p>
+
+
+
+    <strong>A. Keterangan sampel/ media pembawa :</strong><br>
+
+    <table class="table1" >
+
+
+
+        <tr>
+
+            <td width="10">1.</td>
+
+            <td width="200">Nama sampel/media pembawa</td>
+
+            <td width="10">:</td>
+
+            <td width="300">'.$data->nama_sampel.'</td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td width="10">2.</td>
+
+            <td width="300">Nama Ilmiah</td>
+
+            <td width="10">:</td>
+
+            <td width="300"><em>'.$data->nama_ilmiah.'</em></td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td width="10">3.</td>
+
+            <td width="200">Kode Sampel/media pembawa</td>
+
+            <td width="10">:</td>
+
+            <td width="200">'.$data->kode_sampel.'</td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td width="10">4.</td>
+
+            <td width="200">Jumlah sampel/media pembawa</td>
+
+            <td width="10">:</td>
+
+            <td width="200">'.$data->jumlah_sampel.'&nbsp;('.$bilangan.')&nbsp;'.$data->satuan.'</td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td width="10">5.</td>
+
+            <td width="200">Jenis sampel/media pembawa</td>
+
+            <td width="10"></td>
+
+            <td width="200"></td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td width="24">&nbsp;</td>
+
+            <td width="234">
+
+                &middot; Bagian tumbuhan
+
+            </td>
+
+            <td width="18">
+
+                :
+
+            </td>
+
+            <td width="316">';
+
+
+
+            if ($data->bagian_tumbuhan == 'Akar') {
+
+
+
+                $content .='
+
+
+
+                <img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Akar
+
+
+
+                ';
+
+            }else{
+
+
+
+                $content .='
+
+
+
+                <img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Akar
+
+
+
+                ';
+
+            }
+
+
+
+            if ($data->bagian_tumbuhan == 'Batang') {
+
+
+
+                $content .='
+
+
+
+                <span style="margin-left: 32px"><img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Batang</span>
+
+
+
+                ';
+
+            }else{
+
+
+
+                $content .='
+
+
+
+                <span style="margin-left: 32px"><img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Batang</span>
+
+
+
+                ';
+
+            }
+
+
+
+            if ($data->bagian_tumbuhan == 'Daun') {
+
+
+
+                $content .='
+
+
+
+                <span style="margin-left: 10px"><img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Daun</span>
+
+
+
+                ';
+
+            }else{
+
+
+
+                $content .='
+
+
+
+                <span style="margin-left: 10px"><img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Daun</span>
+
+
+
+                ';
+
+            }
+
+
+
+            if ($data->bagian_tumbuhan == 'Umbi') {
+
+
+
+                $content .='
+
+
+
+               <span style="margin-left: 10px"><img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Umbi</span>
+
+
+
+                ';
+
+            }else{
+
+
+
+                $content .='
+
+
+
+                <span style="margin-left: 10px"><img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Umbi</span>
+
+
+
+                ';
+
+            }
+
+
+
+            $content .='
+
+                            
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td width="24">&nbsp;</td>
+
+            <td width="234">
+
+                
+
+            </td>
+
+            <td width="18">
+
+            
+
+            </td>
+
+            <td width="316">
+
+            ';
+
+            if ($data->bagian_tumbuhan == 'Buah') {
+
+
+
+                $content .='
+
+
+
+               <img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Buah
+
+
+
+                ';
+
+            }else{
+
+
+
+                $content .='
+
+
+
+                <img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Buah
+
+
+
+                ';
+
+            }
+
+
+
+            if ($data->bagian_tumbuhan == 'Seluruh Bagian Tanaman') {
+
+
+
+                $content .='
+
+
+
+               <span style="margin-left: 28px"><img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Seluruh bag tanaman</span>
+
+
+
+                ';
+
+            }else{
+
+
+
+                $content .='
+
+
+
+                <span style="margin-left: 28px"><img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Seluruh bag tanaman</span>
+
+
+
+                ';
+
+            }
+
+
+
+            $content .='
+
+                        
+
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td width="24">&nbsp;</td>
+
+            <td width="234">
+
+            </td>
+
+            <td width="18">
+
+            </td>
+
+            <td width="316">
+
+            ';
+
+            if ($data->bagian_tumbuhan == 'Biji/Benih') {
+
+
+
+                $content .='
+
+
+
+                <img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Biji/Benih
+
+
+
+                ';
+
+            }else{
+
+
+
+                $content .='
+
+
+
+                <img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Biji/Benih
+
+
+
+                ';
+
+            }
+
+
+
+            if ($data->bagian_tumbuhan == 'Bagian Lain') {
+
+
+
+                $content .='
+
+
+
+                <span style="margin-left: 4px"><img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Bagian Lain : ...............</span>
+
+
+
+                ';
+
+            }else{
+
+
+
+                $content .='
+
+
+
+                <span style="margin-left: 4px"><img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Bagian Lain : ...............</span>
+
+
+
+                ';
+
+            }
+
+
+
+            $content .='
+
+                 
+
+                 
+
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td width="24">&nbsp;</td>
+
+            <td width="234">
+
+                &middot; Media
+
+            </td>
+
+            <td width="18">
+
+                :
+
+            </td>
+
+            <td width="316">
+
+                 <img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Tanah
+
+                 <span style="margin-left: 22px"><img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Lainnya: ...............</span>
+
+                
+
+            </td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td width="10"></td>
+
+            <td width="200">&middot; Vektor/Inang/Spesimen</td>
+
+            <td width="10">:</td>
+
+            <td width="200">'.$data->vektor.'</td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td width="10" style="vertical-align: text-top">6.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal penerimaan sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_penyerahan.'</td>
+
+        </tr>
+
+
+
+    </table>
+
+    <br>
+
+
+
+    <strong>B. Hasil Pengujian :</strong><br>
+
+    <table class="table2" style="text-align: center">
+
+          <tr>
+
+            <th style="width:5%;" >No</th>
+
+            <th style="width:13%;">Nomor Sampel</th>
+
+            <th style="width:15%;">Identitas Sampel</th>
+
+            <th style="width:25%;" >Target Pengujian</th>
+
+            <th style="width:10%;">Metode Pengujian</th>
+
+            <th style="width:27%;">Hasil Pengujian*)</th>
+
+          </tr>
+
+
+
+          ';
+
+
+
+            while ($data2 =$tampil2->fetch_object()):
+
+
+
+          $content .='
+
+          <tr>
+
+            
+
+            <td style="width:5%; ">'.$no++.'</td>
+
+            <td style="width:13%; ">'.$data2->no_sampel.'</td>    
+
+            <td style="width:15%; ">'.$data->bagian_tumbuhan.''.$data->vektor.''.$data->media.'</td>
+
+            <td style="width:23%; ">
+
+            <em>'.$data->target_optk.'<br>'.$data->target_optk2.'<br>'.$data->target_optk3.'</em>
+
+            </td>
+
+            <td style="width:12%; ">
+
+            ';
+
+
+
+                if ($data->metode_pengujian2 !=='') {
+
+                    $content .='
+
+
+
+                    '.$data->metode_pengujian.'
+
+                <br>'.$data->metode_pengujian2.'
+
+
+
+                    ';
+
+                }elseif($data->metode_pengujian3 !==''){
+
+
+
+                    $content .='
+
+
+
+                    '.$data->metode_pengujian.'
+
+                <br>'.$data->metode_pengujian2.'
+
+                <br>'.$data->metode_pengujian3.'
+
+
+
+                    ';
+
+
+
+                }else{
+
+
+
+                    $content .='
+
+
+
+                    '.$data->metode_pengujian.'
+
+
+
+                    ';
+
+                }
+
+                $dicari = $data2->hasil_pengujian;
+                $butuh = ',';
+
+                $cari = strpos($dicari, $butuh);
+
+                if ($cari == true) {
+
+                    $content .= '
+
+                    </td>    
+
+                    <td style="width:27%; text-align: left">&nbsp;&nbsp;'.$data2->positif_negatif.'<br>&nbsp;&nbsp;Hasil identifikasi: <br>&nbsp;&nbsp; -&nbsp;<em><b>'.ucfirst(str_replace(",", ",<br/> &nbsp;&nbsp;&nbsp;-", $dicari)).'</b></em></td>  
+
+                    ';
+                    
+                }else{
+
+                    $content .= '
+
+                    </td>    
+
+                    <td style="width:27%; text-align: left">&nbsp;&nbsp;'.$data2->positif_negatif.'<br>&nbsp;&nbsp;Hasil identifikasi: <br>&nbsp;&nbsp; -&nbsp;<em><b>'.ucfirst($data2->hasil_pengujian).'</b></em></td>  
+
+                    ';
+                     
+                }
+
+
+                $content .= '
+
+          </tr>
+
+
+          ';   
+
+
+
+            endwhile;
+
+
+
+
+          $content .='
+
+
+
+    </table>
+
+   
+    <table class="lower" style="text-align: center;">
+
+
+        <tr>
+
+            <td style="text-align: left"><span style="font-size: 8pt;padding-bottom: 35px">*) Hanya untuk sampel yang diuji</span></td>
+
+            <td style="width: 180px"></td>
+
+            <td style="width: 215px"></td>
+
+        </tr>
+
+
+
+
+
+        <tr>
+
+            <td colspan="3" style="padding-bottom: 15px; width: 215px; text-align: left">Rekomendasi : '.$data->rekomendasi.'</td>
+
+
+        </tr>
+
+
+
+        <tr>
+
+            <td></td>
+
+            <td style="width: 180px"></td>
+
+            <td style="width: 215px">Sumbawa Besar, '.$data->tanggal_sertifikat.'</td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td style="width: 215px">Mengetahui,</td>
+
+            <td style="width: 180px"></td>
+
+            <td style="width: 215px"></td>
+
+        </tr>
+
+
+
+        ';
+
+
+            if ($ttd_mt_hasil_uji == 'Tidak' && $ttd_penyelia_hasil_uji == 'Tidak' || $ttd_mt_hasil_uji == '' || $ttd_penyelia_hasil_uji == '') {
+
+                $content .='
+
+                   <tr>
+
+                        <td style="width: 215px; padding-bottom: 80px;position : relative; z-index: 1">Manajer Teknis</td>
+
+                        <td style="width: 180px"></td>
+
+                        <td style="width: 215px; padding-bottom: 80px;position : relative; z-index: 1">Penyelia</td>
+
+                    </tr>
+                    
+
+                ';
+
+
+
+            }else{
+
+
+
+                $content .='
+
+                    <tr>
+
+                        <td style="width: 215px;position : relative; z-index: 1">Manajer Teknis</td>
+
+                        <td style="width: 180px"></td>
+
+                        <td style="width: 215px;position : relative; z-index: 1">Penyelia</td>
+
+                    </tr>
+
+                    
+
+                ';
+
+            }
+
+
+        $content .= '
+
+
+        <tr>
+            ';
+
+                if ($ttd_mt_hasil_uji == 'Ya') {
+
+                    $gbr = $objectPrint->gambar($data->kepala_plh);
+
+                    $pilih = $gbr->fetch_object();
+
+                    $p = $pilih->ttd;
+
+                    if ($data->kepala_plh == 'Fatma Dya Swari, SP') {
+                        $ttd = '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;'.'<img src="../../../assets/img/'.$p.'" width="170">';
+                    }else{
+                        $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
+
+                    }
+
+
+                        $content .='
+
+
+                                <td style="width: 215px; text-align: center;"><div style="position : relative;z-index: -1; left: -120px">'.$ttd.'</div></td>
+
+
+                            
+
+                        ';
+
+                }else{
+
+                        $content .='
+
+
+                                <td style="width: 215px; text-align: center;"></td>
+
+                        
+
+                    ';
+                }
+
+                $content .='
+
+
+                <td style="width: 180px"></td>
+                
+
+                ';
+
+                if ($ttd_penyelia_hasil_uji == 'Ya') {
+
+                    $gbr = $objectPrint->gambar($data->nama_penyelia);
+
+                    $pilih = $gbr->fetch_object();
+
+                    $p = $pilih->ttd;
+
+                    if ($data->nama_penyelia == 'Fatma Dya Swari, SP') {
+                        $ttd = '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;'.'<img src="../../../assets/img/'.$p.'" width="170">';
+                    }else{
+                        $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
+
+                    }
+
+                        $content .='
+
+
+                                <td style="width: 215px;text-align: center"><div style="position : relative;z-index: -1; left: -120px">'.$ttd.'</div></td>
+
+
+                            
+
+                        ';
+
+                }else{
+
+                        $content .='
+
+
+                                <td style="width: 215px;text-align: center;"></td>
+
+                        
+
+                    ';
+                }
+
+
+            $content .='
+
+        </tr>
+
+
+
+        <tr>
+
+            <td style="width: 215px">('.$data->kepala_plh.')</td>
+
+            <td style="width: 180px"></td>
+
+            <td style="width: 215px">('.$data->nama_penyelia.')</td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td style="width: 215px> NIP. '.$data->nip_kepala_plh.'</td>
+
+            <td style="width: 180px"></td>
+
+            <td style="width: 215px">NIP. '.$data->nip_penyelia.'</td>
+
+        </tr>
+
+
+
+        <tr>
+
+            <td style="width: 215px; text-align: left; padding-top: 0px;"><span style="font-size: 7pt">**) Coret yang tidak perlu</span></td>
+
+            <td style="width: 180px"></td>
+
+            <td style="width: 215px"></td>
+
+        </tr>
+
+    </table> ';
+
+$a = $data->nama_sampel;
+
+$b = $data->tanggal_sertifikat; 
+
+endwhile;
+
+$content .='    
+
+</page>
+
+';
+
+require_once($html2pdf);
+
+$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
+
+$html2pdf->WriteHTML($content);
+
+$html2pdf->pdf->setTitle($title);
+
+$html2pdf->Output('Sertifikat_Pengujian'.' '.$a.' '.$b.'.pdf');
+
+require_once('footer.php');
+
+?>
