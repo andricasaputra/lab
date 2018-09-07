@@ -1,3 +1,7 @@
 composer.json
 
 /src/config/*.php
+
+/assets/**/*.png
+
+/assets/**/*.jpg
