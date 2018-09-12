@@ -129,7 +129,8 @@ require_once('models/nomor_sampel.php');
 
 <!-- Input Data -->
 
-        <div class="modal fade" id="modal_input_penerima_sampel" role="dialog">
+        <div class="modal 
+        " id="modal_input_penerima_sampel" role="dialog">
             <div class="modal-dialog">
                 <div id="content-data_input_penerima_sampel"></div>
             </div>
