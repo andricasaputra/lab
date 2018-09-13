@@ -91,7 +91,7 @@ class Data extends LegacyData implements SuperData {
 	}
 
 	public function tampil_surat_tugas(){
-		$sql2 = "SELECT * FROM input_permohonan_kh_lab_parasit ORDER BY id DESC LIMIT 0,20 ";
+		$sql2 = "SELECT id,kode_sampel,no_surat_tugas,no_sampel,tanggal_penunjukan,nama_sampel,jumlah_sampel,target_pengujian2,target_pengujian3 FROM input_permohonan_kh_lab_parasit ORDER BY id DESC";
 		$query2 = $this->db->query($sql2) or die ($this->db->error);
 		return $query2;
 	}

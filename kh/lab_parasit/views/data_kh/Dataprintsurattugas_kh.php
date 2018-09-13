@@ -4,7 +4,7 @@ include_once ("header_source.php");
 
 ?>
 
-<table class="table1 table-hover datatables6" cellspacing="0" width="100%">
+<table class="table1 table-hover" id="datatables" cellspacing="0" width="100%">
 
 <thead class="mdb-color lighten-4">
 
@@ -70,7 +70,7 @@ include_once ("header_source.php");
 
         <td><?php echo $data->jumlah_sampel; ?></td>
 
-        <td><em><?php echo $data->target_pengujian2; ?></em>
+        <td><em><?php echo $data->target_pengujian2; ?> <br> <?php echo $data->target_pengujian3; ?></em>
 
         </td>
 
@@ -103,6 +103,29 @@ include_once ("header_source.php");
 
 </tbody>
 	</table>
+
+  <script type="text/javascript">
+
+    $('#datatables').DataTable({
+
+      "ordering": false,
+      "pageLength": 10,
+      "oLanguage": {
+        "sInfoFiltered": " - difilter dari _MAX_ data",
+        "sSearch": "Cari:",
+        "sLengthMenu": "Lihat _MENU_ Data",
+        "sInfo": " _TOTAL_ data",
+        "sEmptyTable": "Data Masih Kosong",
+        "sZeroRecords": "Data Tidak Ditemukan",
+          "oPaginate": {
+            "sNext": "Next",
+            "sPrevious": "Back"    
+        }
+      }
+
+  });
+
+  </script>
 
 
 	 
