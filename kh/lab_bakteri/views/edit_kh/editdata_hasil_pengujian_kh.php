@@ -16,7 +16,7 @@ if(isset($_REQUEST['id'])){
 
     $tampil = $objectData->tampil($id);
 
-    $tampil2 = $objectPrint->Scan($id);
+    $checkScan = $objectPrint->Scan($id);
 
     while($data = $tampil->fetch_object()):
 
@@ -54,14 +54,11 @@ if(isset($_REQUEST['id'])){
 
 endwhile;
 
-while($data2 = $tampil2->fetch_object()):
+/*Scan TTD*/
 
-      $ttd_mt_hasil_uji       = $data2->ttd_mt_hasil_uji;
+$ttd_mt_hasil_uji       = $checkScan["ttd_mt_hasil_uji"];
 
-      $ttd_penyelia_hasil_uji = $data2->ttd_penyelia_hasil_uji;
-
-
-endwhile;
+$ttd_penyelia_hasil_uji = $checkScan["ttd_penyelia_hasil_uji"];
 
 ?>
 

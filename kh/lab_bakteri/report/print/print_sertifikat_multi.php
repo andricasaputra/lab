@@ -184,6 +184,8 @@ while ($data=$tampil->fetch_object()):
 
 $id = $data->id;
 
+$ttd = $objectPrint->scan($id);
+
 $arrID[] = $data->id;
 
 $totalID = count($arrID);
@@ -737,16 +739,77 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px; padding-bottom: 70px">Manajer Teknis/ Plh Manajer Teknis</td>
+            <td style="width: 215px">Manajer Teknis/ Plh Manajer Teknis</td>
 
             <td style="width: 180px"></td>
 
-            <td style="width: 215px; padding-bottom: 70px">Penyelia</td>
+            <td style="width: 215px">Penyelia</td>
 
         </tr>
 
 
+        <tr>
 
+            ';
+
+
+                if ($ttd["ttd_mt_hasil_uji"] == 'Ya') {
+                    
+
+                    $content .='
+
+                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->mt).'></td>
+
+                    ';
+                    
+                }else{
+
+
+                    $content .='
+
+                        <td style="width: 215px; padding-bottom: 70px"></td>
+
+                    ';
+
+                }
+
+
+
+            $content .='
+
+
+            <td style="width: 180px"></td>
+
+            ';
+
+
+                if ($ttd["ttd_penyelia_hasil_uji"] == 'Ya') {
+                    
+
+                    $content .='
+
+                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_penyelia).' style="width: 90%;"></td>
+
+                    ';
+                    
+                }else{
+
+
+                    $content .='
+
+                        <td style="width: 215px; padding-bottom: 70px"></td>
+
+                    ';
+
+                }
+
+
+
+            $content .='
+
+
+
+        </tr>
 
 
         <tr>

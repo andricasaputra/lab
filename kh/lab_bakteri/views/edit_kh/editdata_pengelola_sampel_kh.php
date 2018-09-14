@@ -16,7 +16,7 @@ if(isset($_REQUEST['id'])){
 
     $tampil = $objectData->tampil($id);
 
-    $tampil2 = $objectPrint->Scan($id);
+    $checkScan = $objectPrint->Scan($id);
 
     while($data = $tampil->fetch_object()):
 
@@ -81,24 +81,27 @@ if(isset($_REQUEST['id'])){
 
 endwhile;
 
-while($data2 = $tampil2->fetch_object()):
+/*Scan TTD*/
 
-      $ttd_yang_menyerahkan_pengelola_sampel  = $data2->ttd_yang_menyerahkan_pengelola_sampel;
+$ttd_yang_menyerahkan_pengelola_sampel = 
 
-      $ttd_yang_menerima_pengelola_sampel     = $data2->ttd_yang_menerima_pengelola_sampel;
+$checkScan["ttd_yang_menyerahkan_pengelola_sampel"];
+
+$ttd_yang_menerima_pengelola_sampel = 
+
+$checkScan["ttd_yang_menerima_pengelola_sampel"];
 
 
-endwhile;
 
 if (strpos($nama_sampel, "Darah") !== false) {
                                 
-          $identitas_sampel = str_replace("Darah", "Serum", $nama_sampel);
+    $identitas_sampel = str_replace("Darah", "Serum", $nama_sampel);
 
-    }else{
+}else{
 
-          $identitas_sampel = $nama_sampel;
+    $identitas_sampel = $nama_sampel;
 
-    }
+}
 
 
 

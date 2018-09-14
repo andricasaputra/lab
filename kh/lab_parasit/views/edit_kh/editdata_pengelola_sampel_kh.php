@@ -6,17 +6,17 @@ if(isset($_REQUEST['id'])){
 
     $id = intval($_REQUEST['id']);
 
-    $d=date("m/Y");
+    $d = date("m/Y");
 
     $tgl_indo = $objectTanggal->tgl_indo(date('Y-m-d'));
 
-    $bln=date('m');
+    $bln = date('m');
 
-    $thn=date('Y');
+    $thn = date('Y');
 
     $tampil = $objectDataParasit->tampil($id);
 
-    $tampil2 = $objectPrintParasit->Scan($id);
+    $checkScan = $objectPrintParasit->Scan($id);
 
     while($data = $tampil->fetch_object()):
 
@@ -77,26 +77,22 @@ if(isset($_REQUEST['id'])){
       }
 
 
-
-
 endwhile;
 
-while($data2 = $tampil2->fetch_object()):
+/*Scan TTD*/
 
-      $ttd_yang_menyerahkan_pengelola_sampel  = $data2->ttd_yang_menyerahkan_pengelola_sampel;
+$ttd_yang_menyerahkan_pengelola_sampel = 
 
-      $ttd_yang_menerima_pengelola_sampel     = $data2->ttd_yang_menerima_pengelola_sampel;
+$checkScan["ttd_yang_menyerahkan_pengelola_sampel"];
 
+$ttd_yang_menerima_pengelola_sampel = 
 
-endwhile;
+$checkScan["ttd_yang_menerima_pengelola_sampel"];
 
 
 
 
 ?>
-
-
-          
 
             <div class="modal-content">
 

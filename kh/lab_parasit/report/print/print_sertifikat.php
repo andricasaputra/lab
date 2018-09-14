@@ -147,6 +147,8 @@ if(@$_GET['id'] && $_GET['no_sertifikat'] !== ''){
 
     $tampil2 =$objectPrint->tampilHasil(@$_GET['id']);
 
+    $ttd = $objectPrint->scan(@$_GET['id']);
+
 }else {
 
     if(@$_SESSION['loginadminkh']) {
@@ -806,16 +808,77 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px; padding-bottom: 70px">Penyelia Laboratorium</td>
+            <td style="width: 215px">Penyelia Laboratorium</td>
 
             <td style="width: 180px"></td>
 
-            <td style="width: 215px; padding-bottom: 70px">Analis</td>
+            <td style="width: 215px">Analis</td>
 
         </tr>
 
 
+        <tr>
 
+            ';
+
+
+                if ($ttd["ttd_penyelia_hasil_uji"] == 'Ya') {
+                    
+
+                    $content .='
+
+                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_penyelia).' style="width: 90%;"></td>
+
+                    ';
+                    
+                }else{
+
+
+                    $content .='
+
+                        <td style="width: 215px; padding-bottom: 70px"></td>
+
+                    ';
+
+                }
+
+
+
+            $content .='
+
+
+            <td style="width: 180px"></td>
+
+            ';
+
+
+                if ($ttd["ttd_analis_data_teknis"] == 'Ya') {
+                    
+
+                    $content .='
+
+                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_analis).' style="width: 90%;"></td>
+
+                    ';
+                    
+                }else{
+
+
+                    $content .='
+
+                        <td style="width: 215px; padding-bottom: 70px"></td>
+
+                    ';
+
+                }
+
+
+
+            $content .='
+
+
+
+        </tr>
 
 
         <tr>

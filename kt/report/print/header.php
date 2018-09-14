@@ -2,6 +2,8 @@
 
 ob_start();
 
+ini_set('max_execution_time', 300);
+
 use Lab\config\Database;
 use Lab\classes\tanggal;
 use Lab\classes\kt\{Data, Hasil, Cetak, Nomor};

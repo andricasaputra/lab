@@ -206,11 +206,13 @@ while ($data = $tampil->fetch_object()):
 
     $id = $data->id;
 
+    $ttd = $objectPrint->scan($id);
+
     $arrID[] = $data->id;
 
     $totalID = count($arrID);
 
-    $bilangan = ucwords(NomorKh::bilangan($data->jumlah_sampel));
+    $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
     
 
 $content .= '
@@ -404,11 +406,74 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px; padding-bottom: 85px; text-align: center">Penyelia</td>
+            <td style="width: 215px; text-align: center">Penyelia</td>
 
             <td style="width: 180px"></td>
 
-            <td style="width: 215px; padding-bottom: 85px; text-align: center">Analis</td>
+            <td style="width: 215px; text-align: center">Analis</td>
+
+        </tr>
+
+        <tr>
+
+            ';
+
+
+                if ($ttd["ttd_penyelia_data_teknis"] == 'Ya') {
+                    
+
+                    $content .='
+
+                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_penyelia).' style="width: 90%;"></td>
+
+                    ';
+                    
+                }else{
+
+
+                    $content .='
+
+                        <td style="width: 215px; padding-bottom: 85px"></td>
+
+                    ';
+
+                }
+
+
+
+            $content .='
+
+
+            <td style="width: 180px"></td>
+
+            ';
+
+
+                if ($ttd["ttd_analis_data_teknis"] == 'Ya') {
+                    
+
+                    $content .='
+
+                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_analis).' style="width: 90%;"></td>
+
+                    ';
+                    
+                }else{
+
+
+                    $content .='
+
+                        <td style="width: 215px; padding-bottom: 85px"></td>
+
+                    ';
+
+                }
+
+
+
+            $content .='
+
+
 
         </tr>
 

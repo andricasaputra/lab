@@ -17,7 +17,8 @@ define("LOGOHORIZONTAL", $basepath."/assets/img/logolabhorizontal.png");
 define("BOXFIX", $basepath."/assets/img/boxfix.png");
 define("CHECKFIX", $basepath."/assets/img/checkfix.png");
 define("CHECK", $basepath."/assets/img/check1.png");
-define("HTML2PDF", $basepath.'/assets/html2pdf/html2pdf2.class.php');
+define("HTML2PDF", $basepath."/assets/html2pdf/html2pdf2.class.php");
+define("SCANTTD", $basepath."/assets/img/");
 
 abstract class LegacyCetak extends Database implements SuperCetak{
 
@@ -32,7 +33,8 @@ abstract class LegacyCetak extends Database implements SuperCetak{
 	$boxfix = BOXFIX,
 	$checkfix = CHECKFIX,
 	$check = CHECK,
-	$html2pdf = HTML2PDF;
+	$html2pdf = HTML2PDF,
+	$scan = SCANTTD;
 	public $backtop, $backleft, $backright, $backbottom;
 
 	protected function __construct(){
@@ -81,6 +83,25 @@ abstract class LegacyCetak extends Database implements SuperCetak{
 
 	public function getHtml2pdf(){
 		return $this->html2pdf;
+	}
+
+	public function getscan(){
+		return $this->scan;
+	}
+
+	/*Print Scan Tanda Tangan*/
+
+	public function gambar($nama){
+
+		$sql = "SELECT nama, ttd FROM gambar WHERE nama = '$nama'";
+
+		$query = $this->db->query($sql) or die ($this->db->error);
+
+		$ambil = $query->fetch_object();
+
+		$ttd = $ambil->ttd;
+
+		return $ttd;
 	}
 
 	public function setPageHTML2PDF($backbottom = null, $backtop = null, $backleft = null, $backright = null){

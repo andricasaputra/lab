@@ -210,9 +210,31 @@ class Cetak extends LegacyCetak{
 	/*Scan Tanda Tangan*/
 
 	public function Scan($id){
+
 		$sql = "SELECT * FROM scan_ttd_kh WHERE id= '$id'";
+
 		$query = $this->db->query($sql) or die ($this->db->error);
-		return $query;
+
+		$data = $query->fetch_object();
+
+		$scan = array(
+
+			"ttd_yang_menyerahkan_pengelola_sampel" 
+			=> $data->ttd_yang_menyerahkan_pengelola_sampel,
+			"ttd_yang_menerima_pengelola_sampel" 
+			=> $data->ttd_yang_menerima_pengelola_sampel,
+			"ttd_penyelia_data_teknis" 
+			=> $data->ttd_penyelia_data_teknis,
+			"ttd_analis_data_teknis" 
+			=> $data->ttd_analis_data_teknis,
+			"ttd_penyelia_hasil_uji" 
+			=> $data->ttd_penyelia_hasil_uji,
+			"ttd_mt_hasil_uji" 
+			=> $data->ttd_mt_hasil_uji,
+
+		);
+
+		return $scan;
 	}
 }
 
