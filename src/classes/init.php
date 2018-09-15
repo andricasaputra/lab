@@ -5,29 +5,35 @@ namespace Lab\classes;
 define("BASEPATH", dirname(dirname(__DIR__)));
 define("REALPATH", __DIR__);
 
-class Init{
+class Init
+{
 
-	public static function basePath(){
-		return BASEPATH;
-	}
+    public static function basePath()
+    {
+        return BASEPATH;
+    }
 
-	public static function realPath(){
-		return REALPATH;
-	}
+    public static function realPath()
+    {
+        return REALPATH;
+    }
 
-	public static function SorceDataPath(){
+    public static function SorceDataPath()
+    {
 
-		return self::basePath()."/kt/";
-	}
+        return self::basePath() . "/kt/";
+    }
 
-	public static function SorceDataPathKhLabBakteri(){
+    public static function SorceDataPathKhLabBakteri()
+    {
 
-		return self::basePath()."/kh/";
-	}
+        return self::basePath() . "/kh/";
+    }
 
-	public static function SorceDataPathKhLabParasit(){
+    public static function SorceDataPathKhLabParasit()
+    {
 
-		return self::basePath()."/kh/";
-	}
+        return self::basePath() . "/kh/";
+    }
 
 }

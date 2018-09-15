@@ -4,7 +4,7 @@ use Lab\classes\kt\Admin;
 
 $data = new Admin;
 
-if(@$_GET['act']==''){
+if (@$_GET['act'] == '') {
 
 ?>
 
@@ -32,21 +32,21 @@ if(@$_GET['act']==''){
 
 				<i class="fa fa-info-circle fa-fw fa-lg"></i><b><h4><span class="isi">Input Pesan</h4></b>
 
-			</div> 
+				</div>
 
-		</div>
+			</div>
 
 
 
-	</ol>
+		</ol>
 
-</div>
+	</div>
 
-<div class="bg2">
+	<div class="bg2">
 
-	<div class="bg2"></div>
+		<div class="bg2"></div>
 
-</div>
+	</div>
 
 
 
@@ -54,445 +54,410 @@ if(@$_GET['act']==''){
 
 
 
-<div class="row" id="tb">
+	<div class="row" id="tb">
 
-    <div class="col-md-12">
+		<div class="col-md-12">
 
-      	<div class="table-responsive">
+			<div class="table-responsive">
 
-      		<table class="table table-hover table-striped" id="datatables">
+				<table class="table table-hover table-striped" id="datatables">
 
-      			<thead>
+					<thead>
 
-      				<tr>
+						<tr>
 
-      					<th width= "5%">No</th>
+							<th width= "5%">No</th>
 
-      					<th width= "12%">Judul</th>
+							<th width= "12%">Judul</th>
 
-      					<th width= "15%">Isi</th>
+							<th width= "15%">Isi</th>
 
-      					<th width= "12%">Action</th>
+							<th width= "12%">Action</th>
 
-      				</tr>
+						</tr>
 
-      			</thead>
+					</thead>
 
-      			<tbody>
+					<tbody>
 
-      				<?php
+						<?php
 
-      				$no=1;
+                            $no = 1;
 
-					$tampil = $data->pesan();
+                            $tampil = $data->pesan();
 
-					while ($data = $tampil->fetch_object()):  ?>
+                            while ($data = $tampil->fetch_object()): ?>
 
-                    	<tr class="Kosong">
+						<tr class="Kosong">
 
-	      					<td><?php echo $no++ ?></td>
+							<td><?php echo $no++ ?></td>
 
-	      					<td><?php echo $data->judul; ?></td>
+							<td><?php echo $data->judul; ?></td>
 
-	      					<td><?php echo $data->isi; ?></td>
+							<td><?php echo $data->isi; ?></td>
 
-		  			 		<td>				     							
+							<td>
 
-	      						<a id="edit_data_admin" data-toggle="modal" 
+								<a id="edit_data_admin" data-toggle="modal"
 
-	      						data-target="#edit" 
+									data-target="#edit"
 
-	      						data-id="<?php echo $data->id ?>" 
+									data-id="<?php echo $data->id ?>"
 
-	      						data-judul="<?php echo $data->judul ?>" 
+									data-judul="<?php echo $data->judul ?>"
 
-	      						data-isi="<?php echo $data->isi ?>">
+									data-isi="<?php echo $data->isi ?>">
 
-	      						<button class="btn btn-success btn-xs"><i class="fa fa-edit fa-fw"></i>Edit</button></a>
-
-
-
-	      						<a href="?page=input&act=del&id=<?php echo $data->id?>">
-
-							<button type="submit" class="btn btn-danger btn-xs bs-confirmation" ><i class="fa fa-trash-o fa-fw"></i>Hapus</button></a>
+								<button class="btn btn-success btn-xs"><i class="fa fa-edit fa-fw"></i>Edit</button></a>
 
 
 
-							<a href="?page=dashboard&act=show&id=<?= $data->id ?>">
+								<a href="?page=input&act=del&id=<?php echo $data->id ?>">
 
-	      					<button class="btn btn-success btn-xs"><i class="fa fa-edit fa-fw"></i>Tampilkan</button></a>
+								<button type="submit" class="btn btn-danger btn-xs bs-confirmation" ><i class="fa fa-trash-o fa-fw"></i>Hapus</button></a>
 
-      					</td>
 
-      				</tr>
 
-      				<?php
+								<a href="?page=dashboard&act=show&id=<?=$data->id?>">
 
-					endwhile;?>
+								<button class="btn btn-success btn-xs"><i class="fa fa-edit fa-fw"></i>Tampilkan</button></a>
 
-     		    </tbody>
+							</td>
 
-      		</table>
+						</tr>
 
-      	</div>	
+						<?php
 
-    </div>
+                            endwhile;?>
 
-</div>
+					</tbody>
 
-       
-
-<!--Input Data--> 
-
-   
-
-<div id="input" class="modal fade" role="dialog">
-
-	<div class="modal-dialog">
-
-		<div class="modal-content">
-
-			<div class="modal-header">
-
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-
-				<h4 class="modal-title"><i class="fa fa-gear fa-fw"></i>Tambah Pesan/h4>
+				</table>
 
 			</div>
-
-
-
-		<div class="modal-body">
-
-			<div id="responsive-form" class="clearfix" autocomplete="on">
-
-				<form action="" method="post">
-
-
-
-					<div class="columnfull">
-
-						<label class="control-label" for="judul">Judul</label>
-
-						<input type="text" name="judul" class="form-control" id="judul">
-
-					</div>
-
-			
-
-					<div class="columnfull">
-
-						<label class="control-label" for="tanggal_permohonan">Isi</label>
-
-						<textarea class="form-control" name="isi" id="isi" rows="4"></textarea> 
-
-					</div>
-
-				
-
-
-
-				</div>
-
-							
-
-				<div class="modal-footer" id="modal-footer">
-
-					<div class="column-full button-bawah">
-
-					<button type="reset" class="btn-default2 btn-danger " onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button> &nbsp;&nbsp;
-
-				 	<button type="submit" class="btn-default2 success" name="input" value="input"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button> 
-
-					</div>	
-
-				</div>
-
-			</form>
-
-		</div> <!--end responsive-form-->
-
-		
-
-<?php		
-
-$data= new Admin($connection);
-
-if(isset($_POST['input'])) {
-
-					
-
-$judul				=htmlspecialchars($connection->conn->real_escape_string(trim($_POST['judul'])));
-
-$isi				=htmlspecialchars($connection->conn->real_escape_string(trim($_POST['isi'])));
-
-
-
-	if($judul!==''){
-
-		$data->input_admin($judul, $isi);	
-
-	}
-
-}
-
-
-
-?>
-
-				
 
 		</div>
 
 	</div>
 
-</div> 
+
+
+	<!--Input Data-->
 
 
 
-<!--Input Data--> 
+	<div id="input" class="modal fade" role="dialog">
 
-   
+		<div class="modal-dialog">
 
-<div id="edit" class="modal fade" role="dialog">
+			<div class="modal-content">
 
-	<div class="modal-dialog">
+				<div class="modal-header">
 
-		<div class="modal-content">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
 
-			<div class="modal-header">
+					<h4 class="modal-title"><i class="fa fa-gear fa-fw"></i>Tambah Pesan/h4>
 
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				</div>
 
-				<h4 class="modal-title"><i class="fa fa-gear fa-fw"></i>Tambah Pesan</h4>
+
+
+				<div class="modal-body">
+
+					<div id="responsive-form" class="clearfix" autocomplete="on">
+
+						<form action="" method="post">
+
+
+
+							<div class="columnfull">
+
+								<label class="control-label" for="judul">Judul</label>
+
+								<input type="text" name="judul" class="form-control" id="judul">
+
+							</div>
+
+
+
+							<div class="columnfull">
+
+								<label class="control-label" for="tanggal_permohonan">Isi</label>
+
+								<textarea class="form-control" name="isi" id="isi" rows="4"></textarea>
+
+							</div>
+
+
+
+
+
+						</div>
+
+
+
+						<div class="modal-footer" id="modal-footer">
+
+							<div class="column-full button-bawah">
+
+								<button type="reset" class="btn-default2 btn-danger " onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button> &nbsp;&nbsp;
+
+								<button type="submit" class="btn-default2 success" name="input" value="input"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button>
+
+							</div>
+
+						</div>
+
+					</form>
+
+					</div> <!--end responsive-form-->
+
+
+
+					<?php
+
+                        $data = new Admin($connection);
+
+                        if (isset($_POST['input'])) {
+
+                            $judul = htmlspecialchars($connection->conn->real_escape_string(trim($_POST['judul'])));
+
+                            $isi = htmlspecialchars($connection->conn->real_escape_string(trim($_POST['isi'])));
+
+                            if ($judul !== '') {
+
+                                $data->input_admin($judul, $isi);
+
+                            }
+
+                        }
+
+                        ?>
+
+
+
+				</div>
 
 			</div>
 
-
-
-		<div class="modal-body">
-
-			<div id="responsive-form" class="clearfix" autocomplete="on">
-
-				<form action="" method="post">
-
-					<?php 
+		</div>
 
 
 
-						$data5 = new Admin($connection);
-
-						$tampil2 = $data5->pesan();
-
-						while($data = $tampil2->fetch_object()):
-
-							$id2 = $data->id;
-
-							$judul2 = $data->judul;
-
-							$isi2 = $data->isi;
-
-						
-
-					 ?>
+		<!--Input Data-->
 
 
 
-					<div class="columnfull">
+		<div id="edit" class="modal fade" role="dialog">
 
-						<label class="control-label" for="judul">Judul</label>
+			<div class="modal-dialog">
 
-						<input type="text" name="judul" class="form-control" id="judul" value="<?php echo $judul2?>">
+				<div class="modal-content">
 
-						<input type="hidden" name="id" class="form-control" id="id" value="<?php echo $id2?>">
+					<div class="modal-header">
+
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+						<h4 class="modal-title"><i class="fa fa-gear fa-fw"></i>Tambah Pesan</h4>
 
 					</div>
 
-			
-
-					<div class="columnfull">
-
-						<label class="control-label" for="tanggal_permohonan">Isi</label>
-
-						<input type="text" class="form-control" name="isi" id="isi" rows="4" value="<?php echo $isi2?>">
-
-					</div>
-
-				<?php endwhile; ?>
 
 
+					<div class="modal-body">
 
-				</div>
+						<div id="responsive-form" class="clearfix" autocomplete="on">
 
-							
+							<form action="" method="post">
 
-				<div class="modal-footer" id="modal-footer">
+								<?php
 
-					<div class="column-full button-bawah">
+                                    $data5 = new Admin($connection);
 
-					<button type="reset" class="btn-default2 btn-danger " onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button> &nbsp;&nbsp;
+                                    $tampil2 = $data5->pesan();
 
-				 	<button type="submit" class="btn-default2 success" name="edit"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button> 
+                                    while ($data = $tampil2->fetch_object()):
 
-					</div>	
+                                        $id2 = $data->id;
 
-				</div>
+                                        $judul2 = $data->judul;
 
-			</form>
+                                        $isi2 = $data->isi;
 
-		</div> <!--end responsive-form-->
+                                        ?>
+
+
+
+									<div class="columnfull">
+
+										<label class="control-label" for="judul">Judul</label>
+
+										<input type="text" name="judul" class="form-control" id="judul" value="<?php echo $judul2 ?>">
+
+										<input type="hidden" name="id" class="form-control" id="id" value="<?php echo $id2 ?>">
+
+									</div>
+
+
+
+									<div class="columnfull">
+
+										<label class="control-label" for="tanggal_permohonan">Isi</label>
+
+										<input type="text" class="form-control" name="isi" id="isi" rows="4" value="<?php echo $isi2 ?>">
+
+									</div>
+
+									<?php endwhile;?>
+
+
+
+							</div>
+
+
+
+							<div class="modal-footer" id="modal-footer">
+
+								<div class="column-full button-bawah">
+
+									<button type="reset" class="btn-default2 btn-danger " onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button> &nbsp;&nbsp;
+
+									<button type="submit" class="btn-default2 success" name="edit"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button>
+
+								</div>
+
+							</div>
+
+						</form>
+
+						</div> <!--end responsive-form-->
+
+
+
+						<?php
+
+                            $data = new Admin($connection);
+
+                            if (isset($_POST['edit'])) {
+
+                                $id = $_POST['id'];
+
+                                $judul = $connection->conn->real_escape_string($_POST['judul']);
+
+                                $isi = $connection->conn->real_escape_string($_POST['isi']);
+
+                                $data->edit_admin($id, $judul, $isi);
+
+                            }?>
+
+
+
+
+
+						<!--Input Data-->
+
+
+
+						<div id="tampil" class="modal fade" role="dialog">
+
+							<div class="modal-dialog">
+
+								<div class="modal-content">
+
+									<div class="modal-header">
+
+										<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+										<h4 class="modal-title"><i class="fa fa-gear fa-fw"></i>Tambah Pesan/h4>
+
+									</div>
+
+
+
+									<div class="modal-body">
+
+										<div id="responsive-form" class="clearfix" autocomplete="on">
+
+											<form action="views/body_dashboard.php" method="post">
+
+												<?php
+
+                                                    $data4 = new Admin($connection);
+
+                                                    $tampil = $data4->pesan();
+
+                                                    while ($data2 = $tampil->fetch_object()):
+
+                                                        $id = $data2->id;
+
+                                                        $judul = $data2->judul;
+
+                                                        $isi = $data2->isi;
+
+                                                        ?>
+
+
+
+													<div class="columnfull">
+
+														<label class="control-label" for="judul">Judul</label>
+
+														<input type="text" name="judul" class="form-control" id="judul" value="<?php echo $judul ?>">
+
+														<input type="hidden" name="id" class="form-control" id="id" value="<?php echo $id ?>">
+
+													</div>
+
+
+
+													<div class="columnfull">
+
+														<label class="control-label" for="tanggal_permohonan">Isi</label>
+
+														<input type="text" class="form-control" name="isi" id="isi" rows="4" value="<?php echo $isi ?>">
+
+													</div>
+
+													<?php endwhile;?>
+
+
+
+											</div>
+
+
+
+											<div class="modal-footer" id="modal-footer">
+
+												<div class="column-full button-bawah">
+
+													<button type="reset" class="btn-default2 btn-danger " onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button> &nbsp;&nbsp;
+
+													<button type="submit" class="btn-default2 success" name="tampil"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button>
+
+												</div>
+
+											</div>
+
+										</form>
+
+										</div> <!--end responsive-form-->
 
 
 
 <?php
 
-$data = new Admin($connection);
+} elseif (@$_GET['act'] == 'del') {
 
+    $data->hapus_admin($_GET['id']);
 
+    header("location: ?page=input");
 
-if(isset($_POST['edit'])){
+} elseif (@$_GET['act'] == 'show') {
 
-	$id 	= $_POST['id'];
+    $data->tampil_pesan($_GET['id']);
 
-	$judul 	= $connection->conn->real_escape_string($_POST['judul']);
-
-	$isi 	= $connection->conn->real_escape_string($_POST['isi']);
-
-	
-
-	$data->edit_admin($id, $judul, $isi);
-
-
-
-} ?>
-
-
-
-
-
-<!--Input Data--> 
-
-   
-
-<div id="tampil" class="modal fade" role="dialog">
-
-	<div class="modal-dialog">
-
-		<div class="modal-content">
-
-			<div class="modal-header">
-
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-
-				<h4 class="modal-title"><i class="fa fa-gear fa-fw"></i>Tambah Pesan/h4>
-
-			</div>
-
-
-
-		<div class="modal-body">
-
-			<div id="responsive-form" class="clearfix" autocomplete="on">
-
-				<form action="views/body_dashboard.php" method="post">
-
-					<?php 
-
-
-
-						$data4 = new Admin($connection);
-
-						$tampil = $data4->pesan();
-
-						while($data2 = $tampil->fetch_object()):
-
-							$id = $data2->id;
-
-							$judul = $data2->judul;
-
-							$isi = $data2->isi;
-
-						
-
-					 ?>
-
-
-
-					<div class="columnfull">
-
-						<label class="control-label" for="judul">Judul</label>
-
-						<input type="text" name="judul" class="form-control" id="judul" value="<?php echo $judul?>">
-
-						<input type="hidden" name="id" class="form-control" id="id" value="<?php echo $id?>">
-
-					</div>
-
-			
-
-					<div class="columnfull">
-
-						<label class="control-label" for="tanggal_permohonan">Isi</label>
-
-						<input type="text" class="form-control" name="isi" id="isi" rows="4" value="<?php echo $isi?>">
-
-					</div>
-
-				<?php endwhile; ?>
-
-
-
-				</div>
-
-							
-
-				<div class="modal-footer" id="modal-footer">
-
-					<div class="column-full button-bawah">
-
-					<button type="reset" class="btn-default2 btn-danger " onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button> &nbsp;&nbsp;
-
-				 	<button type="submit" class="btn-default2 success" name="tampil"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button> 
-
-					</div>	
-
-				</div>
-
-			</form>
-
-		</div> <!--end responsive-form-->
-
-
-
-<?php
-
-}elseif(@$_GET['act']=='del') {
-
-	$data->hapus_admin($_GET['id']);
-
-	header("location: ?page=input");
-
-}elseif (@$_GET['act']=='show') {
-
-	$data->tampil_pesan($_GET['id']);
-
-	header("location: ?page=dashboard");
+    header("location: ?page=dashboard");
 
 }
 
-
-
 $data->destroy();
-
-
-
-
-
-
-
-
-
-
-
-
-

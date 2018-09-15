@@ -59,6 +59,15 @@ endwhile;
                   <div id="responsive-form" class="clearfix">
 
 
+                      <div class="column-full">
+
+                        <label class="control-label" for="no_lhu">Tanggal LHU</label>
+
+                        <input type="text" class="form-control" name="tanggal_lhu" id="tanggal_lhu_input" value="<?=$tanggal_lhu;?>" required>
+
+                      </div>
+
+
                       <div class="column-half">
 
                         <label class="control-label" for="no_agenda">No Agenda</label>
@@ -124,15 +133,6 @@ endwhile;
 
                       </div>
 
-
-                      <div class="column-half">
-
-                        <label class="control-label" for="no_lhu">Tanggal LHU</label>
-
-                        <input type="text" class="form-control" name="tanggal_lhu" id="tanggal_lhu_input" value="<?=$tanggal_lhu;?>" required>
-
-                      </div>
-                          
 
                         </div>
 

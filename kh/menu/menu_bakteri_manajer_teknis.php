@@ -14,23 +14,23 @@
 
             <ul class="nav ">
 
-                    <li>
+                <li>
 
-                        <a href="?lab=bakteri&page=kesiapan_pengujian"><i class="fa fa-dashboard fa-fw"></i>Kesiapan Pengujian</a>
+                    <a href="?lab=bakteri&page=kesiapan_pengujian"><i class="fa fa-dashboard fa-fw"></i>Kesiapan Pengujian</a>
 
-                    </li>
+                </li>
 
-                    <li>
+                <li>
 
-                        <a href="?lab=bakteri&page=penyelia_analis"><i class="fa fa-pencil fa-fw"></i>Penunjukan Petugas</a>
+                    <a href="?lab=bakteri&page=penyelia_analis"><i class="fa fa-pencil fa-fw"></i>Penunjukan Petugas</a>
 
-                    </li>
+                </li>
 
-                    <li>
+                <li>
 
-                        <a href="?lab=bakteri&page=pengelola_sampel"><i class="fa fa-user fa-fw"></i>Pengelola Sampel</a>
+                    <a href="?lab=bakteri&page=pengelola_sampel"><i class="fa fa-user fa-fw"></i>Pengelola Sampel</a>
 
-                    </li>
+                </li>
 
                 <!-- /.nav-second-level -->
 
@@ -48,51 +48,46 @@
 
 </nav>
 
-</div> 
+</div>
 
 
 
-     <div id="page-wrapper">
+<div id="page-wrapper">
 
-        <div class="row">
+<div class="row">
 
-            <div class="col-lg-12">             
+    <div class="col-lg-12">
 
-            <?php
+        <?php
 
-         
+        if (@$_GET['page'] == 'dashboard' || @$_GET['page'] == '') {
+
+            require_once "lab_bakteri/views/dashboard_mt.php";
+
+        } elseif (@$_GET['page'] == 'kesiapan_pengujian' && $_GET['lab'] == 'bakteri') {
+
+            require_once "lab_bakteri/views/kesiapan_pengujian.php";
+
+        } elseif (@$_GET['page'] == 'penyelia_analis' && $_GET['lab'] == 'bakteri') {
+
+            require_once "lab_bakteri/views/penyelia_analis.php";
+
+        } elseif (@$_GET['page'] == 'pengelola_sampel' && $_GET['lab'] == 'bakteri') {
+
+            require_once "lab_bakteri/views/pengelola_sampel.php";
+
+        } elseif (@$_GET['page'] == 'lihat_data_permohonan') {
+
+            require_once 'lab_bakteri/views/lihat_data_permohonan.php';
+
+        }
+
+        ?>
 
 
-                if(@$_GET['page']=='dashboard'|| @$_GET['page']==''){
-
-                    require_once "lab_bakteri/views/dashboard_mt.php";
-
-                } elseif (@$_GET['page']=='kesiapan_pengujian' && $_GET['lab'] == 'bakteri'){
-
-                    require_once "lab_bakteri/views/kesiapan_pengujian.php";
-
-                } elseif (@$_GET['page']=='penyelia_analis' && $_GET['lab'] == 'bakteri'){
-
-                    require_once "lab_bakteri/views/penyelia_analis.php";
-
-                } elseif (@$_GET['page']=='pengelola_sampel' && $_GET['lab'] == 'bakteri'){
-
-                    require_once "lab_bakteri/views/pengelola_sampel.php";
-
-                }elseif(@$_GET['page'] == 'lihat_data_permohonan'){
-
-                    require_once('lab_bakteri/views/lihat_data_permohonan.php');
-
-                } 
-                
-            
-
-            ?>
-
-                      
-
-            </div>    
-
-        </div>   
 
     </div>
+
+</div>
+
+</div>

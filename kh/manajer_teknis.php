@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!isset($_SESSION['loginmtkh'])){
+if (!isset($_SESSION['loginmtkh'])) {
 
     header("Location: ../index.php");
 
@@ -10,7 +10,7 @@ if(!isset($_SESSION['loginmtkh'])){
 
 }
 
-require_once ('templates/header.php');
+require_once 'templates/header.php';
 
 ?>
 
@@ -26,25 +26,25 @@ require_once ('templates/header.php');
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
 
-                    <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Toggle navigation</span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
                 </button>
 
                 <button id="menu-toggle" type="button" data-toggle="button" class="btn btn-info2 btn-xs btn-circle">
 
-                    <span class="push"><i class="fa fa-chevron-left"></i></span>
+                <span class="push"><i class="fa fa-chevron-left"></i></span>
 
                 </button>
 
                 <button id="menu-toggle2" type="button" data-toggle="button" class="btn btn-info2 btn-xs btn-circle">
 
-                    <span class="push"><i class="fa fa-chevron-right"></i></span>
+                <span class="push"><i class="fa fa-chevron-right"></i></span>
 
                 </button>
 
@@ -60,93 +60,80 @@ require_once ('templates/header.php');
 
                 <?php
 
-
-
-
-
-                if(isset($_SESSION['loginmtkh'])) {
+                if (isset($_SESSION['loginmtkh'])) {
 
                     $id = $_SESSION['loginmtkh'];
 
                 }
 
-
-
-                $tampil = $objectData->tampil_nama($id); 
+                $tampil = $objectData->tampil_nama($id);
 
                 $data = $tampil->fetch_object();
 
-
-
-                echo $data->nama; 
+                echo $data->nama;
 
                 ?>
 
 
 
-               
 
-    <!-- /.dropdown -->
 
-    <li class="dropdown">
+                <!-- /.dropdown -->
 
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <li class="dropdown">
 
-            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 
-        </a>
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
 
-        <ul class="dropdown-menu dropdown-user">
+                    </a>
 
-            <li><i class="fa fa-gear fa-fw"></i><?php echo $data->nama_jabatan; ?>
+                    <ul class="dropdown-menu dropdown-user">
+
+                        <li><i class="fa fa-gear fa-fw"></i><?php echo $data->nama_jabatan; ?>
+
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+
+                    </li>
+
+                </ul>
+
+                <!-- /.dropdown-user -->
 
             </li>
 
-            <li class="divider"></li>
-
-            <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-
-            </li>
+            <!-- /.dropdown -->
 
         </ul>
 
-        <!-- /.dropdown-user -->
-
-    </li>
-
-    <!-- /.dropdown -->
-
-</ul>
-
-<!-- /.navbar-top-links -->
+        <!-- /.navbar-top-links -->
 
 
 
-<?php  
+        <?php
 
-if (@$_GET['lab'] == 'parasit') :
+        if (@$_GET['lab'] == 'parasit'):
 
-    require_once "menu/menu_parasit_manajer_teknis.php";
-    
+            require_once "menu/menu_parasit_manajer_teknis.php";
 
-elseif (!@$_GET['lab'] || @$_GET['lab'] == 'bakteri') :
-           
-    require_once "menu/menu_bakteri_manajer_teknis.php";
+        elseif (!@$_GET['lab'] || @$_GET['lab'] == 'bakteri'):
 
-endif;
+            require_once "menu/menu_bakteri_manajer_teknis.php";
 
+        endif;
 
-require_once ('templates/footer.php'); 
+        require_once 'templates/footer.php';
 
-?>
+        ?>
 
 
 
-</body>
+    </body>
 
 
 
 </html>
-
-
-

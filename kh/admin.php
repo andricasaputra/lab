@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!isset($_SESSION['loginadminkh'])){
+if (!isset($_SESSION['loginadminkh'])) {
 
     header("Location: ../index.php");
 
@@ -10,7 +10,7 @@ if(!isset($_SESSION['loginadminkh'])){
 
 }
 
-require_once ('templates/header.php');
+require_once 'templates/header.php';
 
 ?>
 
@@ -24,13 +24,13 @@ require_once ('templates/header.php');
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
 
-                    <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Toggle navigation</span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
                 </button>
 
@@ -38,19 +38,19 @@ require_once ('templates/header.php');
 
                 <button id="menu-toggle" type="button" data-toggle="button" class="btn btn-info2 btn-xs btn-circle">
 
-                    <span class="push"><i class="fa fa-chevron-left"></i></span>
+                <span class="push"><i class="fa fa-chevron-left"></i></span>
 
                 </button>
 
                 <button id="menu-toggle2" type="button" data-toggle="button" class="btn btn-info2 btn-xs btn-circle">
 
-                     <span class="push"><i class="fa fa-chevron-right"></i></span>
+                <span class="push"><i class="fa fa-chevron-right"></i></span>
 
                 </button>
 
                 <a class="navbar-brand" href="#"><img src="../assets/img/silelogo.jpg" width="40px" class="gambarBrand"><span class="brand2">Sistem Informasi</span> <span class="brand">LABORATORIUM Elektronik</span></a>
 
-                
+
 
             </div>
 
@@ -60,80 +60,71 @@ require_once ('templates/header.php');
 
                 <?php
 
-                if(isset($_SESSION['loginadminkh'])) {
+                if (isset($_SESSION['loginadminkh'])) {
 
                     $id = $_SESSION['loginadminkh'];
 
                 }
 
-
-
-                $tampil = $objectData->tampil_nama($id); 
+                $tampil = $objectData->tampil_nama($id);
 
                 $data = $tampil->fetch_object();
 
+                echo $data->nama;
 
+                ?>
 
-                echo $data->nama; 
+                <!-- /.dropdown -->
 
-                ?>             
+                <li class="dropdown">
 
-    <!-- /.dropdown -->
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 
-    <li class="dropdown">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
 
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-
-            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-
-        </a>
+                    </a>
 
 
 
-        <ul class="dropdown-menu dropdown-user">
+                    <ul class="dropdown-menu dropdown-user">
 
-            <li><i class="fa fa-gear fa-fw"></i><?php echo $data->nama_jabatan; ?>
+                        <li><i class="fa fa-gear fa-fw"></i><?php echo $data->nama_jabatan; ?>
+
+                        </li>
+
+                        <li class="divider"></li>
+
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+
+                    </li>
+
+                </ul>
+
+                <!-- /.dropdown-user -->
 
             </li>
 
-            <li class="divider"></li>
-
-            <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-
-            </li>
+            <!-- /.dropdown -->
 
         </ul>
 
-        <!-- /.dropdown-user -->
+        <?php
 
-    </li>
+        if (@$_GET['lab'] == 'parasit'):
 
-    <!-- /.dropdown -->
+            require_once "menu/menu_parasit_admin.php";
 
-</ul>
+        elseif (!@$_GET['lab'] || @$_GET['lab'] == 'bakteri'):
 
-<?php  
+            require_once "menu/menu_bakteri_admin.php";
 
-if (@$_GET['lab'] == 'parasit') :
+        endif;
 
-    require_once "menu/menu_parasit_admin.php";
-    
+        require_once 'templates/footer.php';
 
-elseif (!@$_GET['lab'] || @$_GET['lab'] == 'bakteri') :
-           
-    require_once "menu/menu_bakteri_admin.php";
-
-endif;
+        ?>
 
 
-require_once ('templates/footer.php'); 
-
-?>
-
-
-</body>
+    </body>
 
 </html>
-
-
-

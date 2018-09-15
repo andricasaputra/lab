@@ -1,200 +1,151 @@
-<?php  
+<?php
 
 namespace Lab\classes;
 
 use Lab\config\Database;
 
-abstract class LegacyNomor extends Database{
+abstract class LegacyNomor extends Database
+{
+    protected $db,
+        $conn;
 
-	protected $db,
-	$conn;
+    protected function __construct()
+    {
+        $this->conn = parent::getInstance();
 
-	protected function __construct(){
+        $this->db = $this->conn->getConnection();
 
-		$this->conn = parent::getInstance();
+    }
 
-		$this->db = $this->conn->getConnection();
+    abstract public function bilangan($bilangan);
 
-	}
+    protected function setbilangan($bilangan)
+    {
+        $angka = array('0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
 
-	abstract function bilangan($bilangan);
+            '0', '0', '0', '0', '0', '0');
 
-	protected function setbilangan($bilangan){
+        $kata = array('', 'satu', 'dua', 'tiga', 'empat', 'lima',
 
-		$angka = array('0','0','0','0','0','0','0','0','0','0',
+            'enam', 'tujuh', 'delapan', 'sembilan');
 
-             '0','0','0','0','0','0');
+        $tingkat = array('', 'ribu', 'juta', 'milyar', 'triliun');
 
-	    $kata = array('','satu','dua','tiga','empat','lima',
+        $panjang_bilangan = strlen($bilangan);
 
-	                'enam','tujuh','delapan','sembilan');
+        /* pengujian panjang bilangan */
 
-	    $tingkat = array('','ribu','juta','milyar','triliun');
+        if ($panjang_bilangan > 15) {
+            $kalimat = "Diluar Batas";
 
+            return $kalimat;
 
+        }
 
-	    $panjang_bilangan = strlen($bilangan);
+        /* mengambil angka-angka yang ada dalam bilangan,
 
+        dimasukkan ke dalam array */
 
+        for ($i = 1; $i <= $panjang_bilangan; $i++) {
+            $angka[$i] = substr($bilangan, -($i), 1);
 
-	    /* pengujian panjang bilangan */
+        }
 
-	    if ($panjang_bilangan > 15) {
+        $i = 1;
 
-	       $kalimat = "Diluar Batas";
+        $j = 0;
 
-	       return $kalimat;
+        $kalimat = "";
 
-	    }
+        /* mulai proses iterasi terhadap array angka */
 
+        while ($i <= $panjang_bilangan):
 
+            $subkalimat = "";
 
-	    /* mengambil angka-angka yang ada dalam bilangan,
+            $kata1 = "";
 
-	     dimasukkan ke dalam array */
+            $kata2 = "";
 
-	    for ($i = 1; $i <= $panjang_bilangan; $i++) {
+            $kata3 = "";
 
-	        $angka[$i] = substr($bilangan,-($i),1);
+            /* untuk ratusan */
 
-	    }
+            if ($angka[$i + 2] != "0") {
+                if ($angka[$i + 2] == "1") {
+                    $kata1 = "seratus";
 
+                } else {
+                    $kata1 = $kata[$angka[$i + 2]] . " ratus";
 
+                }
 
-	    $i = 1;
+            }
 
-	    $j = 0;
+            /* untuk puluhan atau belasan */
 
-	    $kalimat = "";
+            if ($angka[$i + 1] != "0") {
+                if ($angka[$i + 1] == "1") {
+                    if ($angka[$i] == "0") {
+                        $kata2 = "sepuluh";
 
+                    } elseif ($angka[$i] == "1") {
+                    $kata2 = "sebelas";
 
+                } else {
+                    $kata2 = $kata[$angka[$i]] . " belas";
 
+                }
 
+            } else {
+                $kata2 = $kata[$angka[$i + 1]] . " puluh";
 
-	    /* mulai proses iterasi terhadap array angka */
+            }
 
-	    while ($i <= $panjang_bilangan) :
+        }
 
+        /* untuk satuan */
 
+        if ($angka[$i] != "0") {
+            if ($angka[$i + 1] != "1") {
+                $kata3 = $kata[$angka[$i]];
 
-	      $subkalimat = "";
+            }
 
-	      $kata1 = "";
+        }
 
-	      $kata2 = "";
+        /* pengujian angka apakah tidak nol semua,
 
-	      $kata3 = "";
+        lalu ditambahkan tingkat */
 
+        if (($angka[$i] != "0") or ($angka[$i + 1] != "0") or
 
+            ($angka[$i + 2] != "0")) {
+            $subkalimat = "$kata1 $kata2 $kata3 " . $tingkat[$j] . " ";
 
-	      /* untuk ratusan */
+        }
 
-	      if ($angka[$i+2] != "0") {
+        /* gabungkan variabe sub kalimat (untuk satu blok 3 angka)
 
-	        if ($angka[$i+2] == "1") {
+        ke variabel kalimat */
 
-	          $kata1 = "seratus";
+        $kalimat = $subkalimat . $kalimat;
 
-	        } else {
+        $i = $i + 3;
 
-	          $kata1 = $kata[$angka[$i+2]] . " ratus";
+        $j = $j + 1;
 
-	        }
+        endwhile;
 
-	      }
+        /* mengganti satu ribu jadi seribu jika diperlukan */
 
+        if (($angka[5] == "0") and ($angka[6] == "0")) {
+            $kalimat = str_replace("satu ribu", "seribu", $kalimat);
 
+        }
 
-	      /* untuk puluhan atau belasan */
+        return trim($kalimat);
 
-	      if ($angka[$i+1] != "0") {
-
-	        if ($angka[$i+1] == "1") {
-
-	          if ($angka[$i] == "0") {
-
-	             $kata2 = "sepuluh";
-
-	          } elseif ($angka[$i] == "1") {
-
-	            $kata2 = "sebelas";
-
-	          } else {
-
-	            $kata2 = $kata[$angka[$i]] . " belas";
-
-	          }
-
-	        } else {
-
-	          $kata2 = $kata[$angka[$i+1]] . " puluh";
-
-	        }
-
-	      }
-
-
-
-	      /* untuk satuan */
-
-	      if ($angka[$i] != "0") {
-
-	        if ($angka[$i+1] != "1") {
-
-	          $kata3 = $kata[$angka[$i]];
-
-	        }
-
-	      }
-
-
-
-	      /* pengujian angka apakah tidak nol semua,
-
-	       lalu ditambahkan tingkat */
-
-	      if (($angka[$i] != "0") OR ($angka[$i+1] != "0") OR
-
-	          ($angka[$i+2] != "0")) {
-
-	        $subkalimat = "$kata1 $kata2 $kata3 " . $tingkat[$j] . " ";
-
-	      }
-
-
-
-	      /* gabungkan variabe sub kalimat (untuk satu blok 3 angka)
-
-	       ke variabel kalimat */
-
-	      $kalimat = $subkalimat . $kalimat;
-
-	      $i = $i + 3;
-
-	      $j = $j + 1;
-
-
-
-	    endwhile;
-
-
-
-	    /* mengganti satu ribu jadi seribu jika diperlukan */
-
-	    if (($angka[5] == "0") AND ($angka[6] == "0")) {
-
-	      $kalimat = str_replace("satu ribu","seribu",$kalimat);
-
-	    }
-
-
-
-	    return trim($kalimat);
-
-	}
-
+    }
 
 }
-
-
-?>

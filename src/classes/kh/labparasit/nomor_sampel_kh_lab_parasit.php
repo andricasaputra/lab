@@ -4,103 +4,84 @@ $kosong = $objectDataParasit->KosongData();
 
 if (!$kosong == 0) {
 
-  $query = $objectNomorParasit->NomorSampel();
+    $query = $objectNomorParasit->NomorSampel();
 
-  $result = $query->fetch_object();
+    $result = $query->fetch_object();
 
-  $jumlah_sampel = 2;
+    $jumlah_sampel = 2;
 
-  $no_sampel = $result->no_sampel;
+    $no_sampel = $result->no_sampel;
 
     //  Jika Jumlah Sampel Sama Dengan 1
 
-    if($query){
+    if ($query) {
 
-        if($jumlah_sampel == 1){ 
+        if ($jumlah_sampel == 1) {
 
+            $x = explode("-", $no_sampel);
 
+            $k = $x[0];
 
-          $x = explode("-", $no_sampel); 
+            $cari = "-";
 
-              $k = $x[0];
+            // Jika Format No Sampel Sebelumnya n - n / memakai tanda -
 
-              $cari = "-";
-
-              // Jika Format No Sampel Sebelumnya n - n / memakai tanda -
-
-              if(strpos($no_sampel, $cari) == true){
+            if (strpos($no_sampel, $cari) == true) {
 
                 $l = $x[1];
 
                 $nomor_smpl = $l + $jumlah_sampel;
 
+                // Jika Format No Sampel Sebelumnya n / tidak memakai tanda -
 
-             // Jika Format No Sampel Sebelumnya n / tidak memakai tanda -
+            } else {
 
+                $nomor_smpl = $k + $jumlah_sampel;
 
-              }else{
+            }
 
-                $nomor_smpl = $k + $jumlah_sampel;  
+            // Jika Jumlah Sampel Lebih Dari 1
 
-              }
+        } else {
 
-       // Jika Jumlah Sampel Lebih Dari 1
+            $x = explode("-", $no_sampel);
 
+            $k = $x[0];
 
-        }else{
+            $cari = "-";
 
-                $x = explode("-", $no_sampel); 
+            // Jika Format No Sampel Sebelumnya n - n / memakai tanda -
 
-                $k = $x[0];
+            if (strpos($no_sampel, $cari) == true) {
 
-                $cari = "-";
+                $l = $x[1];
 
+                $jml2 = $l + 1;
 
-                // Jika Format No Sampel Sebelumnya n - n / memakai tanda -
+                $jml = $l + $jumlah_sampel;
 
+                $nomor_smpl = $jml2 . "-" . $jml;
 
-                if(strpos($no_sampel, $cari) == true){
+                // Jika Format No Sampel Sebelumnya n / tidak memakai tanda -
 
-                    $l = $x[1];
+            } else {
 
-                    $jml2 = $l  + 1;
+                $jml2 = $k + 1;
 
-                    $jml = $l + $jumlah_sampel;
+                $jml = $k + $jumlah_sampel;
 
-                    $nomor_smpl = $jml2 ."-". $jml; 
+                $nomor_smpl = $jml2 . "-" . $jml;
 
+            }
 
-                  // Jika Format No Sampel Sebelumnya n / tidak memakai tanda -
+        }
 
-
-                }else{
-
-
-                    $jml2 = $k + 1;
-
-                    $jml = $k + $jumlah_sampel;
-
-                    $nomor_smpl = $jml2 ."-". $jml;     
-
-                }
-   
-
-              }           
-
-      }  
+    }
 
 /*Jika Nomor Sampel Kosong*/
 
-}else{
+} else {
 
-
-$nomor_smpl = "1-2";
+    $nomor_smpl = "1-2";
 
 }
-
-
-
-
-
-?> 
-

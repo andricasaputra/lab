@@ -1,39 +1,39 @@
 <?php
 session_start();
-require_once('../templates/header_hasil.php');
+require_once '../templates/header_hasil.php';
 ?>
 <body>
 <?php
-  $tgl = tgl_indo(date('Y-m-d'));
-  $tgl_acu = date("Y-m-d");
-  if(@$_GET['id'] && $_GET['no_sampel'] !== ''){
+$tgl     = tgl_indo(date('Y-m-d'));
+$tgl_acu = date("Y-m-d");
+if (@$_GET['id'] && $_GET['no_sampel'] !== '') {
     $tampil = $objectHasil->tampil(@$_GET['id'], @$_GET['no_sampel']);
-    }else {
-          if(@$_SESSION['loginadminkt']){
+} else {
+    if (@$_SESSION['loginadminkt']) {
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+        echo "<script>alert('Maaf No Sampel Masih Kosong')
 
             window.location='../admin.php?page=sertifikat'</script>";
 
-            exit;
+        exit;
 
-          }elseif(@$_SESSION['loginsuperkt']){
+    } elseif (@$_SESSION['loginsuperkt']) {
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+        echo "<script>alert('Maaf No Sampel Masih Kosong')
 
             window.location='../super_admin.php?page=sertifikat'</script>";
 
-            exit;
+        exit;
 
-          }else{
+    } else {
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+        echo "<script>alert('Maaf No Sampel Masih Kosong')
 
             window.location='../pengujian.php?page=sertifikat'</script>";
 
-             exit;
-          }
-        }   
+        exit;
+    }
+}
 ?>
 
 <div class="container">
@@ -43,69 +43,69 @@ require_once('../templates/header_hasil.php');
       <div class="col-lg-12">
 
          <div class="wrap">
-              <?php 
+              <?php
 
-                if(@$_SESSION['loginadminkt']){
+              if (@$_SESSION['loginadminkt']) {
 
                   $redirect = '../admin.php?page=sertifikat';
 
-                }elseif(@$_SESSION['loginsuperkt']){
+              } elseif (@$_SESSION['loginsuperkt']) {
 
-                   $redirect = '../super_admin.php?page=sertifikat';
+                  $redirect = '../super_admin.php?page=sertifikat';
 
-                }else {
+              } else {
 
                   $redirect = '../pengujian.php?page=sertifikat';
 
-                }
+              }
 
-                echo '<script>
+              echo '<script>
 
-                var redirect = "'.$redirect.'"
+                var redirect = "' . $redirect . '"
 
                 </script>';
               ?>
            <div class="alert alert-info">
 
-             <?php  
+             <?php
 
-                $tampil2 = $objectData->tampil(@$_GET['id']); 
+             $tampil2 = $objectData->tampil(@$_GET['id']);
 
-                $i = $tampil2->fetch_assoc();
+             $i = $tampil2->fetch_assoc();
 
-                $nama = $i['nama_sampel'];
+             $nama = $i['nama_sampel'];
 
-                $target = $i['target_optk'];
+             $target = $i['target_optk'];
 
-                $target2 = $i['target_optk2'];
+             $target2 = $i['target_optk2'];
 
-                $target3 = $i['target_optk3'];
+             $target3 = $i['target_optk3'];
 
-                $noser =$i['tanggal_sertifikat'];
+             $noser = $i['tanggal_sertifikat'];
 
              ?>
 
               <b>Edit Hasil Pengujian</b><br>
 
-              Nama Sampel : <?php echo $nama; ?><br>
+              Nama Sampel :                            <?php echo $nama; ?><br>
 
-              <?php 
+              <?php
 
-                if ($target2 !== '') { ?>
+              if ($target2 !== '') {?>
 
-                        Target Pengujian : <em><?php echo $target.' & '.$target2 ?></em><br>
-               
-                <?php }elseif ($target3 !=='') { ?>
+                        Target Pengujian : <em><?php echo $target . ' & ' . $target2 ?></em><br>
 
-                        Target Pengujian : <em><?php echo $target.',&nbsp;'.$target2.',&nbsp;'.$target3 ?></em><br>
+                <?php } elseif ($target3 !== '') {?>
 
-                <?php  }else{ ?>
+                        Target Pengujian : <em><?php echo $target . ',&nbsp;' . $target2 . ',&nbsp;' . $target3 ?></em><br>
+
+                <?php } else {?>
 
                         Target Pengujian : <em><?php echo $target ?></em><br>
 
-              <?php  } ?>
+              <?php }?>
 
-              Hasil Diinput Pada Tanggal : <?php echo $noser; ?>
+              Hasil Diinput Pada Tanggal :                                           <?php echo $noser; ?>
 
             </div>
 
@@ -129,7 +129,7 @@ require_once('../templates/header_hasil.php');
 
                       </thead>
 
-                      <tbody> 
+                      <tbody>
 
                          <?php while ($data = $tampil->fetch_object()): ?>
                         <tr>
@@ -159,15 +159,15 @@ require_once('../templates/header_hasil.php');
 
                                 <option><?php echo $data->positif_negatif ?></option>
 
-                                <?php  if($data->positif_negatif == 'Negatif'){ ?>
+                                <?php if ($data->positif_negatif == 'Negatif') {?>
 
                                   <option>Positif</option>
 
-                                 <?php  }else{ ?>
+                                 <?php } else {?>
 
                                   <option>Negatif</option>
 
-                                  <?php } ?>
+                                  <?php }?>
 
                               </select>
 
@@ -187,7 +187,7 @@ require_once('../templates/header_hasil.php');
 
                         </tr>
 
-                         <?php endwhile; ?>
+                         <?php endwhile;?>
 
                       </tbody>
 
@@ -195,27 +195,27 @@ require_once('../templates/header_hasil.php');
 
                       <div class="column-full" style="position: absolute; margin-left: 100px; margin-top: -7px;">
 
-                          <button type="submit" class="btn btn-kusuccess btn-lg" name="edit" value="edit"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button> 
+                          <button type="submit" class="btn btn-kusuccess btn-lg" name="edit" value="edit"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button>
 
-                      </div>  
+                      </div>
 
-                    
-                      <a href="<?php echo $redirect;?>" class="btn btn-info btn-lg" onclick="return confirm('Yakin Ingin Kembali?')">
-                      <i class="fa fa-arrow-circle-left fa-fw" aria-hidden="true"></i>&nbsp;Back</a>  
 
-                </form>  
+                      <a href="<?php echo $redirect; ?>" class="btn btn-info btn-lg" onclick="return confirm('Yakin Ingin Kembali?')">
+                      <i class="fa fa-arrow-circle-left fa-fw" aria-hidden="true"></i>&nbsp;Back</a>
 
-             </div>           
+                </form>
+
+             </div>
 
           </div>
 
-       </div> 
+       </div>
 
     </div>
 
 <?php
 
-  require_once('../templates/footer_hasil.php');
+require_once '../templates/footer_hasil.php';
 
 ?>
 
@@ -254,7 +254,7 @@ require_once('../templates/header_hasil.php');
 
                 });
 
-                
+
             }else{
 
 
@@ -275,7 +275,7 @@ require_once('../templates/header_hasil.php');
                 });
 
             }
-         }  
+         }
        })
      }));
 

@@ -20,57 +20,57 @@
 
                 <a href="?lab=bakteri&page=surat_hasil_uji"><i class="fa fa-check-square fa-fw" ></i>Terbitkan Surat Hasil Uji</a>
 
-            </li>         
+            </li>
 
-            </ul>
+        </ul>
 
-            <!-- /#side-menu -->
-
-        </div>
-
-
-        <!-- /.sidebar-collapse -->
+        <!-- /#side-menu -->
 
     </div>
 
-    <!-- /.navbar-static-side -->
+
+    <!-- /.sidebar-collapse -->
+
+</div>
+
+<!-- /.navbar-static-side -->
 
 </nav>
 
-</div> 
+</div>
 
 
 
-     <div id="page-wrapper">
+<div id="page-wrapper">
 
-        <div class="row">
+<div class="row">
 
-            <div class="col-lg-12">             
+<div class="col-lg-12">
 
-            <?php
+    <?php
 
-                if(@$_GET['page']=='dashboard'|| @$_GET['page']==''){
+    if (@$_GET['page'] == 'dashboard' || @$_GET['page'] == '') {
 
-                    require_once "lab_bakteri/views/dashboard_lhu.php";
+        require_once "lab_bakteri/views/dashboard_lhu.php";
 
-                } elseif (@$_GET['page']=='data_permohonan' && $_GET['lab'] == 'bakteri'){
+    } elseif (@$_GET['page'] == 'data_permohonan' && $_GET['lab'] == 'bakteri') {
 
-                    require_once "lab_bakteri/views/data_permohonan_kh.php";
+        require_once "lab_bakteri/views/data_permohonan_kh.php";
 
-                }elseif (@$_GET['page']=='surat_hasil_uji' && $_GET['lab'] == 'bakteri'){
+    } elseif (@$_GET['page'] == 'surat_hasil_uji' && $_GET['lab'] == 'bakteri') {
 
-                    require_once "lab_bakteri/views/surat_hasil_uji.php";
+        require_once "lab_bakteri/views/surat_hasil_uji.php";
 
-                }elseif(@$_GET['page'] == 'lihat_data_permohonan'){
+    } elseif (@$_GET['page'] == 'lihat_data_permohonan') {
 
-                    require_once('lab_bakteri/views/lihat_data_permohonan.php');
+        require_once 'lab_bakteri/views/lihat_data_permohonan.php';
 
-                }  
+    }
 
-            ?>             
+    ?>
 
-            </div>    
+</div>
 
-        </div>   
+</div>
 
-    </div>
+</div>

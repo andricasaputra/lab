@@ -4,68 +4,64 @@ namespace Lab\classes\kh;
 
 use Lab\config\Database;
 
-class Source3 extends Database{
+class Source3 extends Database
+{
 
-	private $db;
+    private $db;
 
-	public function __construct(){
+    public function __construct()
+    {
 
-		$this->db = $this->getInstance()->getConnection();
-	}
+        $this->db = $this->getInstance()->getConnection();
+    }
 
-	
-	public function tampil($id =null){
+    public function tampil($id = null)
+    {
 
-		$sql = "SELECT * FROM user";
+        $sql = "SELECT * FROM user";
 
-		if($id != null){
+        if ($id != null) {
 
-			$sql .= " WHERE id = '$id' AND lab = 'kh' ORDER BY nama ASC";
+            $sql .= " WHERE id = '$id' AND lab = 'kh' ORDER BY nama ASC";
 
-		}else{
+        } else {
 
-			$sql .= " WHERE lab='kh' ORDER BY nama ASC ";
+            $sql .= " WHERE lab='kh' ORDER BY nama ASC ";
 
-		}
+        }
 
-		$query = $this->db->query($sql) or die ($this->db->error);
+        $query = $this->db->query($sql) or die($this->db->error);
 
-		return $query;
+        return $query;
 
-	}
+    }
 
-	public function input($nama_pejabat, $nip){
+    public function input($nama_pejabat, $nip)
+    {
 
-	
-		$this->db->query("INSERT INTO user VALUES ('', '$nama_pejabat', '$nip')") or die ($this->db->error);
+        $this->db->query("INSERT INTO user VALUES ('', '$nama_pejabat', '$nip')") or die($this->db->error);
 
-	}
+    }
 
+    public function edit($sql)
+    {
 
-	public function edit($sql){
+        $this->db->query($sql);
 
-		$this->db->query($sql);
+    }
 
-	}
+    public function view($sql)
+    {
 
+        $this->db->query($sql);
 
-	public function view($sql){
+    }
 
-		$this->db->query($sql);
+    public function hapus($lab)
+    {
 
-	}
+        $this->db->query("DELETE FROM user WHERE id = '$id'") or die($this->db->error);
 
-	
-	public function hapus($lab){
+    }
 
-		$this->db->query("DELETE FROM user WHERE id = '$id'") or die ($this->db->error);
-
-	}
-
-
-
-} 
-
-
-
-?>
+}

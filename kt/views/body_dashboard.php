@@ -17,31 +17,27 @@
 
             <li>
 
-            	<?php 
+                <?php
 
-                    $kosong = $objectNomor->Kosongdata();
+                $kosong = $objectNomor->Kosongdata();
 
-                    while($ini = $kosong->fetch_object()):
+                while ($ini = $kosong->fetch_object()):
 
-                      $isi = $ini->id;
+                    $isi = $ini->id;
 
-                    endwhile;
+                endwhile;
 
+                if (!empty($isi)) {
 
+                    $tampil2 = $objectData->ambil_id();
 
-                    if (!empty($isi)) {
+                    $result = $tampil2->fetch_object();
 
-                            
+                    $isi = $result->id;
 
-                        $tampil2 = $objectData->ambil_id();
+                    $tampil = $objectData->tampil_timeline();
 
-                        $result = $tampil2->fetch_object();
-
-                        $isi = $result->id;
-
-                        $tampil = $objectData->tampil_timeline();
-
-                        while($data=$tampil->fetch_object()):
+                    while ($data = $tampil->fetch_object()):
 
                         $tanggal_diterima = $data->tanggal_diterima;
 
@@ -63,201 +59,193 @@
 
                         $tgl = $data->tanggal_lhu;
 
-                        $hasil = $data->no_agenda; 
+                        $hasil = $data->no_agenda;
+
+                        if ($tanggal_diterima == 0) {
+
+                            $isi = 'Belum Diterima Oleh Penerima Sampel';
+
+                        } elseif (strlen($kode_sampel) == 0) {
+
+                        $isi = 'Proses Permintaan Kesiapan Pengujian';
+
+                    } elseif (strlen($kondisi_sampel) == 0) {
+
+                        $isi = 'Proses Kesiapan Laboratorium Penguji';
+
+                    } elseif (strlen($penyelia) == 0) {
+
+                        $isi = 'Proses Penerbitan Respon Kesiapan Pengujian';
+
+                    } elseif (strlen($tanggal_penyerahan) == 0) {
+
+                        $isi = 'Dokumen Administrasi Lengkap / Proses penyerahan Sampel Ke Laboratorium';
+
+                    } elseif (strlen($tanggal_penunjukan) == 0) {
+
+                        $isi = 'Proses Penugasan Penyelia dan Analis oleh Manajer Teknis';
+
+                    } elseif (strlen($tanggal_penyerahan_lab) == 0) {
+
+                        $isi = 'Sampel Dalam Proses Pengujian';
+
+                    } elseif (strlen($tanggal_pengujian) == 0) {
+
+                        $isi = 'Sampel Dalam Proses Pengujian';
+
+                    } elseif (strlen($tanggal_sertifikat) == 0) {
+
+                        $isi = 'Dalam Proses Pengujian';
+
+                    } elseif (strlen($tanggal_sertifikat) !== 0 && strlen($hasil) == 0) {
+
+                        $isi = 'Proses Penerbitan Laporan Hasil Uji';
+
+                    } else {
+
+                        $isi = 'Selesai';
+
+                    }
+
+                    if ($tgl == 0) {
+
+                        $isi2 = '-';?>
+
+                <div class="timeline-badge danger zoom"><i class="fa fa-envelope"></i>
 
 
 
-                        if($tanggal_diterima == 0){
+                    <?php } else {
 
-                                $isi = 'Belum Diterima Oleh Penerima Sampel';
+                            $isi2 = $tgl;?>
 
-                        }elseif(strlen($kode_sampel) == 0){
-
-                                $isi = 'Proses Permintaan Kesiapan Pengujian';
-
-                        }elseif(strlen($kondisi_sampel) == 0){
-
-                                $isi = 'Proses Kesiapan Laboratorium Penguji';
-
-                        }elseif(strlen($penyelia) == 0){
-
-                                $isi = 'Proses Penerbitan Respon Kesiapan Pengujian';
-
-                        }elseif(strlen($tanggal_penyerahan) == 0){
-
-                                $isi = 'Dokumen Administrasi Lengkap / Proses penyerahan Sampel Ke Laboratorium';
-
-                        }elseif(strlen($tanggal_penunjukan) == 0){
-
-                                $isi = 'Proses Penugasan Penyelia dan Analis oleh Manajer Teknis';
-
-                        }elseif(strlen($tanggal_penyerahan_lab) == 0){
-
-                                $isi = 'Sampel Dalam Proses Pengujian';
-
-                        }elseif(strlen($tanggal_pengujian) == 0){
-
-                                $isi = 'Sampel Dalam Proses Pengujian';
-
-                        }elseif(strlen($tanggal_sertifikat) == 0){
-
-                                $isi = 'Dalam Proses Pengujian';
-
-                        }elseif(strlen($tanggal_sertifikat) !== 0 && strlen($hasil) == 0 ){
-
-                                $isi = 'Proses Penerbitan Laporan Hasil Uji';
-
-                        }else{
-
-                                $isi = 'Selesai';
-
-                        }
+                    <div class="timeline-badge success zoom"><i class="fa fa-check"></i>
 
 
 
-                            if($tgl == 0){
-
-
-
-                                $isi2 = '-'; ?>
-
-                                <div class="timeline-badge danger zoom"><i class="fa fa-envelope"></i>
-
-                            
-
-                        <?php }else{ 
-
-
-
-                                $isi2 = $tgl; ?>
-
-                                <div class="timeline-badge success zoom"><i class="fa fa-check"></i>
-
-
-
-                        <?php } ?>
-
-                </div>
-
-                <div class="timeline-panel">
-
-                    <div class="timeline-heading">
-
-                        <h4 class="timeline-title">Data Permohonan Pengujian Terakhir</h4>
-
-                    <p><small class="text-muted"><i class="fa fa-time"></i>&nbsp;Laboratorium Karantina Tumbuhan</small></p>
-
-                        
+                        <?php }?>
 
                     </div>
 
-                    <div class="timeline-body table-responsive">
+                    <div class="timeline-panel">
 
-                        <table class="table">
+                        <div class="timeline-heading">
 
-                            <tr >
+                            <h4 class="timeline-title">Data Permohonan Pengujian Terakhir</h4>
 
-                                <td class="isi_atas">Tanggal Permohonan</td>
+                            <p><small class="text-muted"><i class="fa fa-time"></i>&nbsp;Laboratorium Karantina Tumbuhan</small></p>
 
-                                <td class="isi">:</td>
 
-                                <td class="isi_bawah"><?php echo $data->tanggal_permohonan ?></td>
 
-                            </tr>
+                        </div>
 
-                            <tr>
+                        <div class="timeline-body table-responsive">
 
-                                <td class="isi_atas">Nomor Permohonan</td>
+                            <table class="table">
 
-                                <td class="isi">:</td>
+                                <tr >
 
-                                <td class="isi_bawah"><?php echo $data->no_permohonan ?></td>
+                                    <td class="isi_atas">Tanggal Permohonan</td>
 
-                            </tr>
+                                    <td class="isi">:</td>
 
-                            <tr>
+                                    <td class="isi_bawah"><?php echo $data->tanggal_permohonan ?></td>
 
-                                <td class="isi_atas">Nama Sampel</td>
+                                </tr>
 
-                                <td class="isi">:</td>
+                                <tr>
 
-                                <td class="isi_bawah"><?php echo $data->nama_sampel ?> (<em><?php echo $data->nama_ilmiah ?></em>)</td>
+                                    <td class="isi_atas">Nomor Permohonan</td>
 
-                            </tr>
+                                    <td class="isi">:</td>
 
-                            <tr>
+                                    <td class="isi_bawah"><?php echo $data->no_permohonan ?></td>
 
-                                <td class="isi_atas">Jumlah Sampel</td>
+                                </tr>
 
-                                <td class="isi">:</td>
+                                <tr>
 
-                                <td class="isi_bawah"><?php echo $data->jumlah_sampel ?> <?php echo $data->satuan ?></td>
+                                    <td class="isi_atas">Nama Sampel</td>
 
-                            </tr>
+                                    <td class="isi">:</td>
 
-                            <tr>
+                                    <td class="isi_bawah"><?php echo $data->nama_sampel ?> (<em><?php echo $data->nama_ilmiah ?></em>)</td>
 
-                                <td class="isi_atas">Target Pengujian</td>
+                                </tr>
 
-                                <td class="isi">:</td>
+                                <tr>
 
-                                <td class="isi_bawah"><em><?php echo $data->target_optk.' '.$data->target_optk2 ?></em></td>
+                                    <td class="isi_atas">Jumlah Sampel</td>
 
-                            </tr>
+                                    <td class="isi">:</td>
 
-                            <tr>
+                                    <td class="isi_bawah"><?php echo $data->jumlah_sampel ?><?php echo $data->satuan ?></td>
 
-                                <td class="isi_atas">Lama Pengujian</td>
+                                </tr>
 
-                                <td class="isi">:</td>
+                                <tr>
 
-                                <td class="isi_bawah"><?php echo $data->lama_pengujian?></td>
+                                    <td class="isi_atas">Target Pengujian</td>
 
-                            </tr>
+                                    <td class="isi">:</td>
 
-                            <tr>
+                                    <td class="isi_bawah"><em><?php echo $data->target_optk . ' ' . $data->target_optk2 ?></em></td>
 
-                                <td class="isi_atas">Status</td>
+                                </tr>
 
-                                <td class="isi">:</td>
+                                <tr>
 
-                                <td class="isi_bawah"><?php echo '<b>'.$isi.'</b>'?></td>
+                                    <td class="isi_atas">Lama Pengujian</td>
 
-                            </tr>
+                                    <td class="isi">:</td>
 
-                            <tr>
+                                    <td class="isi_bawah"><?php echo $data->lama_pengujian ?></td>
 
-                                <td class="isi_atas">Tanggal Selesai</td>
+                                </tr>
 
-                                <td class="isi">:</td>
+                                <tr>
 
-                                <td class="isi_bawah"><?php echo $isi2 ?></td>
+                                    <td class="isi_atas">Status</td>
 
-                            </tr>
+                                    <td class="isi">:</td>
 
-                            <tr>
+                                    <td class="isi_bawah"><?php echo '<b>' . $isi . '</b>' ?></td>
 
-                                <td class="isi_atas zoom"><a href="?page=lihat_data_permohonan" class="btn btn-info btn-cirlce"><i class="fa fa-eye fa-fw"></i> Lihat Semua</a></td>
+                                </tr>
 
-                                <td></td>
+                                <tr>
 
-                                <td></td>
+                                    <td class="isi_atas">Tanggal Selesai</td>
 
-                            </tr>
+                                    <td class="isi">:</td>
 
-                        </table>
+                                    <td class="isi_bawah"><?php echo $isi2 ?></td>
 
-                        <?php endwhile;?>
+                                </tr>
+
+                                <tr>
+
+                                    <td class="isi_atas zoom"><a href="?page=lihat_data_permohonan" class="btn btn-info btn-cirlce"><i class="fa fa-eye fa-fw"></i> Lihat Semua</a></td>
+
+                                    <td></td>
+
+                                    <td></td>
+
+                                </tr>
+
+                            </table>
+
+                            <?php endwhile;?>
+
+                        </div>
 
                     </div>
 
-                </div>
+                </li>
 
-            </li>
 
-            
 
-        <?php }else{ ?>
+                <?php } else {?>
 
 
 
@@ -269,9 +257,9 @@
 
                         <h4 class="timeline-title">Data Permohonan Pengujian Terakhir</h4>
 
-                    <p><small class="text-muted"><i class="fa fa-time"></i>&nbsp;Laboratorium Karantina Tumbuhan</small></p>
+                        <p><small class="text-muted"><i class="fa fa-time"></i>&nbsp;Laboratorium Karantina Tumbuhan</small></p>
 
-                        
+
 
                     </div>
 
@@ -379,7 +367,7 @@
 
 
 
-        <?php } ?>
+            <?php }?>
 
 
 
@@ -401,35 +389,35 @@
 
                     <div class="timeline-body table-responsive">
 
-                    	<?php 
+                        <?php
 
-		            	$tampil = $objectData->tampil3();
+                        $tampil = $objectData->tampil3();
 
-						$b = $objectData->tanggal();
+                        $b = $objectData->tanggal();
 
-						$c = $objectData->tanggal_lalu();
+                        $c = $objectData->tanggal_lalu();
 
-						$d = $objectData->per_pending();
+                        $d = $objectData->per_pending();
 
                         $e = $objectData->per_selesai();
 
                         $f = $objectData->per_nonuji();
 
-             			?>
+                        ?>
 
-                        
+
 
                         <table class="table">
 
-                        	<tr>
+                            <tr>
 
-                    			<td class="isi_atas2">Permohonan Dalam Proses</td>
+                                <td class="isi_atas2">Permohonan Dalam Proses</td>
 
-                    			<td class="isi2">:</td>
+                                <td class="isi2">:</td>
 
-                    			<td class="isi_bawah2"><?php echo $d.' '.'Permohonan' ?></td>
+                                <td class="isi_bawah2"><?php echo $d . ' ' . 'Permohonan' ?></td>
 
-                    		</tr>
+                            </tr>
 
                             <tr>
 
@@ -437,7 +425,7 @@
 
                                 <td class="isi2">:</td>
 
-                                <td class="isi_bawah2"><?php echo $f.' '.'Permohonan' ?></td>
+                                <td class="isi_bawah2"><?php echo $f . ' ' . 'Permohonan' ?></td>
 
                             </tr>
 
@@ -447,45 +435,45 @@
 
                                 <td class="isi2">:</td>
 
-                                <td class="isi_bawah2"><?php echo $e.' '.'Permohonan' ?></td>
+                                <td class="isi_bawah2"><?php echo $e . ' ' . 'Permohonan' ?></td>
 
                             </tr>
 
-                    		<tr>
+                            <tr>
 
-                    			<td class="isi_atas2">Permohonan Bulan Ini</td>
+                                <td class="isi_atas2">Permohonan Bulan Ini</td>
 
-                    			<td class="isi2">:</td>
+                                <td class="isi2">:</td>
 
-                    			<td class="isi_bawah2"><?php echo $b.' '.'Permohonan'  ?></td>
+                                <td class="isi_bawah2"><?php echo $b . ' ' . 'Permohonan' ?></td>
 
-                    		</tr>
+                            </tr>
 
-                    		<tr>
+                            <tr>
 
-                    			<td class="isi_atas2">Permohonan Bulan Lalu</td>
+                                <td class="isi_atas2">Permohonan Bulan Lalu</td>
 
-                    			<td class="isi2">:</td>
+                                <td class="isi2">:</td>
 
-                    			<td class="isi_bawah2"><?php echo $c.' '.'Permohonan'  ?></td>
+                                <td class="isi_bawah2"><?php echo $c . ' ' . 'Permohonan' ?></td>
 
-                    		</tr>
+                            </tr>
 
-                    		<tr >
+                            <tr >
 
-                    			<td class="isi_atas2">Jumlah Seluruh Permohonan</td>
+                                <td class="isi_atas2">Jumlah Seluruh Permohonan</td>
 
-                    			<td class="isi2">:</td>
+                                <td class="isi2">:</td>
 
-                    			<td class="isi_bawah2"><?php echo $tampil.' '.'Permohonan' ?></td>
+                                <td class="isi_bawah2"><?php echo $tampil . ' ' . 'Permohonan' ?></td>
 
-                    		</tr>
+                            </tr>
 
-                    	</table>
+                        </table>
 
 
 
-                        
+
 
                     </div>
 
@@ -495,7 +483,7 @@
 
 
 
-             <li>
+            <li>
 
 
 
@@ -505,51 +493,51 @@
 
                     <div class="timeline-heading ">
 
-                        <?php 
+                        <?php
 
-                                $pesan1 = $objectAdmin->tampil_pesanid();
+                        $pesan1 = $objectAdmin->tampil_pesanid();
 
-                                while($isi1= $pesan1->fetch_object()):
+                        while ($isi1 = $pesan1->fetch_object()):
 
-                                 $id =  $isi1->minId;
+                            $id = $isi1->minId;
 
-                                endwhile;
+                        endwhile;
 
-                                $id2 = @$_GET['id'];
+                        $id2 = @$_GET['id'];
 
-                                if ($id2 == '') {
+                        if ($id2 == '') {
 
-                                    $id3 = $id;
+                            $id3 = $id;
 
-                                }else{
+                        } else {
 
-                                    $id3 = $id2;
+                            $id3 = $id2;
 
-                                }
+                        }
 
-                                $pesan = $objectAdmin->tampil_pesan($id3);
+                        $pesan = $objectAdmin->tampil_pesan($id3);
 
-                                while($isi= $pesan->fetch_object()):
+                        while ($isi = $pesan->fetch_object()):
 
-                                 $a =  $isi->judul;
+                            $a = $isi->judul;
 
-                                 $b =  $isi->isi;
+                            $b = $isi->isi;
 
-                                endwhile;
+                        endwhile;
 
-                         ?>
+                        ?>
 
                         <h4 class="timeline-title "> <span class="pesanJudul"><?php echo $a ?>&nbsp;<i class="fa  fa-bell-o"></i></span> </h4>
 
-					<p><small class="text-muted"><i class="fa fa-time"></i>&nbsp;Sekilas Info</small></p>
+                        <p><small class="text-muted"><i class="fa fa-time"></i>&nbsp;Sekilas Info</small></p>
 
-                        
+
 
                     </div>
 
                     <div class="timeline-body">
 
-                    	<p><?php echo $b ;?></p>
+                        <p><?php echo $b; ?></p>
 
                     </div>
 
@@ -559,7 +547,7 @@
 
 
 
-             <li class="timeline-inverted">
+            <li class="timeline-inverted">
 
                 <div class="timeline-badge danger zoom"><i class="fa fa-heart"></i>
 

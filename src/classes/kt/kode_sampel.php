@@ -12,20 +12,20 @@ $urut = substr($kd_sampel, 0, 4);
 
 $tambah = (int) $urut + 1;
 
-if(strlen($tambah) == 1){
+if (strlen($tambah) == 1) {
 
-$format2 = "000".$tambah."/KT/".$bln."/".$thn;
+    $format2 = "000" . $tambah . "/KT/" . $bln . "/" . $thn;
 
-}elseif (strlen($tambah) == 2) {
+} elseif (strlen($tambah) == 2) {
 
-$format2 = "00".$tambah."/KT/".$bln."/".$thn;
+    $format2 = "00" . $tambah . "/KT/" . $bln . "/" . $thn;
 
-}elseif (strlen($tambah) == 3) {
+} elseif (strlen($tambah) == 3) {
 
-$format2 = "0".$tambah."/KT/".$bln."/".$thn;
+    $format2 = "0" . $tambah . "/KT/" . $bln . "/" . $thn;
 
-}else{
+} else {
 
-$format2 = $tambah."/KT/".$bln."/".$thn;
+    $format2 = $tambah . "/KT/" . $bln . "/" . $thn;
 
 }

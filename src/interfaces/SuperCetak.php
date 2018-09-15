@@ -1,29 +1,28 @@
-<?php  
+<?php
 
 namespace Lab\interfaces;
 
-interface SuperCetak{
+interface SuperCetak
+{
 
-	public function getLogo();
+    public function getLogo();
 
-	public function getLogoSkp();
+    public function getLogoSkp();
 
-	public function getLogoSkpBiasa();
+    public function getLogoSkpBiasa();
 
-	public function getLogoKan();
+    public function getLogoKan();
 
-	public function getLogoSkpKan();
+    public function getLogoSkpKan();
 
-	public function getLogoHorizontal();
+    public function getLogoHorizontal();
 
-	public function getBoxFix();
+    public function getBoxFix();
 
-	public function getCheckFix();
+    public function getCheckFix();
 
-	public function getCheck();
+    public function getCheck();
 
-	public function getHtml2pdf();
+    public function getHtml2pdf();
 
 }
-
-?>

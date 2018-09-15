@@ -2,310 +2,307 @@
 
 namespace Lab\classes;
 
-class tanggal{
+class tanggal
+{
 
-	const SERVER_TIMEZONE = 'Asia/Makassar'; 
+    const SERVER_TIMEZONE = 'Asia/Makassar';
 
-	const SERVER_DATEFORMAT = 'Y-m-d';
+    const SERVER_DATEFORMAT = 'Y-m-d';
 
-	public function tgl_indo($tanggal){
+    public function tgl_indo($tanggal)
+    {
 
-		$bulan = array (
+        $bulan = array(
 
-			1 =>   'Januari',
+            1 => 'Januari',
 
-			'Februari',
+            'Februari',
 
-			'Maret',
+            'Maret',
 
-			'April',
+            'April',
 
-			'Mei',
+            'Mei',
 
-			'Juni',
+            'Juni',
 
-			'Juli',
+            'Juli',
 
-			'Agustus',
+            'Agustus',
 
-			'September',
+            'September',
 
-			'Oktober',
+            'Oktober',
 
-			'November',
+            'November',
 
-			'Desember'
+            'Desember',
 
-		);
+        );
 
-		$pecahkan = explode('-', $tanggal);
+        $pecahkan = explode('-', $tanggal);
 
-		// variabel pecahkan 0 = tanggal
+        // variabel pecahkan 0 = tanggal
 
-		// variabel pecahkan 1 = bulan
+        // variabel pecahkan 1 = bulan
 
-		// variabel pecahkan 2 = tahun
+        // variabel pecahkan 2 = tahun
 
-		return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+        return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
 
-	}
+    }
 
-	public function balik_tgl_indo($tanggal){
+    public function balik_tgl_indo($tanggal)
+    {
 
-		$bulan = array (
+        $bulan = array(
 
-			'Januari' =>   '1',
+            'Januari'   => '1',
 
-			'Februari' => '2',
+            'Februari'  => '2',
 
-			'Pebruari' => '2',
+            'Pebruari'  => '2',
 
-			'Maret' => '3',
+            'Maret'     => '3',
 
-			'April' => '4',
+            'April'     => '4',
 
-			'Mei' => '5',
+            'Mei'       => '5',
 
-			'Juni' => '6',
+            'Juni'      => '6',
 
-			'Juli' => '7',
+            'Juli'      => '7',
 
-			'Agustus' => '8',
+            'Agustus'   => '8',
 
-			'September' => '9',
+            'September' => '9',
 
-			'Oktober' => '10',
+            'Oktober'   => '10',
 
-			'November' => '10',
+            'November'  => '10',
 
-			'Nopember' => '10',
+            'Nopember'  => '10',
 
-			'Desember' => '12'
+            'Desember'  => '12',
 
-		);
+        );
 
-		$pecahkan = explode(' ', $tanggal);
+        $pecahkan = explode(' ', $tanggal);
 
-		// variabel pecahkan 0 = tanggal
+        // variabel pecahkan 0 = tanggal
 
-		// variabel pecahkan 1 = bulan
+        // variabel pecahkan 1 = bulan
 
-		// variabel pecahkan 2 = tahun
+        // variabel pecahkan 2 = tahun
 
-		return $pecahkan[2] . '-' . $bulan[ $pecahkan[1] ] . '-' . $pecahkan[0];
+        return $pecahkan[2] . '-' . $bulan[$pecahkan[1]] . '-' . $pecahkan[0];
 
-	}
+    }
 
-	public function balik_tgl_indo2($tanggal){
+    public function balik_tgl_indo2($tanggal)
+    {
 
-		$bulan = array (
+        $bulan = array(
 
-			'Januari' =>   '1',
+            'Januari'   => '1',
 
-			'Februari' => '2',
+            'Februari'  => '2',
 
-			'Pebruari' => '2',
+            'Pebruari'  => '2',
 
-			'Maret' => '3',
+            'Maret'     => '3',
 
-			'April' => '4',
+            'April'     => '4',
 
-			'Mei' => '5',
+            'Mei'       => '5',
 
-			'Juni' => '6',
+            'Juni'      => '6',
 
-			'Juli' => '7',
+            'Juli'      => '7',
 
-			'Agustus' => '8',
+            'Agustus'   => '8',
 
-			'September' => '9',
+            'September' => '9',
 
-			'Oktober' => '10',
+            'Oktober'   => '10',
 
-			'November' => '10',
+            'November'  => '10',
 
-			'Nopember' => '10',
+            'Nopember'  => '10',
 
-			'Desember' => '12'
+            'Desember'  => '12',
 
-		);
+        );
 
-		$pecahkan = explode(' ', $tanggal);
+        $pecahkan = explode(' ', $tanggal);
 
-		
-		if ($bulan[ $pecahkan[1] ] < 10) {
-			$bulannya = "0".$bulan[ $pecahkan[1] ];
-		}else{
-			$bulannya = $bulan[ $pecahkan[1] ];
-		}
+        if ($bulan[$pecahkan[1]] < 10) {
+            $bulannya = "0" . $bulan[$pecahkan[1]];
+        } else {
+            $bulannya = $bulan[$pecahkan[1]];
+        }
 
+        return $pecahkan[0] . '/' . $bulannya . '/' . $pecahkan[2];
 
-		return $pecahkan[0] . '/' . $bulannya . '/' . $pecahkan[2] ;
+    }
 
-	}
+    public function tgl_indo2($tanggal2)
+    {
 
+        $bulan2 = array(
 
+            1 => 'Januari',
 
+            'Februari',
 
-	public function tgl_indo2($tanggal2){
+            'Maret',
 
-		$bulan2 = array (
+            'April',
 
-			1 =>   'Januari',
+            'Mei',
 
-			'Februari',
+            'Juni',
 
-			'Maret',
+            'Juli',
 
-			'April',
+            'Agustus',
 
-			'Mei',
+            'September',
 
-			'Juni',
+            'Oktober',
 
-			'Juli',
+            'November',
 
-			'Agustus',
+            'Desember',
 
-			'September',
+        );
 
-			'Oktober',
+        $pecahkan2 = explode('-', $tanggal2);
 
-			'November',
+        return $pecahkan2[2] . ' ' . $bulan2[(int) $pecahkan2[1]];
 
-			'Desember'
+    }
 
-		);
+    // FUNGSI BULAN DALAM BAHASA INDONESIA
 
-		$pecahkan2 = explode('-', $tanggal2);	
+    public function bulan($bln)
+    {
 
-		return $pecahkan2[2] . ' ' . $bulan2[ (int)$pecahkan2[1] ] ;
+        $bulan = $bln;
 
-	}
+        switch ($bulan) {
 
-	// FUNGSI BULAN DALAM BAHASA INDONESIA
+            case 1:$bulan = "Januari";
 
-	public function bulan($bln){
+                break;
 
-		$bulan = $bln;
+            case 2:$bulan = "Februari";
 
-			Switch ($bulan){
+                break;
 
-				 case 1 : $bulan="Januari";
+            case 3:$bulan = "Maret";
 
-				 Break;
+                break;
 
-				 case 2 : $bulan="Februari";
+            case 4:$bulan = "April";
 
-				 Break;
+                break;
 
-				 case 3 : $bulan="Maret";
+            case 5:$bulan = "Mei";
 
-				 Break;
+                break;
 
-				 case 4 : $bulan="April";
+            case 6:$bulan = "Juni";
 
-				 Break;
+                break;
 
-				 case 5 : $bulan="Mei";
+            case 7:$bulan = "Juli";
 
-				 Break;
+                break;
 
-				 case 6 : $bulan="Juni";
+            case 8:$bulan = "Agustus";
 
-				 Break;
+                break;
 
-				 case 7 : $bulan="Juli";
+            case 9:$bulan = "September";
 
-				 Break;
+                break;
 
-				 case 8 : $bulan="Agustus";
+            case 10:$bulan = "Oktober";
 
-				 Break;
+                break;
 
-				 case 9 : $bulan="September";
+            case 11:$bulan = "November";
 
-				 Break;
+                break;
 
-				 case 10 : $bulan="Oktober";
+            case 12:$bulan = "Desember";
 
-				 Break;
+                break;
 
-				 case 11 : $bulan="November";
+        }
 
-				 Break;
+        return $bulan;
 
-				 case 12 : $bulan="Desember";
+    }
 
-				 Break;
+    //CARA MEMANGGIL FUNGSI BULAN
 
-		 }
+    // $bulan = bulan(date("m"));
 
-		return $bulan;
+    // echo $bulan;
 
-	}
+    public function hari($tanggal)
+    {
 
+        $hari = date('l', microtime($tanggal));
 
+        $hari_indonesia = array('Monday' => 'Senin',
 
-	//CARA MEMANGGIL FUNGSI BULAN
+            'Tuesday'                        => 'Selasa',
 
+            'Wednesday'                      => 'Rabu',
 
+            'Thursday'                       => 'Kamis',
 
-	// $bulan = bulan(date("m"));
+            'Friday'                         => 'Jum' . "'" . 'at',
 
-	// echo $bulan;
+            'Saturday'                       => 'Sabtu',
 
-	public function hari($tanggal){
+            'Sunday'                         => 'Minggu');
 
-	$hari   = date('l', microtime($tanggal));
+        $hari_ini = $hari_indonesia[$hari];
 
-	$hari_indonesia = array('Monday'  => 'Senin',
+        return $hari_ini;
 
-		'Tuesday'  => 'Selasa',
+    }
 
-		'Wednesday' => 'Rabu',
+    public function now()
+    {
 
-		'Thursday' => 'Kamis',
+        date_default_timezone_set(self::SERVER_TIMEZONE);
 
-		'Friday' => 'Jum'."'".'at',
+        $date = new \DateTime('now');
+        $date->setTimezone(new \DateTimeZone(self::SERVER_TIMEZONE));
+        $str_server_now = $date->format(self::SERVER_DATEFORMAT);
 
-		'Saturday' => 'Sabtu',
+        // return timezone to server default
 
-		'Sunday' => 'Minggu');
+        return $str_server_now;
+    }
 
-	$hari_ini = $hari_indonesia[$hari];
+    public function besok()
+    {
 
-	return $hari_ini;
+        date_default_timezone_set(self::SERVER_TIMEZONE);
 
-	}
+        $date = new \DateTime('tomorrow');
+        $date->setTimezone(new \DateTimeZone(self::SERVER_TIMEZONE));
+        $str_server_tom = $date->format(self::SERVER_DATEFORMAT);
 
+        // return timezone to server default
 
-	public function now() {
-
-	   date_default_timezone_set(self::SERVER_TIMEZONE);
-	 
-	  $date = new \DateTime('now');
-	  $date->setTimezone(new \DateTimeZone(self::SERVER_TIMEZONE));
-	  $str_server_now = $date->format(self::SERVER_DATEFORMAT);
-	 
-	  // return timezone to server default
-	 
-	  return $str_server_now;
-	}
-
-	public function besok() {
-
-	   date_default_timezone_set(self::SERVER_TIMEZONE);
-	 
-	  $date = new \DateTime('tomorrow');
-	  $date->setTimezone(new \DateTimeZone(self::SERVER_TIMEZONE));
-	  $str_server_tom = $date->format(self::SERVER_DATEFORMAT);
-	 
-	  // return timezone to server default
-	 
-	  return $str_server_tom;
-	}
+        return $str_server_tom;
+    }
 
 }
-
-?>

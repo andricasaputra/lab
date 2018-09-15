@@ -10,92 +10,89 @@
 
             </li>
 
-     
 
-             <li class="activE">
+
+            <li class="activE">
 
                 <a><i class="fa fa-flask fa-fw" ></i>Pengujian</a>
 
             </li>
 
-                <ul class="nav">
+            <ul class="nav">
 
-                    <li>
+                <li>
 
-                        <a href="?lab=parasit&page=data_teknis"><i class="fa fa-file-text fa-fw" ></i>Data Teknis</a>
+                    <a href="?lab=parasit&page=data_teknis"><i class="fa fa-file-text fa-fw" ></i>Data Teknis</a>
 
-                    </li>
+                </li>
 
-                    <li>
+                <li>
 
-                        <a href="?lab=parasit&page=sertifikat"><i class="fa fa-check-square fa-fw" ></i>Hasil Pengujian</a>
+                    <a href="?lab=parasit&page=sertifikat"><i class="fa fa-check-square fa-fw" ></i>Hasil Pengujian</a>
 
-                    </li>
-
-                </ul>
-
-                <!-- /.nav-second-level -->
-
-        
+                </li>
 
             </ul>
 
-            <!-- /#side-menu -->
-
-        </div>
+            <!-- /.nav-second-level -->
 
 
-        <!-- /.sidebar-collapse -->
+
+        </ul>
+
+        <!-- /#side-menu -->
 
     </div>
 
-    <!-- /.navbar-static-side -->
+
+    <!-- /.sidebar-collapse -->
+
+</div>
+
+<!-- /.navbar-static-side -->
 
 </nav>
 
-</div> 
+</div>
 
 
 
-     <div id="page-wrapper">
+<div id="page-wrapper">
 
-        <div class="row">
+<div class="row">
 
-            <div class="col-lg-12">             
+<div class="col-lg-12">
 
-            <?php
- 
+    <?php
 
-                if(@$_GET['page']=='dashboard' && @$_GET['lab']=='parasit'){
+    if (@$_GET['page'] == 'dashboard' && @$_GET['lab'] == 'parasit') {
 
-                    require_once "lab_parasit/views/dashboard_penguji.php";
+        require_once "lab_parasit/views/dashboard_penguji.php";
 
-                } elseif (@$_GET['page']=='penyelia_analis' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'penyelia_analis' && $_GET['lab'] == 'parasit') {
 
-                    require_once "lab_parasit/views/penyelia_analis.php";
+        require_once "lab_parasit/views/penyelia_analis.php";
 
-                } elseif (@$_GET['page']=='data_teknis' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'data_teknis' && $_GET['lab'] == 'parasit') {
 
-                    require_once "lab_parasit/views/data_teknis.php";
+        require_once "lab_parasit/views/data_teknis.php";
 
-                } elseif (@$_GET['page']=='sertifikat' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'sertifikat' && $_GET['lab'] == 'parasit') {
 
-                    require_once "lab_parasit/views/sertifikat.php";
+        require_once "lab_parasit/views/sertifikat.php";
 
-                } elseif(@$_GET['page'] == 'lihat_data_permohonan'){
+    } elseif (@$_GET['page'] == 'lihat_data_permohonan') {
 
-                    require_once('lab_parasit/views/lihat_data_permohonan.php');
+        require_once 'lab_parasit/views/lihat_data_permohonan.php';
 
-                }
-            
+    }
+
+    ?>
 
 
-            ?>
 
-                      
+</div>
 
-            </div>    
+</div>
 
-        </div>   
-
-    </div>
+</div>

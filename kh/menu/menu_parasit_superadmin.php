@@ -10,7 +10,7 @@
 
             </li>
 
-           
+
 
             <li>
 
@@ -20,7 +20,7 @@
 
             <li>
 
-            <a href="#"><i class="fa fa-tasks fa-fw"></i> Manajer Administrasi<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-tasks fa-fw"></i> Manajer Administrasi<span class="fa arrow"></span></a>
 
                 <ul class="nav nav-second-level">
 
@@ -84,7 +84,7 @@
 
             </li>
 
-             <li>
+            <li>
 
                 <a href="#"><i class="fa fa-flask fa-fw" ></i>Pengujian<span class="fa arrow"></span></a>
 
@@ -114,7 +114,7 @@
 
             </li>
 
-             <li>
+            <li>
 
                 <a href="#"><i class="fa fa-gear fa-fw"></i> Database<span class="fa arrow"></span></a>
 
@@ -150,126 +150,123 @@
 
 
 
-                </li>
+            </li>
 
-                <li>
+            <li>
 
-                    <a href="?page=input"><i class="fa fa-gear fa-fw"></i>Pesan</a>
+                <a href="?page=input"><i class="fa fa-gear fa-fw"></i>Pesan</a>
 
-                </li>
+            </li>
 
-            </ul>
+        </ul>
 
-            <!-- /#side-menu -->
-
-        </div>
-
+        <!-- /#side-menu -->
 
     </div>
 
-    <!-- /.navbar-static-side -->
+
+</div>
+
+<!-- /.navbar-static-side -->
 
 </nav>
 
-</div> 
+</div>
 
 
 
-     <div id="page-wrapper">
+<div id="page-wrapper">
 
-        <div class="row">
+<div class="row">
 
-            <div class="col-lg-12">             
+<div class="col-lg-12">
 
-            <?php
+    <?php
 
-            if(@$_GET['page']=='dashboard' && $_GET['lab'] == 'parasit'){
+    if (@$_GET['page'] == 'dashboard' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/dashboard_superadmin.php";
+        require_once "lab_parasit/views/dashboard_superadmin.php";
 
-            } elseif (@$_GET['page']=='data_permohonan' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'data_permohonan' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/data_permohonan_kh.php";
+        require_once "lab_parasit/views/data_permohonan_kh.php";
 
-            } elseif (@$_GET['page']=='penerima_sampel' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'penerima_sampel' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/penerima_sampel.php";
+        require_once "lab_parasit/views/penerima_sampel.php";
 
-            } elseif (@$_GET['page'] =='permintaan_kesiapan_pengujian' && $_GET['lab'] == 'parasit') {
+    } elseif (@$_GET['page'] == 'permintaan_kesiapan_pengujian' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/permintaan_kesiapan_pengujian_kh.php";
+        require_once "lab_parasit/views/permintaan_kesiapan_pengujian_kh.php";
 
-            } elseif (@$_GET['page'] =='respon_permohonan' && $_GET['lab'] == 'parasit') {
+    } elseif (@$_GET['page'] == 'respon_permohonan' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/respon_permohonan_pengujian_kh.php";
+        require_once "lab_parasit/views/respon_permohonan_pengujian_kh.php";
 
-            } elseif (@$_GET['page']=='kesiapan_pengujian' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'kesiapan_pengujian' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/kesiapan_pengujian.php";
+        require_once "lab_parasit/views/kesiapan_pengujian.php";
 
-            } elseif (@$_GET['page']=='input_nama_hewan'){
+    } elseif (@$_GET['page'] == 'input_nama_hewan') {
 
-                require_once "database/views/input_database_nama_hewan.php";
+        require_once "database/views/input_database_nama_hewan.php";
 
-            } elseif (@$_GET['page']=='input_nama_pelanggan'){
+    } elseif (@$_GET['page'] == 'input_nama_pelanggan') {
 
-                require_once "database/views/pelanggan_kh.php";
+        require_once "database/views/pelanggan_kh.php";
 
-            } elseif (@$_GET['page']=='input_nama_patogen_kh'){
+    } elseif (@$_GET['page'] == 'input_nama_patogen_kh') {
 
-                require_once "database/views/input_database_patogen_kh.php";
+        require_once "database/views/input_database_patogen_kh.php";
 
-            } elseif (@$_GET['page']=='tambah_nama_user_kh'){
+    } elseif (@$_GET['page'] == 'tambah_nama_user_kh') {
 
-                require_once "database/views/tambah_nama_user_kh.php";
+        require_once "database/views/tambah_nama_user_kh.php";
 
-            } elseif (@$_GET['page']=='respon_permohonan' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'respon_permohonan' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/respon_permohonan_pengujian.php";
+        require_once "lab_parasit/views/respon_permohonan_pengujian.php";
 
-            } elseif (@$_GET['page']=='penyerahan_sampel' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'penyerahan_sampel' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/penyerahan_sampel_kh.php";
+        require_once "lab_parasit/views/penyerahan_sampel_kh.php";
 
-            } elseif (@$_GET['page']=='penyelia_analis' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'penyelia_analis' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/penyelia_analis.php";
+        require_once "lab_parasit/views/penyelia_analis.php";
 
-            } elseif (@$_GET['page']=='pengelola_sampel' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'pengelola_sampel' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/pengelola_sampel.php";
+        require_once "lab_parasit/views/pengelola_sampel.php";
 
-            } elseif (@$_GET['page']=='data_teknis' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'data_teknis' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/data_teknis.php";
+        require_once "lab_parasit/views/data_teknis.php";
 
-            } elseif (@$_GET['page']=='sertifikat' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'sertifikat' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/sertifikat.php";
+        require_once "lab_parasit/views/sertifikat.php";
 
-            } elseif (@$_GET['page']=='surat_hasil_uji' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'surat_hasil_uji' && $_GET['lab'] == 'parasit') {
 
-                require_once "lab_parasit/views/surat_hasil_uji.php";
+        require_once "lab_parasit/views/surat_hasil_uji.php";
 
-            } elseif (@$_GET['page']=='input'){
+    } elseif (@$_GET['page'] == 'input') {
 
-                require_once "lab_parasit/views/pesan.php";
+        require_once "lab_parasit/views/pesan.php";
 
-            } elseif(@$_GET['page'] == 'lihat_data_permohonan' && $_GET['lab'] == 'parasit'){
+    } elseif (@$_GET['page'] == 'lihat_data_permohonan' && $_GET['lab'] == 'parasit') {
 
-                require_once('lab_parasit/views/lihat_data_permohonan.php');
+        require_once 'lab_parasit/views/lihat_data_permohonan.php';
 
-            }
+    }
+
+    ?>
 
 
 
+</div>
 
-            ?>
+</div>
 
-                      
-
-            </div>    
-
-        </div>   
-
-    </div>
+</div>

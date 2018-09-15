@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!isset($_SESSION['loginmtkt'])){
+if (!isset($_SESSION['loginmtkt'])) {
 
     header("Location: ../index.php");
 
@@ -10,7 +10,7 @@ if(!isset($_SESSION['loginmtkt'])){
 
 }
 
-require_once ('templates/header.php');
+require_once 'templates/header.php';
 
 ?>
 
@@ -62,31 +62,23 @@ require_once ('templates/header.php');
 
                 <?php
 
+if (isset($_SESSION['loginmtkt'])) {
+
+    $id = $_SESSION['loginmtkt'];
+
+}
+
+$tampil = $objectData->tampil_nama($id);
+
+$data = $tampil->fetch_object();
+
+echo $data->nama;
+
+?>
 
 
 
 
-                if(isset($_SESSION['loginmtkt'])) {
-
-                    $id = $_SESSION['loginmtkt'];
-
-                }
-
-
-
-                $tampil = $objectData->tampil_nama($id); 
-
-                $data = $tampil->fetch_object();
-
-
-
-                echo $data->nama; 
-
-                ?>
-
-
-
-               
 
     <!-- /.dropdown -->
 
@@ -178,7 +170,7 @@ require_once ('templates/header.php');
 
 </nav>
 
-</div> 
+</div>
 
 
 
@@ -186,39 +178,39 @@ require_once ('templates/header.php');
 
         <div class="row">
 
-            <div class="col-lg-12">             
+            <div class="col-lg-12">
 
             <?php
 
-            if(@$_GET['page']=='dashboard'|| @$_GET['page']==''){
+if (@$_GET['page'] == 'dashboard' || @$_GET['page'] == '') {
 
-                require_once "views/dashboard_mt.php";
+    require_once "views/dashboard_mt.php";
 
-            } elseif (@$_GET['page']=='kesiapan_pengujian'){
+} elseif (@$_GET['page'] == 'kesiapan_pengujian') {
 
-                require_once "views/kesiapan_pengujian.php";
+    require_once "views/kesiapan_pengujian.php";
 
-            } elseif (@$_GET['page']=='penyelia_analis'){
+} elseif (@$_GET['page'] == 'penyelia_analis') {
 
-                require_once "views/penyelia_analis.php";
+    require_once "views/penyelia_analis.php";
 
-            } elseif (@$_GET['page']=='pengelola_sampel'){
+} elseif (@$_GET['page'] == 'pengelola_sampel') {
 
-                require_once "views/pengelola_sampel.php";
+    require_once "views/pengelola_sampel.php";
 
-            }elseif(@$_GET['page'] == 'lihat_data_permohonan'){
+} elseif (@$_GET['page'] == 'lihat_data_permohonan') {
 
-                require_once('views/lihat_data_permohonan.php');
+    require_once 'views/lihat_data_permohonan.php';
 
-            } 
+}
 
-            ?>
+?>
 
-                      
 
-            </div>    
 
-        </div>   
+            </div>
+
+        </div>
 
     </div>
 
@@ -228,15 +220,11 @@ require_once ('templates/header.php');
 
 
 
-    <?php 
+    <?php
 
+require_once 'templates/footer.php';
 
-
-        require_once ('templates/footer.php'); 
-
-
-
-    ?>
+?>
 
 
 

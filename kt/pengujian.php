@@ -2,7 +2,7 @@
 
 session_start();
 
-if(!isset($_SESSION['loginlabkt'])){
+if (!isset($_SESSION['loginlabkt'])) {
 
     header("Location: ../index.php");
 
@@ -10,7 +10,7 @@ if(!isset($_SESSION['loginlabkt'])){
 
 }
 
-require_once ('templates/header.php');
+require_once 'templates/header.php';
 
 ?>
 
@@ -26,29 +26,29 @@ require_once ('templates/header.php');
 
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
 
-                    <span class="sr-only">Toggle navigation</span>
+                <span class="sr-only">Toggle navigation</span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
-                    <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
 
                 </button>
 
                 <button id="menu-toggle" type="button" data-toggle="button" class="btn btn-info2 btn-xs btn-circle">
 
-                    <span class="push"><i class="fa fa-chevron-left"></i></span>
+                <span class="push"><i class="fa fa-chevron-left"></i></span>
 
                 </button>
 
                 <button id="menu-toggle2" type="button" data-toggle="button" class="btn btn-info2 btn-xs btn-circle">
 
-                    <span class="push"><i class="fa fa-chevron-right"></i></span>
+                <span class="push"><i class="fa fa-chevron-right"></i></span>
 
                 </button>
 
-                 <a class="navbar-brand" href="#"><img src="../assets/img/silelogo.jpg" width="40px" class="gambarBrand"><span class="brand2">Sistem Informasi</span> <span class="brand">LABORATORIUM Elektronik</span></a>
+                <a class="navbar-brand" href="#"><img src="../assets/img/silelogo.jpg" width="40px" class="gambarBrand"><span class="brand2">Sistem Informasi</span> <span class="brand">LABORATORIUM Elektronik</span></a>
 
             </div>
 
@@ -60,171 +60,165 @@ require_once ('templates/header.php');
 
                 <?php
 
-
-
-                if(isset($_SESSION['loginlabkt'])) {
+                if (isset($_SESSION['loginlabkt'])) {
 
                     $id = $_SESSION['loginlabkt'];
 
                 }
 
-
-
-                $tampil = $objectData->tampil_nama($id); 
+                $tampil = $objectData->tampil_nama($id);
 
                 $data = $tampil->fetch_object();
 
-
-
-                echo $data->nama; 
+                echo $data->nama;
 
                 ?>
 
-               
-
-    <!-- /.dropdown -->
-
-    <li class="dropdown">
-
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-
-            <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
-
-        </a>
-
-        <ul class="dropdown-menu dropdown-user">
-
-            <li><i class="fa fa-gear fa-fw"></i><?php echo $data->nama_jabatan; ?>
-
-            </li>
-
-            <li class="divider"></li>
-
-            <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-
-            </li>
-
-        </ul>
-
-    </li>
-
-    <!-- /.dropdown -->
-
-</ul>
-
-<!-- /.navbar-top-links -->
 
 
+                <!-- /.dropdown -->
 
-<div class="navbar-default navbar-static-side" role="navigation" id="side">
+                <li class="dropdown">
 
-    <div class="sidebar-collapse">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
 
-        <ul class="nav" id="side-menu">
+                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
 
-            <li>
+                    </a>
 
-                <a href="?page=dashboard"><i class="fa fa-home fa-fw"></i> Dashboard</a>
+                    <ul class="dropdown-menu dropdown-user">
 
-            </li>
+                        <li><i class="fa fa-gear fa-fw"></i><?php echo $data->nama_jabatan; ?>
 
-     
+                        </li>
 
-             <li class="activE">
+                        <li class="divider"></li>
 
-                <a><i class="fa fa-flask fa-fw" ></i>Pengujian</a>
-
-            </li>
-
-                <ul class="nav">
-
-                    <li>
-
-                        <a href="?page=data_teknis"><i class="fa fa-file-text fa-fw" ></i>Data Teknis</a>
-
-                    </li>
-
-                    <li>
-
-                        <a href="?page=sertifikat"><i class="fa fa-check-square fa-fw" ></i>Hasil Pengujian</a>
+                        <li><a href="../logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
 
                     </li>
 
                 </ul>
 
-                <!-- /.nav-second-level -->
+            </li>
 
-        
+            <!-- /.dropdown -->
 
-            </ul>
+        </ul>
 
-            <!-- /#side-menu -->
+        <!-- /.navbar-top-links -->
+
+
+
+        <div class="navbar-default navbar-static-side" role="navigation" id="side">
+
+            <div class="sidebar-collapse">
+
+                <ul class="nav" id="side-menu">
+
+                    <li>
+
+                        <a href="?page=dashboard"><i class="fa fa-home fa-fw"></i> Dashboard</a>
+
+                    </li>
+
+
+
+                    <li class="activE">
+
+                        <a><i class="fa fa-flask fa-fw" ></i>Pengujian</a>
+
+                    </li>
+
+                    <ul class="nav">
+
+                        <li>
+
+                            <a href="?page=data_teknis"><i class="fa fa-file-text fa-fw" ></i>Data Teknis</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="?page=sertifikat"><i class="fa fa-check-square fa-fw" ></i>Hasil Pengujian</a>
+
+                        </li>
+
+                    </ul>
+
+                    <!-- /.nav-second-level -->
+
+
+
+                </ul>
+
+                <!-- /#side-menu -->
+
+            </div>
+
+            <!-- /.sidebar-collapse -->
 
         </div>
 
-        <!-- /.sidebar-collapse -->
+        <!-- /.navbar-static-side -->
 
-    </div>
+    </nav>
 
-    <!-- /.navbar-static-side -->
-
-</nav>
-
-</div> 
+</div>
 
 
 
-     <div id="page-wrapper">
+<div id="page-wrapper">
 
-        <div class="row">
+    <div class="row">
 
-            <div class="col-lg-12">             
+        <div class="col-lg-12">
 
             <?php
 
-            if(@$_GET['page']=='dashboard'|| @$_GET['page']==''){
+            if (@$_GET['page'] == 'dashboard' || @$_GET['page'] == '') {
 
                 require_once "views/dashboard_penguji.php";
 
-            } elseif (@$_GET['page']=='penyelia_analis'){
+            } elseif (@$_GET['page'] == 'penyelia_analis') {
 
                 require_once "views/penyelia_analis.php";
 
-            } elseif (@$_GET['page']=='data_teknis'){
+            } elseif (@$_GET['page'] == 'data_teknis') {
 
                 require_once "views/data_teknis.php";
 
-            } elseif (@$_GET['page']=='sertifikat'){
+            } elseif (@$_GET['page'] == 'sertifikat') {
 
                 require_once "views/sertifikat.php";
 
-            } elseif(@$_GET['page'] == 'lihat_data_permohonan'){
+            } elseif (@$_GET['page'] == 'lihat_data_permohonan') {
 
-                require_once('views/lihat_data_permohonan.php');
+                require_once 'views/lihat_data_permohonan.php';
 
             }
 
             ?>
 
-                      
 
-            </div>    
 
-        </div>   
+        </div>
 
     </div>
 
-
-
-    <!-- /#page-wrapper -->
+</div>
 
 
 
-    <?php 
+<!-- /#page-wrapper -->
 
-        require_once ('templates/footer.php'); 
 
-    ?>
+
+<?php
+
+require_once 'templates/footer.php';
+
+?>
 
 
 
@@ -235,6 +229,3 @@ require_once ('templates/header.php');
 
 
 </html>
-
-
-
