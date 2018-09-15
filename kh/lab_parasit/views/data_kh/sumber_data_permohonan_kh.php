@@ -188,7 +188,7 @@ while($data2 = $query->fetch_object()){
     
         }
 
-        if (isset($_SESSION['loginsuperkh']) || $data2->tanggal_acu_permohonan == $objectTanggal->now()) {
+        if (isset($_SESSION['loginsuperkh'])) {
 
             if ($data2->kesiapan == 'Tidak') {
 

@@ -8,23 +8,23 @@ $content ='
 
 	div#lower{
 
-	margin-left: 370px;
+		margin-left: 370px;
 
 	}
 
 	div#lower2{
 
-	margin-left: 370px;
+		margin-left: 370px;
 
-	position: relative;
+		position: relative;
 
-	margin-bottom:10px;
+		margin-bottom:10px;
 
 	}
 
 	div#logo{
 
-	margin-left: 0px;
+		margin-left: 0px;
 
 	}
 

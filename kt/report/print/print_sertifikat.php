@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -150,15 +148,7 @@ $content ='
 
         $tampil2 = $objectHasil->tampil($_GET['id']);
 
-        $tampil3 = $objectPrint->Scan($_GET['id']);
-
-        while($data3 = $tampil3->fetch_object()):
-
-                $ttd_penyelia_hasil_uji = $data3->ttd_penyelia_hasil_uji;
-
-                $ttd_mt_hasil_uji = $data3->ttd_mt_hasil_uji;
-
-        endwhile;
+        $ttd = $objectPrint->scan(@$_GET['id']);
 
 
     }else {
@@ -878,7 +868,7 @@ $content .= '
         ';
 
 
-            if ($ttd_mt_hasil_uji == 'Tidak' && $ttd_penyelia_hasil_uji == 'Tidak' || $ttd_mt_hasil_uji == '' || $ttd_penyelia_hasil_uji == '') {
+            if ($ttd["ttd_mt_hasil_uji"] == 'Tidak' && $ttd["ttd_penyelia_hasil_uji"] == 'Tidak' || $ttd["ttd_mt_hasil_uji"] == '' || $ttd["ttd_penyelia_hasil_uji"] == '') {
 
                 $content .='
 
@@ -926,86 +916,55 @@ $content .= '
         <tr>
             ';
 
-                if ($ttd_mt_hasil_uji == 'Ya') {
-
-                    $gbr = $objectPrint->gambar($data->kepala_plh);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    if ($data->kepala_plh == 'Fatma Dya Swari, SP') {
-                        $ttd = '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;'.'<img src="../../../assets/img/'.$p.'" width="170">';
-                    }else{
-                        $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
-
-                    }
+                if ($ttd["ttd_mt_hasil_uji"] == 'Ya') {
 
 
-                        $content .='
+                    $content .='
 
+                        <td style="width: 215px; text-align: center;">
+                            <div style="position : relative;z-index: -1; left: -120px">
+                                <img src="'.$basepath.$objectPrint->gambar($data->kepala_plh).'" style="width: 100%">
+                            </div>
+                        </td> 
 
-                                <td style="width: 215px; text-align: center;"><div style="position : relative;z-index: -1; left: -120px">'.$ttd.'</div></td>
-
-
-                            
-
-                        ';
+                    ';
 
                 }else{
 
-                        $content .='
+                    $content .='
 
-
-                                <td style="width: 215px; text-align: center;"></td>
-
-                        
-
+                        <td style="width: 215px; text-align: center;"></td>
+         
                     ';
                 }
 
                 $content .='
 
-
                 <td style="width: 180px"></td>
                 
-
                 ';
 
-                if ($ttd_penyelia_hasil_uji == 'Ya') {
-
-                    $gbr = $objectPrint->gambar($data->nama_penyelia);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    if ($data->nama_penyelia == 'Fatma Dya Swari, SP') {
-                        $ttd = '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;'.'<img src="../../../assets/img/'.$p.'" width="170">';
-                    }else{
-                        $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
-
-                    }
-
-                        $content .='
+                if ($ttd["ttd_penyelia_hasil_uji"] == 'Ya') {
 
 
-                                <td style="width: 215px;text-align: center"><div style="position : relative;z-index: -1; left: -120px">'.$ttd.'</div></td>
+                    $content .='
 
 
-                            
+                        <td style="width: 215px;text-align: center">
+                            <div style="position : relative;z-index: -1; left: -120px">
+                                <img src="'.$basepath.$objectPrint->gambar($data->nama_penyelia).'" style="width: 100%">
+                            </div>
+                        </td>
+                   
 
-                        ';
+                    ';
 
                 }else{
 
-                        $content .='
+                    $content .='
 
-
-                                <td style="width: 215px;text-align: center;"></td>
-
-                        
-
+                      <td style="width: 215px;text-align: center;"></td>
+  
                     ';
                 }
 
@@ -1013,7 +972,6 @@ $content .= '
             $content .='
 
         </tr>
-
 
 
         <tr>

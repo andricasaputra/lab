@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
-
 $content ='
 <style>
 
@@ -84,7 +82,7 @@ $content ='
     .ttd1{
         position: absolute; 
         z-index: -1; 
-        top: 750px;
+        top: 760px;
     }
  
  
@@ -111,22 +109,14 @@ $content ='
 
         $tampil = $objectPrint->tampil(@$_GET['id']);
 
-        $tampil3 = $objectPrint->Scan(@$_GET['id']);
+        $ttd = $objectPrint->scan(@$_GET['id']);
 
-        while($data3 = $tampil3->fetch_object()):
+    }else {
 
-                $ttd_yang_menyerahkan_pengelola_sampel = $data3->ttd_yang_menyerahkan_pengelola_sampel;
+        $tampil=$objectPrint->tampil();
+        exit();
 
-                $ttd_yang_menerima_pengelola_sampel = $data3->ttd_yang_menerima_pengelola_sampel;
-
-        endwhile;
-
-        }else {
-
-            $tampil=$objectPrint->tampil();
-            exit();
-
-        }
+    }
 
         $rtitle = "tanda terima distribusi sampel pengujian <br/> laboratorium karantina tumbuhan";
 
@@ -351,22 +341,15 @@ $content .= '
 
         /*Scan tanda Tangan Pengelola Sampel/ Yang Menerima*/
 
-            if ($ttd_yang_menerima_pengelola_sampel == 'Ya') {
+            if ($ttd["ttd_yang_menerima_pengelola_sampel"] == 'Ya') {
 
-                    $gbr = $objectPrint->gambar($data->yang_menerimalab);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
 
                     $content .='
                     
 
                     <div  id="lower1"  align="center">
                         <div class="ttd1">
-                           '.$ttd.'                          
+                           <img src="'.$basepath.$objectPrint->gambar($data->yang_menerimalab).'" style="width: 120%">                         
                         </div>
                             <p></p>
                             Yang Menerima
@@ -407,22 +390,14 @@ $content .= '
             /*Scan tanda Tangan Pengelola Sampel/ Yang Menyerahkan*/
 
 
-            if ($ttd_yang_menyerahkan_pengelola_sampel == 'Ya') {
-
-                    $gbr = $objectPrint->gambar($data->yang_menyerahkanlab);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
+            if ($ttd["ttd_yang_menyerahkan_pengelola_sampel"] == 'Ya') {
 
                     $content .='
                     
                     
                     <div  id="lower"  align="center">
                         <div class="ttd1">
-                            '.$ttd.'                         
+                            <img src="'.$basepath.$objectPrint->gambar($data->yang_menyerahkanlab).'" style="width: 120%">                           
                         </div>
                             <p></p>
                             Yang Menyerahkan

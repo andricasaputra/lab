@@ -1,10 +1,6 @@
 <?php
 
-session_start();
-
 require_once ('header.php');
-
-$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
 
 $content ='
 
@@ -758,7 +754,7 @@ $content .= '
 
                     $content .='
 
-                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->mt).'></td>
+                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->mt).' style="width: 90%;"></td>
 
                     ';
                     

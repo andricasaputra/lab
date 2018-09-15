@@ -1,36 +1,28 @@
 <?php
 
-session_start();
-
-
-
 require_once ('header.php');
-
-
 
 $content ='
 
 <style>
 
 
-
 	div#lower{
 
-	margin-left: 370px;
+		margin-left: 370px;
 
 	}
 
 	div#lower2{
 
-	margin-left: 370px;
+		margin-left: 370px;
 
 	}
 
 
-
 	div#logo{
 
-	margin-left: 0px;
+		margin-left: 0px;
 
 	}
 
@@ -44,7 +36,7 @@ $content ='
 
     .html2pdf__page-break2 {
 
-      height: 2000px;
+      	height: 2000px;
 
     }
 
@@ -1411,12 +1403,8 @@ $content .= '
 			<p></p>
 
 			<p></p>
-
-			
-
-			('.$data->pemohon.')<br/>
-
-			
+		
+			('.$data->pemohon.')<br/>		
 
 		</div>
 

@@ -1,10 +1,6 @@
 <?php
 
-session_start();
-
 require_once ('header.php');
-
-$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
 
 $content ='
 
@@ -236,17 +232,11 @@ $content ='
 
             $id = $data2->id;
 
+            $ttd = $objectPrint->scan($id);
+
             $qu2 = $objectHasil->input_ulang($id);
 
             $num = $qu2->num_rows;
-
-            $tampil3 = $objectPrint->Scan($id);
-
-            $data3 = $tampil3->fetch_object();
-
-            $ttd_penyelia_data_teknis = $data3->ttd_penyelia_data_teknis;
-
-            $ttd_analis_data_teknis = $data3->ttd_analis_data_teknis;
 
             $bilangan = ucwords($objectNomor->bilangan($data2->jumlah_sampel));
 
@@ -834,7 +824,7 @@ $content ='
 
         ';
 
-            if ($ttd_penyelia_data_teknis == 'Tidak' && $ttd_analis_data_teknis == 'Tidak' || $ttd_penyelia_data_teknis == '' || $ttd_analis_data_teknis == '') {
+            if ($ttd["ttd_penyelia_data_teknis"] == 'Tidak' && $ttd["ttd_analis_data_teknis"] == 'Tidak' || $ttd["ttd_penyelia_data_teknis"] == '' || $ttd["ttd_analis_data_teknis"] == '') {
 
                 $content .='
 
@@ -878,23 +868,12 @@ $content ='
         <tr>
             ';
 
-                if ($ttd_penyelia_data_teknis == 'Ya') {
-
-                    $gbr = $objectPrint->gambar($data2->nama_penyelia);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
+                if ($ttd["ttd_penyelia_data_teknis"] == 'Ya') {
 
                         $content .='
 
+                        <td style="width: 215px; text-align: center;"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$basepath.$objectPrint->gambar($data2->nama_penyelia).'" style="width: 100%"></div></td>
 
-                                <td style="width: 215px; text-align: center;"><div style="position: relative; z-index: -1; left: -120px">'.$ttd.'</div></td>
-
-
-                            
 
                         ';
 
@@ -902,12 +881,10 @@ $content ='
 
                         $content .='
 
+                        <td style="width: 215px; text-align: center;"></td>
+                
 
-                                <td style="width: 215px; text-align: center;"></td>
-
-                        
-
-                    ';
+                        ';
                 }
 
                 $content .='
@@ -918,23 +895,12 @@ $content ='
 
                 ';
 
-                if ($ttd_analis_data_teknis == 'Ya') {
+                if ($ttd["ttd_analis_data_teknis"] == 'Ya') {
 
-                    $gbr = $objectPrint->gambar($data2->nama_analis);
+                    $content .='
 
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
-
-                        $content .='
-
-
-                                <td style="width: 215px;text-align: center"><div style="position: relative; z-index: -1; left: -120px">'.$ttd.'</div></td>
-
-
-                            
+                        <td style="width: 215px;text-align: center"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$basepath.$objectPrint->gambar($data2->nama_analis).'" style="width: 100%"></div></td>
+      
 
                         ';
 
@@ -942,12 +908,10 @@ $content ='
 
                         $content .='
 
+                        <td style="width: 215px; text-align: center;"></td>
+   
 
-                                <td style="width: 215px; text-align: center;"></td>
-
-                        
-
-                    ';
+                        ';
                 }
 
 

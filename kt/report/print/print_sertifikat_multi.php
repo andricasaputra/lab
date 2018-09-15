@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -157,38 +155,38 @@ $content ='
 
            exit;
     
-        }else{   
+        }   
 
 
-            $no=1;
+        $no=1;
 
-            $a = $_POST['no_a'];
+        $a = $_POST['no_a'];
 
-            $b = $_POST['no_b'];
+        $b = $_POST['no_b'];
 
-            $d = (int)$a;
+        $d = (int)$a;
 
-            $e = (int)$b; 
-
-
-            $tampil2 = $objectPrint->print_multi_sertifikat($a, $b);
+        $e = (int)$b; 
 
 
-            if ($d > $e) {
+        $tampil2 = $objectPrint->print_multi_sertifikat($a, $b);
 
 
+        if ($d > $e) {
 
-                echo "<script>alert('Format Nomor sertifikat Yang Anda Pilih Salah (Sampai dan dari)');window.close()'</script>";
 
-                exit;
+            echo "<script>alert('Format Nomor sertifikat Yang Anda Pilih Salah (Sampai dan dari)');window.close()'</script>";
 
-            }
+            exit;
 
         }
+       
 
-         if ($tampil2->num_rows === 0) {
+        if ($tampil2->num_rows === 0) {
+
             echo '<script>alert("Tidak Ada Data Untuk Di Cetak! Periksa Kembali Pemilihan Tanggal");window.close();</script>';
             return false;
+
         }
 
         $rtitle = "sertifikat hasil pengujian laboratorium karantina tumbuhan";
@@ -203,13 +201,7 @@ $content ='
 
             $id = $data->id;
 
-            $tampil3 = $objectPrint->Scan($id);
-
-            $data3 = $tampil3->fetch_object();
-
-            $ttd_penyelia_hasil_uji = $data3->ttd_penyelia_hasil_uji;
-
-            $ttd_mt_hasil_uji = $data3->ttd_mt_hasil_uji;
+            $ttd = $objectPrint->scan($id);
 
             $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
@@ -219,7 +211,6 @@ $content ='
 
             
     $content .='
-
 
 
     <div align="center">
@@ -393,13 +384,10 @@ $content ='
             }
 
 
-
             if (!empty($data->bagian_tumbuhan) && $data->bagian_tumbuhan == 'Daun') {
 
 
-
                 $content .='
-
 
 
                 <span style="margin-left: 10px"><img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Daun</span>
@@ -411,13 +399,10 @@ $content ='
             }else{
 
 
-
                 $content .='
 
 
-
                 <span style="margin-left: 10px"><img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Daun</span>
-
 
 
                 ';
@@ -429,13 +414,9 @@ $content ='
             if (!empty($data->bagian_tumbuhan) && $data->bagian_tumbuhan == 'Umbi') {
 
 
-
                 $content .='
 
-
-
                <span style="margin-left: 10px"><img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Umbi</span>
-
 
 
                 ';
@@ -443,13 +424,9 @@ $content ='
             }else{
 
 
-
                 $content .='
 
-
-
                 <span style="margin-left: 10px"><img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Umbi</span>
-
 
 
                 ';
@@ -457,10 +434,7 @@ $content ='
             }
 
 
-
-            $content .='
-
-                            
+            $content .='                       
 
             </td>
 
@@ -470,17 +444,9 @@ $content ='
 
             <td width="24">&nbsp;</td>
 
-            <td width="234">
+            <td width="234"></td>
 
-                
-
-            </td>
-
-            <td width="18">
-
-            
-
-            </td>
+            <td width="18"></td>
 
             <td width="316">
 
@@ -492,10 +458,7 @@ $content ='
 
                 $content .='
 
-
-
                <img src="'.$checkfix.'" style="width: 12px">&nbsp;&nbsp;Buah
-
 
 
                 ';
@@ -503,19 +466,14 @@ $content ='
             }else{
 
 
-
                 $content .='
 
-
-
                 <img src="'.$boxfix.'" style="width: 12px">&nbsp;&nbsp;Buah
-
 
 
                 ';
 
             }
-
 
 
             if (!empty($data->bagian_tumbuhan) && $data->bagian_tumbuhan == 'Seluruh Bagian Tanaman') {
@@ -549,10 +507,7 @@ $content ='
             }
 
 
-
-            $content .='
-
-                        
+            $content .='                   
 
             </td>
 
@@ -639,15 +594,11 @@ $content ='
 
 
             $content .='
-
-                 
-
-                 
+    
 
             </td>
 
         </tr>
-
 
 
         <tr>
@@ -677,7 +628,6 @@ $content ='
             </td>
 
         </tr>
-
 
 
         <tr>
@@ -936,7 +886,7 @@ $content ='
          ';
 
 
-            if ($ttd_mt_hasil_uji == 'Tidak' && $ttd_penyelia_hasil_uji == 'Tidak' || $ttd_mt_hasil_uji == '' || $ttd_penyelia_hasil_uji == '') {
+            if ($ttd["ttd_mt_hasil_uji"] == 'Tidak' && $ttd["ttd_penyelia_hasil_uji"] == 'Tidak' || $ttd["ttd_mt_hasil_uji"] == '' || $ttd["ttd_penyelia_hasil_uji"] == '') {
 
                 $content .='
 
@@ -984,86 +934,55 @@ $content ='
         <tr>
             ';
 
-                if ($ttd_mt_hasil_uji == 'Ya') {
-
-                    $gbr = $objectPrint->gambar($data->kepala_plh);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    if ($data->kepala_plh == 'Fatma Dya Swari, SP') {
-                        $ttd = '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;'.'<img src="../../../assets/img/'.$p.'" width="170">';
-                    }else{
-                        $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
-
-                    }
+                if ($ttd["ttd_mt_hasil_uji"] == 'Ya') {
 
 
-                        $content .='
+                    $content .='
 
+                        <td style="width: 215px; text-align: center;">
+                            <div style="position : relative;z-index: -1; left: -120px">
+                                <img src="'.$basepath.$objectPrint->gambar($data->kepala_plh).'" style="width: 100%">
+                            </div>
+                        </td> 
 
-                                <td style="width: 215px; text-align: center;"><div style="position : relative;z-index: -1; left: -120px">'.$ttd.'</div></td>
-
-
-                            
-
-                        ';
+                    ';
 
                 }else{
 
-                        $content .='
+                    $content .='
 
-
-                                <td style="width: 215px; text-align: center;"></td>
-
-                        
-
+                        <td style="width: 215px; text-align: center;"></td>
+         
                     ';
                 }
 
                 $content .='
 
-
                 <td style="width: 180px"></td>
                 
-
                 ';
 
-                if ($ttd_penyelia_hasil_uji == 'Ya') {
-
-                    $gbr = $objectPrint->gambar($data->nama_penyelia);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    if ($data->nama_penyelia == 'Fatma Dya Swari, SP') {
-                        $ttd = '&nbsp;'.'&nbsp;'.'&nbsp;'.'&nbsp;'.'<img src="../../../assets/img/'.$p.'" width="170">';
-                    }else{
-                        $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
-
-                    }
-
-                        $content .='
+                if ($ttd["ttd_penyelia_hasil_uji"] == 'Ya') {
 
 
-                                <td style="width: 215px;text-align: center"><div style="position : relative;z-index: -1; left: -120px">'.$ttd.'</div></td>
+                    $content .='
 
 
-                            
+                        <td style="width: 215px;text-align: center">
+                            <div style="position : relative;z-index: -1; left: -120px">
+                                <img src="'.$basepath.$objectPrint->gambar($data->nama_penyelia).'" style="width: 100%">
+                            </div>
+                        </td>
+                   
 
-                        ';
+                    ';
 
                 }else{
 
-                        $content .='
+                    $content .='
 
-
-                                <td style="width: 215px;text-align: center;"></td>
-
-                        
-
+                      <td style="width: 215px;text-align: center;"></td>
+  
                     ';
                 }
 

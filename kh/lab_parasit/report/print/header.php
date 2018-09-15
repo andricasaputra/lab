@@ -1,5 +1,7 @@
 <?php 
 
+session_start();
+
 ob_start();
 
 ini_set('max_execution_time', 300);
@@ -51,5 +53,11 @@ $check = $objectPrint->getCheck();
 $html2pdf = $objectPrint->getHtml2pdf();
 
 $scan = $objectPrint->getscan();
+
+$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
+
+$bulan = $objectTanggal->bulan(date("m")); 
+
+$tahun = date('Y');
 
 ?>

@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -134,7 +132,7 @@ div#lower1{
 .ttd1{
     position: absolute; 
     z-index: -1; 
-    top: 750px;
+    top: 760px;
 }
 
 
@@ -203,13 +201,7 @@ div#lower1{
 
         $id = $data->id;
 
-        $tampil3 = $objectPrint->Scan($id);
-
-        $data3 = $tampil3->fetch_object();
-
-        $ttd_yang_menyerahkan_pengelola_sampel = $data3->ttd_yang_menyerahkan_pengelola_sampel;
-
-        $ttd_yang_menerima_pengelola_sampel = $data3->ttd_yang_menerima_pengelola_sampel;
+        $ttd = $objectPrint->scan($id);
 
         $i = $data->yang_menerimalab;
 
@@ -629,117 +621,100 @@ $content .= '
 
 ';
 
-        /*Scan tanda Tangan Pengelola Sampel/ Yang Menerima*/
+     /*Scan tanda Tangan Pengelola Sampel/ Yang Menerima*/
 
-            if ($ttd_yang_menerima_pengelola_sampel == 'Ya') {
-
-                    $gbr = $objectPrint->gambar($data->yang_menerimalab);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
-
-                    $content .='
-                    
-
-                    <div  id="lower1"  align="center">
-                        <div class="ttd1">
-                           '.$ttd.'                          
-                        </div>
-                            <p></p>
-                            Yang Menerima
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                                
-                            ('.$data->yang_menerimalab.')<br/>
-                            NIP. '.$data->nip_yang_menerimalab.'
-                    </div>
-
-
-                ';
-
-                
-                
-            }else{
+        if ($ttd["ttd_yang_menerima_pengelola_sampel"] == 'Ya') {
 
 
                 $content .='
+                
 
-                    <div  id="lower1" align="center">
+                <div  id="lower1"  align="center">
+                    <div class="ttd1">
+                       <img src="'.$basepath.$objectPrint->gambar($data->yang_menerimalab).'" style="width: 120%">                         
+                    </div>
                         <p></p>
                         Yang Menerima
                         <p></p>
                         <p></p>
                         <p></p>
-                        
+                            
                         ('.$data->yang_menerimalab.')<br/>
                         NIP. '.$data->nip_yang_menerimalab.'
-                    </div>
+                </div>
 
 
-                ';
+            ';
 
-            }
+            
+            
+        }else{
 
-            /*Scan tanda Tangan Pengelola Sampel/ Yang Menyerahkan*/
 
+            $content .='
 
-            if ($ttd_yang_menyerahkan_pengelola_sampel == 'Ya') {
-
-                    $gbr = $objectPrint->gambar($data->yang_menyerahkanlab);
-
-                    $pilih = $gbr->fetch_object();
-
-                    $p = $pilih->ttd;
-
-                    $ttd = '<img src="../../../assets/img/'.$p.'" width="170">';
-
-                    $content .='
+                <div  id="lower1" align="center">
+                    <p></p>
+                    Yang Menerima
+                    <p></p>
+                    <p></p>
+                    <p></p>
                     
-                    
-                    <div  id="lower"  align="center">
-                        <div class="ttd1">
-                            '.$ttd.'                         
-                        </div>
-                            <p></p>
-                            Yang Menyerahkan
-                            <p></p>
-                            <p></p>
-                            <p></p>
-                                
-                            ('.$data->yang_menyerahkanlab.')<br/>
-                            NIP. '.$data->nip_yang_menyerahkanlab.'
-                    </div>
+                    ('.$data->yang_menerimalab.')<br/>
+                    NIP. '.$data->nip_yang_menerimalab.'
+                </div>
 
-                ';
 
- 
-                
-                
-            }else{
+            ';
 
+        }
+
+        /*Scan tanda Tangan Pengelola Sampel/ Yang Menyerahkan*/
+
+
+        if ($ttd["ttd_yang_menyerahkan_pengelola_sampel"] == 'Ya') {
 
                 $content .='
-
-                    <div  id="lower"  align="center">
+                
+                
+                <div  id="lower"  align="center">
+                    <div class="ttd1">
+                        <img src="'.$basepath.$objectPrint->gambar($data->yang_menyerahkanlab).'" style="width: 120%">                           
+                    </div>
                         <p></p>
                         Yang Menyerahkan
                         <p></p>
                         <p></p>
                         <p></p>
-                        
+                            
                         ('.$data->yang_menyerahkanlab.')<br/>
                         NIP. '.$data->nip_yang_menyerahkanlab.'
-                    </div>
+                </div>
+
+            ';
 
 
+            
+            
+        }else{
 
-                ';
 
-            }
+            $content .='
+
+                <div  id="lower"  align="center">
+                    <p></p>
+                    Yang Menyerahkan
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    
+                    ('.$data->yang_menyerahkanlab.')<br/>
+                    NIP. '.$data->nip_yang_menyerahkanlab.'
+                </div>
+
+            ';
+
+        }
 
  
 

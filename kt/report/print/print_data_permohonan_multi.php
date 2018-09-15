@@ -10,7 +10,7 @@ $content ='
 
 		margin-left: 370px;
 
-
+	}
 
 
 	div#lower2{
@@ -91,7 +91,7 @@ $content ='
 
 	.html2pdf__page-break2 {
 
-      height: 2000px;
+      	height: 2000px;
 
     }
 

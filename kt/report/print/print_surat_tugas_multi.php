@@ -2,13 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = $objectTanggal->tgl_indo(date("Y-m-d"));
-
-$bulan = $objectTanggal->bulan(date("m")); 
-
-$tahun = date('Y');
-
-   
 $content ='
 
 <style>

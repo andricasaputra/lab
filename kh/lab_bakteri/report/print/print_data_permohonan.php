@@ -1,7 +1,5 @@
 <?php
 
-session_start();
-
 require_once ('header.php');
 
 $content ='
@@ -12,13 +10,13 @@ $content ='
 
 	div#lower{
 
-	margin-left: 370px;
+		margin-left: 370px;
 
 	}
 
 	div#lower2{
 
-	margin-left: 370px;
+		margin-left: 370px;
 
 	}
 
@@ -26,7 +24,7 @@ $content ='
 
 	div#logo{
 
-	margin-left: 0px;
+		margin-left: 0px;
 
 	}
 
