@@ -250,4 +250,26 @@ class Cetak extends LegacyCetak
 
         return $scan;
     }
+
+    /*Buku Harian Data teknis*/
+    public function CetakForBukuHarianDatek($tgl)
+    {
+
+        $sql = "SELECT id, tanggal_pengujian, kode_sampel, target_pengujian2, metode_pengujian, nama_analis, nama_penyelia FROM input_permohonan_kh  WHERE DATE(waktu_apdate_sertifikat) IN ('$tgl')";
+        $query = $this->db->query($sql) or die ($this->db->error);
+
+        return $query;
+
+    }
+
+    /*Buku Harian Data teknis*/
+    public function GetIdCetakForBukuHarianDatek($id)
+    {
+
+        $sql = "SELECT id, positif_negatif,no_sampel FROM hasil_kh WHERE id = $id GROUP BY positif_negatif ";
+        $query = $this->db->query($sql) or die ($this->db->error);
+
+        return $query;
+
+    }
 }

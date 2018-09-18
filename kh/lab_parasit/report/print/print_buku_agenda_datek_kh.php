@@ -149,11 +149,33 @@ $content .= '
             <td>'.$objectTanggal->balik_tgl_indo2($data->tanggal_penyerahan_lab).'</td>
             <td>'.$data->kode_sampel.'</td>
             <td>'.$data->nama_sampel.'</td>
-            <td>'.$data->target_pengujian2.', <br/>'.$data->target_pengujian3.'</td>
+            <td><em>'.$data->target_pengujian2.', <br/>'.$data->target_pengujian3.'</em></td>
             <td width="5%">'.$data->metode_pengujian.'</td>
             <td width="5%">'.$objectTanggal->balik_tgl_indo2($data->tanggal_sertifikat).'</td>
             <td>'.$data->positif_negatif.',<br/> '.$data->positif_negatif_target3.'</td>
-            <td width="20%">'.$data->nama_analis.'</td>
+            <td width="20%">
+                ';
+
+                if (strpos($data->nama_analis, "&") != false) {
+
+                    $content .='
+
+                        '.str_replace("&", "<br/>", $data->nama_analis).'
+
+                    ';
+                    
+                }else{
+
+                    $content .='
+
+                        '.$data->nama_analis.'
+
+                    ';
+
+                }
+
+            $content .='
+            </td>
             <td width="40%">'.$data->nama_penyelia.'</td>
 
                

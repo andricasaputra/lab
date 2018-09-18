@@ -13,9 +13,21 @@ $nama_penyelia			=htmlspecialchars($conn->real_escape_string(trim($_POST['nama_p
 
 $nama_analis			=htmlspecialchars($conn->real_escape_string(trim($_POST['nama_analis'])));
 
+if (@$_POST['nama_analis2'] !='') {
+	
+	$nama_analis .= " & " . htmlspecialchars($conn->real_escape_string(trim($_POST["nama_analis2"])));
+
+}
+
 $jab_penyelia			=htmlspecialchars($conn->real_escape_string(trim($_POST['jab_penyelia'])));
 
 $jab_analis				=htmlspecialchars($conn->real_escape_string(trim($_POST['jab_analis'])));
+
+if (@$_POST['jab_analis2'] !='') {
+	
+	$jab_analis .= " & " . htmlspecialchars($conn->real_escape_string(trim($_POST["jab_analis2"])));
+
+}
 
 $hari					=htmlspecialchars($conn->real_escape_string(trim($_POST['hari'])));
 

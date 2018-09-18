@@ -38,6 +38,18 @@ if(isset($_REQUEST['id'])){
 
       $analis                   = $data->nama_analis;
 
+      $analis2 = '';
+
+      if (strpos($analis, "&") != false) {
+        
+        $x = explode("&", $analis);
+
+        $analis = trim($x[0]);
+
+        $analis2 = trim($x[1]);
+
+      }
+
 
 
 endwhile;
@@ -204,6 +216,63 @@ endwhile;
                                     <?php endif; endwhile;?>
 
                               </select>
+
+                          </div>
+
+                          <div id="showAnalis2">
+
+                          <?php  
+
+                            if ($analis2 != '') { ?>
+
+                              <div class="column-full">
+
+                                <label class="control-label" for="analis2">Analis 2</label>
+
+                                 <select class="form-control" name="analis2" id="analis2" style="pointer-events: none;"> 
+
+                                  <option><?= $analis2; ?></option>
+
+                                    <?php 
+
+                                      $i = $objectData->tampil_jabfung();
+
+                                     while ($t=$i->fetch_object()) : ?>
+
+
+                                      <option><?=$t->nama_pejabat ;?></option>
+
+
+                                  <?php endwhile;?>
+
+                                </select>
+
+                              </div>
+
+                              <div class="column-full">
+
+                                <label class="control-label" for="nip_analis2">NIP Analis 2</label>
+
+                                <select class="form-control" name="nip_analis2" id="nip_analis2" style="pointer-events: none;">
+
+                                    <?php 
+
+                                      $i = $objectData->tampil_jabfung();
+
+                                      while ($t=$i->fetch_object()) : 
+
+                                        if ($t->nama_pejabat == $analis2) : ?>
+
+                                          <option value="<?=$t->nip ;?>" selected><?=$t->nip ;?></option>
+
+                                    <?php endif; endwhile;?>
+
+                              </select>
+
+                              </div>
+
+
+                          <?php  } ?>
 
                           </div>
 

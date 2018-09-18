@@ -99,6 +99,21 @@ class Cetak extends LegacyCetak
         return $query;
     }
 
+    public function print_agenda($tgl1 = null, $tgl2 = null)
+    {
+
+        $sql = "SELECT input_permohonan.id, input_permohonan.tanggal_permohonan ,input_permohonan.kode_sampel, input_permohonan.tanggal_pengujian, input_permohonan.nama_sampel, input_permohonan.target_optk, input_permohonan.target_optk2, input_permohonan.target_optk3, input_permohonan.metode_pengujian, input_permohonan.nama_penyelia, input_permohonan.nama_analis, input_permohonan.nama_sampel, input_permohonan.tanggal_sertifikat ,hasil_kt.id ,hasil_kt.positif_negatif, hasil_kt.no_sampel, hasil_kt.no_sertifikat FROM input_permohonan LEFT JOIN hasil_kt ON input_permohonan.id = hasil_kt.id";
+
+        if ($tgl1 != null && $tgl2 != null) {
+            $sql .= " WHERE DATE(input_permohonan.waktu_apdate_sertifikat) BETWEEN '$tgl1' AND '$tgl2'";
+        }
+
+        $query = $this->db->query($sql) or die($this->db->error);
+
+        return $query;
+
+    }
+
     /*Print Multi lhu*/
 
     public function print_multi_lhu($tgl, $tgl2)
@@ -150,6 +165,28 @@ class Cetak extends LegacyCetak
         }
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
+    }
+
+    /*Buku Harian Data teknis*/
+    public function CetakForBukuHarianDatek($tgl)
+    {
+
+        $sql = "SELECT id, tanggal_pengujian, kode_sampel, target_optk, target_optk2, target_optk3, metode_pengujian, nama_analis, nama_penyelia FROM input_permohonan WHERE DATE(waktu_apdate_sertifikat) IN ('$tgl')";
+        $query = $this->db->query($sql) or die ($this->db->error);
+
+        return $query;
+
+    }
+
+    /*Buku Harian Data teknis*/
+    public function GetIdCetakForBukuHarianDatek($id)
+    {
+
+        $sql = "SELECT id, positif_negatif,no_sampel,hasil_pengujian FROM hasil_kt WHERE id = $id GROUP BY positif_negatif ";
+        $query = $this->db->query($sql) or die ($this->db->error);
+
+        return $query;
+
     }
 
 }

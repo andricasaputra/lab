@@ -6,8 +6,7 @@ use Lab\config\Database;
 
 abstract class LegacyData extends Database
 {
-    protected $db;
-    protected $conn;
+    protected $db, $conn;
 
     protected function __construct()
     {

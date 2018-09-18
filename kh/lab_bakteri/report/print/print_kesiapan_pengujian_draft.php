@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -68,6 +66,11 @@ $content ='
     }
 
 
+    .bahan1{
+        margin-top: 5px;
+    }
+
+
 
 
 
@@ -84,7 +87,7 @@ $no=1;
         $tampil = $objectPrint->tampil(@$_GET['id']);
 
 
-    }else {
+    } else {
 
         $tampil=$objectPrint->cetak(date('Y-m-d'));
 
@@ -137,13 +140,41 @@ $content .='
 <table class="penyelia1">
     
     <tr>
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        ';
 
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        if ($data->penyelia == 'Kompeten') {
+
+            $content .='
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+            ';
+            
+        } else {
+
+            $content .='
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+            ';
+
+        }
+
+
+        $content .='
+        
     </tr>
 
 </table>
@@ -151,13 +182,40 @@ $content .='
 <table class="penyelia2">
     
     <tr>
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        ';
 
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        if ($data->penyelia2 == 'Ada') {
+
+            $content .='
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+            ';
+            
+        } else {
+
+            $content .='
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+            ';
+
+        }
+
+
+        $content .='
     </tr>
 
 </table>
@@ -165,13 +223,40 @@ $content .='
 <table class="analis1">
     
     <tr>
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        ';
 
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        if ($data->analis == 'Kompeten') {
+
+            $content .='
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+            ';
+            
+        } else {
+
+            $content .='
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+            ';
+
+        }
+
+
+        $content .='
     </tr>
 
 </table>
@@ -179,13 +264,40 @@ $content .='
 <table class="analis2">
     
     <tr>
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        ';
 
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        if ($data->analis2 == 'Ada') {
+
+            $content .='
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+            ';
+            
+        } else {
+
+            $content .='
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+            ';
+
+        }
+
+
+        $content .='
     </tr>
 
 </table>
@@ -193,13 +305,40 @@ $content .='
 <table class="bahan1">
     
     <tr>
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        ';
 
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        if ($data->bahan == 'Baik') {
+
+            $content .='
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+            ';
+            
+        } else {
+
+            $content .='
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+            ';
+
+        }
+
+
+        $content .='
     </tr>
 
 </table>
@@ -207,13 +346,40 @@ $content .='
 <table class="bahan2">
     
     <tr>
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        ';
 
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        if ($data->bahan2 == 'Ada') {
+
+            $content .='
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+            ';
+            
+        } else {
+
+            $content .='
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+            ';
+
+        }
+
+
+        $content .='
     </tr>
 
 </table>
@@ -221,13 +387,40 @@ $content .='
 <table class="alat1">
     
     <tr>
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        ';
 
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        if ($data->alat == 'Ada') {
+
+            $content .='
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+            ';
+            
+        } else {
+
+            $content .='
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+            ';
+
+        }
+
+
+        $content .='
     </tr>
 
 </table>
@@ -235,13 +428,40 @@ $content .='
 <table class="alat2">
     
     <tr>
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        ';
 
-        <td>
-            <img src='.$check.' style="width: 30px">
-        </td>
+        if ($data->alat2 == 'Baik') {
+
+            $content .='
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+            ';
+            
+        } else {
+
+            $content .='
+
+                <td>
+                    <div style="width: 30px"></div>
+                </td>
+
+                <td>
+                    <img src='.$check.' style="width: 30px">
+                </td>
+
+            ';
+
+        }
+
+
+        $content .='
     </tr>
 
 </table>
@@ -255,7 +475,7 @@ $content .='
     '.$data->tanggal_diterima.'
 </div>
 
-<div style="margin-left: 370px;margin-top:60px">
+<div style="margin-left: 380px;margin-top:50px">
     '.$data->mt.'
 </div>
 

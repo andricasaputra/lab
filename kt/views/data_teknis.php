@@ -27,6 +27,14 @@
             <li class="divider"></li>
             
             <a href="" data-toggle="modal" data-target="#pertanggal"><font color="#2e2e1f"><i class="fa fa-print fa-fw"></i> Multiple Print</font></a>
+
+            <li class="divider"></li>
+
+            <a href="" data-toggle="modal" data-target="#agenda"><font color="#2e2e1f"><i class="fa fa-book fa-fw"></i> Print Buku Agenda</font></a>
+
+            <li class="divider"></li>
+
+            <a href="" data-toggle="modal" data-target="#bukuharian"><font color="#2e2e1f"><i class="fa fa-list-alt fa-fw"></i> Print Buku Harian</font></a>
             
             <li class="divider"></li>
             
@@ -297,9 +305,7 @@
                 <table>
                   
                   <tr>
-                    
-                    
-                    
+   
                     <td>
                       
                       <input type="submit" name="print_perhari" class="btn btn-success" value="Print">
@@ -328,7 +334,163 @@
     
   </div>
   
-  
+  <!-- Print Buku Agenda -->
+
+      
+  <div id="agenda" class="modal fade" role="dialog">
+
+    <div class="modal-dialog" style="width: 30%">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4>Pilih Tanggal</h4>
+
+        </div>
+
+          <div class="modal-body" id="modal-print">
+
+            <div id="responsive-form" class="clearfix">
+
+                  <form action="./report/print/print_buku_agenda_datek.php" method="post" target="_blank">
+
+                    <table>
+                      <tr>
+                        <td width="40%">
+                          <div class="form-group" align="left">Dari Tanggal</div>   
+                        </td>
+                        <td width="10%">
+                          <div class="form-group" align="center">:</div>
+                        </td>
+                        <td width="50%">
+                          <div class="form-group">
+                            <input type="date" name="tgl_a" class="form-control">
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td width="40%">
+                          <div class="form-group" align="left">Sampai Tanggal</div>   
+                        </td>
+                        <td width="10%">
+                          <div class="form-group" align="center">:</div>
+                        </td>
+                        <td width="50%">
+                          <div class="form-group">
+                            <input type="date" name="tgl_b" class="form-control">
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+              <div class="modal-footer" >
+
+                <table>
+
+                    <tr> 
+
+                      <td>
+
+                        <input type="submit" name="print_agenda" class="btn btn-success" value="Print">
+
+                      </td>
+
+                      <td width="7%"></td>
+
+                      <td></td>
+
+                    </tr>
+
+                </table>  
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- Print Buku Harian -->
+
+        
+  <div id="bukuharian" class="modal fade" role="dialog">
+
+    <div class="modal-dialog" style="width: 30%">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4>Pilih Tanggal</h4>
+
+        </div>
+
+          <div class="modal-body" id="modal-print">
+
+            <div id="responsive-form" class="clearfix">
+
+                  <form action="./report/print/print_buku_harian_datek.php" method="post" target="_blank">
+
+                    <table>
+                      <tr>
+                        <td width="40%">
+                          <div class="form-group" align="left">Tanggal</div>   
+                        </td>
+                        <td width="10%">
+                          <div class="form-group" align="center">:</div>
+                        </td>
+                        <td width="50%">
+                          <div class="form-group">
+                            <input type="date" name="tgl_a" class="form-control">
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+              <div class="modal-footer" >
+
+                <table>
+
+                    <tr> 
+
+                      <td>
+
+                        <input type="submit" name="print_agenda" class="btn btn-success" value="Print">
+
+                      </td>
+
+                      <td width="7%"></td>
+
+                      <td></td>
+
+                    </tr>
+
+                </table>  
+
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
   
   <!-- Export Multiple -->
   

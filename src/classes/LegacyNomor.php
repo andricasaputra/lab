@@ -6,8 +6,9 @@ use Lab\config\Database;
 
 abstract class LegacyNomor extends Database
 {
-    protected $db,
-        $conn;
+    protected $db, $conn;
+
+    abstract protected function bilangan($bilangan);
 
     protected function __construct()
     {
@@ -17,10 +18,9 @@ abstract class LegacyNomor extends Database
 
     }
 
-    abstract public function bilangan($bilangan);
-
     protected function setbilangan($bilangan)
     {
+        
         $angka = array('0', '0', '0', '0', '0', '0', '0', '0', '0', '0',
 
             '0', '0', '0', '0', '0', '0');
@@ -36,6 +36,7 @@ abstract class LegacyNomor extends Database
         /* pengujian panjang bilangan */
 
         if ($panjang_bilangan > 15) {
+
             $kalimat = "Diluar Batas";
 
             return $kalimat;
@@ -47,6 +48,7 @@ abstract class LegacyNomor extends Database
         dimasukkan ke dalam array */
 
         for ($i = 1; $i <= $panjang_bilangan; $i++) {
+
             $angka[$i] = substr($bilangan, -($i), 1);
 
         }
@@ -72,10 +74,13 @@ abstract class LegacyNomor extends Database
             /* untuk ratusan */
 
             if ($angka[$i + 2] != "0") {
+
                 if ($angka[$i + 2] == "1") {
+
                     $kata1 = "seratus";
 
                 } else {
+
                     $kata1 = $kata[$angka[$i + 2]] . " ratus";
 
                 }
@@ -85,29 +90,37 @@ abstract class LegacyNomor extends Database
             /* untuk puluhan atau belasan */
 
             if ($angka[$i + 1] != "0") {
+
                 if ($angka[$i + 1] == "1") {
+
                     if ($angka[$i] == "0") {
+
                         $kata2 = "sepuluh";
 
                     } elseif ($angka[$i] == "1") {
-                    $kata2 = "sebelas";
+
+                        $kata2 = "sebelas";
+
+                    } else {
+
+                        $kata2 = $kata[$angka[$i]] . " belas";
+
+                    }
 
                 } else {
-                    $kata2 = $kata[$angka[$i]] . " belas";
+
+                    $kata2 = $kata[$angka[$i + 1]] . " puluh";
 
                 }
 
-            } else {
-                $kata2 = $kata[$angka[$i + 1]] . " puluh";
-
             }
-
-        }
 
         /* untuk satuan */
 
         if ($angka[$i] != "0") {
+
             if ($angka[$i + 1] != "1") {
+
                 $kata3 = $kata[$angka[$i]];
 
             }
@@ -121,6 +134,7 @@ abstract class LegacyNomor extends Database
         if (($angka[$i] != "0") or ($angka[$i + 1] != "0") or
 
             ($angka[$i + 2] != "0")) {
+
             $subkalimat = "$kata1 $kata2 $kata3 " . $tingkat[$j] . " ";
 
         }
@@ -140,6 +154,7 @@ abstract class LegacyNomor extends Database
         /* mengganti satu ribu jadi seribu jika diperlukan */
 
         if (($angka[5] == "0") and ($angka[6] == "0")) {
+
             $kalimat = str_replace("satu ribu", "seribu", $kalimat);
 
         }

@@ -279,7 +279,7 @@ endwhile;
             </div>
 
 
-
+            <div id="showAnalis2"></div>
 
 
             <div class="column-half">
@@ -324,6 +324,15 @@ endwhile;
 
                   </select>
 
+              </div>
+
+              <div class="column-half">
+
+                  <label>
+                    <input type="checkbox" name="tombolanalis2" id="tombolanalis2">
+                    &nbsp; Tugaskan Analis Ke 2
+                  </label>
+                  
               </div>
 
             </div>
@@ -461,6 +470,89 @@ endwhile;
                   });
                 }
             });
+
+      });
+
+      $( "#tombolanalis2" ).on('change', function () {
+
+         /*Jika Dicentang*/
+
+        if ($(this).is(":checked")) {
+
+            $('#showAnalis2').html(
+
+                '<div class="column-full">'+
+
+                '<label class="control-label" for="nama_analis2">Analis 2</label>'+
+
+                 '<select class="form-control" name="nama_analis2" id="nama_analis_input2" required>' +
+
+                  '<option></option>'+
+
+                    <?php 
+
+                      $i = $objectData->tampil_jabfung();
+
+                     while ($t=$i->fetch_object()) : 
+
+                        if ($t->nama_pejabat == 'Siska Murtini, A.Md') : ?>
+
+                        '<option selected><?=$t->nama_pejabat ;?></option>'+
+
+                        <?php else: ?>
+
+                        '<option><?=$t->nama_pejabat ;?></option>'+
+
+                        <?php endif; 
+
+                    endwhile;?>
+
+                '</select>'+
+
+              '</div>'+
+
+
+              '<div class="column-full">'+
+
+                '<label class="control-label" for="jab_analis2">Jabatan Analis 2</label>'+
+
+                '<select class="form-control" name="jab_analis2" id="jab_analis_input2" required>' +
+
+                  '<option>Paramedik Veteriner Pelaksana Lanjutan</option>'+
+
+
+                '</select>'+
+
+              '</div>'
+
+            );
+
+
+            $('#nama_analis_input2').change(function () {
+
+              let pejabatID = $(this).val();
+
+                $.get({
+                    url: "lab_parasit/views/data_kh/SourceDataJabatan_kh.php",
+                    dataType: 'Json',
+                    data: {'id':pejabatID},
+                    success: function(data) {
+                        $('#jab_analis_input2').empty();
+                        $.each(data, function(key, value) {
+                            $('#jab_analis_input2').append('<option>'+ value +'</option>');
+                      });
+                    }
+                });
+
+            });
+
+        /*Jika Tidak Dicentang*/
+
+        }else{
+
+            $('#showAnalis2').empty();
+        }
+
 
       });
 

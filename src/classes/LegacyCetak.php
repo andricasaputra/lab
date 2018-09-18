@@ -22,10 +22,8 @@ define("SCANTTD", $basepath . "/assets/img/");
 
 abstract class LegacyCetak extends Database implements SuperCetak
 {
-
-    protected $db,
-    $conn,
-    $logo           = LOGO,
+  
+    private $logo   = LOGO,
     $logoskp        = LOGOSKP,
     $logoskpbiasa   = LOGOSKPBIASA,
     $logohorizontal = LOGOHORIZONTAL,
@@ -36,7 +34,20 @@ abstract class LegacyCetak extends Database implements SuperCetak
     $check          = CHECK,
     $html2pdf       = HTML2PDF,
     $scan           = SCANTTD;
+
+    protected $db, $conn;
+    
     public $backtop, $backleft, $backright, $backbottom;
+
+    abstract protected function tampil($id = null);
+
+    abstract protected function Scan($id);
+
+    abstract protected function print_agenda($tgl1, $tgl2);
+
+    abstract protected function CetakForBukuHarianDatek($tgl);
+
+    abstract protected function GetIdCetakForBukuHarianDatek($id);
 
     protected function __construct()
     {
@@ -160,20 +171,16 @@ abstract class LegacyCetak extends Database implements SuperCetak
 
         $query = $this->db->query($sql) or die($this->db->error);
 
-        while ($page = $query->fetch_object()) {
+        $page = $query->fetch_object(); 
 
-            $this->backtop    = $page->backtop;
-            $this->backbottom = $page->backbottom;
-            $this->backleft   = $page->backleft;
-            $this->backright  = $page->backright;
-
-        }
+        $this->backtop    = $page->backtop;
+        $this->backbottom = $page->backbottom;
+        $this->backleft   = $page->backleft;
+        $this->backright  = $page->backright;
 
         return $this;
 
     }
 
-    abstract public function tampil($id = null);
-
-    abstract public function Scan($id);
+    
 }

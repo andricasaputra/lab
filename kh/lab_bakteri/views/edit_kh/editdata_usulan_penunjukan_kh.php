@@ -28,9 +28,33 @@ if(isset($_REQUEST['id'])){
 
       $nama_analis          = $data->nama_analis;
 
+      $nama_analis2 = '';
+
+      if (strpos($nama_analis, "&") != false) {
+        
+        $x = explode("&", $nama_analis);
+
+        $nama_analis = $x[0];
+
+        $nama_analis2 = $x[1];
+
+      }
+
       $jab_penyelia         = $data->jab_penyelia;
 
       $jab_analis           = $data->jab_analis;
+
+      $jab_analis2 = '';
+
+      if (strpos($jab_analis, "&") != false) {
+        
+        $x = explode("&", $jab_analis);
+
+        $jab_analis = $x[0];
+
+        $jab_analis2 = $x[1];
+
+      }
 
       $hari                 = $data->hari;
 
@@ -237,9 +261,6 @@ endwhile;
           </div>
 
 
-
-
-
           <div class="column-half">
 
             <label class="control-label" for="jab_penyelia">Jabatan Penyelia</label>
@@ -254,7 +275,7 @@ endwhile;
 
 
 
-          <div class="column-half">
+            <div class="column-half">
 
               <label class="control-label" for="jab_analis">Jabatan Analis</label>
 
@@ -267,9 +288,58 @@ endwhile;
 
             </div>
 
+            <div id="showAnalis2">
+
+            <?php  
+
+              if ($nama_analis2 != '') { ?>
+
+                
 
 
+                <div class="column-full">
 
+                  <label class="control-label" for="nama_analis">Analis 2</label>
+
+                   <select class="form-control" name="nama_analis2" id="nama_analis2" required> 
+
+                    <option><?= $nama_analis2; ?></option>
+
+                      <?php 
+
+                        $i = $objectData->tampil_jabfung();
+
+                       while ($t=$i->fetch_object()) : ?>
+
+
+                        <option><?=$t->nama_pejabat ;?></option>
+
+
+                    <?php endwhile;?>
+
+                  </select>
+
+                </div>
+
+                <div class="column-full">
+
+                  <label class="control-label" for="jab_analis2">Jabatan Analis 2</label>
+
+                  <select class="form-control" name="jab_analis2" id="jab_analis2" required> 
+
+                    <option><?=$jab_analis2; ?></option>
+
+
+                  </select>
+
+                </div>
+
+                
+
+
+            <?php  } ?>
+
+          </div><!-- For Show Analis 2 -->
 
             <div class="column-half">
 
@@ -311,6 +381,26 @@ endwhile;
 
               </div>
 
+              <div class="column-half">
+
+                  <label>
+
+                   <?php if ($nama_analis2 != '') { ?>
+
+                    <input type="checkbox" name="tombolanalis2" id="tombolanalis2" checked>
+                    &nbsp; Tugaskan Analis Ke 2
+
+                   <?php  } else { ?>
+
+                    <input type="checkbox" name="tombolanalis2" id="tombolanalis2">
+                    &nbsp; Tugaskan Analis Ke 2
+
+                  <?php } ?>
+
+                  </label>
+                  
+              </div>
+
             </div>
 
               <div class="modal-footer" >
@@ -327,9 +417,6 @@ endwhile;
   </div> 
 
 
-
-
- 
 
 <?php
 }
@@ -446,6 +533,82 @@ endwhile;
                   });
                 }
             });
+
+      });
+
+      $( "#tombolanalis2" ).on('change', function () {
+
+         /*Jika Dicentang*/
+
+        if ($(this).is(":checked")) {
+
+            $('#showAnalis2').html(
+
+                '<div class="column-full">'+
+
+                '<label class="control-label" for="nama_analis2">Analis 2</label>'+
+
+                 '<select class="form-control" name="nama_analis2" id="nama_analis2" required>' +
+
+                  '<option> <?= $nama_analis2; ?>  </option>'+
+
+                      <?php 
+
+                        $i = $objectData->tampil_jabfung();
+
+                       while ($t=$i->fetch_object()) : ?>
+
+
+                        '<option> <?=$t->nama_pejabat ;?> </option>'+
+
+
+                    <?php endwhile;?>
+
+                '</select>'+
+
+              '</div>'+
+
+
+              '<div class="column-full">'+
+
+                '<label class="control-label" for="jab_analis2">Jabatan Analis 2</label>'+
+
+                '<select class="form-control" name="jab_analis2" id="jab_analis2" required>' +
+
+                  '<option> <?=$jab_analis; ?> </option>'+
+
+
+                '</select>'+
+
+              '</div>'
+
+            );
+
+            $('#nama_analis2').change(function () {
+
+              let pejabatID = $(this).val();
+
+                $.get({
+                    url: "lab_bakteri/views/data_kh/SourceDataJabatan_kh.php",
+                    dataType: 'Json',
+                    data: {'id':pejabatID},
+                    success: function(data) {
+                        $('#jab_analis2').empty();
+                        $.each(data, function(key, value) {
+                            $('#jab_analis2').append('<option>'+ value +'</option>');
+                      });
+                    }
+                });
+
+            });
+
+        /*Jika Tidak Dicentang*/
+
+        }else{
+
+            $('#showAnalis2').empty();
+        }
+
 
       });
 

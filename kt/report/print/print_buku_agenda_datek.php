@@ -126,15 +126,15 @@ $content .= '
 
             <th>Target Pengujian</th>
 
-            <th width="5%">Metode <br> Pengujian</th>
+            <th>Metode <br> Pengujian</th>
 
-            <th width="5%">Tgl Selesai <br> Pengujian </th>
+            <th>Tgl Selesai <br> Pengujian </th>
 
             <th>Hasil Uji</th>
 
-            <th width="20%">Analis</th>
+            <th>Analis</th>
 
-            <th width="20%">Penyelia</th>
+            <th>Penyelia</th>
 
           </tr>
 
@@ -150,36 +150,12 @@ $content .= '
             <td>'.$no++.'</td>
             <td>'.$objectTanggal->balik_tgl_indo2($data->tanggal_permohonan).'</td>
             <td>'.$data->kode_sampel.'</td>
-            <td>'.$data->nama_sampel_lab.'</td>
-            <td><em>'.$data->target_pengujian2.'</em></td>
-            <td width="5%">'.$data->metode_pengujian.'</td>
+            <td width="5%">'.$data->nama_sampel.'</td>
+            <td width="15%"><em>'.$data->target_optk.' '.$data->target_optk2.' '.$data->target_optk3.'</em></td>
+            <td style="width: 5%">'.$data->metode_pengujian.'</td>
             <td width="5%">'.$objectTanggal->balik_tgl_indo2($data->tanggal_sertifikat).'</td>
             <td>'.$data->positif_negatif.'</td>
-            <td width="20%">
-
-            ';
-
-                if (strpos($data->nama_analis, "&") != false) {
-
-                    $content .='
-
-                        '.str_replace("&", "<br/>", $data->nama_analis).'
-
-                    ';
-                    
-                }else{
-
-                    $content .='
-
-                        '.$data->nama_analis.'
-
-                    ';
-
-                }
-
-            $content .='
-
-            </td>
+            <td width="20%">'.$data->nama_analis.'</td>
             <td width="20%">'.$data->nama_penyelia.'</td>
 
                

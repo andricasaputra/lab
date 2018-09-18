@@ -175,6 +175,26 @@ while ($data=$tampil->fetch_object()){
 
     $title = ucwords($rtitle).' | '.$data->no_surat_tugas;
 
+    if (strpos($data->nama_analis, "&") != false) {
+
+        $x = explode("&", $data->nama_analis);
+
+        $nama_analis = $x[0];
+
+        $nama_analis2 = $x[1];
+        
+    }
+
+    if (strpos($data->jab_analis, "&") != false) {
+        
+        $x = explode("&", $data->jab_analis);
+
+        $jab_analis = $x[0];
+
+        $jab_analis2 = $x[1];
+
+    }
+
   
 
 $content .= '
@@ -203,9 +223,6 @@ $content .= '
 
 
         <p></p>
-
-
-
 
 
         <table style="text-align: center">
@@ -258,53 +275,143 @@ $content .= '
 
               <tr >
 
+                ';
+
+                    if (strpos($data->nama_analis, "&") != false) {
+
+                        $content .='
+
+
+                            <td style="width:5%; border-bottom:0px; ">1 <br><br><br> 2 <br><br><br><br> 3</td>
+
+                            <td style="width:10%;border-bottom:0px; ">'.$data->nama_penyelia.'<br><br>'.$nama_analis.'<br><br><br><br>'.$nama_analis2.'</td>   
+
+                            <td style="width:5%;border-bottom:0px;  "><img src='.$check.' width="25px; height:25px;"></td>
+
+                            <td style="width:5%;border-bottom:0px; "><br><br><br><img src='.$check.' width="25px; height:25px;"><br><br><br><img src='.$check.' width="25px; height:25px;"></td>
+
+                            <td style="width:10%;border-bottom:0px; ">'.$data->jab_penyelia.'<br><br>'.$jab_analis.'<br><br>'.$jab_analis2.'</td>
+
+                            <td style="width:10%;border-bottom:0px; ">
+                                '.$data->no_sampel.'
+                            </td>
+
+                            <td style="width:17%;border-bottom:0px; "> <em>'.$data->target_pengujian2.' </em></td>
+
+                            <td style="width:15%;border-bottom:0px; ">'.$data->metode_pengujian.' </td>
+
+                            <td style="width:10%;border-bottom:0px;">
+                                '.$data->jumlah_sampel.'
+                            </td>
+
+
+                        ';
+                        
+                    }else{
+
+
+                        $content .='
+
+
+                            <td style="width:5%; border-bottom:0px; ">1 <br><br><br> 2</td>
+
+                            <td style="width:10%;border-bottom:0px; ">'.$data->nama_penyelia.'<br><br>'.$data->nama_analis.'</td>   
+
+                            <td style="width:5%;border-bottom:0px;  "><img src='.$check.' width="25px; height:25px;"></td>
+
+                            <td style="width:5%;border-bottom:0px; "><br><br><br><img src='.$check.' width="25px; height:25px;"></td>
+
+                            <td style="width:10%;border-bottom:0px; ">'.$data->jab_penyelia.'<br><br>'.$data->jab_analis.'</td>
+
+                            <td style="width:10%;border-bottom:0px; ">
+                                '.$data->no_sampel.'
+                            </td>
+
+                            <td style="width:17%;border-bottom:0px; "> <em>'.$data->target_pengujian2.' </em></td>
+
+                            <td style="width:15%;border-bottom:0px; ">'.$data->metode_pengujian.' </td>
+
+                            <td style="width:10%;border-bottom:0px;">
+                                '.$data->jumlah_sampel.'
+                            </td>
+
+
+                        ';
+
+
+
+                    }
+
+                $content .='
                 
 
-                <td style="width:5%; border-bottom:0px; ">1 <br><br><br> 2</td>
-
-                <td style="width:10%;border-bottom:0px; ">'.$data->nama_penyelia.'<br><br>'.$data->nama_analis.'</td>   
-
-                <td style="width:5%;border-bottom:0px;  "><img src='.$check.' width="25px; height:25px;"></td>
-
-                <td style="width:5%;border-bottom:0px; "><br><br><br><img src='.$check.' width="25px; height:25px;"></td>
-
-                <td style="width:10%;border-bottom:0px; ">'.$data->jab_penyelia.'<br><br>'.$data->jab_analis.'</td>
-
-                <td style="width:10%;border-bottom:0px; ">
-                    '.$data->no_sampel.'
-                </td>
-
-                <td style="width:17%;border-bottom:0px; "> <em>'.$data->target_pengujian2.' </em></td>
-
-                <td style="width:15%;border-bottom:0px; ">'.$data->metode_pengujian.' </td>
-
-                <td style="width:10%;border-bottom:0px;">
-                    '.$data->jumlah_sampel.'
-                </td>
-
-               
 
               </tr>
 
               <tr>
 
-                    <td style="border-top:0px; padding-bottom: 80px"></td>
+                ';
 
-                    <td style="border-top:0px"></td>
+                    if (strpos($data->nama_analis, "&") != false) {
 
-                    <td style="border-top:0px"></td>
+                        $content .='
 
-                    <td style="border-top:0px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px; padding-bottom: 10px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+
+                        ';
+                        
+                    }else{
+
+
+                        $content .='
+
+
+                            <td style="border-top:0px; padding-bottom: 80px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+
+                        ';
+
+
+
+                    }
+
+                $content .='
+
+                    
 
               </tr>
 
