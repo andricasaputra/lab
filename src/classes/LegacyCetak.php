@@ -49,6 +49,10 @@ abstract class LegacyCetak extends Database implements SuperCetak
 
     abstract protected function GetIdCetakForBukuHarianDatek($id);
 
+    abstract protected function CetakForLembarKerjaDatek($tgl);
+
+    abstract protected function GetIdCetakForLembarKerjaDatek($id);
+
     protected function __construct()
     {
 

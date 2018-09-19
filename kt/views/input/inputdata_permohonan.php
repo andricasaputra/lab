@@ -326,6 +326,10 @@ if ($hasil2 !== 0) {
 
                                   <option>Ekstrak / Corong Baerman</option>
 
+                                  <option>Pemeriksaan Langsung</option>
+
+                                  <option>Washing Test</option>
+
                                   <option>Uji Rujukan</option>
 
                         </select><br>
@@ -342,6 +346,10 @@ if ($hasil2 !== 0) {
 
                                   <option>Ekstrak / Corong Baerman</option>
 
+                                  <option>Pemeriksaan Langsung</option>
+
+                                  <option>Washing Test</option>
+
                                   <option>Uji Rujukan</option>
 
                         </select><br>
@@ -357,6 +365,10 @@ if ($hasil2 !== 0) {
                                   <option>Uji Gram KOH</option>
 
                                   <option>Ekstrak / Corong Baerman</option>
+
+                                  <option>Pemeriksaan Langsung</option>
+
+                                  <option>Washing Test</option>
 
                                   <option>Uji Rujukan</option>
 
@@ -701,6 +713,10 @@ $(document).ready(function(e){
 
                 '<option>Ekstrak / Corong Baerman</option>' +
 
+                '<option>Pemeriksaan Langsung</option>' +
+
+                '<option>Washing Test</option>' +
+
                 '<option>Uji Rujukan</option>' +
 
                 '<option></option>'  
@@ -720,6 +736,10 @@ $(document).ready(function(e){
 
                 '<option>Ekstrak / Corong Baerman</option>' +
 
+                '<option>Pemeriksaan Langsung</option>' +
+
+                '<option>Washing Test</option>' +
+
                 '<option>Uji Rujukan</option>' +
 
                 '<option></option>'  
@@ -738,6 +758,10 @@ $(document).ready(function(e){
                 '<option>Identifikasi Morfologi</option>' +
 
                 '<option>Ekstrak / Corong Baerman</option>' +
+
+                '<option>Pemeriksaan Langsung</option>' +
+
+                '<option>Washing Test</option>' +
 
                 '<option>Uji Rujukan</option>' +
 
@@ -778,6 +802,10 @@ $(document).ready(function(e){
                   '<option>Uji Gram KOH</option>' +
 
                   '<option>Ekstrak / Corong Baerman</option>' +
+
+                  '<option>Pemeriksaan Langsung</option>' +
+
+                  '<option>Washing Test</option>' +
 
                   '<option>Uji Rujukan</option>'   
 

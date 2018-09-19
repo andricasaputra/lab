@@ -39,6 +39,10 @@
 
                   <li class="divider"></li>
 
+                    <a href="" data-toggle="modal" data-target="#lembarkerja"><font color="#2e2e1f"><i class="fa fa-list-alt fa-fw"></i> Print Lembar Kerja</font></a>
+
+                  <li class="divider"></li>
+
                     <a href="?lab=parasit&page=data_teknis"><font color="#2e2e1f"><i class="fa fa-arrow-circle-left fa-fw"></i> Ke Lab Parasit</font></a>
 
               </div>
@@ -444,6 +448,78 @@
           <div id="responsive-form" class="clearfix">
 
                 <form action="./lab_bakteri/report/print/print_buku_harian_datek_kh.php" method="post" target="_blank">
+
+                  <table>
+                    <tr>
+                      <td width="40%">
+                        <div class="form-group" align="left">Tanggal</div>   
+                      </td>
+                      <td width="10%">
+                        <div class="form-group" align="center">:</div>
+                      </td>
+                      <td width="50%">
+                        <div class="form-group">
+                          <input type="date" name="tgl_a" class="form-control">
+                        </div>
+                      </td>
+                    </tr>
+                  </table>
+            <div class="modal-footer" >
+
+              <table>
+
+                  <tr> 
+
+                    <td>
+
+                      <input type="submit" name="print_agenda" class="btn btn-success" value="Print">
+
+                    </td>
+
+                    <td width="7%"></td>
+
+                    <td></td>
+
+                  </tr>
+
+              </table>  
+
+            </div>
+
+          </form>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- Print Lembar Kerja -->
+
+      
+<div id="lembarkerja" class="modal fade" role="dialog">
+
+  <div class="modal-dialog" style="width: 30%">
+
+    <div class="modal-content">
+
+      <div class="modal-header">
+
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+        <h4>Pilih Tanggal</h4>
+
+      </div>
+
+        <div class="modal-body" id="modal-print">
+
+          <div id="responsive-form" class="clearfix">
+
+                <form action="./lab_bakteri/report/print/print_lembar_kerja_datek_kh.php" method="post" target="_blank">
 
                   <table>
                     <tr>

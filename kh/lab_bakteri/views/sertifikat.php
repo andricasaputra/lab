@@ -105,13 +105,13 @@
 
                   <th width= "15%">Nomor Sertifikat</th>
 
-                  <th width= "15%">Kode Sampel</th>
+                  <th width= "13%">Kode Sampel</th>
 
-                  <th width= "14%">Nomor Sampel</th>
+                  <th width= "12%">Nomor Sampel</th>
 
-                  <th width= "14%">Nama Sampel</th>
+                  <th width= "10%">Nama Sampel</th>
 
-                  <th width= "36%">Action</th>
+                  <th width= "44%">Action</th>
 
               </tr>
 

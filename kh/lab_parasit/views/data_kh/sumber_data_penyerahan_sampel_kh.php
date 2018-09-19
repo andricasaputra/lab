@@ -244,7 +244,7 @@ while($data2 = $query->fetch_object()){
 
         }else{
 
-            if(isset($_SESSION['loginsuperkh']) || $data2->tanggal_acu_permohonan == $objectTanggal->now()){
+            if(isset($_SESSION['loginsuperkh']) || date("Y-m-d", strtotime($data2->waktu_apdate_sertifikat)) == $objectTanggal->now()){
 
                 $subdata[] = '
                 

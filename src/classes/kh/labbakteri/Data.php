@@ -609,4 +609,13 @@ class Data extends LegacyData implements SuperData
 
     }
 
+    public function checkDataTeknis()
+    {
+
+        $sql = "SELECT id,no_sertifikat, tanggal_pengujian FROM input_permohonan_kh WHERE  id = (SELECT min(id) FROM input_permohonan_kh WHERE tanggal_pengujian = '')";
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query->num_rows;
+
+    }
+
 }
