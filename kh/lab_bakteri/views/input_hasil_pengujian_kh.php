@@ -200,13 +200,36 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           $x = explode("-", $j);
 
+                          $n = array();
+
                           if($jum != 1){
 
-                              $k = $x[0];
+                              $awal = $x[0];
 
-                              $l = $x[1];
+                              $akhir = $x[1];
 
-                              $r = range($k, $l);
+
+                              if (strpos($awal, "0") !== false && strpos($akhir, "0") !== false) {
+                                    
+                                    $awal = ltrim($awal, "0"); 
+
+                                    $akhir = ltrim($akhir, "0");
+
+                                    for ($i = $awal; $i <= $akhir; $i++) { 
+
+
+                                        $n[] = "0".$i;
+                                  
+                                    }
+
+                                    $r = $n;
+
+                              }else{
+
+                                    $r = range($awal, $akhir);
+                              }
+
+                              
 
                           }else{
 
@@ -215,6 +238,7 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
                           }
 
                       }
+
 
 
                     foreach ($r as $no):
@@ -333,6 +357,7 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
                     window.location.href = redirect
 
                 });
+                console.log(data);  
            }  
          });
       }));

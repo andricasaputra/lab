@@ -498,7 +498,7 @@ class Data extends LegacyData implements SuperData
 
     }
 
-    public function infoDataTeknis($select = null)
+    public function infoDataTeknis($select = null, $tgl=null)
     {
 
         if ($select == null) {
@@ -516,6 +516,18 @@ class Data extends LegacyData implements SuperData
         } elseif ($select == 'getid') {
 
             $sql   = "SELECT id FROM input_permohonan_kh WHERE yang_menerimalab != '' AND tanggal_pengujian = ''";
+            $query = $this->db->query($sql) or die($this->db->error);
+            return $query;
+
+        } elseif ($select == 'maxpenyerahan') {
+
+            $sql   = "SELECT max(no_sampel) as no_sampel FROM input_permohonan_kh WHERE tanggal_pengujian IN ('$tgl')";
+            $query = $this->db->query($sql) or die($this->db->error);
+            return $query;
+
+        } elseif ($select == 'minpenyerahan') {
+
+            $sql   = "SELECT min(no_sampel) as no_sampel FROM input_permohonan_kh WHERE tanggal_pengujian IN ('$tgl')";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 

@@ -194,7 +194,7 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif (empty($result_tanggal_pengujian) && empty($result_rekomendasi) && $id2 > $result_id) {
+        }/*elseif (empty($result_tanggal_pengujian) && empty($result_rekomendasi) && $id2 > $result_id) {
            
             $subdata[] = '
 
@@ -202,7 +202,7 @@ while($data2 = $query->fetch_object()){
 
                 ';
 
-        }elseif (strlen($selesai) == 0) {
+        }*/elseif (strlen($selesai) == 0) {
 
             if (strlen($isi) == 0) {
 

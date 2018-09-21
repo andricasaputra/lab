@@ -86,10 +86,7 @@ $data = array();
 
 $nomor = 1;
 
-$sql3 = "SELECT no_sampel FROM hasil_kh";
-
 while($data2 = $query->fetch_object()){
-
 
     $id2 =  $data2->id;
 
@@ -99,39 +96,57 @@ while($data2 = $query->fetch_object()){
 
     $rek = $data2->rekomendasi;
 
-    $qu = $objectHasil->tampil_hasil($id2);
+    /*Input Lebih Dari 1 Hasil Pengujian*/
 
-        /*Input Lebih Dari 1 Hasil Pengujian*/
+    $banyak_sampel = $data2->jumlah_sampel;
+
+    $j = $data2->no_sampel;
+
+    $x = explode("-", $j);
+
+    if($banyak_sampel != 1 && $j !== ''){
+
+      $k = $x[0];
+
+      $l = $x[1];
+
+      $r = $k.'-'.$l;
+
+    }else{
+
+      $r = $data2->no_sampel;
+
+    }
+
+    /*var_dump($r); die;*/
+
+    if (strpos($data2->nama_sampel_lab, "Bibit") !== false) {
+
+        $qu2 = $objectHasil->input_ulang_bibit($id2);
+
+        $num = $qu2->num_rows;
+
+        $qu = $objectHasil->tampil_hasil_bibit($id2);
+
+        $has = $qu->fetch_assoc();
+
+        $f = $has['positif_negatif'];
+
+    }else{
 
         $qu2 = $objectHasil->input_ulang($id2);
 
         $num = $qu2->num_rows;
 
-        $banyak_sampel = $data2->jumlah_sampel;
+        $qu = $objectHasil->tampil_hasil($id2);
 
-        $j = $data2->no_sampel;
+        $has = $qu->fetch_assoc();
 
-        $x = explode("-", $j);
+        $f = $has['positif_negatif'];
 
-        if($banyak_sampel != 1 && $j !== ''){
+    }
 
-          $k = $x[0] + $num;
-
-          $l = $x[1];
-
-          $r = $k.'-'.$l;
-
-        }else{
-
-          $r = $data2->no_sampel;
-
-        }
-
-        /*var_dump($r); die;*/
-
-    $has = $qu->fetch_assoc();
-
-    $f = $has['positif_negatif'];
+  /*  var_dump($f);*/
 
     $nmr = $nomor++;
 
@@ -216,7 +231,7 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif (empty($result_no_sertifikat) && empty($result_waktu_apdate_sertifikat) && $id2 > $result_id) {
+        }/*elseif (empty($result_no_sertifikat) && empty($result_waktu_apdate_sertifikat) && $id2 > $result_id) {
            
             $subdata[] = '
 
@@ -224,7 +239,7 @@ while($data2 = $query->fetch_object()){
 
                 ';
 
-        }elseif (strlen($selesai) == 0) {
+        }*/elseif (strlen($selesai) == 0) {
 
             if (strlen($f) == 0 || $banyak_sampel > $num) {
 
@@ -259,7 +274,7 @@ while($data2 = $query->fetch_object()){
 
                 <a class="btn btn-warning btn-xs" href="./lab_bakteri/views/edit_hasil_pengujian_kh.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'" target="_blank"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
                 
-                <a href="./lab_bakteri/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+                <a href="./lab_bakteri/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
             }
              
@@ -275,7 +290,7 @@ while($data2 = $query->fetch_object()){
 
                 <a class="btn btn-warning btn-xs" href="./lab_bakteri/views/edit_hasil_pengujian_kh.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'" target="_blank"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
                 
-                <a href="./lab_bakteri/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+                <a href="./lab_bakteri/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
 
             }else{
@@ -287,7 +302,7 @@ while($data2 = $query->fetch_object()){
 
                 <a class="btn btn-warning btn-xs btn-not-allowed"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
 
-                <a href="./lab_bakteri/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';
+                <a href="./lab_bakteri/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';
             }
 
         }

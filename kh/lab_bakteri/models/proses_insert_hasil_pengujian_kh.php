@@ -4,8 +4,6 @@ require_once('header_proses.php');
 
   foreach ($_POST['no_sampel'] as $i => $value) :
 
-
-
     $id                 = $_POST['id'][$i];
 
     $tanggal_acu_hasil  = $_POST['tanggal_acu_hasil'][$i];
@@ -18,12 +16,23 @@ require_once('header_proses.php');
 
 
 
-  if($no_sampel!==""){
+  if($no_sampel !==""){
 
-    $insertDb = $objectHasil->input($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
+
+    if (substr($no_sampel, 0, 1) === "0") {
+
+      $insertDb = $objectHasil->input2($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
 
 
     }else{
+
+      $insertDb = $objectHasil->input($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
+
+    }
+
+
+
+  }else{
 
         echo '<script type="text/javascript">';
 
@@ -31,9 +40,10 @@ require_once('header_proses.php');
 
         echo '}, 0);</script>';
 
-    }
+  }
 
   endforeach;
+
 
   $objectHasil->edit("UPDATE input_permohonan_kh SET hasil_pengujian='$hasil_pengujian' WHERE hasil_pengujian ='' AND id <= $id");
 

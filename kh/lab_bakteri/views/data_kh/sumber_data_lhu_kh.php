@@ -197,7 +197,7 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif (empty($result_no_agenda) && empty($result_kepala_plh2) && $id2 > $result_id) {
+        }/*elseif (empty($result_no_agenda) && empty($result_kepala_plh2) && $id2 > $result_id) {
            
             $subdata[] = '
 
@@ -205,7 +205,7 @@ while($data2 = $query->fetch_object()){
 
                 ';
 
-        }else if($banyak_sampel > $num){
+        }*/else if($banyak_sampel > $num){
 
             $subdata[] = '
 

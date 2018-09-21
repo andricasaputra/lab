@@ -67,10 +67,26 @@ class Hasil extends LegacyData implements SuperHasil
         return $query;
     }
 
+    public function tampil_hasil_bibit($id)
+    {
+
+        $sql   = "SELECT positif_negatif FROM hasil_kh_bibit WHERE id = $id";
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
     public function input_ulang($id2)
     {
 
         $sql   = "SELECT no_sampel FROM hasil_kh WHERE id = $id2";
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
+    public function input_ulang_bibit($id2)
+    {
+
+        $sql   = "SELECT no_sampel_bibit FROM hasil_kh_bibit WHERE id = $id2";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
@@ -89,19 +105,15 @@ class Hasil extends LegacyData implements SuperHasil
     public function input($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif)
     {
 
-        $kd = $this->db->query("SELECT * FROM hasil_kh WHERE no_sampel='$no_sampel'");
 
-        $cek = $kd->num_rows;
+        $this->db->query("INSERT INTO hasil_kh (id, tanggal_acu_hasil, no_sampel,  positif_negatif) VALUES ('$id', '$tanggal_acu_hasil', '$no_sampel', '$positif_negatif')") or die($this->db->error);
 
-        if ($cek > 0) {
+    }
 
-            return 'no_sampel_terpakai';
+    public function input2($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif)
+    {
 
-        } else {
-
-            $this->db->query("INSERT INTO hasil_kh (id, tanggal_acu_hasil, no_sampel,  positif_negatif) VALUES ('$id', '$tanggal_acu_hasil', '$no_sampel', '$positif_negatif')") or die($this->db->error);
-
-        }
+        $this->db->query("INSERT INTO hasil_kh_bibit (id, tanggal_acu_hasil, no_sampel_bibit,  positif_negatif) VALUES ('$id', '$tanggal_acu_hasil', '$no_sampel', '$positif_negatif')") or die($this->db->error); 
 
     }
 

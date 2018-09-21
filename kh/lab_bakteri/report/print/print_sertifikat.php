@@ -139,11 +139,20 @@ $no=1;
 
             
 
-if(@$_GET['id'] && $_GET['no_sertifikat'] !== ''){
+if(@$_GET['id'] && $_GET['no_sertifikat'] !== '' && $_GET['nama_sampel'] !== ''){
 
     $tampil = $objectPrint->tampil(@$_GET['id'], @$_GET['no_sertifikat']);
 
-    $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
+    if ($_GET['nama_sampel'] == 'Darah Sapi Bibit') {
+
+        $tampil2 = $objectPrint->tampilHasilBibit(@$_GET['id']);
+
+    }else{
+
+        $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
+    }
+
+    
 
     $ttd = $objectPrint->scan(@$_GET['id']);
 
@@ -669,7 +678,29 @@ $content .= '
         
             <td style="width:5%; ">'.$no++.'</td>
 
-            <td style="width:13%; ">'.$data2->no_sampel.'</td>    
+            <td style="width:13%; ">
+                ';
+
+                if ($_GET['nama_sampel'] == 'Darah Sapi Bibit') {
+
+                   $content .= '
+
+                    '.$data2->no_sampel_bibit.'
+
+                   ';
+
+                }else{
+
+                    $content .= '
+
+                    '.$data2->no_sampel.'
+
+                   ';
+                }
+
+                $content .='
+
+            </td>    
 
             <td style="width:15%; ">'.$data->nama_sampel_lab.'</td>
 

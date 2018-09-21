@@ -35,6 +35,17 @@ class Cetak extends LegacyCetak
         return $query;
     }
 
+    public function tampilHasilBibit($id = null)
+    {
+        $sql = "SELECT * FROM hasil_kh_bibit";
+        if ($id != null) {
+
+            $sql .= " WHERE id=$id";
+        }
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
     /*MULTIPLE PRINT PAGES BEGINS*/
 
     public function print_pertanggal($tgl1, $tgl2)

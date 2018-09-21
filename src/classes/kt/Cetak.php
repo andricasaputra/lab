@@ -189,4 +189,24 @@ class Cetak extends LegacyCetak
 
     }
 
+    public function CetakForLembarKerjaDatek($tgl)
+    {
+
+        $sql = "SELECT id, tanggal_pengujian, kode_sampel, target_optk, target_optk2, target_optk3, metode_pengujian, nama_analis, nama_penyelia FROM input_permohonan WHERE DATE(waktu_apdate_sertifikat) IN ('$tgl')";
+        $query = $this->db->query($sql) or die ($this->db->error);
+
+        return $query;
+        
+    }
+
+    /*Buku Harian Data teknis*/
+    public function GetIdCetakForLembarKerjaDatek($id)
+    {
+
+        $sql = "SELECT id, positif_negatif,no_sampel,hasil_pengujian FROM hasil_kt WHERE id = $id";
+        $query = $this->db->query($sql) or die ($this->db->error);
+
+        return $query;
+    }
+
 }

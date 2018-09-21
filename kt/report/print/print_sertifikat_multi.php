@@ -861,11 +861,12 @@ $content ='
 
             <td></td>
 
-            <td style="width: 180px"></td>
+            <td style="width: 150px"></td>
 
-            <td style="width: 215px">Sumbawa Besar, '.$data->tanggal_sertifikat.'</td>
+            <td style="width: 255px">Sumbawa Besar, '.$data->tanggal_sertifikat.'</td>
 
         </tr>
+
 
 
 

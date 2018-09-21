@@ -221,7 +221,7 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif (empty($result_no_sertifikat) && empty($result_waktu_apdate_sertifikat) && $id2 > $result_id) {
+        }/*elseif (empty($result_no_sertifikat) && empty($result_waktu_apdate_sertifikat) && $id2 > $result_id) {
            
             $subdata[] = '
 
@@ -229,7 +229,7 @@ while($data2 = $query->fetch_object()){
 
                 ';
 
-        }elseif (strlen($selesai) == 0) {
+        }*/elseif (strlen($selesai) == 0) {
 
             if (strlen($f) == 0 || $banyak_sampel > $num) {
 
