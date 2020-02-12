@@ -197,7 +197,9 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = '
 
-                <a><button type="button" id="tombol_input_hasil_pengujian" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_input_hasil_pengujian" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i> Input</button></a>          
+                <a><button type="button" id="tombol_input_hasil_pengujian" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_input_hasil_pengujian" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i> Input</button></a>  
+
+                <a class="btn btn-warning btn-xs" href="#" disabled><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>        
                 
                 <a href="#"><button type="button" class="btn btn-danger btn-xs btn-not-allowed" disabled><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
@@ -209,6 +211,8 @@ while($data2 = $query->fetch_object()){
 
            
                 <a><button type="button" id="tombol_edit_hasil_pengujian" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_edit_hasil_pengujian" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i>&nbsp;&nbsp;Edit</button></a>
+
+                <a class="btn btn-warning btn-xs" href="./views/edit_hasil_pengujian.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
 
                 
                 <a href="./report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
@@ -225,6 +229,8 @@ while($data2 = $query->fetch_object()){
                 
                 <a><button type="button" id="tombol_edit_hasil_pengujian" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_edit_hasil_pengujian" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i>&nbsp;&nbsp;Edit</button></a>
 
+                <a class="btn btn-warning btn-xs" href="./views/edit_hasil_pengujian.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
+
                 
                 <a href="./report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
@@ -235,6 +241,8 @@ while($data2 = $query->fetch_object()){
 
 
                 <a><button type="button" id="tombol_edit_hasil_pengujian" class="btn btn-kusuccess btn-xs btn-not-allowed"><i class="fa fa-edit fa-fw"></i>&nbsp;&nbsp;Edit</button></a>
+
+                <a class="btn btn-warning btn-xs" href="#" disabled><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>   
 
 
                 <a href="./report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';

@@ -43,7 +43,7 @@ require_once('header_proses.php');
 
 		$result = $query->fetch_object();
 
-		$awalJumlahSampel = $result->jumlah_sampel;
+		@$awalJumlahSampel = $result->jumlah_sampel;
 
 		/*ambil posisi post id pada array keberapa*/
 
@@ -65,7 +65,6 @@ require_once('header_proses.php');
 
 			$resjumlah_sampel = $resultjumlahsampel->jumlah_sampel;
 
-
 			$resno_sampel = $resultjumlahsampel->no_sampel;
 
 			if (strpos($resno_sampel, "-") !== false) {
@@ -74,17 +73,24 @@ require_once('header_proses.php');
 
 				$awal = $ex[0] - $jumlah_sampel; 
 
-				$akhir = end($ex) - $jumlah_sampel;
+				$akhir = end($ex);
 
-				$newno_sampel = $awal ."-". $akhir;
+				$akhir2 = intval($jumlah_sampel);
+
+				$akhir3 = $akhir - $akhir2;
+
+				$newno_sampel = $awal ."-". $akhir3;
 
 			}else{
 
-				$akhir = $resno_sampel - $jumlah_sampel;
+				$akhir = $resno_sampel;
 
-				$newno_sampel = $akhir;
+				$akhir2 =  intval($jumlah_sampel);
+
+				$newno_sampel = $akhir - $akhir2;
 			}
 
+			
 			$objectData->edit("UPDATE input_permohonan SET no_sampel = '$newno_sampel' WHERE id ='$nextid'");
 
 	 	endfor;
@@ -93,7 +99,6 @@ require_once('header_proses.php');
 
 
 	 		/*Jika Tidak Ada Id Yang lebih tinggi masuk sini*/
-
 
 		}else{
 
@@ -109,11 +114,6 @@ require_once('header_proses.php');
 
 	 $objectData->edit("UPDATE input_permohonan SET kondisi_sampel='$kondisi_sampel', mt='$mt', nip_mt='$nip_mt', penyelia='$penyelia', penyelia2='$penyelia2', analis='$analis',  analis2='$analis2' , bahan='$bahan', bahan2='$bahan2', alat='$alat', alat2='$alat2', kesiapan='$kesiapan' WHERE id ='$id'");
 	 
-
  }
-
-		
-
- 
  
 ?>								

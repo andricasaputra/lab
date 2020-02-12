@@ -12,11 +12,7 @@
   }
 
 
-   $sql = "SELECT no_sampel, jumlah_sampel FROM input_permohonan_kh WHERE id = (SELECT max(id) FROM input_permohonan_kh WHERE no_sampel != '') "; 
-
-
-   $result = $conn->query($sql);
-
+   $result = $objectNomor->NomorSampel();
 
    $json = [];
    while($row = $result->fetch_assoc()){

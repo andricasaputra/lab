@@ -12,10 +12,7 @@
   }
 
 
-   $sql = "SELECT no_sampel, jumlah_sampel FROM input_permohonan_kh_lab_parasit WHERE id = '".$_GET['id']."' "; 
-
-
-   $result = $conn->query($sql);
+   $result = $objectNomorParasit->NomorSampel();
 
 
    $json = [];

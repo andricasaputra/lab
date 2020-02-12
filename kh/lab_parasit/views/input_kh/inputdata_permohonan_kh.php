@@ -129,7 +129,7 @@ $id = $fetch->maxkode;
 
 									while ($t=$i->fetch_object()) : ?>
 
-									<option selected><?= $t->nama_hewan; ?></option>
+									<option><?= $t->nama_hewan; ?></option>
 
 								<?php endwhile;?>
 
@@ -142,7 +142,9 @@ $id = $fetch->maxkode;
 
 						<label class="control-label" for="jumlah_sampel">Jumlah Sampel</label>
 
-						<input type="number" name="jumlah_sampel" class="form-control" id="jumlah_sampel" value="2"  required>
+						<input type="number" name="jumlah_sampel" class="form-control" id="jumlah_sampel" disabled  required>
+
+						<div id="jml"></div>
 
 					</div>
 
@@ -172,9 +174,9 @@ $id = $fetch->maxkode;
 
 					<div class="column-half">
 
-						<label class="control-label" for="no_sampel_awal">Nomor Sampel Awal</label>
+						<label class="control-label" for="no_sampel_awal">Nomor Sampel Awal/ Eartag (Bibit)</label>
 
-						<input type="text" name="no_sampel_awal" class="form-control" id="no_sampel_awal" placeholder="Pisahkan setiap nomor sampel dengan koma (,)"  required>
+						<input type="text" name="no_sampel_awal" class="form-control" id="no_sampel_awal" placeholder="Pisahkan setiap nomor sampel dengan koma (,) atau (-)"  required>
 
 					</div>			
 				
@@ -501,7 +503,6 @@ $(document).ready(function(e){
 
          success : function(response){
 
-
             $('#tb_permohonan_kh_lab_parasit').DataTable().ajax.reload(null, false),
 
               swal({
@@ -525,72 +526,108 @@ $(document).ready(function(e){
 
     }));
 
-  	/*Jumlah Sampel On Keyup For Nomor Sampel*/
+  	$(document).on("change","#nama_sampel",function () {
 
-  	let awaljumlahSampel = $('#jumlah_sampel').val();
+  		let nama_sampel = $(this).val();
+
+  		/*console.log(nama_sampel.indexOf('ouur'))*/
+
+  		/*Jika Tidak Kosong*/
+
+  		if (nama_sampel != '') {
+
+  			$("#jumlah_sampel").removeAttr("disabled", true);
+
+  			if (nama_sampel.indexOf('Bibit') == -1) {
+
+  				/*Jumlah Sampel On Keyup For Nomor Sampel*/
+
+  				$('#jumlah_sampel2').remove();
+  				$('#jumlah_sampel').remove();
+
+  				$("#jml").html('<input type="number" name="jumlah_sampel" class="form-control" id="jumlah_sampel" disabled  required>');
+
+  				$("#jumlah_sampel").removeAttr("disabled", true);
+
+			  	let awaljumlahSampel = $('#jumlah_sampel').val();
+
+			  	$( "#jumlah_sampel" ).keyup(function () {
+
+			  		let id = $('#id').val();
+			  		let jumlahSampel = $(this).val();
+
+			  		/*Check Jumlah Sampel*/
+				    
+				    if (jumlahSampel !='') {
+
+				    	$.get({
+				          url: "lab_parasit/views/data_kh/SourceNomorSampel_kh.php",
+				          dataType: 'Json',
+				          data: {
+				          	'jumlahSampel':jumlahSampel,
+				          	'id':id
+				      	  },
+				          success: function(data) {
+
+							let newNomorSampelawal = Number(data.akhir) + 1;
+							let newNomorSampelakhir = Number(data.akhir)  + Number(jumlahSampel);
+							
+							/*Jumlah Sampel == 1*/
+
+							if (jumlahSampel == 1) {
+
+								let noSampel = newNomorSampelawal;
+								$('#no_sampel').val(noSampel);
+
+							/*Jumlah Sampel > 1*/
+
+							}else{
+
+								let noSampel = newNomorSampelawal + "-" + newNomorSampelakhir;
+								$('#no_sampel').val(noSampel);
+							}
+				          }
+				      	});
+
+				    /*Jumlah Sampel Kosong*/
+
+				    }else{
+
+				    	$.get({
+				          url: "lab_parasit/views/data_kh/SourceNomorSampel_kh.php",
+				          dataType: 'Json',
+				          data: {
+				          	'jumlahSampel':jumlahSampel,
+				          	'id':id
+				      	  },
+				          success: function(data) {
+
+							let newNomorSampelawal = Number(data.awal) + Number(awaljumlahSampel);
+							let newNomorSampelakhir = Number(data.akhir)  + Number(awaljumlahSampel);
+							let noSampel = newNomorSampelawal + "-" + newNomorSampelakhir;
+							$('#no_sampel').val(noSampel);
+
+				          }
+				      	});
+				    }
+			      
+			  	});
 
 
-  	$( "#jumlah_sampel" ).keyup(function () {
+  			}else{
 
-  		let id = $('#id').val();
-  		let jumlahSampel = $(this).val();
+  				$('#jumlah_sampel').remove();
 
-  		/*Check Jumlah Sampel*/
-	    
-	    if (jumlahSampel !='') {
+  				$("#jml").html('<input type="number" name="jumlah_sampel" id="jumlah_sampel2" class="form-control"  required>');
 
-	    	$.get({
-	          url: "lab_parasit/views/data_kh/SourceNomorSampel_kh.php",
-	          dataType: 'Json',
-	          data: {
-	          	'jumlahSampel':jumlahSampel,
-	          	'id':id
-	      	  },
-	          success: function(data) {
+  			}/*End if !Darah Sapi Bibit*/
 
-				let newNomorSampelawal = Number(data.akhir) + 1;
-				let newNomorSampelakhir = Number(data.akhir)  + Number(jumlahSampel);
-				
-				/*Jumlah Sampel == 1*/
+  		}else{
 
-				if (jumlahSampel == 1) {
+  			$("#jumlah_sampel").attr("disabled", true);
+  		}
 
-					let noSampel = newNomorSampelawal;
-					$('#no_sampel').val(noSampel);
-
-				/*Jumlah Sampel > 1*/
-
-				}else{
-
-					let noSampel = newNomorSampelawal + "-" + newNomorSampelakhir;
-					$('#no_sampel').val(noSampel);
-				}
-	          }
-	      	});
-
-	    /*Jumlah Sampel Kosong*/
-
-	    }else{
-
-	    	$.get({
-	          url: "lab_parasit/views/data_kh/SourceNomorSampel_kh.php",
-	          dataType: 'Json',
-	          data: {
-	          	'jumlahSampel':jumlahSampel,
-	          	'id':id
-	      	  },
-	          success: function(data) {
-
-				let newNomorSampelawal = Number(data.awal) + Number(awaljumlahSampel);
-				let newNomorSampelakhir = Number(data.akhir)  + Number(awaljumlahSampel);
-				let noSampel = newNomorSampelawal + "-" + newNomorSampelakhir;
-				$('#no_sampel').val(noSampel);
-
-	          }
-	      	});
-	    }
-      
-  	});
+  	});/*End Nama Sampel On Change*/
 
 
 	$( "#pemohon_input" ).on('change', function () {
@@ -632,7 +669,6 @@ $(document).ready(function(e){
 	          success: function(data) {
 	            $.each(data, function(key, value) {
 	            	$('#jenis_permohonan').prepend('<option selected>'+ value.jenis_permohonan +'</option>');
-	            	$('#nama_sampel').prepend('<option selected>'+ value.nama_sampel +'</option>');
 	            	$('#jumlah_sampel').empty();
 	            	$('#jumlah_sampel').val('');
 	            	$('#satuan').prepend('<option selected>'+ value.satuan +'</option>');

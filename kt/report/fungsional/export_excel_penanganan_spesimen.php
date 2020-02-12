@@ -5,7 +5,7 @@ require_once ('header.php');
 
 $fileName = "Distribusi-Sampel-(".date('d-m-Y').").xls";
 
-
+use Lab\classes\{tanggal, NomorFungsional};
 
 header("Content-Disposition: attachment; filename='$fileName'");
 
@@ -76,18 +76,21 @@ header("Content-Type: application/vnd.ms-excel");
 
 					$tampil = $objectFungsional->penanganan_spesimen();
 
+					$objectTanggal = new tanggal;
+
 					while ($data = $tampil->fetch_object()){
 
 						$nosmpl = explode("-", $data->no_sampel);
-
+					
 						$a = $nosmpl[0];
 
 						if ($data->tanggal_penyerahan == '') {
 							
 							$tgl = '';
+
 						}else{
 
-							$tgl = balik_tgl_indo($data->tanggal_penyerahan);
+							$tgl = $objectTanggal->balik_tgl_indo($data->tanggal_penyerahan);
 
 						}
 
@@ -129,14 +132,21 @@ header("Content-Type: application/vnd.ms-excel");
 						
 						if ($data->nama_patogen == 'Serangga' || $data->nama_patogen == 'Myte/Tungau' || $data->nama_patogen == 'Lalat Buah') {
 
-							echo "<td>Spesimen ".$data->bagian_tumbuhan."  ".$data->nama_sampel." disimpan didalam botol vial mini berakohol,
-                                Penomoran Sampel,Simpan didalam lemari pendingin</i></td>";
+							if ($data->bagian_tumbuhan != '') {
 
+								echo "<td>Spesimen ".$data->bagian_tumbuhan."  ".$data->nama_sampel." disimpan pada plastik kedap udara , diberi penomoran sampel</i></td>";
+
+							}else{
+								echo "<td>Spesimen ".$data->bagian_tumbuhan."  ".$data->nama_sampel." disimpan didalam botol vial mini berakohol,
+                                diberi penomoran sampel</i></td>";
+							}
+
+							
 						}else{
 
 							echo "<td>Spesimen ".$data->bagian_tumbuhan."  ".$data->nama_sampel." disimpan di dalam plastik kedap udara,
-                                Penomoran Sampel / Spesimen,
-                                Simpan didalam lemari pendingin</i></td>";
+                                penomoran sampel / spesimen,
+                                simpan didalam lemari pendingin</i></td>";
 						}
 
 						echo "<td>".$data->yang_menyerahkanlab."</td>";

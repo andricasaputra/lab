@@ -84,10 +84,6 @@ endwhile;
 
                            </div>
 
-  
-
-
-
                           <div class="column-half">
 
                                   <label class="control-label" for="kondisi_sampel" >Kondisi Sampel</label>
@@ -380,7 +376,7 @@ endwhile;
                 $('#modal_input_kesiapan_pengujian_kh').modal('hide')
 
             });
-            console.log(response)
+      
            }  
          });
 

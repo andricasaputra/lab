@@ -24,13 +24,34 @@ foreach ($_POST['no_sampel'] as $key2 => $value2) :
 
 	$positif_negatif	=htmlspecialchars($conn->real_escape_string($_POST['positif_negatif'][$key2]));
 
-	$positif_negatif_target3	=htmlspecialchars($conn->real_escape_string($_POST['positif_negatif_target3'][$key2]));
-
 	$hasil_pengujian	=htmlspecialchars($conn->real_escape_string($_POST['hasil_pengujian']));
 
+	if (($_POST['positif_negatif_target3'][$key2]) != '') {
+
+       $positif_negatif_target3    = htmlspecialchars($conn->real_escape_string($_POST['positif_negatif_target3'][$key2]));
+
+    }else{
+      
+      $positif_negatif_target3    = '';
+
+    }
+
+    print_r($positif_negatif_target3);
+
+    $cek = substr($no_sampel, 0, 1);
+
+    if ($cek !== "0") {
+
+      $objectHasilParasit->input($id2, $tanggal_acu_hasil, $no_sampel, $positif_negatif, $positif_negatif_target3);
 
 
-    $objectHasilParasit->input($id2, $tanggal_acu_hasil, $no_sampel, $positif_negatif, $positif_negatif_target3);
+    }else{
+
+      $objectHasilParasit->input2($id2, $tanggal_acu_hasil, $no_sampel, $positif_negatif, $positif_negatif_target3);
+
+    }
+
+    
 
 endforeach;	
 

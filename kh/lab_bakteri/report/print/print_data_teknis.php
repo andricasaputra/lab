@@ -183,11 +183,19 @@ $content .= '
 
 $no=1;
               
-if(@$_GET['id'] && $_GET['no_sampel'] !== ''){
+if(@$_GET['id'] && $_GET['no_sampel'] !== '' && $_GET['nama_sampel'] !=''){
 
     $tampil = $objectPrint->tampil(@$_GET['id']);
 
-    $tampil2 = $objectHasil->tampil(@$_GET['id']);
+    if ($_GET['nama_sampel'] == 'Darah Sapi Bibit') {
+
+        $tampil2 = $objectHasil->tampilBibit(@$_GET['id']);
+
+    }else{
+
+        $tampil2 = $objectHasil->tampil(@$_GET['id']);
+    }
+
 
     $ttd = $objectPrint->scan(@$_GET['id']);
 
@@ -393,7 +401,7 @@ $content .= '
 
             <th style="width:20%;">Identitas Sampel</th>
 
-            <th style="width:50%;">Hasil Pengujian</th>
+            <th style="width:45%;">Hasil Pengujian</th>
 
           </tr>
 

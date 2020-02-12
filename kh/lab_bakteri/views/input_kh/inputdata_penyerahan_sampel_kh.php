@@ -20,6 +20,10 @@ if(isset($_REQUEST['id'])){
 
     $thn=date('Y');
 
+    date_default_timezone_set("Asia/Makassar");
+
+    $waktu =  date('H:i');
+
     $tampil = $objectData->tampil($id);
 
     while($data = $tampil->fetch_object()):
@@ -89,6 +93,8 @@ endwhile;
 
                           <input type="hidden" name="tanggal_penyerahan"  id="tanggal_penyerahan_input" value="<?=$tgl_indo?>" required>
 
+
+                          <input type="hidden" name="jam_diterima_pengelola_sampel"  id="jam_diterima_pengelola_sampel_input"   value="<?php echo $waktu.' '.'wita' ?>">
 
 
                           <div class="column-half">

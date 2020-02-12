@@ -14,7 +14,7 @@ $objectNomor = new Nomor;
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>LABORATORIUM</title>
         <link href="../../assets/css/bootstrap.min.css" rel="stylesheet">
-        <link href="../../assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="../../assets/css/font-awesome.min.css" rel="stylesheet">
         <link rel="icon" type="image/png" href="../../assets/img/favicon-32x32.png" sizes="32x32">
         <link href="../../assets/css/sb-admin.css" rel="stylesheet">
         <link href="../../assets/css/plugins/timeline/timeline.css" rel="stylesheet">

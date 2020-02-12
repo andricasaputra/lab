@@ -896,7 +896,7 @@ $content ='
 
             <td style="width: 180px"></td>
 
-            <td style="width: 215px"></td>
+            <td style="width: 215px;height: 70px"></td>
 
         </tr>
 

@@ -106,7 +106,7 @@
 
     <div class="table-responsive">
 
-      <table class="table table-hover table-striped" id="tb_data_teknis_kh"  width="100%"  style="text-align: center">
+      <table class="table table-hover table-striped" id="tb_data_teknis_kh"  width="100%" style="table-layout: fixed; width: 100%">
 
         <thead>
 

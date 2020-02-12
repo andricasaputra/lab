@@ -1,0 +1,46 @@
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP Deprecated:  Non-static method Lab\config\Database::ExportTables() should not be called statically in /home/skph4384/public_html/lab/src/config/Database.php on line 102
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP Stack trace:
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/super_admin.php:0
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   2. require_once() /home/skph4384/public_html/lab/kh/super_admin.php:120
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   3. require_once() /home/skph4384/public_html/lab/kh/menu/menu_bakteri_superadmin.php:298
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   4. Lab\config\Database::setExportTables() /home/skph4384/public_html/lab/assets/binfile/backup_eksport_database.php:34
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP Notice:  Undefined variable: name in /home/skph4384/public_html/lab/src/config/Database.php on line 117
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP Stack trace:
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/super_admin.php:0
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   2. require_once() /home/skph4384/public_html/lab/kh/super_admin.php:120
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   3. require_once() /home/skph4384/public_html/lab/kh/menu/menu_bakteri_superadmin.php:298
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   4. Lab\config\Database::setExportTables() /home/skph4384/public_html/lab/assets/binfile/backup_eksport_database.php:34
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   5. Lab\config\Database::ExportTables() /home/skph4384/public_html/lab/src/config/Database.php:102
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP Notice:  Undefined variable: name in /home/skph4384/public_html/lab/src/config/Database.php on line 169
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP Stack trace:
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/super_admin.php:0
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   2. require_once() /home/skph4384/public_html/lab/kh/super_admin.php:120
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   3. require_once() /home/skph4384/public_html/lab/kh/menu/menu_bakteri_superadmin.php:298
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   4. Lab\config\Database::setExportTables() /home/skph4384/public_html/lab/assets/binfile/backup_eksport_database.php:34
+[24-Sep-2018 00:13:27 Asia/Jakarta] PHP   5. Lab\config\Database::ExportTables() /home/skph4384/public_html/lab/src/config/Database.php:102
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP Deprecated:  Non-static method Lab\config\Database::ExportTables() should not be called statically in /home/skph4384/public_html/lab/src/config/Database.php on line 102
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP Stack trace:
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/super_admin.php:0
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   2. require_once() /home/skph4384/public_html/lab/kh/super_admin.php:120
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   3. require_once() /home/skph4384/public_html/lab/kh/menu/menu_bakteri_superadmin.php:298
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   4. Lab\config\Database::setExportTables() /home/skph4384/public_html/lab/assets/binfile/backup_eksport_database.php:34
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP Notice:  Undefined variable: name in /home/skph4384/public_html/lab/src/config/Database.php on line 117
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP Stack trace:
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/super_admin.php:0
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   2. require_once() /home/skph4384/public_html/lab/kh/super_admin.php:120
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   3. require_once() /home/skph4384/public_html/lab/kh/menu/menu_bakteri_superadmin.php:298
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   4. Lab\config\Database::setExportTables() /home/skph4384/public_html/lab/assets/binfile/backup_eksport_database.php:34
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   5. Lab\config\Database::ExportTables() /home/skph4384/public_html/lab/src/config/Database.php:102
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP Notice:  Undefined variable: name in /home/skph4384/public_html/lab/src/config/Database.php on line 169
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP Stack trace:
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/super_admin.php:0
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   2. require_once() /home/skph4384/public_html/lab/kh/super_admin.php:120
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   3. require_once() /home/skph4384/public_html/lab/kh/menu/menu_bakteri_superadmin.php:298
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   4. Lab\config\Database::setExportTables() /home/skph4384/public_html/lab/assets/binfile/backup_eksport_database.php:34
+[26-Sep-2018 11:12:37 Asia/Jakarta] PHP   5. Lab\config\Database::ExportTables() /home/skph4384/public_html/lab/src/config/Database.php:102
+[29-Sep-2018 11:08:14 Asia/Jakarta] PHP Notice:  Undefined variable: a in /home/skph4384/public_html/lab/kh/lab_bakteri/views/body_dashboard.php on line 406
+[29-Sep-2018 11:08:14 Asia/Jakarta] PHP Stack trace:
+[29-Sep-2018 11:08:14 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/admin.php:0
+[29-Sep-2018 11:08:14 Asia/Jakarta] PHP   2. require_once() /home/skph4384/public_html/lab/kh/admin.php:119
+[29-Sep-2018 11:08:14 Asia/Jakarta] PHP   3. require_once() /home/skph4384/public_html/lab/kh/menu/menu_bakteri_admin.php:185
+[29-Sep-2018 11:08:14 Asia/Jakarta] PHP   4. require_once() /home/skph4384/public_html/lab/kh/lab_bakteri/views/dashboard_admin.php:16

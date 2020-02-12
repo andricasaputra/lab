@@ -3,8 +3,9 @@
 namespace Lab\classes\kh\labbakteri;
 
 use Lab\classes\LegacyCetak;
+use Lab\interfaces\CetakKH;
 
-class Cetak extends LegacyCetak
+class Cetak extends LegacyCetak implements CetakKH
 {
 
     public function __construct()

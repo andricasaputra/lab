@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -16,8 +14,6 @@ $content ='
 
     }
 
-
-
     th{
 
         border: 0.7px solid black;
@@ -27,7 +23,6 @@ $content ='
         padding: 3px;
 
     }
-
 
     .tabel1 td {
 
@@ -171,39 +166,35 @@ $content ='
      ';
 
 
+    $no = 1;
 
-    $no=1;
-
-                
-
-    if(@$_GET['type'] == 'All'){
+    if($_GET['type'] == 'All'){
 
         $tampil  = $objectFungsional->print_persiapan_alat();
 
+    }else {
+
+        if(@$_SESSION['loginadminkt']) {
+
+            echo "<script>alert('Nomor Sampel Masih Kosong!')
+
+            window.location='../admin.php?page=data_teknis'</script>";
 
         }else {
 
-            if(@$_SESSION['loginadminkt']) {
+            echo "<script>alert('Nomor Sampel Masih Kosong!')
 
-                echo "<script>alert('Nomor Sampel Masih Kosong!')
-
-                window.location='../admin.php?page=data_teknis'</script>";
-
-            }else {
-
-                echo "<script>alert('Nomor Sampel Masih Kosong!')
-
-                window.location='../pengujian.php?page=data_teknis'</script>";
-
-            }
-
-        exit;
+            window.location='../pengujian.php?page=data_teknis'</script>";
 
         }
 
-        while ($data=$tampil->fetch_object()):
+    exit;
 
-        $bilangan = ucwords(Nomor::bilangan($data->jumlah_sampel));
+    }
+
+    while ($data = $tampil->fetch_object()):
+
+    $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
 $content .= '
 
@@ -1168,11 +1159,6 @@ $content .= '
 
 
 
-$a = $data->tanggal_sertifikat;
-
-$b = $data->nama_sampel; 
-
-
 
 endwhile;
 
@@ -1198,7 +1184,7 @@ $html2pdf = new HTML2PDF ('P','A4','en');
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->Output('Data_Teknis'.'_'.$b.'_'.$a.'.pdf');
+$html2pdf->Output('Persiapan_alat.pdf');
 
 require_once('footer.php');
 

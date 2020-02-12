@@ -24,39 +24,47 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
   $tgl_acu = date("Y-m-d");
 
 
-  if(@$_GET['id']&&$_GET['no_sampel'] !== ''){
+  if(@$_GET['id']&&$_GET['no_sampel'] !== '' && $_GET['nama_sampel'] !== ''){
 
-    $tampil = $objectHasilParasit->tampil(@$_GET['id'],@$_GET['no_sampel']);
+    if (strpos($_GET['nama_sampel'], "Bibit") === false) {
 
-    }else {
+      $tampil = $objectHasilParasit->tampil(@$_GET['id']);
 
-          if(@$_SESSION['loginadminkh']){
+    }else{
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+      $tampil = $objectHasilParasit->tampilBibit(@$_GET['id']);
 
-            window.location='../../admin.php?lab=parasit&page=sertifikat'</script>";
+    }
 
-            exit;
+  }else {
 
-          }elseif(@$_SESSION['loginsuperkh']){
+    if(@$_SESSION['loginadminkh']){
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+      echo "<script>alert('Maaf No Sampel Masih Kosong')
 
-            window.location='../../super_admin.php?lab=parasit&page=sertifikat'</script>";
+      window.location='../../admin.php?lab=parasit&page=sertifikat'</script>";
 
-            exit;
+      exit;
 
-          }else{
+    }elseif(@$_SESSION['loginsuperkh']){
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+      echo "<script>alert('Maaf No Sampel Masih Kosong')
 
-            window.location='../../pengujian.php?lab=parasit&page=sertifikat'</script>";
+      window.location='../../super_admin.php?lab=parasit&page=sertifikat'</script>";
 
-            exit;
+      exit;
 
-          }
+    }else{
 
-        }   
+      echo "<script>alert('Maaf No Sampel Masih Kosong')
+
+      window.location='../../pengujian.php?lab=parasit&page=sertifikat'</script>";
+
+      exit;
+
+    }
+
+  }   
 
 ?>
 
@@ -152,8 +160,17 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                                 <input type="hidden"  name="id[]" id="id" value="<?=$data->id?>" >
 
-                                <input type="text" class="form-control" name="no_sampel[]" id="no_sampel" value="<?=$data->no_sampel?>" readonly style="width: 100%; text-align: center; color: black;">
+                                <?php  
 
+                                  if (strpos($_GET['nama_sampel'], 'Bibit') === false) { ?>
+
+                                    <input type="text" class="form-control" name="no_sampel[]" id="no_sampel" value="<?= $data->no_sampel ?>" readonly style="width: 100%; text-align: center; color: black;">
+
+                                 <?php }else{ ?>
+
+                                    <input type="text" class="form-control" name="no_sampel[]" id="no_sampel" value="<?= $data->no_sampel_bibit ?>" readonly style="width: 100%; text-align: center; color: black;">
+                                    
+                                <?php  }?>
                           </td>
 
                           <td>
@@ -178,22 +195,34 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                            <td>
 
-                              <select class="form-control" name="positif_negatif_target3[]" id="positif_negatif_target3" style="width: 100%">
+                              <?php if (!empty($data->positif_negatif_target3)) { ?>
 
-                                <option><?php echo $data->positif_negatif_target3 ?></option>
 
-                                <?php  if($data->positif_negatif_target3 == 'Negatif'){ ?>
+                                <select class="form-control" name="positif_negatif_target3[]" id="positif_negatif_target3" style="width: 100%">
 
-                                  <option>Positif</option>
+                                  <option><?php echo $data->positif_negatif_target3 ?></option>
 
-                                 <?php  }else{ ?>
+                                  <?php  if($data->positif_negatif_target3 == 'Negatif'){ ?>
 
-                                  <option>Negatif</option>
+                                    <option>Positif</option>
 
-                               <?php } ?>
+                                   <?php  }else{ ?>
 
-                              </select>
+                                    <option>Negatif</option>
 
+                                 <?php } ?>
+
+                                </select>
+
+
+                                
+                              <?php }else{ ?>
+
+                                <input type="hidden" name="positif_negatif_target3[]" id="positif_negatif_target3" value="">
+
+                              <?php  } ?>
+
+                            
                           </td>
 
 
@@ -259,9 +288,17 @@ if(@$_POST['edit']) {
 
   if($no_sampel !== ""){
 
+    $cek = substr($no_sampel, 0, 1);
 
+    if ($cek !== "0" && strpos($_GET['nama_sampel'], "Bibit") === false) {
 
-  $query = $objectHasilParasit->edit( "UPDATE hasil_kh_lab_parasit SET id='$id', positif_negatif='$positif_negatif', positif_negatif_target3 = '$positif_negatif_target3' WHERE no_sampel='$no_sampel'");
+      $query = $objectHasilParasit->edit("UPDATE hasil_kh_lab_parasit SET id='$id', positif_negatif='$positif_negatif', positif_negatif_target3 = '$positif_negatif_target3' WHERE no_sampel='$no_sampel'");
+
+    }else{
+
+      $query = $objectHasilParasit->edit("UPDATE hasil_kh_bibit_lab_parasit SET id='$id', positif_negatif='$positif_negatif', positif_negatif_target3 = '$positif_negatif_target3' WHERE no_sampel_bibit='$no_sampel'");
+
+    }
 
 
       echo '<script type="text/javascript">';

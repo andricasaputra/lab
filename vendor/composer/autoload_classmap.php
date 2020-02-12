@@ -6,9 +6,4 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Lab\\Clasess\\LegacyCetak' => $baseDir . '/src/classes/Class_LegacyCetak.php',
-    'Lab\\Clasess\\LegacyData' => $baseDir . '/src/classes/Class_LegacyData.php',
-    'Lab\\Clasess\\LegacyNomor' => $baseDir . '/src/classes/Class_LegacyNomor.php',
-    'Lab\\Clasess\\tanggal' => $baseDir . '/src/classes/Class_tanggal.php',
-    'Lab\\Config\\Database' => $baseDir . '/src/config/Class_Database.php',
 );

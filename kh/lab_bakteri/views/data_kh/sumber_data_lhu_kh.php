@@ -87,21 +87,30 @@ $nomor = 1;
 
 while($data2 = $query->fetch_object()){
 
-
     $id2 =  $data2->id;
 
     $isi = $data2->no_sertifikat;
 
     $selesai = $data2->no_agenda;
 
-    $qu2 = $objectHasil->input_ulang($id2);
-
-    $num = $qu2->num_rows;
-
     $banyak_sampel = $data2->jumlah_sampel;
 
-    $nmr = $nomor++;
+    if (strpos($data2->nama_sampel_lab, "Bibit") !== false) {
 
+        $qu2 = $objectHasil->input_ulang_bibit($id2);
+
+        $num = $qu2->num_rows;
+
+
+    }else{
+
+        $qu2 = $objectHasil->input_ulang($id2);
+
+        $num = $qu2->num_rows;
+
+    }
+
+    $nmr = $nomor++;
 
     $bilangan = ucwords($objectNomor->bilangan($data2->jumlah_sampel));
 
@@ -197,15 +206,7 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }/*elseif (empty($result_no_agenda) && empty($result_kepala_plh2) && $id2 > $result_id) {
-           
-            $subdata[] = '
-
-                <i class="fa fa-exclamation-circle kosong"></i> <i>Waiting In Order </i>
-
-                ';
-
-        }*/else if($banyak_sampel > $num){
+        }else if($banyak_sampel > $num){
 
             $subdata[] = '
 
@@ -235,7 +236,7 @@ while($data2 = $query->fetch_object()){
            
                 <button type="button" id="tombol_edit_lhu_kh" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_edit_lhu_kh" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i> Edit</button>
                 
-                <a href="./lab_bakteri/report/print/print_surat_hasil_uji.php?id='.$data2->id.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+                <a href="./lab_bakteri/report/print/print_surat_hasil_uji.php?id='.$data2->id.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
 
 

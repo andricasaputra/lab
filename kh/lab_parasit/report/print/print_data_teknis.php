@@ -185,7 +185,14 @@ if(@$_GET['id'] && $_GET['no_sampel'] !== ''){
 
     $tampil = $objectPrint->tampil(@$_GET['id']);
 
-    $tampil2 = $objectHasil->tampil(@$_GET['id']);
+    if ($_GET['nama_sampel'] == 'Darah Sapi Bibit') {
+
+        $tampil2 = $objectHasil->tampilBibit(@$_GET['id']);
+
+    }else{
+
+        $tampil2 = $objectHasil->tampil(@$_GET['id']);
+    }
 
     $ttd = $objectPrint->scan(@$_GET['id']);
 
@@ -413,9 +420,11 @@ $content .= '
 
             <th style="width:20%;">Identitas Sampel</th>
 
-            <th style="width:50%;">Hasil Pengujian</th>
+            <th style="width:45%;">Hasil Pengujian</th>
 
           </tr>
+
+
 
 
 
@@ -433,11 +442,33 @@ $content .= '
           <tr>
           
 
-            <td style="width:30%; vertical-align: text-top">'.$data2->no_sampel.'</td>    
+            <td style="width:30%; vertical-align: text-top; padding-bottom: -20px">
+            ';
+
+            if (strpos($data->nama_sampel, "Bibit") !== false) {
+
+               $content .= '
+
+                '.$data2->no_sampel_bibit.'
+
+               ';
+            }else{
+                $content .= '
+
+                '.$data2->no_sampel.'
+
+               ';
+            }
+
+            $content .='
+            </td>    
 
             <td style="width:20%; vertical-align: text-top">'.$namaSampel.'</td> 
 
-            <td style="width:25%; vertical-align: text-top">'.$data2->positif_negatif.'</td>  
+            <td style="width:45%; vertical-align: text-top">
+            <i>'.$data->target_pengujian2.'</i> <b>('.$data2->positif_negatif.')</b> <br>
+            <i>'.$data->target_pengujian3.'</i> <b>('.$data2->positif_negatif_target3.')</b>
+            </td>  
 
           </tr>
 
@@ -445,9 +476,7 @@ $content .= '
           ';   
 
 
-
             endwhile;
-
 
 
           $content .='
@@ -457,7 +486,6 @@ $content .= '
     </table>
 
     
-
     <table class="lower" style="top: auto" >
 
 

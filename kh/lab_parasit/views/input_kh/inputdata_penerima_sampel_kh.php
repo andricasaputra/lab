@@ -14,6 +14,10 @@ if(isset($_REQUEST['id'])){
 
     $thn=date('Y');
 
+    date_default_timezone_set("Asia/Makassar");
+
+    $waktu =  date('H:i');  
+
     $tampil = $objectDataParasit->tampil($id);
 
     while($data = $tampil->fetch_object()):
@@ -92,13 +96,6 @@ endwhile;
 
                               </div>
                                    
-                              <?php 
-
-                                    date_default_timezone_set("Asia/Makassar");
-                                    $waktu =  date('H:i');       
-
-                              ?>
-
 
                               <div class="column-half" >
 

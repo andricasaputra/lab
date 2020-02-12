@@ -505,11 +505,11 @@ $content ='
 
             <th style="width:5%;" >No</th>
 
-            <th style="width:23%;" colspan="2">Jenis sampel/media pembawa</th>
+            <th style="width:25%;" colspan="2">Jenis sampel/media pembawa</th>
 
-            <th style="width:25%;" >Target Pengujian</th>
+            <th style="width:23%;" >Target Pengujian</th>
 
-            <th style="width:27%;">Metode Pengujian</th>
+            <th style="width:20%;">Metode Pengujian</th>
 
             <th style="width:20%;">Hasil Pengujian*)</th>
 
@@ -523,7 +523,14 @@ $content ='
 
             $nosmpl = $data->jumlah_sampel;
 
-            $tampil2 = $objectHasil->print_pertanggal_sertifikat($id);
+            if (strpos($data->nama_sampel, "Bibit") !== false) {
+
+                $tampil2 = $objectHasil->print_pertanggal_sertifikat_bibit($id);
+
+            }else{
+
+                $tampil2 = $objectHasil->print_pertanggal_sertifikat($id);
+            }
 
             while ($data2 =$tampil2->fetch_object()):
 
@@ -541,9 +548,30 @@ $content ='
                         <td style="width:5%; vertical-align: middle" rowspan="2">'.$no++.'</td>
 
 
-                        <td style="width:15%;border-right: 0px; vertical-align: middle" rowspan="2">'.$data->nama_sampel.'</td>    
+                        <td style="width:18%;border-right: 0px; vertical-align: middle" rowspan="2">'.$data->nama_sampel.'</td>    
 
-                        <td style="width:8%; vertical-align: middle" rowspan="2">'.$data2->no_sampel.'</td>
+                        <td style="width:8%; vertical-align: middle" rowspan="2">
+                        ';
+
+                        if (strpos($data->nama_sampel, "Bibit") !== false) {
+
+                            $content .= '
+
+                            '.$data2->no_sampel_bibit.'
+
+                            ';
+
+                        }else{
+                            
+                            $content .= '
+
+                            '.$data2->no_sampel.'
+
+                            ';
+                        }
+
+                        $content .='
+                        </td>
 
                         <td style="width:20%;"><em>'.$data->target_pengujian2.'</em></td>
 
@@ -587,9 +615,30 @@ $content ='
                     
                         <td style="width:5%;>'.$no++.'</td>
 
-                        <td style="width:15%;border-right: 0px">'.$data->nama_sampel.'</td>    
+                        <td style="width:18%;border-right: 0px; vertical-align: middle" rowspan="2">'.$data->nama_sampel.'</td>    
 
-                        <td style="width:8%;">'.$data2->no_sampel.'</td>
+                        <td style="width:8%;">
+                        ';
+
+                        if (strpos($data->nama_sampel, "Bibit") !== false) {
+
+                            $content .= '
+
+                            '.$data2->no_sampel_bibit.'
+
+                            ';
+
+                        }else{
+                            
+                            $content .= '
+
+                            '.$data2->no_sampel.'
+
+                            ';
+                        }
+
+                        $content .='
+                        </td>
 
                         <td style="width:20%;"><em>'.$data->target_pengujian2.'</em></td>
 

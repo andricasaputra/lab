@@ -183,7 +183,7 @@ class Data extends LegacyData implements SuperData
     public function ambil_id()
     {
 
-        $id = "SELECT id FROM input_permohonan_kh_lab_parasit";
+        $id = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' ORDER BY id ASC";
 
         $query1 = $this->db->query($id) or die($this->db->error);
 

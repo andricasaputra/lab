@@ -122,7 +122,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='nonuji'>".$data2->jumlah_sampel."&nbsp(".$bilangan.")</span>"; 
 
-            $subdata[] = "<span class='nonuji'>".$data2->no_sampel."</span>";
+            $subdata[] = "<span class='nonuji'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
             $subdata[] = "<span class='nonuji'>".$data2->nama_sampel."</span>";               
 
@@ -144,7 +144,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='kosong'>".$data2->jumlah_sampel."&nbsp(".$bilangan.")</span>"; 
 
-            $subdata[] = "<span class='kosong'>".$data2->no_sampel."</span>";
+            $subdata[] = "<span class='kosong'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
             $subdata[] = "<span class='kosong'>".$data2->nama_sampel."</span>";               
 
@@ -166,16 +166,11 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='proses'>".$data2->jumlah_sampel."&nbsp(".$bilangan.")</span>";  
 
-            $subdata[] = "<span class='proses'>".$data2->no_sampel."</span>"; 
+            $subdata[] = "<span class='proses'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>"; 
 
             $subdata[] = "<span class='proses'>".$data2->nama_sampel."</span>"; 
      
             $subdata[] = "<span class='proses'><em>".$data2->target_pengujian2." </em></span>"; 
-
-
-
-             
-            
 
 
         }else{
@@ -189,7 +184,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='selsesai'>".$data2->jumlah_sampel."&nbsp(".$bilangan.")</span>"; 
 
-            $subdata[] = "<span class='selsesai'>".$data2->no_sampel."</span>";
+            $subdata[] = "<span class='selsesai'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
             $subdata[] = "<span class='selsesai'>".$data2->nama_sampel."</span>"; 
      
@@ -246,6 +241,8 @@ while($data2 = $query->fetch_object()){
                 <button type="button" id="tombol_edit_pengelola_sampel_kh" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_edit_pengelola_sampel_kh" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i> Edit</button>
                 
                 <a href="./lab_bakteri/report/print/print_distribusi_sampel.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+
+                <a href="./lab_bakteri/report/print/print_distribusi_sampel_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>
                 ';
             }
              
@@ -260,6 +257,8 @@ while($data2 = $query->fetch_object()){
                 
                 <a href="./lab_bakteri/report/print/print_distribusi_sampel.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
 
+                <a href="./lab_bakteri/report/print/print_distribusi_sampel_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>
+
               
                 ';
 
@@ -272,7 +271,9 @@ while($data2 = $query->fetch_object()){
 
                 <button type="button" id="tombol_edit_pengelola_sampel_kh" class="btn btn-kusuccess btn-xs btn-not-allowed"><i class="fa fa-edit fa-fw"></i> Edit</button>
 
-                <a href="./lab_bakteri/report/print/print_distribusi_sampel.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';
+                <a href="./lab_bakteri/report/print/print_distribusi_sampel.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+
+                <a href="./lab_bakteri/report/print/print_distribusi_sampel_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>';
             }
 
         }

@@ -72,14 +72,13 @@ endwhile;
    
                           <div class="column-half">
 
-                           <label class="control-label" for="kode_sampel">Kode Sampel</label>
+                           <label class="control-label" for="kode_sampel">Tanggal Penyerahan</label>
 
-                           <input type="text" name="kode_sampel" class="form-control" id="kode_sampel_input" value="<?=$kode_sampel;?>" readonly>
+                           <input type="text" name="tanggal_penyerahan" class="form-control"  id="tanggal_penyerahan_input" value="<?=$tanggal_penyerahan?>" required>
+
+                           <input type="hidden" name="kode_sampel"  id="kode_sampel_input" value="<?=$kode_sampel;?>" readonly>
 
                           </div>
-
-
-                          <input type="hidden" name="tanggal_penyerahan"  id="tanggal_penyerahan_input" value="<?=$tgl_indo?>" required>
 
 
 

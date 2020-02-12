@@ -39,8 +39,7 @@ $content ='
     }
 
     .penyelia1{
-        margin-left:285px;
-        margin-top: 110px
+        margin-left:305px;
     }
 
     .penyelia1 td{
@@ -48,7 +47,7 @@ $content ='
     }
 
     .penyelia2, .analis2, .bahan2, .alat2{
-        margin-left:285px;
+        margin-left:305px;
         margin-top: -15px
     }
 
@@ -57,7 +56,7 @@ $content ='
     }
 
     .analis1, .bahan1, .alat1{
-        margin-left:285px;
+        margin-left:305px;
         margin-top: 20px
     }
 
@@ -103,7 +102,7 @@ $content .='
 
 <br>
 
-<div class="pad" style="margin-left: 290px">
+<div class="pad" style="margin-left: 310px">
     <img src='.$check.' style="width: 30px">
 </div>
 
@@ -127,7 +126,7 @@ $content .='
 <table style="width: 100%; text-align: center">
 
     <tr>
-        <td style="width:5%">1</td>
+        <td style="width:5%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1</td>
         <td style="width:35%">'.$data->target_pengujian.'</td>
         <td style="width:20%">'.$data->metode_pengujian.'</td>
         <td style="width:40%">'.$data->lama_pengujian.'</td>
@@ -135,7 +134,31 @@ $content .='
 
 </table>
 
-<br/>
+';
+
+if ($data->kesiapan == 'Ya') {
+    $content .='
+
+        <div style="margin-left: 195px;margin-top: 95px;margin-bottom: 15px">
+            <span style=" text-decoration: line-through">---</span>
+            <span style=" text-decoration: line-through">---</span>
+        </div>
+
+    ';
+}else{
+
+    $content .='
+
+        <div style="margin-left: 145px;margin-top: 95px;margin-bottom: 15px">
+            <span style=" text-decoration: line-through">---</span>
+            <span style=" text-decoration: line-through">---</span>
+        </div>
+
+    ';
+
+}
+
+$content .='
 
 <table class="penyelia1">
     
@@ -466,20 +489,41 @@ $content .='
 
 </table>
 
-<div style="margin-left: 300px;margin-top:70px">
-    <span style=" text-decoration: line-through">---</span>
-    <span style=" text-decoration: line-through">---</span>
-</div>
+';
 
-<div style="margin-left: 480px;margin-top:70px">
+if ($data->kesiapan == 'Ya') {
+    $content .='
+
+        <div style="margin-left: 345px;margin-top:80px">
+            <span style=" text-decoration: line-through">---</span>
+            <span style=" text-decoration: line-through">---</span>
+        </div>
+
+    ';
+}else{
+
+    $content .='
+
+        <div style="margin-left: 290px;margin-top:80px">
+            <span style=" text-decoration: line-through">---</span>
+            <span style=" text-decoration: line-through">---</span>
+        </div>
+
+    ';
+
+}
+
+$content.= '
+
+<div style="margin-left: 500px;margin-top:60px">
     '.$data->tanggal_diterima.'
 </div>
 
-<div style="margin-left: 380px;margin-top:50px">
+<div style="margin-left: 420px;margin-top:53px">
     '.$data->mt.'
 </div>
 
-<div style="margin-left: 410px;">
+<div style="margin-left: 430px;">
     '.$data->nip_mt.'
 </div>
 

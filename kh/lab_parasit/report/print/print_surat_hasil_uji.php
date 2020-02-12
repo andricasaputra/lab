@@ -172,7 +172,14 @@ $content ='
 
         $tampil  = $objectPrint->tampil(@$_GET['id']);
 
-        $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
+        if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
+
+        $tampil2 = $objectPrint->tampilHasilBibit(@$_GET['id']);
+
+        }else{
+
+            $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
+        }
 
         }else {
 
@@ -519,11 +526,11 @@ $content .= '
 
             <th style="width:5%;" >No</th>
 
-            <th style="width:23%;" colspan="2">Jenis sampel/media pembawa</th>
+            <th style="width:25%;" colspan="2">Jenis sampel/media pembawa</th>
 
-            <th style="width:25%;" >Target Pengujian</th>
+            <th style="width:23%;" >Target Pengujian</th>
 
-            <th style="width:27%;">Metode Pengujian</th>
+            <th style="width:20%;">Metode Pengujian</th>
 
             <th style="width:20%;">Hasil Pengujian*)</th>
 
@@ -551,9 +558,30 @@ $content .= '
                         <td style="width:5%; vertical-align: middle" rowspan="2">'.$no++.'</td>
 
 
-                        <td style="width:15%;border-right: 0px; vertical-align: middle" rowspan="2">'.$data->nama_sampel.'</td>    
+                        <td style="width:18%;border-right: 0px; vertical-align: middle" rowspan="2">'.$data->nama_sampel.'</td>    
 
-                        <td style="width:8%; vertical-align: middle" rowspan="2">'.$data2->no_sampel.'</td>
+                        <td style="width:8%; vertical-align: middle" rowspan="2">
+                        ';
+
+                            if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
+
+                               $content .= '
+
+                                '.$data2->no_sampel_bibit.'
+
+                               ';
+
+                            }else{
+
+                                $content .= '
+
+                                '.$data2->no_sampel.'
+
+                               ';
+                            }
+
+                            $content .='
+                        </td>
 
                         <td style="width:20%;"><em>'.$data->target_pengujian2.'</em></td>
 
@@ -574,7 +602,7 @@ $content .= '
 
                         <td style="width:20%;border-left: none; "><em>'.$data->target_pengujian3.'</em></td>
 
-                        <td style="width:16%; "> '.$data->metode_pengujian.' </td> 
+                        <td style="width:13%; "> '.$data->metode_pengujian.' </td> 
 
                         <td style="width:23%;">
 
@@ -597,13 +625,34 @@ $content .= '
                     
                         <td style="width:5%;>'.$no++.'</td>
 
-                        <td style="width:15%;border-right: 0px">'.$data->nama_sampel.'</td>    
+                        <td style="width:18%;border-right: 0px; vertical-align: middle" rowspan="2">'.$data->nama_sampel.'</td>    
 
-                        <td style="width:8%;">'.$data2->no_sampel.'</td>
+                        <td style="width:8%;">
+                        ';
+
+                            if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
+
+                               $content .= '
+
+                                '.$data2->no_sampel_bibit.'
+
+                               ';
+
+                            }else{
+
+                                $content .= '
+
+                                '.$data2->no_sampel.'
+
+                               ';
+                            }
+
+                            $content .='
+                        </td>
 
                         <td style="width:20%;"><em>'.$data->target_pengujian2.'</em></td>
 
-                        <td style="width:16%;"> '.$data->metode_pengujian.' </td> 
+                        <td style="width:13%;"> '.$data->metode_pengujian.' </td> 
 
 
                         <td style="width:23%;">

@@ -22,6 +22,8 @@ if(isset($_REQUEST['id'])){
 
       $no_permohonan      = $data->no_permohonan;
 
+      $no_sampel_awal     = $data->no_sampel_awal;
+
       $kode_sampel        = $data->kode_sampel;
 
       $kondisi_sampel     = $data->kondisi_sampel;
@@ -83,6 +85,8 @@ endwhile;
                                  <input type="text" name="kode_sampel" class="form-control" id="kode_sampel_input" value="<?=$kode_sampel?>" disabled="disabled">
 
                                  <input type="hidden" name="id" id="id_input" value="<?=$id?>">
+
+                                 <input type="hidden" name="no_sampel_awal" id="no_sampel_awal_input" value="<?=$no_sampel_awal?>">
 
                            </div>
 
@@ -450,7 +454,8 @@ endwhile;
 
            processData : false,
 
-           success : function(){
+           success : function(response){
+
 
             $('#tb_kesiapan_pengujian_kh_lab_parasit').DataTable().ajax.reload(null, false),
 

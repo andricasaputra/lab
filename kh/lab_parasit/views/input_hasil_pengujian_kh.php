@@ -175,20 +175,42 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           $kurangi = $jum - $masukkan;
                          
+                          $n = array();
 
                           if($jum != 1){
 
-                              $k = $x[0];
+                              $awal = $x[0];
 
-                              $l = $x[1] - $kurangi ;
+                              $akhir = $x[1];
 
-                              $r = range($k, $l);
+                              if (strpos($_GET['nama_sampel'], "Bibit") !== false) {
+                                    
+                                    $awal = ltrim($awal, "0"); 
+
+                                    $akhir = ltrim($akhir, "0") - $kurangi;
+
+                                    for ($i = $awal; $i <= $akhir; $i++) { 
+
+
+                                        $n[] = "0".$i;
+                                  
+                                    }
+
+                                    $r = $n;
+
+                              }else{
+
+                                    $r = range($awal, $akhir);
+                              }
+
 
                           }else{
 
                               $r = $x;
 
                           }
+
+
 
                           echo "
 
@@ -207,11 +229,13 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           ";
 
+
+
                       }else{
 
                           /*Hitung Banyak Hasil Yang Sudah Terinput di ID yang sama*/
 
-                          $qu2 = $objectHasilParasit->input_ulang($_GET['id']);
+                          $qu2 = $objectHasil->input_ulang($_GET['id']);
 
                           $num = $qu2->num_rows; 
 
@@ -221,25 +245,55 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           $j = $_GET['no_sampel'] ;
 
-                          $x = explode("-", $j);
+                          if (count($j) > 1) {
+                             if (strpos($j, '-') !== false) {
 
-                          if($jum != 1){
+                              $x = explode("-", $j);
 
-                              $k = $x[0];
+                            } else if (strpos($j, ',') !== false) {
 
-                              $l = $x[1];
+                               $x = explode(",", $j);
 
-                              $r = range($k, $l);
+                            }
 
-                          }else{
+                            $n = array();
 
-                              $r = $x;
+                            if($jum != 1){
 
+                                $awal = $x[0];
+
+                                $akhir = end($x);
+
+                                if (strpos($_GET['nama_sampel'], "Bibit") !== false) {
+                                      
+                                      $awal = ltrim($awal, "0"); 
+
+                                      $akhir = ltrim($akhir, "0");
+
+                                      foreach ($x as $key => $value) {
+                                        $n[] = "0".$value;
+                                      }
+
+                                      $r = $n;
+
+                                }else{
+
+                                      $r = range($awal, $akhir);
+                                }
+
+                            }else{
+
+                                $r = $x;
+
+                            }
+                          } else {
+                            $r = [$j];
                           }
 
                       }
-
+                      
                     foreach ($r as $no):
+
 
                     ?>       
 

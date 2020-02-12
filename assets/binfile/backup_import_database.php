@@ -46,7 +46,7 @@ if(isset($_POST["import"])){
    <h3 align="center">Restore Database</h3>  
    <br />
    <div><?php echo $message; ?></div>
-   <form method="post" enctype="multipart/form-data">
+   <form action="" method="post" enctype="multipart/form-data">
     <label for="host">Nama Host</label>
     <input type="text" placeholder="kosongkan jika tidak diisi" name="host" class="form-control">
     <label for="username">Nama Username</label>

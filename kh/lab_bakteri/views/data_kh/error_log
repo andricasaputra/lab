@@ -10006,3 +10006,36 @@
 [05-Sep-2018 06:16:32 UTC] PHP Stack trace:
 [05-Sep-2018 06:16:32 UTC] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_penyerahan_sampel_kh.php:0
 [05-Sep-2018 06:16:32 UTC] PHP   2. Lab\classes\kh\labbakteri\Nomor::bilangan() /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_penyerahan_sampel_kh.php:106
+[24-Sep-2018 01:04:43 Asia/Makassar] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_hasil_pengujian_kh.php on line 78
+[24-Sep-2018 01:04:43 Asia/Makassar] PHP Stack trace:
+[24-Sep-2018 01:04:43 Asia/Makassar] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_hasil_pengujian_kh.php:0
+[24-Sep-2018 01:04:43 Asia/Makassar] PHP Fatal error:  Uncaught Error: Call to a member function fetch_object() on boolean in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_hasil_pengujian_kh.php:86
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_hasil_pengujian_kh.php on line 86
+[24-Sep-2018 01:05:13 Asia/Makassar] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_hasil_pengujian_kh.php on line 78
+[24-Sep-2018 01:05:13 Asia/Makassar] PHP Stack trace:
+[24-Sep-2018 01:05:13 Asia/Makassar] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_hasil_pengujian_kh.php:0
+[24-Sep-2018 01:05:13 Asia/Makassar] PHP Fatal error:  Uncaught Error: Call to a member function fetch_object() on boolean in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_hasil_pengujian_kh.php:86
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_hasil_pengujian_kh.php on line 86
+[28-Sep-2018 23:43:49 Asia/Makassar] PHP Fatal error:  Uncaught Error: Call to a member function fetch_object() on boolean in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_permohonan_kh.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_permohonan_kh.php on line 73
+[28-Sep-2018 23:44:58 Asia/Makassar] PHP Fatal error:  Uncaught Error: Call to a member function fetch_object() on boolean in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_permohonan_kh.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_permohonan_kh.php on line 73
+[28-Sep-2018 23:46:39 Asia/Makassar] PHP Notice:  Trying to get property 'num_rows' of non-object in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_data_teknis_kh.php on line 77
+[28-Sep-2018 23:46:39 Asia/Makassar] PHP Stack trace:
+[28-Sep-2018 23:46:39 Asia/Makassar] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_data_teknis_kh.php:0
+[28-Sep-2018 23:46:39 Asia/Makassar] PHP Fatal error:  Uncaught Error: Call to a member function fetch_object() on boolean in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_data_teknis_kh.php:86
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_data_teknis_kh.php on line 86
+[28-Sep-2018 23:47:06 Asia/Makassar] PHP Fatal error:  Uncaught Error: Call to a member function fetch_object() on boolean in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_permohonan_kh.php:73
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_bakteri/views/data_kh/sumber_data_permohonan_kh.php on line 73

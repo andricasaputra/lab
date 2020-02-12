@@ -131,15 +131,19 @@ if(isset($_REQUEST['id'])):
 
       $target                   = $data->nama_patogen;
 
-      $nama_sampel				= $data->nama_sampel;
+      $nama_sampel				      = $data->nama_sampel;
 
-      $target_optk 				= $data->target_optk;
+      $target_optk 				      = $data->target_optk;
 
-      $target_optk2 			= $data->target_optk2;
+      $target_optk2 			      = $data->target_optk2;
 
-      $target_optk3 			= $data->target_optk3;
+      $target_optk3 			      = $data->target_optk3;
 
-      $satuan 					= $data->satuan;
+      $satuan 					        = $data->satuan;
+
+      $jumlah_sampel            = $data->jumlah_sampel;
+
+      $tanggal_pengujian        = $data->tanggal_pengujian;
 
 
       $qu2 = $objectHasil->input_ulang($id);
@@ -263,7 +267,7 @@ $bwtcheck = $checkHasil->num_rows;
 
           <label class="control-label" for="tanggal_pengujian">Tanggal Pengujian</label>
 
-          <input type="text" class="form-control" name="tanggal_pengujian" id="tanggal_pengujian_input" value="<?=$tgl_indo?>">
+          <input type="text" class="form-control" name="tanggal_pengujian" id="tanggal_pengujian_input" value="<?=$tanggal_pengujian?>">
 
         </div>
 

@@ -18,6 +18,8 @@ $nip_ygmenerima			=htmlspecialchars($conn->real_escape_string(trim($_POST['nip_y
 
 $kode_sampel			=htmlspecialchars($conn->real_escape_string(trim($_POST['kode_sampel'])));
 
+$jam_diterima_pengelola_sampel			=htmlspecialchars($conn->real_escape_string(trim($_POST['jam_diterima_pengelola_sampel'])));
+
 if (!empty($kode_sampel)) {
 	
 	$kd = $conn->query("SELECT kode_sampel FROM input_permohonan_kh WHERE kode_sampel='$kode_sampel'");
@@ -31,7 +33,7 @@ if (!empty($kode_sampel)) {
 
 	}else{
 
-		 $objectData->edit("UPDATE input_permohonan_kh SET tanggal_penyerahan='$tanggal_penyerahan', yang_menyerahkan='$yang_menyerahkan', yang_menerima='$yang_menerima',  nip_ygmenyerahkan='$nip_ygmenyerahkan' , nip_ygmenerima='$nip_ygmenerima', kode_sampel='$kode_sampel' WHERE id ='$id'");
+		 $objectData->edit("UPDATE input_permohonan_kh SET tanggal_penyerahan='$tanggal_penyerahan', yang_menyerahkan='$yang_menyerahkan', yang_menerima='$yang_menerima',  nip_ygmenyerahkan='$nip_ygmenyerahkan' , nip_ygmenerima='$nip_ygmenerima', kode_sampel='$kode_sampel', jam_diterima_pengelola_sampel = '$jam_diterima_pengelola_sampel' WHERE id ='$id'");
 	}
 
 }

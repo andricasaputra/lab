@@ -12,40 +12,39 @@ require_once('header_proses.php');
 
     $positif_negatif    = htmlspecialchars($conn->real_escape_string($_POST['positif_negatif'][$i]));
 
-    $hasil_pengujian  =htmlspecialchars($conn->real_escape_string($_POST['hasil_pengujian']));
+    $hasil_pengujian    = htmlspecialchars($conn->real_escape_string($_POST['hasil_pengujian']));
 
 
 
   if($no_sampel !==""){
 
+    $cek = substr($no_sampel, 0, 1);
 
-    if (substr($no_sampel, 0, 1) === "0") {
+    if ($cek !== "0") {
 
-      $insertDb = $objectHasil->input2($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
-
+      $insertDb = $objectHasil->input($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
 
     }else{
 
-      $insertDb = $objectHasil->input($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
+      $insertDb = $objectHasil->input2($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
 
     }
 
 
-
   }else{
 
-        echo '<script type="text/javascript">';
+      echo '<script type="text/javascript">';
 
-        echo 'setTimeout(function () { swal("Input Data Gagal!","Hasil Pengujian Tidak Boleh Kosong","error");';
+      echo 'setTimeout(function () { swal("Input Data Gagal!","Hasil Pengujian Tidak Boleh Kosong","error");';
 
-        echo '}, 0);</script>';
+      echo '}, 0);</script>';
 
   }
 
   endforeach;
 
 
-  $objectHasil->edit("UPDATE input_permohonan_kh SET hasil_pengujian='$hasil_pengujian' WHERE hasil_pengujian ='' AND id <= $id");
+  $objectHasil->edit("UPDATE input_permohonan_kh SET hasil_pengujian='$hasil_pengujian' WHERE hasil_pengujian ='' AND id = $id");
 
   if ($insertDb == 'no_sampel_terpakai') {
         
@@ -58,8 +57,6 @@ require_once('header_proses.php');
     echo "sukses";
 
   }
-
-  
 
 
 ?>

@@ -4,8 +4,10 @@ namespace Lab\classes\kh\labparasit;
 
 use Lab\classes\LegacyData;
 use Lab\interfaces\SuperHasil;
+use Lab\interfaces\HasilKH;
 
-class Hasil extends LegacyData implements SuperHasil
+
+class Hasil extends LegacyData implements SuperHasil, HasilKH
 {
 
     public function __construct()
@@ -19,6 +21,23 @@ class Hasil extends LegacyData implements SuperHasil
     {
 
         $sql = "SELECT * FROM hasil_kh_lab_parasit";
+
+        if ($id != null) {
+
+            $sql .= " WHERE id=$id";
+
+        }
+
+        $query = $this->db->query($sql) or die($this->db->error);
+
+        return $query;
+
+    }
+
+    public function tampilBibit($id = null)
+    {
+
+        $sql = "SELECT * FROM hasil_kh_bibit_lab_parasit";
 
         if ($id != null) {
 
@@ -68,10 +87,26 @@ class Hasil extends LegacyData implements SuperHasil
         return $query;
     }
 
+    public function tampil_hasil_bibit($id)
+    {
+
+        $sql   = "SELECT positif_negatif FROM hasil_kh_bibit_lab_parasit WHERE id = $id";
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
     public function input_ulang($id2)
     {
 
         $sql   = "SELECT no_sampel FROM hasil_kh_lab_parasit WHERE id = $id2";
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
+    public function input_ulang_bibit($id2)
+    {
+
+        $sql   = "SELECT no_sampel_bibit FROM hasil_kh_bibit_lab_parasit WHERE id = $id2";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
@@ -93,6 +128,15 @@ class Hasil extends LegacyData implements SuperHasil
         $this->db->query("INSERT INTO hasil_kh_lab_parasit (id, tanggal_acu_hasil, no_sampel,  positif_negatif, positif_negatif_target3) VALUES ('$id', '$tanggal_acu_hasil', '$no_sampel', '$positif_negatif', '$positif_negatif_target3')") or die($this->db->error);
 
     }
+
+
+    public function input2($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif, $positif_negatif_target3)
+    {
+
+        $this->db->query("INSERT INTO hasil_kh_bibit_lab_parasit (id, tanggal_acu_hasil, no_sampel_bibit,  positif_negatif, positif_negatif_target3) VALUES ('$id', '$tanggal_acu_hasil', '$no_sampel', '$positif_negatif', '$positif_negatif_target3')") or die($this->db->error);
+
+    }
+
 
     public function print_pertanggal_hasil2($id)
     {
@@ -152,6 +196,14 @@ class Hasil extends LegacyData implements SuperHasil
         return $query;
     }
 
+    public function print_pertanggal_sertifikat_bibit($id)
+    {
+
+        $sql2  = "SELECT * FROM hasil_kh_bibit_lab_parasit WHERE id='$id' ";
+        $query = $this->db->query($sql2) or die($this->db->error);
+        return $query;
+    }
+
     public function hapus($id)
     {
 
@@ -172,6 +224,13 @@ class Hasil extends LegacyData implements SuperHasil
     public function checkHasilPengujian($id = null)
     {
         $sql   = "SELECT id,no_sertifikat,positif_negatif FROM hasil_kh_lab_parasit WHERE positif_negatif != '' AND id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat = '')";
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
+    public function checkHasilPengujianBibit($id = null)
+    {
+        $sql   = "SELECT id,no_sertifikat,positif_negatif FROM hasil_kh_bibit_lab_parasit WHERE positif_negatif != '' AND id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat = '')";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }

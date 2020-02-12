@@ -183,7 +183,7 @@ class Data extends LegacyData implements SuperData
     public function ambil_id()
     {
 
-        $id = "SELECT id FROM input_permohonan_kh WHERE kesiapan = 'Ya'";
+        $id = "SELECT id FROM input_permohonan_kh WHERE kesiapan = 'Ya' ORDER BY id ASC";
 
         $query1 = $this->db->query($id) or die($this->db->error);
 
@@ -564,7 +564,7 @@ class Data extends LegacyData implements SuperData
 
         } elseif ($select == 'getid') {
 
-            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh WHERE id = (SELECT max(id) FROM input_permohonan_kh WHERE tanggal_pengujian != ''  AND no_sertifikat != '')";
+            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh WHERE id = (SELECT max(id) FROM input_permohonan_kh WHERE tanggal_pengujian != '' AND no_sertifikat != '')";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 

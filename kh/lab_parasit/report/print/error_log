@@ -714,3 +714,22 @@ Stack trace:
 [05-Sep-2018 13:26:40 Asia/Jakarta] PHP Notice:  Undefined property: stdClass::$positif_negatif_target3 in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php on line 161
 [05-Sep-2018 13:26:40 Asia/Jakarta] PHP Stack trace:
 [05-Sep-2018 13:26:40 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_buku_agenda_datek_kh.php:0
+[25-Sep-2018 10:29:08 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_distribusi_sampel_multi_periode.php:241
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_distribusi_sampel_multi_periode.php on line 241
+[25-Sep-2018 10:29:14 Asia/Jakarta] PHP Fatal error:  Uncaught Error: Class 'NomorKh' not found in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_distribusi_sampel_multi_periode.php:241
+Stack trace:
+#0 {main}
+  thrown in /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_distribusi_sampel_multi_periode.php on line 241
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP Fatal error:  Allowed memory size of 134217728 bytes exhausted (tried to allocate 2097160 bytes) in /home/skph4384/public_html/lab/assets/html2pdf/html2pdf2.class.php on line 891
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP Stack trace:
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_sertifikat_multi.php:0
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   2. HTML2PDF->writeHTML() /home/skph4384/public_html/lab/kh/lab_parasit/report/print/print_sertifikat_multi.php:1001
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   3. HTML2PDF->_makeHTMLcode() /home/skph4384/public_html/lab/assets/html2pdf/html2pdf2.class.php:408
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   4. HTML2PDF->_executeAction() /home/skph4384/public_html/lab/assets/html2pdf/html2pdf2.class.php:1228
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   5. HTML2PDF->_tag_open_WRITE() /home/skph4384/public_html/lab/assets/html2pdf/html2pdf2.class.php:1259
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   6. HTML2PDF->_tag_open_BR() /home/skph4384/public_html/lab/assets/html2pdf/html2pdf2.class.php:3388
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   7. HTML2PDF->_makeBreakLine() /home/skph4384/public_html/lab/assets/html2pdf/html2pdf2.class.php:3453
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   8. HTML2PDF->_setNewLine() /home/skph4384/public_html/lab/assets/html2pdf/html2pdf2.class.php:1294
+[27-Sep-2018 13:31:33 Asia/Jakarta] PHP   9. HTML2PDF->_setNewPositionForNewLine() /home/skph4384/public_html/lab/assets/html2pdf/html2pdf2.class.php:856

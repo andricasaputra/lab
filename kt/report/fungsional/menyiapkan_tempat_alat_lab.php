@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -41,10 +39,6 @@ $content ='
         vertical-align: text-bottom;
 
     }
-
-
-
-
 
     .table2  {
 
@@ -178,15 +172,11 @@ $content ='
 
         $num = $qu2->num_rows;
 
-        $tampil3 = $objectPrint->Scan(@$_GET['id']);
+        $scanTtd = $objectPrint->Scan(@$_GET['id']);
 
-        while($data3 = $tampil3->fetch_object()):
+        $ttd_penyelia_data_teknis = $scanTtd['ttd_penyelia_data_teknis'];
 
-                $ttd_penyelia_data_teknis = $data3->ttd_penyelia_data_teknis;
-
-                $ttd_analis_data_teknis = $data3->ttd_analis_data_teknis;
-
-        endwhile;
+        $ttd_analis_data_teknis = $scanTtd['ttd_analis_data_teknis'];
 
         }else {
 
@@ -210,7 +200,7 @@ $content ='
 
         while ($data=$tampil->fetch_object()):
 
-        $bilangan = ucwords(Nomor::bilangan($data->jumlah_sampel));
+        $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
 $content .= '
 

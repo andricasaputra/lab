@@ -55,7 +55,7 @@ endif;
 
                                   <select class="form-control" name="ma" id="ma_input" required>
 
-                                    <option>Muhammad Tamrin</option>
+                                    <option>Andik Akrimil Fata, SP</option>
 
                                         <?php 
 
@@ -79,7 +79,7 @@ endif;
 
                                 <select class="form-control" name="nip_ma" id="nip_ma_input" required>
 
-                                      <option>19650101 200212 1 001</option>
+                                      <option>19820710 200901 1 007</option>
 
                                 </select>
 

@@ -3,8 +3,9 @@
 namespace Lab\classes\kh\labparasit;
 
 use Lab\classes\LegacyCetak;
+use Lab\interfaces\CetakKH;
 
-class Cetak extends LegacyCetak
+class Cetak extends LegacyCetak implements CetakKH
 {
 
     public function __construct()
@@ -27,6 +28,17 @@ class Cetak extends LegacyCetak
     public function tampilHasil($id = null)
     {
         $sql = "SELECT * FROM hasil_kh_lab_parasit";
+        if ($id != null) {
+
+            $sql .= " WHERE id=$id";
+        }
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
+    public function tampilHasilBibit($id = null)
+    {
+        $sql = "SELECT * FROM hasil_kh_bibit_lab_parasit";
         if ($id != null) {
 
             $sql .= " WHERE id=$id";

@@ -93,7 +93,7 @@
 
     <div class="table-responsive">
 
-      <table class="table table-hover table-striped" id="tb_hasil_pengujian_kh"  width="100%"  style="text-align: center">
+      <table class="table table-hover table-striped" id="tb_hasil_pengujian_kh"  width="100%"  style="table-layout: fixed; width: 100%">
 
           <thead>
 
@@ -111,7 +111,7 @@
 
                   <th width= "10%">Nama Sampel</th>
 
-                  <th width= "44%">Action</th>
+                  <th width= "20%">Action</th>
 
               </tr>
 

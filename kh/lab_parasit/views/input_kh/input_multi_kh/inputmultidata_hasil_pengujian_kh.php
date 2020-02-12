@@ -140,6 +140,27 @@ endfor;
 
 while ($last = $getLastData->fetch_object()) :
 
+if ($last->jumlah_sampel > 100) :
+  
+  echo 
+  '<script>swal({
+
+    title: "Perhatian!",
+
+    text: "Nomor Sampel Yang Akan Anda Input Lebih Dari 100, Harap Tidak Menggunakan Multiple Input Ini!",
+
+    type: "info"
+
+  }).then(function (){
+
+    location.reload();
+    
+  });</script>';
+
+  return false;
+
+endif;
+
 $penyelia = $last->nama_penyelia;
 
 $analis = $last->nama_analis;
@@ -152,7 +173,7 @@ $ket_kesimpulan = $last->ket_kesimpulan;
 
 $nip_penyelia = $last->nip_penyelia;
 
-$nip_penyelia = $last->nip_analis;
+$nip_analis = $last->nip_analis;
 
 $mt = $last->mt;
 
@@ -164,24 +185,65 @@ $target2 = $last->target_pengujian3;
 
 $no_sampel = $last->no_sampel;
 
-$ex = explode("-", $no_sampel);
+/*$ex = explode("-", $no_sampel);
 
 $noAwal = $ex[0];
 
 $noAkhir = end($ex);
 
-$no_sampels = range($noAwal, $noAkhir);
+$no_sampels = range($noAwal, $noAkhir);*/
 
-    $data[$last->id] = [
+if (strpos($last->nama_sampel, "Bibit") !== false) {
 
-      "id" => $last->id,
-      "jumlahSampel" => $last->jumlah_sampel,
-      "kode_sampel"=> $last->kode_sampel,
-      "no_sampel" => $no_sampels,
-      "target1" => $target1,
-      "target2" => $target2
+  $n = array();
 
-    ];
+  if ($last->jumlah_sampel != 1) {
+
+    $ex = explode("-", $no_sampel);
+
+    $noAwal = ltrim($ex[0], "0");
+
+    $noAkhir = ltrim(end($ex), "0");
+
+    for ($i = $noAwal; $i <= $noAkhir; $i++) { 
+      
+        $n[] = "0".ltrim($i, "0");
+
+    }
+
+    $no_sampels = $n;
+    
+  }else{
+
+    $n[] = $last->no_sampel;
+
+    $no_sampels = $n;
+
+  }
+
+
+}else{
+
+  $ex = explode("-", $no_sampel);
+
+  $noAwal = $ex[0];
+
+  $noAkhir = end($ex);
+
+  $no_sampels = range($noAwal, $noAkhir);
+
+}
+
+$data[$last->id] = [
+
+  "id" => $last->id,
+  "jumlahSampel" => $last->jumlah_sampel,
+  "kode_sampel"=> $last->kode_sampel,
+  "no_sampel" => $no_sampels,
+  "target1" => $target1,
+  "target2" => $target2
+
+];
 
 
 
@@ -203,7 +265,7 @@ $ket_kesimpulan = $lastHasil->ket_kesimpulan;
 
 $nip_penyelia = $lastHasil->nip_penyelia;
 
-$nip_penyelia = $lastHasil->nip_analis;
+$nip_analis = $lastHasil->nip_analis;
 
 $mt = $lastHasil->mt;
 
@@ -213,13 +275,29 @@ $target1 = $lastHasil->target_pengujian2;
 
 $no_sampel = $lastHasil->no_sampel;
 
-$ex = explode("-", $no_sampel);
+if (strpos($no_sampel, "-") !== false) {
+
+  $ex = explode("-", $no_sampel);
+
+  $noAwal = $ex[0];
+
+  $noAkhir = end($ex);
+
+  $no_sampels = range($noAwal, $noAkhir);
+
+}else{
+
+  $no_sampels = $no_sampel;
+
+}
+
+/*$ex = explode("-", $no_sampel);
 
 $noAwal = $ex[0];
 
 $noAkhir = end($ex);
 
-$no_sampels = range($noAwal, $noAkhir);
+$no_sampels = range($noAwal, $noAkhir);*/
 
      /*Array data2 untuk input info sertifikat*/
 
@@ -237,12 +315,18 @@ endwhile;
 
 $checkHasil = $objectHasilParasit->checkHasilPengujian();
 
+$checkHasilBibit = $objectHasilParasit->checkHasilPengujianBibit();
+
 $bwtcheck = $checkHasil->num_rows;
+
+$bwtcheckBibit = $checkHasilBibit->num_rows;
+
 
 ?>
 
 
 <div class="modal-content">
+
 
   <div class="modal-header">
 
@@ -258,7 +342,7 @@ $bwtcheck = $checkHasil->num_rows;
 
   <ul id="tabs">
 
-    <?php if($bwtcheck == 0): ?>
+    <?php if($bwtcheck == 0 && $bwtcheckBibit == 0): ?>
 
     <li><a id="tab1">Input Hasil Pengujian</a></li>
 
@@ -274,7 +358,7 @@ $bwtcheck = $checkHasil->num_rows;
 
     <!-- check -->
 
-    <?php if($bwtcheck == 0): ?>
+    <?php if($bwtcheck == 0 && $bwtcheckBibit == 0): ?>
 
     <div id="tab1c" class="showtab">
       <form id="form_input_multi_hasil_pengujian">
@@ -752,6 +836,7 @@ $bwtcheck = $checkHasil->num_rows;
                 dataType: 'Json',
                 data: {'id':pejabatID},
                 success: function(data) {
+                  console.log(data);
                     $('#nip_penyelia_input').empty();
                     $.each(data, function(key, value) {
                         $('#nip_penyelia_input').append('<option>'+ value +'</option>');

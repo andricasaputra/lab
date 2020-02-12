@@ -105,7 +105,7 @@ $content ='
 
     div#lower{
 
-        margin-left: 470px;
+        margin-left: 485px;
 
     }
 
@@ -175,7 +175,6 @@ $content ='
 
 $content .= '
 
-    <br/>
 
     <div align="center">
 
@@ -191,10 +190,8 @@ $content .= '
 
         <td width="18"  align="center"></td>
 
-        <td width="0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src='.$check.' style="width: 30px"></td>
+        <td width="0">
+        <img src='.$check.' style="width: 35px;margin-left:65px"></td>
 
         <td width="200"></td>
 
@@ -275,38 +272,39 @@ $content .= '
               
                 <td style="width:5%">'.$no++.'</td>
 
-                <td style="width:15%">'.$data->no_sampel.' </td>    
+                <td style="width:18%">'.$data->no_sampel.' </td>    
 
-                <td style="width:17%">'.$data->nama_sampel.'</td> 
+                <td style="width:16%">'.$data->nama_sampel.'</td> 
 
-                <td style="width:10%"><em><b>'.$data->target_pengujian2.'</b></em></td>
+                <td style="width:12%"><em><b>'.$data->target_pengujian2.'</b></em></td>
 
                 <td style="width:17%"">'.$data->metode_pengujian.'</td> 
 
-                <td style="width:17%">'.$data->lab_penguji.'</td>  
+                <td style="width:13%">'.$data->lab_penguji.'</td>  
 
-                <td style="width:12%">'.$data->nama_penyelia.'</td>  
+                <td style="width:14%">'.$data->nama_penyelia.'</td>  
 
-                <td style="width:10%">'.$data->nama_analis.'</td>  
+                <td style="width:11%">'.$data->nama_analis.'</td>  
 
               </tr>
 
         </table>
 
 
-        <div id="lower">
+        <div id="lower" style="margin-top: 10px">
 
             <br/>
             <p></p>
             
-           <div style="margin-left: 100px">'.$data->tanggal_penunjukan.' </div>
+           <div style="margin-left: 95px">'.$data->tanggal_penunjukan.' </div>
        
             <p></p>
             <p></p>
             <p></p>
 
 
-            '.$data->mt.'<br/>
+
+            '.$data->mt.'<br/><br/>
 
             '.$data->nip_mt.'
 

@@ -19,6 +19,7 @@ $log = new Login;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<title>LABORATORIUM ELEKTRONIK</title>
+		<link rel="manifest" href="manifest.json">
 		<link href="assets/css/bootstrap.min.css" rel="stylesheet">
 		<link href="assets/css/style.css" rel="stylesheet">
 		<link href="assets/img/favicon-32x32.png" rel="icon" type="image/png" sizes="32x32">

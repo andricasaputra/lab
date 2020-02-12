@@ -4,8 +4,9 @@ namespace Lab\classes\kh\labbakteri;
 
 use Lab\classes\LegacyData;
 use Lab\interfaces\SuperHasil;
+use Lab\interfaces\HasilKH;
 
-class Hasil extends LegacyData implements SuperHasil
+class Hasil extends LegacyData implements SuperHasil, HasilKH
 {
 
     public function __construct()
@@ -19,6 +20,23 @@ class Hasil extends LegacyData implements SuperHasil
     {
 
         $sql = "SELECT * FROM hasil_kh";
+
+        if ($id != null) {
+
+            $sql .= " WHERE id=$id";
+
+        }
+
+        $query = $this->db->query($sql) or die($this->db->error);
+
+        return $query;
+
+    }
+
+    public function tampilBibit($id = null)
+    {
+
+        $sql = "SELECT * FROM hasil_kh_bibit";
 
         if ($id != null) {
 
@@ -110,7 +128,7 @@ class Hasil extends LegacyData implements SuperHasil
 
     }
 
-    public function input2($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif)
+    public function input2($id, $tanggal_acu_hasil, $no_sampel, $positif_negatif, $positif_negatif_target3 = null)
     {
 
         $this->db->query("INSERT INTO hasil_kh_bibit (id, tanggal_acu_hasil, no_sampel_bibit,  positif_negatif) VALUES ('$id', '$tanggal_acu_hasil', '$no_sampel', '$positif_negatif')") or die($this->db->error); 
@@ -175,6 +193,14 @@ class Hasil extends LegacyData implements SuperHasil
         return $query;
     }
 
+    public function print_pertanggal_sertifikat_bibit($id)
+    {
+
+        $sql2  = "SELECT * FROM hasil_kh_bibit WHERE id='$id' ";
+        $query = $this->db->query($sql2) or die($this->db->error);
+        return $query;
+    }
+
     public function hapus($id)
     {
 
@@ -184,6 +210,13 @@ class Hasil extends LegacyData implements SuperHasil
     public function checkHasilPengujian($id = null)
     {
         $sql   = "SELECT id,no_sertifikat, positif_negatif FROM hasil_kh WHERE positif_negatif != '' AND id = (SELECT max(id) FROM input_permohonan_kh WHERE no_sertifikat = '')";
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
+    public function checkHasilPengujianBibit($id = null)
+    {
+        $sql   = "SELECT id,no_sertifikat,positif_negatif FROM hasil_kh_bibit WHERE positif_negatif != '' AND id = (SELECT max(id) FROM input_permohonan_kh WHERE no_sertifikat = '')";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }

@@ -150,14 +150,34 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           $kurangi = $jum - $masukkan;
                          
+                          $n = array();
 
                           if($jum != 1){
 
-                              $k = $x[0];
+                              $awal = $x[0];
 
-                              $l = $x[1] - $kurangi ;
+                              $akhir = $x[1];
 
-                              $r = range($k, $l);
+                              if (strpos($_GET['nama_sampel'], "Bibit") !== false) {
+                                    
+                                    $awal = ltrim($awal, "0"); 
+
+                                    $akhir = ltrim($akhir, "0") - $kurangi;
+
+                                    for ($i = $awal; $i <= $akhir; $i++) { 
+
+
+                                        $n[] = "0".$i;
+                                  
+                                    }
+
+                                    $r = $n;
+
+                              }else{
+
+                                    $r = range($awal, $akhir);
+                              }
+
 
                           }else{
 
@@ -198,7 +218,15 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           $j = $_GET['no_sampel'] ;
 
-                          $x = explode("-", $j);
+                          if (strpos($j, '-') !== false) {
+
+                            $x = explode("-", $j);
+
+                          } else if (strpos($j, ',') !== false) {
+
+                             $x = explode(",", $j);
+
+                          }
 
                           $n = array();
 
@@ -206,20 +234,16 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                               $awal = $x[0];
 
-                              $akhir = $x[1];
+                              $akhir = end($x);
 
-
-                              if (strpos($awal, "0") !== false && strpos($akhir, "0") !== false) {
+                              if (strpos($_GET['nama_sampel'], "Bibit") !== false) {
                                     
                                     $awal = ltrim($awal, "0"); 
 
                                     $akhir = ltrim($akhir, "0");
 
-                                    for ($i = $awal; $i <= $akhir; $i++) { 
-
-
-                                        $n[] = "0".$i;
-                                  
+                                    foreach ($x as $key => $value) {
+                                      $n[] = "0".$value;
                                     }
 
                                     $r = $n;
@@ -229,8 +253,6 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
                                     $r = range($awal, $akhir);
                               }
 
-                              
-
                           }else{
 
                               $r = $x;
@@ -238,8 +260,6 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
                           }
 
                       }
-
-
 
                     foreach ($r as $no):
 

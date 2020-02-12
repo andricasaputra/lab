@@ -125,16 +125,19 @@ endwhile;
                                
                               if ($kosong !== 0) {
 
-                                  /*Ambil Max ID*/
-                                   $AmbilMaxnomorSertfikat = $objectNomor->set_maxnoSer();
-                                   $MaxnomorSertfikat = $AmbilMaxnomorSertfikat->fetch_object();
-                                   $maxId = $MaxnomorSertfikat->Maxid;
+                                  // /*Ambil Max ID*/
+                                  //  $AmbilMaxnomorSertfikat = $objectNomor->set_maxnoSer();
+                                  //  $MaxnomorSertfikat = $AmbilMaxnomorSertfikat->fetch_object();
+                                  //  $maxId = $MaxnomorSertfikat->Maxid;
 
-                                   /*Ambil Nomor Sertifikat bedasarkan Max id*/
+                                  //  /*Ambil Nomor Sertifikat bedasarkan Max id*/
 
-                                   $nomorSertfikat = $objectNomor->NomorSertifikat($maxId);
+                                   $nomorSertfikat = $objectNomor->NomorSertifikat();
+
                                    while ($no = $nomorSertfikat->fetch_object()) {
+
                                         $Sert = $no->no_sertifikat;
+
                                    }
 
                                     if (!empty($Sert)) {

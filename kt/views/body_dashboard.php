@@ -565,17 +565,17 @@
 
                     <div class="timeline-body text-center social-icons icon-circle icon-zoom">
 
-                        <a href="http://karantina.pertanian.go.id/" target="_blank"><i class="fa fa-globe"></i></a>
+                        <a href="http://karantina.pertanian.go.id/" target="_blank"><i class="fa fa-globe" name="barantan_link"></i></a>
 
-                        <a  href="https://www.facebook.com/badankarantinapertanian/" target="_blank"><i class="fa fa-facebook"></i></a>
+                        <a  href="https://www.facebook.com/badankarantinapertanian/" target="_blank"><i class="fa fa-facebook" name="facebook_link"></i></a>
 
-                        <a href="https://twitter.com/Barantan_RI" target="_blank"><i class="fa fa-twitter"></i></a>
+                        <a href="https://twitter.com/Barantan_RI" target="_blank"><i class="fa fa-twitter" name="twitter_link"></i></a>
 
-                        <a href="https://www.instagram.com/barantan_ri/" target="_blank"><i class="fa fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/barantan_ri/" target="_blank"><i class="fa fa-instagram" name="instagram_link"></i></a>
 
-                        <a href="https://www.youtube.com/channel/UC8gfItc0rKM9BowVvETHq3A" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                        <a href="https://www.youtube.com/channel/UC8gfItc0rKM9BowVvETHq3A" target="_blank"><i class="fa fa-youtube-play" name="youtube_link"></i></a>
 
-                        <a href="https://plus.google.com/?hl=id" target="_blank"><i class="fa fa-google-plus"></i></a>
+                        <a href="https://plus.google.com/?hl=id" target="_blank"><i class="fa fa-google-plus" name="google_link"></i></a>
 
                     </div>
 

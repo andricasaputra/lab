@@ -125,13 +125,13 @@ endwhile;
                               if ($kosong !== 0) {
 
                                   /*Ambil Max ID*/
-                                   $AmbilMaxnomorSertfikat = $objectNomorParasit->set_maxnoSer();
+                                   /*$AmbilMaxnomorSertfikat = $objectNomorParasit->set_maxnoSer();
                                    $MaxnomorSertfikat = $AmbilMaxnomorSertfikat->fetch_object();
-                                   $maxId = $MaxnomorSertfikat->Maxid;
+                                   $maxId = $MaxnomorSertfikat->Maxid;*/
 
                                    /*Ambil Nomor Sertifikat bedasarkan Max id*/
 
-                                   $nomorSertfikat = $objectNomorParasit->NomorSertifikat($maxId);
+                                   $nomorSertfikat = $objectNomorParasit->NomorSertifikat();
                                    while ($no = $nomorSertfikat->fetch_object()) {
                                         $Sert = $no->no_sertifikat;
                                    }

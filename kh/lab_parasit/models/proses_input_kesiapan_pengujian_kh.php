@@ -31,79 +31,99 @@ require_once('header_proses.php');
 
 	$jumlah_sampel 		= $_POST['jumlah_sampel'];
 
-		
+	if ($kesiapan == 'Tidak') :
 
-if ($kesiapan == 'Tidak') :
-
-		/*check apakah id yg lebih tinggi, jika ada maka update semua id yg lebih tinggi juga*/
-
-		if ($maxId > $id ) {
-
-		/*Ambil jumlah sampel awal di database berdasarkan post id*/
-
-		$query = $conn->query("SELECT jumlah_sampel FROM input_permohonan_kh_lab_parasit WHERE id = $id");
+		$query = $conn->query("SELECT nama_sampel FROM input_permohonan_kh_lab_parasit WHERE id = $id");
 
 		$result = $query->fetch_object();
 
-		$awalJumlahSampel = $result->jumlah_sampel;
+		$nama_sampel = $result->nama_sampel;
 
-		/*ambil posisi post id pada array keberapa*/
+		/*Jika Tidak Pada Nama Sampel Bibit, Baru kerjakan ini*/
 
-		$inarr = intval(array_search($id, $arrId));
+		if (strrpos($nama_sampel, "Bibit") === false) {
 
-		/*+lihat Header proses+ / ambil post id dari array*/
+			/*check apakah id yg lebih tinggi, jika ada maka update semua id yg lebih tinggi juga*/
 
-		$awalarrid = $arrId[$inarr];
+			if ($maxId > $id ) {
 
-		/*loop sesuai jumlah  id sisa*/
+			/*Ambil jumlah sampel awal di database berdasarkan post id*/
 
-		for ($i=$awalarrid + 1; $i <= $maxId ; $i++) : 
+			$query = $conn->query("SELECT jumlah_sampel FROM input_permohonan_kh_lab_parasit WHERE nama_sampel NOT LIKE '%Bibit%' AND id = $id");
 
-			$nextid = $i;
+			$result = $query->fetch_object();
 
-			$PilihJumlahSampel = $objectNomorParasit->PilihJumlahSampel($nextid);
+			@$awalJumlahSampel = $result->jumlah_sampel;
 
-			$resultjumlahsampel = $PilihJumlahSampel->fetch_object();
+			/*ambil posisi post id pada array keberapa*/
 
-			$resjumlah_sampel = $resultjumlahsampel->jumlah_sampel;
+			$inarr = intval(array_search($id, $arrId));
+
+			/*+lihat Header proses+ / ambil post id dari array*/
+
+			$awalarrid = $arrId[$inarr];
+
+			/*loop sesuai jumlah  id sisa*/
+
+			for ($i=$awalarrid + 1; $i <= $maxId ; $i++) : 
+
+				$nextid = $i;
+
+				$PilihJumlahSampel = $objectNomorParasit->PilihJumlahSampel($nextid);
+
+				$resultjumlahsampel = $PilihJumlahSampel->fetch_object();
+
+				$resjumlah_sampel = $resultjumlahsampel->jumlah_sampel;
+
+				$resno_sampel = $resultjumlahsampel->no_sampel;
+
+				if (strpos($resno_sampel, "-") !== false) {
+
+					$ex = explode("-", $resno_sampel);
+
+					$awal = $ex[0] - $jumlah_sampel; 
+
+					$akhir = end($ex);
+
+					$akhir2 = intval($jumlah_sampel);
+
+					$akhir3 = $akhir - $akhir2;
+
+					$newno_sampel = $awal ."-". $akhir3;
+
+				}else{
+
+					$akhir = $resno_sampel;
+
+					$akhir2 =  intval($jumlah_sampel);
+
+					$newno_sampel = $akhir - $akhir2;
+				}
+
+				
+				$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '$newno_sampel' WHERE nama_sampel NOT LIKE '%Bibit%' AND id ='$nextid'");
+
+		 	endfor;
+
+		 		$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '' WHERE id ='$id'");
 
 
-			$resno_sampel = $resultjumlahsampel->no_sampel;
-
-			if (strpos($resno_sampel, "-") !== false) {
-
-				$ex = explode("-", $resno_sampel);
-
-				$awal = $ex[0] - $jumlah_sampel; 
-
-				$akhir = end($ex) - $jumlah_sampel;
-
-				$newno_sampel = $awal ."-". $akhir;
+		 		/*Jika Tidak Ada Id Yang lebih tinggi masuk sini*/
 
 			}else{
 
-				$akhir = $resno_sampel - $jumlah_sampel;
 
-				$newno_sampel = $akhir;
+				$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '' WHERE id ='$id'");
+
 			}
 
-			$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '$newno_sampel' WHERE id ='$nextid'");
 
-	 	endfor;
-
-	 		$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '' WHERE id ='$id'");
-
-
-	 		/*Jika Tidak Ada Id Yang lebih tinggi masuk sini*/
-
-
+		/*Jika Nama Sampel Bibit*/
+			
 		}else{
 
-
 			$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '' WHERE id ='$id'");
-
 		}
-
 
 	endif;
 
@@ -111,7 +131,6 @@ if ($kesiapan == 'Tidak') :
 
 	 $objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET kondisi_sampel='$kondisi_sampel', mt='$mt', nip_mt='$nip_mt', penyelia='$penyelia', penyelia2='$penyelia2', analis='$analis',  analis2='$analis2' , bahan='$bahan', bahan2='$bahan2', alat='$alat', alat2='$alat2', kesiapan='$kesiapan' WHERE id ='$id'");
 	 
-
  }
  
 ?>								

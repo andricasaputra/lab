@@ -76,9 +76,9 @@ class Nomor extends LegacyNomor implements SuperNomor
 
     // Nomor Sertifikat
 
-    public function NomorSertifikat($noser)
+    public function NomorSertifikat($noser=null)
     {
-        $sql   = "SELECT no_sertifikat FROM input_permohonan WHERE id = $noser AND no_sertifikat !=''";
+        $sql   = "SELECT no_sertifikat FROM input_permohonan WHERE id  = (SELECT max(id) FROM input_permohonan WHERE no_sertifikat != '' AND no_sertifikat)";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
@@ -123,7 +123,7 @@ class Nomor extends LegacyNomor implements SuperNomor
     public function PilihNoSampel($id)
     {
 
-        $sql = "SELECT no_sampel FROM input_permohonan WHERE id = $id ";
+        $sql = "SELECT no_sampel FROM input_permohonan WHERE kesiapan = 'Ya' AND id = $id ";
 
         $query = $this->db->query($sql) or die($this->db->error);
 

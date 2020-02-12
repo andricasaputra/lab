@@ -15,7 +15,6 @@ abstract class LegacyNomor extends Database
         $this->conn = parent::getInstance();
 
         $this->db = $this->conn->getConnection();
-
     }
 
     protected function setbilangan($bilangan)

@@ -93,20 +93,13 @@ $ttd_penyelia_hasil_uji = $checkScan["ttd_penyelia_hasil_uji"];
 
                       </div>
 
-
-
                       <div class="column-half">
 
-                        <label class="control-label" for="tanggal_penyerahan_lab">Tanggal Penerimaan Sampel Di Laboratorium</label>
+                        <label class="control-label" for="tanggal_penyerahan_lab">Tanggal Sertifikat</label>
 
-                        <input type="text" class="form-control" name="tanggal_penyerahan_lab" id="tanggal_penyerahan_lab_input" value="<?=$tanggal_penyerahan_lab;?>" disabled>
-
-                         <input type="hidden" class="form-control" name="tanggal_sertifikat" id="tanggal_sertifikat_input" value="<?=$tanggal_sertifikat;?>">
+                         <input type="text" class="form-control" name="tanggal_sertifikat" id="tanggal_sertifikat_input" value="<?=$tanggal_sertifikat;?>">
 
                       </div>
-
-
-
 
                       <div class="column-half">
 
@@ -115,9 +108,6 @@ $ttd_penyelia_hasil_uji = $checkScan["ttd_penyelia_hasil_uji"];
                         <input type="text" class="form-control" name="tanggal_pengujian" id="tanggal_pengujian_input" value="<?=$tanggal_pengujian;?>" disabled>
 
                       </div>
-
-
-
 
                       <div class="column-half">
 

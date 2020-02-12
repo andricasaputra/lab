@@ -31,7 +31,6 @@ require_once('header_proses.php');
 
 	$jumlah_sampel 		= $_POST['jumlah_sampel'];
 
-		
 
  if ($kesiapan == 'Tidak') :
 
@@ -45,7 +44,7 @@ require_once('header_proses.php');
 
 		$result = $query->fetch_object();
 
-		$awalJumlahSampel = $result->jumlah_sampel;
+		@$awalJumlahSampel = $result->jumlah_sampel;
 
 		/*ambil posisi post id pada array keberapa*/
 
@@ -75,30 +74,35 @@ require_once('header_proses.php');
 
 				$awal = $ex[0] - $jumlah_sampel; 
 
-				$akhir = end($ex) - $jumlah_sampel;
+				$akhir = end($ex);
 
-				$newno_sampel = $awal ."-". $akhir;
+				$akhir2 = intval($jumlah_sampel);
+
+				$akhir3 = $akhir - $akhir2;
+
+				$newno_sampel = $awal ."-". $akhir3;
 
 			}else{
 
-				$akhir = $resno_sampel - $jumlah_sampel;
+				$akhir = $resno_sampel;
 
-				$newno_sampel = $akhir;
+				$akhir2 =  intval($jumlah_sampel);
+
+				$newno_sampel = $akhir - $akhir2;
 			}
 
-
+			
 			$objectData->edit("UPDATE input_permohonan SET no_sampel = '$newno_sampel' WHERE id ='$nextid'");
 
 	 	endfor;
 
-
-
 	 		$objectData->edit("UPDATE input_permohonan SET no_sampel = '' WHERE id ='$id'");
+
 
 	 		/*Jika Tidak Ada Id Yang lebih tinggi masuk sini*/
 
-
 		}else{
+
 
 			$objectData->edit("UPDATE input_permohonan SET no_sampel = '' WHERE id ='$id'");
 
@@ -108,220 +112,231 @@ require_once('header_proses.php');
 
 	else:
 
-		$query2 = $conn->query("SELECT kesiapan FROM input_permohonan WHERE id = $id");
+		$query = $conn->query("SELECT nama_sampel FROM input_permohonan WHERE id = $id");
 
-		$result2 = $query2->fetch_object();
+		$result = $query->fetch_object();
 
-		$old_kesiapan = $result2->kesiapan;
+		$nama_sampel = $result->nama_sampel;
 
-		/*Jika Ganti Kesiapan dari tidak jadi ya atau sebaliknya*/
-		/*Jika tidak Ada Perbedaan Lewati*/
+		/*Jika Ada ID Yang Lebih Tinggi*/	
 
-		if ($old_kesiapan != $_POST['kesiapan']) :
+		if ($maxId > $id ) {
 
-			$newid = $id - 1;
+			$datas = array();
 
+			$query = $conn->query("SELECT id, nama_sampel, jumlah_sampel,no_sampel FROM input_permohonan WHERE id >= $id AND no_sampel != ''");
 
-			$query2 = $conn->query("SELECT no_sampel FROM input_permohonan WHERE id = $newid");
+			while($result = $query->fetch_object()):
 
-			if ($query2->num_rows != 0) {
+				$datas[] = array(
 
-				$result2 = $query2->fetch_object();
+					"id" =>$result->id,
+					"nama_sampel" => $result->nama_sampel,
+					"jumlah_sampel" => $result->jumlah_sampel,
+					"no_sampel"=>$result->no_sampel
 
-				$awalNoSampel = $result2->no_sampel;
+				);
 
-			}else{
+			endwhile;
 
-				$awalNoSampel = 1;
+			$arrNoSampel = array();
 
-			}
+			$arrJumlahSampel = array();
 
+			foreach ($datas as $data) :
+
+				$nextid[] = $data["id"];
+
+				$ids = $data["id"];
+
+				$nextJumlahSampel = (int)$data["jumlah_sampel"];
+
+				$arrNoSampel[] = $data["no_sampel"];
+
+				$awalNoSampel = $arrNoSampel[0];
+
+				/*New Nomor Sampel Untuk ID INI*/
+
+				if ($jumlah_sampel == 1) {
+
+					if (strpos($awalNoSampel, "-") !== false) {
+
+						$x = explode("-", $awalNoSampel);
+
+						$newno_sampel = $x[0];
 			
+					}else{
 
-			/*check apakah id yg lebih tinggi, jika ada maka update semua id yg lebih tinggi juga*/
+						$newno_sampel = $awalNoSampel;
 
-			if ($maxId > $id ) {
+					}
 
-				/*Ambil jumlah sampel awal di database berdasarkan post id*/
+					
+				}else{
 
-				$query = $conn->query("SELECT jumlah_sampel FROM input_permohonan WHERE id = $id");
+
+					if (strpos($awalNoSampel, "-") !== false) {
+
+						$newno_sampel = $awalNoSampel;
+
+						
+					}else{
+
+						$newno_sampel = $awalNoSampel."-".$awalNoSampel + $jumlah_sampel;
+
+					}
+
+
+				}
+
+			/*End No Sampel ID INI*/
+
+			/*Set No Sampel ID Selanjutnya*/
+
+			$objectData->edit("UPDATE input_permohonan SET no_sampel = '' WHERE id ='$ids'");
+
+			endforeach;
+
+			$objectData->edit("UPDATE input_permohonan SET no_sampel = '$newno_sampel' WHERE id ='$id'");
+
+			foreach ($nextid as $nid) :
+
+				$query = $conn->query("SELECT no_sampel, jumlah_sampel FROM input_permohonan WHERE id = (SELECT max(id) FROM input_permohonan WHERE nama_sampel NOT LIKE '%Bibit%' AND no_sampel != '') ");
 
 				$result = $query->fetch_object();
 
-				$awalJumlahSampel = $result->jumlah_sampel;
+				$no_sampel = $result->no_sampel;
 
-				/*ambil posisi post id pada array keberapa*/
+				$jumlah_sampel = $result->jumlah_sampel;
 
-				$inarr = intval(array_search($id, $arrId));
+				if ($jumlah_sampel == 1) {
 
-				/*+lihat Header proses+ / ambil post id dari array*/
+					if (strpos($no_sampel, "-") !== false) {
 
-				$awalarrid = $arrId[$inarr];
+						$x = explode("-", $no_sampel);
 
-				/*loop sesuai jumlah  id sisa*/
+						$awalNoSampel = end($x) ;
 
-				$old_no_sampel =array();
+						$akhirNoSampel = $jumlah_sampel;
 
-				$newno_sampel = array();
-
-				for ($i=$id; $i <= $maxId ; $i++) : 
-
-					$nextid = $i;
-
-					$PilihJumlahSampel = $objectNomor->PilihJumlahSampel($nextid);
-
-					$resultjumlahsampel = $PilihJumlahSampel->fetch_object();
-
-					$resjumlah_sampel = $resultjumlahsampel->jumlah_sampel;
-
-					$resultno_sampel = $resultjumlahsampel->no_sampel;
-
-					$resno_sampel = $awalNoSampel;
-
-					/*Jika ada nomor sampel yang kosong*/
-
-					if ($resultno_sampel == '') {
-		
-						/*Cek no sampel di id sebelumnya*/
-
-						/*Cek no sampel di id sebelumnya lebih dari 1*/
-
-						if (strpos($resno_sampel, "-") !== false) {
-
-							$ex = explode("-", $resno_sampel);
-
-							$awal = end($ex) + $jumlah_sampel; 
-
-							$akhir = $ex[0] + end($ex) + $jumlah_sampel;
-
-							if ($jumlah_sampel == 1) {
-
-								$awal_no_sampel = $awal;
-
-							}else{
-
-								$awal_no_sampel = $awal ."-". $akhir;
-							}
-
-							/*Cek no sampel di id sebelumnya 1*/
-
-
-						}else{
-
-							$akhir = $resno_sampel + $jumlah_sampel;
-
-							if ($jumlah_sampel == 1) {
-
-								$awal_no_sampel = $akhir;
-
-							}else{
-
-								$tangkap = array();
-
-								for ($j = $resno_sampel + 1 ; $j < $resno_sampel + $jumlah_sampel +1 ; $j++) { 
-									$tangkap[] = $j;
-								}
-
-								$awal_no_sampel = $tangkap[0] ."-". end($tangkap) ;
-							}
-						}
-		
-						/*Nomor Sampel Baru*/
-
-						$newno_sampel = $awal_no_sampel;
-
-					/*Jika Tidak ada nomor sampel yang kosong*/
+						$nextNoSampel = $awalNoSampel + $akhirNoSampel;
 
 					}else{
 
-						if (strpos($resultno_sampel, "-") !== false) {
+						$awalNoSampel = $no_sampel;
 
-							$ex = explode("-", $resultno_sampel);
+						$akhirNoSampel = $jumlah_sampel;
 
-							$awal = $ex[0] + $jumlah_sampel; 
-
-							$akhir = end($ex) + $jumlah_sampel;
-
-							$awal_no_sampel = $awal ."-". $akhir;
-		
-
-						}else{
-
-							$awal_no_sampel = $resultno_sampel + $jumlah_sampel;
-
-						}
-
-						/*Nomor Sampel Baru*/
-
-						$newno_sampel = $awal_no_sampel;
-
+						$nextNoSampel = $awalNoSampel + $akhirNoSampel;
 					}
 
-			
+				}else{
 
-					$objectData->edit("UPDATE input_permohonan SET no_sampel = '$newno_sampel' WHERE id ='$nextid'");
-		
-			 	endfor;
+					if (strpos($no_sampel, "-") !== false) {
 
-	 		/*Jika Tidak Ada Id Yang lebih tinggi masuk sini*/
+						$x = explode("-", $no_sampel);
 
-			}else{
+						$awalNoSampel = end($x) + 1 ;
 
-				/*Cek no sampel di id sebelumnya lebih dari 1*/
+						$akhirNoSampel = end($x) + intval($jumlah_sampel);
 
-				if (strpos($awalNoSampel, "-") !== false) {
-
-					$ex = explode("-", $awalNoSampel);
-
-					$awal = end($ex) + $jumlah_sampel; 
-
-					$akhir = $ex[0] + end($ex) + $jumlah_sampel;
-
-					if ($jumlah_sampel == 1) {
-
-						$awal_no_sampel = $awal;
+						$nextNoSampel = $awalNoSampel."-".$akhirNoSampel;
 
 					}else{
 
-						$awal_no_sampel = $awal ."-". $akhir;
+						$awalNoSampel = $no_sampel + 1 ;
+
+						$akhirNoSampel = $no_sampel + intval($jumlah_sampel);
+
+						$nextNoSampel = $awalNoSampel."-".$akhirNoSampel;
+
 					}
 
-					/*Cek no sampel di id sebelumnya 1*/
+				}
+
+
+				$objectData->edit("UPDATE input_permohonan SET no_sampel = '$nextNoSampel' WHERE id ='$nid'");
+
+			endforeach;
+
+		/*Jika Tidak Ada ID Yang Lebih Tinggi*/	
+
+		}else{
+
+			$query = $conn->query("SELECT id, nama_sampel, jumlah_sampel, no_sampel FROM input_permohonan WHERE id = (SELECT max(id) FROM input_permohonan WHERE no_sampel != '')");
+
+			while($result = $query->fetch_object()):
+
+				$datas[] = array(
+
+					"id" =>$result->id,
+					"nama_sampel" => $result->nama_sampel,
+					"jumlah_sampel" => $result->jumlah_sampel,
+					"no_sampel"=>$result->no_sampel
+
+				);
+
+			endwhile;
+
+
+			foreach ($datas as $data) :
+
+				if ($jumlah_sampel == 1) {
+
+					if (strpos($data["no_sampel"], "-") !== false) {
+
+						$x = explode("-", $data["no_sampel"]);
+
+						$newno_sampel = end($x) + $jumlah_sampel;
+
+
+					}else{
+
+						$newno_sampel = $data["no_sampel"] + $jumlah_sampel;
+
+					}
 
 
 				}else{
 
-					$akhir = $awalNoSampel + $jumlah_sampel;
+					if (strpos($data["no_sampel"], "-") !== false) {
 
-					if ($jumlah_sampel == 1) {
+						$x = explode("-", $data["no_sampel"]);
 
-						$awal_no_sampel = $akhir;
+						$awal = end($x) + 1;
+
+						$akhir = end($x) + $jumlah_sampel;
+
+						$newno_sampel = $awal ."-". $akhir;
+
 
 					}else{
 
-						$tangkap = array();
+						$awal = $data["no_sampel"] + 1;
 
-						for ($j = $awalNoSampel + 1 ; $j < $awalNoSampel + $jumlah_sampel +1 ; $j++) { 
-							$tangkap[] = $j;
-						}
+						$akhir = $data["no_sampel"] + $jumlah_sampel;
 
-						$awal_no_sampel = $tangkap[0] ."-". end($tangkap) ;
+						$newno_sampel = $awal ."-". $akhir;
+
 					}
+
 				}
 
+				$objectData->edit("UPDATE input_permohonan SET no_sampel = '$newno_sampel' WHERE id ='$id'");
 
-				$objectData->edit("UPDATE input_permohonan SET no_sampel = '$awal_no_sampel' WHERE id ='$id'");
+			endforeach;
 
-			}
+		}
 
-		endif;
+			
 
-	endif;		
+	endif;
 
  if($mt !=="") {
 
 	 $objectData->edit("UPDATE input_permohonan SET kondisi_sampel='$kondisi_sampel', mt='$mt', nip_mt='$nip_mt', penyelia='$penyelia', penyelia2='$penyelia2', analis='$analis',  analis2='$analis2' , bahan='$bahan', bahan2='$bahan2', alat='$alat', alat2='$alat2', kesiapan='$kesiapan' WHERE id ='$id'");
 	 
-}
+
+ }
 
 ?>								

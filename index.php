@@ -78,6 +78,7 @@ require_once 'header_login.php';
 		</div>
 	</div>
 	<script src="assets/js/time.js"></script>
+	<!-- <script src="assets/js/main.js"></script> -->
 </body>
 </html>
 <?php

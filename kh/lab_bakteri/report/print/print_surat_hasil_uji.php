@@ -172,7 +172,14 @@ $content ='
 
         $tampil  = $objectPrint->tampil(@$_GET['id']);
 
-        $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
+        if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
+
+        $tampil2 = $objectPrint->tampilHasilBibit(@$_GET['id']);
+
+        }else{
+
+            $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
+        }
 
         }else {
 
@@ -546,11 +553,32 @@ $content .= '
 
             <td style="width:5%;">'.$no++.'</td>
 
-            <td style="width:15%;border-right: 0px">'.$data->nama_sampel_lab.'</td>    
+            <td style="width:19%;border-right: 0px">'.$data->nama_sampel_lab.'</td>    
 
-            <td style="width:8%;">'.$data2->no_sampel.'</td>
+            <td style="width:8%;">
+            ';
 
-            <td style="width:25%;"><em>'.$data->target_pengujian2.'</em></td>
+                if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
+
+                   $content .= '
+
+                    '.$data2->no_sampel_bibit.'
+
+                   ';
+
+                }else{
+
+                    $content .= '
+
+                    '.$data2->no_sampel.'
+
+                   ';
+                }
+
+                $content .='
+            </td>
+
+            <td style="width:20%;"><em>'.$data->target_pengujian2.'</em></td>
 
             ';
                 if ($data->metode_pengujian == 'RBT') {

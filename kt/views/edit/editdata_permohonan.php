@@ -410,6 +410,8 @@ endwhile;
 
                                   <option>Uji Rujukan</option>
 
+                                  <option>ELISA</option>
+
                                   <option></option>
 
                         </select><br>
@@ -432,6 +434,8 @@ endwhile;
 
                                   <option>Uji Rujukan</option>
 
+                                  <option>ELISA</option>
+
                                   <option></option>
 
                         </select><br>
@@ -453,6 +457,8 @@ endwhile;
                                   <option>Washing Test</option>
 
                                   <option>Uji Rujukan</option>
+
+                                  <option>ELISA</option>
 
                                   <option></option>
 

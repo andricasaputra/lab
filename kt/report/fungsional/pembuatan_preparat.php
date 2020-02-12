@@ -4,8 +4,6 @@ session_start();
 
 require_once ('header.php');
 
-$tanggal = tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -142,12 +140,8 @@ $content ='
 
      ';
 
-
-
     $no=1;
-
-                
-
+            
     if(@$_GET['id'] !== '' && $_GET['no_permohonan'] !== ''){
 
         $tampil  = $objectFungsional->pembuatan_preparat();
@@ -160,15 +154,11 @@ $content ='
 
         $num = $qu2->num_rows;
 
-        $tampil3 = $objectPrint->Scan(@$_GET['id']);
+        $scanTtd = $objectPrint->Scan(@$_GET['id']);
 
-        while($data3 = $tampil3->fetch_object()):
+        $ttd_penyelia_data_teknis = $scanTtd['ttd_penyelia_data_teknis'];
 
-                $ttd_penyelia_data_teknis = $data3->ttd_penyelia_data_teknis;
-
-                $ttd_analis_data_teknis = $data3->ttd_analis_data_teknis;
-
-        endwhile;
+        $ttd_analis_data_teknis = $scanTtd['ttd_analis_data_teknis'];
 
         }else {
 
@@ -239,9 +229,9 @@ $content .= '
 
                 <td style="width: 5%">'.$no++.'</td>
 
-                <td style="width: 8%">'.$data->tanggal_penyerahan_lab.'</td>
+                <td style="width: 10%">'.$data->tanggal_penyerahan_lab.'</td>
 
-                <td style="width: 10%">'.substr($data->no_permohonan, 0, 6).'<br>'.substr($data->no_permohonan, 7, 6).'<br>'.substr($data->no_permohonan, 13).'</td>
+                <td style="width: 10%">0027/Kpts<br>/KP.110<br>/K.50.D/01<br>/2018</td>
 
 
                 <td style="width: 7%">'.$data->no_sampel.'</td>

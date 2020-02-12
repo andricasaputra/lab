@@ -49,13 +49,49 @@ require_once('header_proses.php');
 
 	$nip_pemohon				=htmlspecialchars($conn->real_escape_string(trim($_POST['nip_pemohon'])));
 
+	if (strpos($nama_sampel, "Bibit") === false) {
+
 	$no_sampel					=htmlspecialchars($conn->real_escape_string(trim($_POST['no_sampel'])));
 
+	}else{
+
+		if (strpos($no_sampel_awal, "-") !== false) {
+
+			$x = explode("-", $no_sampel_awal);
+
+			$awal = "0".ltrim($x[0] , "0");
+
+			$akhir = "0".ltrim($x[1] , "0");
+
+			$no_sampel = $awal."-".$akhir;
+
+		}elseif (strpos($no_sampel_awal, ",") !== false) {
+
+			$x = explode(",", $no_sampel_awal);
+
+			$awal = "0".ltrim($x[0] , "0");
+
+			$akhir = "0".ltrim($x[1] , "0");
+
+			$no_sampel = $awal."-".$akhir;
+
+		}
+	}
 
 
 	/*Jika post id  lebih kecil dari max id di dalam database*/
 
 	if ($maxId > $id ) {
+
+		$selectid = $objectNomorParasit->getIdForEdit($id);
+
+		$ids = array();
+
+		while ($getId = $selectid->fetch_object()) :
+
+			$ids[] = $getId->id;
+			
+		endwhile;
 
 		/*Ambil jumlah sampel awal di database berdasarkan post id*/
 
@@ -65,25 +101,17 @@ require_once('header_proses.php');
 
 		$awalJumlahSampel = $result->jumlah_sampel;
 
-		/*ambil posisi post id pada array keberapa*/
+		/*loop sesuai jumlah id sisa)*/
 
-		$inarr = intval(array_search($id, $arrId));
+		foreach ($ids as $key => $value) :
 
-		/*+lihat Header proses+ / ambil post id dari array*/
-
-		$awalarrid = $arrId[$inarr];
-
-		/*loop sesuai jumlah  id sisa*/
-
-		for ($i=$awalarrid + 1; $i <= $maxId ; $i++) : 
-
-			$nextid = $i;
+			$nextid = $value;
 
 			$pilihnoSampel = $objectNomorParasit->PilihNoSampel($nextid);
 
 			$resultnosampel = $pilihnoSampel->fetch_object();
 
-			$resno_sampel = $resultnosampel->no_sampel;
+			@$resno_sampel = $resultnosampel->no_sampel;
 
 			if (strpos($resno_sampel, "-") !== false) {
 
@@ -102,16 +130,17 @@ require_once('header_proses.php');
 				$newno_sampel = $akhir;
 			}
 
+			if (strpos($nama_sampel, "Bibit") === false){
+
+				$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '$newno_sampel' WHERE nama_sampel NOT LIKE '%Bibit%' AND id ='$nextid'");
+			}
+
 			
 
-			$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '$newno_sampel' WHERE id ='$nextid'");
-
-	 	endfor;
-
+		endforeach;
 
 
 	}
-
 
 	$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_permohonan = '$no_permohonan', tanggal_permohonan = '$tanggal_permohonan', jenis_permohonan = '$jenis_permohonan' , tanggal_acu_permohonan = '$tanggal_acu_permohonan', nama_sampel ='$nama_sampel', jumlah_sampel = '$jumlah_sampel', satuan = '$satuan' , no_sampel_awal = '$no_sampel_awal', bagian_hewan = '$bagian_hewan', produk_hewan = '$produk_hewan', metode_pengujian ='$metode_pengujian', biaya_pengujian = '$biaya_pengujian', waktu_pengambilan_sampel = '$waktu_pengambilan_sampel', area_asal ='$area_asal', cara_pengambilan_sampel ='$cara_pengambilan_sampel', target_pengujian ='$target_pengujian', lama_pengujian ='$lama_pengujian', nama_pemilik = '$nama_pemilik', alamat_pemilik = '$alamat_pemilik', dokumen_pendukung = '$dokumen_pendukung', pemohon ='$pemohon', nip_pemohon='$nip_pemohon', no_sampel = '$no_sampel' WHERE id ='$id'");
 

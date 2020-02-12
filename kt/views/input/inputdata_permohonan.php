@@ -332,6 +332,8 @@ if ($hasil2 !== 0) {
 
                                   <option>Uji Rujukan</option>
 
+                                  <option>ELISA</option>
+
                         </select><br>
 
                         <select class="form-control" name="metode_pengujian2" id="metode_pengujian2">
@@ -352,6 +354,8 @@ if ($hasil2 !== 0) {
 
                                   <option>Uji Rujukan</option>
 
+                                  <option>ELISA</option>
+
                         </select><br>
 
                         <select class="form-control" name="metode_pengujian3" id="metode_pengujian3">
@@ -371,6 +375,8 @@ if ($hasil2 !== 0) {
                                   <option>Washing Test</option>
 
                                   <option>Uji Rujukan</option>
+
+                                  <option>ELISA</option>
 
                         </select>
 

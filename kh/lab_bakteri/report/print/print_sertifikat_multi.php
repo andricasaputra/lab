@@ -626,10 +626,16 @@ $content .= '
 
             $nosmpl = $data->jumlah_sampel;
 
-            $tampil2 = $objectHasil->print_pertanggal_sertifikat($id);
+            if (strpos($data->nama_sampel, "Bibit") !== false) {
+
+                $tampil2 = $objectHasil->print_pertanggal_sertifikat_bibit($id);
+
+            }else{
+
+                $tampil2 = $objectHasil->print_pertanggal_sertifikat($id);
+            }
 
             while ($data2 = $tampil2->fetch_object()):
-
 
 
           $content .='
@@ -654,15 +660,37 @@ $content .= '
 
             $content .='
 
-            <td style="width:13%; ">'.$data2->no_sampel.'</td>    
+            <td style="width:13%; ">
+            ';
 
-            <td style="width:15%; ">'.$data->nama_sampel_lab.'</td>
+            if (strpos($data->nama_sampel, "Bibit") !== false) {
 
-            <td style="width:23%; "><em>'.$data->target_pengujian2.'</em></td>
+                $content .= '
+
+                '.$data2->no_sampel_bibit.'
+
+                ';
+
+            }else{
+                
+                $content .= '
+
+                '.$data2->no_sampel.'
+
+                ';
+            }
+
+            $content .='
+            
+            </td>    
+
+            <td style="width:20%; ">'.$data->nama_sampel_lab.'</td>
+
+            <td style="width:22%; "><em>'.$data->target_pengujian2.'</em></td>
 
             <td style="width:12%; "> '.$data->metode_pengujian.' </td>    
 
-            <td style="width:27%;">'.$data2->positif_negatif.'</td>  
+            <td style="width:23%;">'.$data2->positif_negatif.'</td>  
 
           </tr>
 

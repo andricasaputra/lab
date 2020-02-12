@@ -143,16 +143,15 @@ if(@$_GET['id'] && $_GET['no_sertifikat'] !== '' && $_GET['nama_sampel'] !== '')
 
     $tampil = $objectPrint->tampil(@$_GET['id'], @$_GET['no_sertifikat']);
 
-    if ($_GET['nama_sampel'] == 'Darah Sapi Bibit') {
+    if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
 
         $tampil2 = $objectPrint->tampilHasilBibit(@$_GET['id']);
 
     }else{
 
         $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
-    }
-
     
+    }
 
     $ttd = $objectPrint->scan(@$_GET['id']);
 
@@ -681,7 +680,7 @@ $content .= '
             <td style="width:13%; ">
                 ';
 
-                if ($_GET['nama_sampel'] == 'Darah Sapi Bibit') {
+                if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
 
                    $content .= '
 
@@ -702,13 +701,13 @@ $content .= '
 
             </td>    
 
-            <td style="width:15%; ">'.$data->nama_sampel_lab.'</td>
+            <td style="width:20%; ">'.$data->nama_sampel_lab.'</td>
 
-            <td style="width:23%; "><em>'.$data->target_pengujian2.'</em></td>
+            <td style="width:22%; "><em>'.$data->target_pengujian2.'</em></td>
 
             <td style="width:12%; "> '.$data->metode_pengujian.' </td>    
 
-            <td style="width:27%;">'.$data2->positif_negatif.'</td>  
+            <td style="width:23%;">'.$data2->positif_negatif.'</td>  
 
           </tr>
 

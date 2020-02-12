@@ -102,7 +102,7 @@
           <div class="table-responsive">
 
 
-            <table class="table table-hover table-striped" id="tb_usulan_penunjukan_kh_lab_parasit">
+            <table class="table table-hover table-striped" id="tb_usulan_penunjukan_kh_lab_parasit" style="table-layout: fixed; width: 100%">
 
                 <thead>
 
@@ -112,15 +112,15 @@
 
                       <th width= "13%">Tanggal Penunjukan</th>
 
-                      <th width= "12%">Kode Sampel</th>
+                      <th width= "15%">Kode Sampel</th>
 
-                      <th width= "13%">No Surat Tugas</th>
+                      <th width= "15%">No Surat Tugas</th>
 
                       <th width= "12%">Nomor Sampel</th>
 
                       <th width= "19%">Target Pengujian</th>
 
-                      <th width= "28%">Action</th>
+                      <th width= "20%">Action</th>
 
                   </tr>
 

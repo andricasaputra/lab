@@ -5,9 +5,9 @@ require_once ('header.php');
 
 $fileName = "Distribusi-Sampel-(".date('d-m-Y').").xls";
 
+use Lab\classes\{tanggal, NomorFungsional};
 
-
-header("Content-Disposition: attachment; filename='$fileName'");
+header("Content-Disposition: attachment; filename=$fileName");
 
 header("Content-Type: application/vnd.ms-excel");
 
@@ -76,18 +76,21 @@ header("Content-Type: application/vnd.ms-excel");
 
 					$tampil = $objectFungsional->pembuatan_preparat();
 
+					$objectTanggal = new tanggal;
+
 					while ($data = $tampil->fetch_object()){
 
 						$nosmpl = explode("-", $data->no_sampel);
 
 						$a = $nosmpl[0];
 
-						if ($data->tanggal_pengujian == '') {
+						if ($data->tanggal_penyerahan_lab == '') {
 							
 							$tgl = '';
+							
 						}else{
 
-							$tgl = balik_tgl_indo($data->tanggal_pengujian);
+							$tgl = $objectTanggal->balik_tgl_indo($data->tanggal_penyerahan_lab);
 
 						}
 

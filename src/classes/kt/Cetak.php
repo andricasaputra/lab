@@ -6,23 +6,24 @@ use Lab\classes\LegacyCetak;
 
 class Cetak extends LegacyCetak
 {
-
     public function __construct()
     {
-
         parent::__construct();
-
     }
 
     public function tampil($id = null)
     {
         $sql = "SELECT * FROM input_permohonan";
+
         if ($id != null) {
+
             $sql .= " WHERE id=$id";
         }
+        
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
+
 
     /*Scan Tanda Tangan*/
 

@@ -107,7 +107,7 @@ require_once($objectPath->realPath().'/kh/labbakteri/nomor_sampel_kh.php');
 
           <div class="table-responsive">
 
-            <table class="table table-hover table-striped" id="tb_pengelola_sampel_kh" width="100%"  style="text-align: center">
+            <table class="table table-hover table-striped" id="tb_pengelola_sampel_kh" style="table-layout: fixed; width: 100%">
 
               <thead>
 
@@ -121,7 +121,7 @@ require_once($objectPath->realPath().'/kh/labbakteri/nomor_sampel_kh.php');
 
                       <th width= "12%">Jumlah Sampel</th>
 
-                      <th width= "13%">Nomor Sampel</th>
+                      <th width= "13%" >Nomor Sampel</th>
 
                       <th width= "13%">Nama Sampel</th>
 

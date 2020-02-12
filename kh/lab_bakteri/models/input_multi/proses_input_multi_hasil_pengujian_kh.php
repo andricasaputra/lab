@@ -27,14 +27,22 @@ foreach ($_POST['no_sampel'] as $key2 => $value2) :
 	$hasil_pengujian	=htmlspecialchars($conn->real_escape_string($_POST['hasil_pengujian']));
 
 
+	$cek = substr($no_sampel, 0, 1);
 
-    $objectHasil->input($id2, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
+    if ($cek !== "0") {
+
+      $objectHasil->input($id2, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
+
+
+    }else{
+
+      $objectHasil->input2($id2, $tanggal_acu_hasil, $no_sampel, $positif_negatif);
+
+    }
 
 endforeach;	
 
 	$objectHasil->edit("UPDATE input_permohonan_kh SET hasil_pengujian='$hasil_pengujian' WHERE hasil_pengujian ='' AND id <= $id2");
-
-
 
 
 ?>	

@@ -340,13 +340,20 @@ $content .= '
 
             <th style="width:20%;">Identitas Sampel</th>
 
-            <th style="width:50%;">Hasil Pengujian</th>
+            <th style="width:45%;">Hasil Pengujian</th>
 
           </tr>
 
           ';
 
-            $tampil2 = $objectHasil->print_pertanggal_sertifikat($id);
+            if (strpos($data->nama_sampel, "Bibit") !== false) {
+
+                $tampil2 = $objectHasil->print_pertanggal_sertifikat_bibit($id);
+
+            }else{
+
+                $tampil2 = $objectHasil->print_pertanggal_sertifikat($id);
+            }
 
             while ($data2 = $tampil2->fetch_object()):                
 
@@ -354,7 +361,28 @@ $content .= '
 
               <tr>
               
-                <td style="width:30%; vertical-align: text-top">'.$data2->no_sampel.'</td>    
+                <td style="width:30%; vertical-align: text-top">
+                ';
+
+                if (strpos($data->nama_sampel, "Bibit") !== false) {
+
+                    $content .= '
+
+                    '.$data2->no_sampel_bibit.'
+
+                    ';
+
+                }else{
+                    
+                    $content .= '
+
+                    '.$data2->no_sampel.'
+
+                    ';
+                }
+
+                $content .='
+                </td>    
 
                 <td style="width:20%; vertical-align: text-top">'.$namaSampel.'</td> 
 

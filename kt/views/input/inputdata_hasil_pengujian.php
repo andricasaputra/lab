@@ -105,9 +105,9 @@ endwhile;
 
                       <div class="column-half">
 
-                        <label class="control-label" for="tanggal_pengujian">Tanggal Pengujian</label>
+                        <label class="control-label" for="tanggal_sertifikat">Tanggal Pengujian</label>
 
-                        <input type="text" class="form-control" name="tanggal_pengujian" id="tanggal_pengujian_input" value="<?=$tgl_indo?>" disabled>
+                        <input type="text" class="form-control" name="tanggal_sertifikat" id="tanggal_sertifikat_input" value="<?=$tanggal_sertifikat?>">
 
                       </div>
 

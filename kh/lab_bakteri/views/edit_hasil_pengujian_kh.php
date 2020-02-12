@@ -17,39 +17,47 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
   $tgl_acu = date("Y-m-d");
 
 
-  if(@$_GET['id']&&$_GET['no_sampel'] !== ''){
+  if(@$_GET['id'] && $_GET['no_sampel'] !== '' && $_GET['nama_sampel'] !== ''){
 
-    $tampil = $objectHasil->tampil(@$_GET['id'],@$_GET['no_sampel']);
+    if (strpos($_GET['nama_sampel'], "Bibit") === false) {
 
-    }else {
+      $tampil = $objectHasil->tampil(@$_GET['id']);
 
-          if(@$_SESSION['loginadminkh']){
+    }else{
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+      $tampil = $objectHasil->tampilBibit(@$_GET['id']);
 
-            window.location='../../admin.php?lab=bakteri&page=sertifikat'</script>";
+    }
 
-            exit;
+  }else {
 
-          }elseif(@$_SESSION['loginsuperkh']){
+      if(@$_SESSION['loginadminkh']){
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+        echo "<script>alert('Maaf No Sampel Masih Kosong')
 
-            window.location='../../super_admin.php?lab=bakteri&page=sertifikat'</script>";
+        window.location='../../admin.php?lab=bakteri&page=sertifikat'</script>";
 
-            exit;
+        exit;
 
-          }else{
+      }elseif(@$_SESSION['loginsuperkh']){
 
-            echo "<script>alert('Maaf No Sampel Masih Kosong')
+        echo "<script>alert('Maaf No Sampel Masih Kosong')
 
-            window.location='../../pengujian.php?lab=bakteri&page=sertifikat'</script>";
+        window.location='../../super_admin.php?lab=bakteri&page=sertifikat'</script>";
 
-            exit;
+        exit;
 
-          }
+      }else{
 
-        }   
+        echo "<script>alert('Maaf No Sampel Masih Kosong')
+
+        window.location='../../pengujian.php?lab=bakteri&page=sertifikat'</script>";
+
+        exit;
+
+      }
+
+  }   
 
 ?>
 
@@ -129,7 +137,7 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                       <tbody> 
 
-                         <?php while ($data=$tampil->fetch_object()): ?>
+                         <?php while ($data = $tampil->fetch_object()): ?>
 
                         <tr>
 
@@ -139,7 +147,18 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                                 <input type="hidden"  name="id[]" id="id" value="<?=$data->id?>" >
 
-                                <input type="text" class="form-control" name="no_sampel[]" id="no_sampel" value="<?=$data->no_sampel?>" readonly style="width: 100%; text-align: center; color: black;">
+                                <?php  
+
+                                  if (strpos($_GET['nama_sampel'], 'Bibit') === false) { ?>
+
+                                    <input type="text" class="form-control" name="no_sampel[]" id="no_sampel" value="<?= $data->no_sampel ?>" readonly style="width: 100%; text-align: center; color: black;">
+
+                                 <?php }else{ ?>
+
+                                    <input type="text" class="form-control" name="no_sampel[]" id="no_sampel" value="<?= $data->no_sampel_bibit ?>" readonly style="width: 100%; text-align: center; color: black;">
+                                    
+                                <?php  }?>
+
 
                               </div>
 
@@ -230,11 +249,17 @@ if(@$_POST['edit']) {
 
   if($no_sampel !== ""){
 
+    $cek = substr($no_sampel, 0, 1);
 
+    if ($cek !== "0" && strpos($_GET['nama_sampel'], "Bibit") === false) {
 
-  $query = $objectHasil->edit( "UPDATE hasil_kh SET id='$id', positif_negatif='$positif_negatif' WHERE no_sampel='$no_sampel'");
+      $query = $objectHasil->edit( "UPDATE hasil_kh SET id='$id', positif_negatif='$positif_negatif' WHERE no_sampel='$no_sampel'");
 
+    }else{
 
+      $query = $objectHasil->edit( "UPDATE hasil_kh_bibit SET id='$id', positif_negatif='$positif_negatif' WHERE no_sampel_bibit ='$no_sampel'");
+
+    }
 
 
       echo '<script type="text/javascript">';
@@ -244,19 +269,13 @@ if(@$_POST['edit']) {
       echo 'window.close()</script>';  
 
 
-
-     
-
   }else {
-
-
 
       echo '<script type="text/javascript">';
 
       echo 'setTimeout(function () { swal("Input Data Gagal!","Hasil Pengujian Tidak Boleh Kosong","error");';
 
       echo '}, 0);</script>';
-
 
 
   }

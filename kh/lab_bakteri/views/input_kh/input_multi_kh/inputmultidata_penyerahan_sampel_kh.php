@@ -10,6 +10,10 @@ require_once($basepath.'/src/classes/kh/labbakteri/kode_sampel_kh.php');
 
 $d=date("m/Y");
 
+date_default_timezone_set("Asia/Makassar");
+
+$waktu =  date('H:i');
+
 $tgl_indo = $objectTanggal->tgl_indo(date('Y-m-d'));
 
 $hitungKodeKosong = $objectData->infoPenyerahanSampel("hitung");
@@ -170,6 +174,9 @@ foreach ($arrnamaSampel as $key => $value){
 
 
                           <input type="hidden" name="tanggal_penyerahan"  id="tanggal_penyerahan_input" value="<?=$tgl_indo?>" required>
+
+
+                          <input type="hidden" name="jam_diterima_pengelola_sampel"  id="jam_diterima_pengelola_sampel_input"   value="<?php echo $waktu.' '.'wita' ?>">
 
 
 

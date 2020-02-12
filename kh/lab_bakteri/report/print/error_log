@@ -250,3 +250,15 @@ Stack trace:
 Stack trace:
 #0 {main}
   thrown in /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_distribusi_sampel.php on line 229
+[28-Sep-2018 06:51:37 Asia/Jakarta] PHP Notice:  Trying to get property 'no_sampel' of non-object in /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_lembar_kerja_datek_kh.php on line 139
+[28-Sep-2018 06:51:37 Asia/Jakarta] PHP Stack trace:
+[28-Sep-2018 06:51:37 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_lembar_kerja_datek_kh.php:0
+[28-Sep-2018 06:51:37 Asia/Jakarta] PHP Notice:  Trying to get property 'no_sampel' of non-object in /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_lembar_kerja_datek_kh.php on line 139
+[28-Sep-2018 06:51:37 Asia/Jakarta] PHP Stack trace:
+[28-Sep-2018 06:51:37 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_lembar_kerja_datek_kh.php:0
+[28-Sep-2018 06:51:46 Asia/Jakarta] PHP Notice:  Trying to get property 'no_sampel' of non-object in /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_lembar_kerja_datek_kh.php on line 139
+[28-Sep-2018 06:51:46 Asia/Jakarta] PHP Stack trace:
+[28-Sep-2018 06:51:46 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_lembar_kerja_datek_kh.php:0
+[28-Sep-2018 06:51:46 Asia/Jakarta] PHP Notice:  Trying to get property 'no_sampel' of non-object in /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_lembar_kerja_datek_kh.php on line 139
+[28-Sep-2018 06:51:46 Asia/Jakarta] PHP Stack trace:
+[28-Sep-2018 06:51:46 Asia/Jakarta] PHP   1. {main}() /home/skph4384/public_html/lab/kh/lab_bakteri/report/print/print_lembar_kerja_datek_kh.php:0

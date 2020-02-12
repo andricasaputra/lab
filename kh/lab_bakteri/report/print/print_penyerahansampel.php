@@ -62,7 +62,7 @@ $content ='
 
         position: absolute; 
 
-        margin-left: 428px;
+        margin-left: 360px;
 
         padding-top :650px;
 
@@ -694,7 +694,7 @@ $content .= '
 
 
 
-            Sumbawa Besar, '.$data->tanggal_penyerahan.' 
+            Sumbawa Besar, '.$data->tanggal_penyerahan.' / '.$data->jam_diterima_pengelola_sampel.'
 
    
 

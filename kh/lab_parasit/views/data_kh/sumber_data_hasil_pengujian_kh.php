@@ -104,39 +104,80 @@ while($data2 = $query->fetch_object()){
 
     $rek = $data2->rekomendasi;
 
-    $qu = $objectHasilParasit->tampil_hasil($id2);
-
-    /*Input Lebih Dari 1 Hasil Pengujian*/
-
-    $qu2 = $objectHasilParasit->input_ulang($id2);
-
-    $num = $qu2->num_rows;
-
     $banyak_sampel = $data2->jumlah_sampel;
 
     $j = $data2->no_sampel;
 
-    $x = explode("-", $j);
 
-    if($banyak_sampel != 1 && $j !== ''){
+    if (strpos($data2->nama_sampel, "Bibit") !== false) {
 
-      $k = $x[0] + $num;
+        // $qu2 = $objectHasilParasit->input_ulang_bibit($id2);
 
-      $l = $x[1];
+        // $num = $qu2->num_rows;
 
-      $r = $k.'-'.$l;
+        // $qu = $objectHasilParasit->tampil_hasil_bibit($id2);
+
+        // $has = $qu->fetch_assoc();
+
+        // $f = $has['positif_negatif'];
+
+        // if($banyak_sampel != 1 && $j !== ''){   
+
+        //   $x = explode("-", $j);
+
+        //   $k = ltrim($x[0], "0") + $num;
+
+        //   $l = ltrim($x[1], "0");
+
+        //   $r = "0".$k.'-'."0".$l;
+
+        // }else{
+
+        //   $r = $data2->no_sampel;
+
+        // }
+
+        $qu2 = $objectHasilParasit->input_ulang_bibit($id2);
+
+        $num = $qu2->num_rows;
+
+        $qu = $objectHasilParasit->tampil_hasil_bibit($id2);
+
+        $has = $qu->fetch_assoc();
+
+        $f = $has['positif_negatif'];
+
+        $r = $data2->no_sampel;
 
     }else{
 
-      $r = $data2->no_sampel;
+        $qu2 = $objectHasilParasit->input_ulang($id2);
+
+        $num = $qu2->num_rows;
+
+        $qu = $objectHasilParasit->tampil_hasil($id2);
+
+        $has = $qu->fetch_assoc();
+
+        $f = $has['positif_negatif'];
+
+        if($banyak_sampel != 1 && $j !== ''){   
+
+          $x = explode("-", $j);
+
+          $k = $x[0];
+
+          $l = $x[1];
+
+          $r = $k.'-'.$l;
+
+        }else{
+
+          $r = $data2->no_sampel;
+
+        }
 
     }
-
-    /*var_dump($r); die;*/
-
-    $has = $qu->fetch_assoc();
-
-    $f = $has['positif_negatif'];
 
     $nmr = $nomor++;
 
@@ -156,13 +197,13 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='kosong'>".$data2->kode_sampel."</span>"; 
 
-            $subdata[] = "<span class='kosong'>".$data2->no_sampel."</span>";
+            $subdata[] = "<span class='kosong'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
             $subdata[] = "<span class='kosong'>".$data2->nama_sampel."</span>";
 
                           
 
-        }elseif (strlen($f) == 0 || $banyak_sampel > $num) {
+        }elseif (strlen($f) == 0) {
 
             $subdata[] = "<span class='nonuji'>".$dat['no']."</span>"; 
 
@@ -172,7 +213,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='nonuji'>".$data2->kode_sampel."</span>";  
 
-            $subdata[] = "<span class='nonuji'>".$data2->no_sampel."</span>"; 
+            $subdata[] = "<span class='nonuji'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>"; 
 
             $subdata[] = "<span class='nonuji'>".$data2->nama_sampel."</span>";
 
@@ -188,7 +229,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='proses'>".$data2->kode_sampel."</span>";  
 
-            $subdata[] = "<span class='proses'>".$data2->no_sampel."</span>"; 
+            $subdata[] = "<span class='proses'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>"; 
 
             $subdata[] = "<span class='proses'>".$data2->nama_sampel."</span>";
 
@@ -205,7 +246,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='selsesai'>".$data2->kode_sampel."</span>";
 
-            $subdata[] = "<span class='selsesai'>".$data2->no_sampel."</span>";
+            $subdata[] = "<span class='selsesai'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
             $subdata[] = "<span class='selesai'>".$data2->nama_sampel."</span>";
 
@@ -221,23 +262,15 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }/*elseif (empty($result_no_sertifikat) && empty($result_waktu_apdate_sertifikat) && $id2 > $result_id) {
-           
-            $subdata[] = '
+        }elseif (strlen($selesai) == 0) {
 
-                <i class="fa fa-exclamation-circle kosong"></i> <i>Waiting In Order </i>
-
-                ';
-
-        }*/elseif (strlen($selesai) == 0) {
-
-            if (strlen($f) == 0 || $banyak_sampel > $num) {
+            if (strlen($f) == 0) {
 
                 $subdata[] = '
 
                 <a><button type="button" class="btn btn-kusuccess btn-xs btn-not-allowed" disabled><i class="fa fa-plus-circle fa-fw"></i> Input</button></a>
 
-                <a id="input_hasil" class="btn btn-info btn-xs" href="./lab_parasit/views/input_hasil_pengujian_kh.php?id='.$data2->id.'&no_sampel='.$r.'" target="_blank"><i class="fa fa-flask fa-fw"></i>Input Hasil Uji</a> 
+                <a id="input_hasil" class="btn btn-info btn-xs" href="./lab_parasit/views/input_hasil_pengujian_kh.php?id='.$data2->id.'&no_sampel='.$r.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><i class="fa fa-flask fa-fw"></i>Input Hasil Uji</a> 
 
                 <a href="#"><button type="button" class="btn btn-danger btn-xs btn-not-allowed" disabled><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
@@ -262,9 +295,9 @@ while($data2 = $query->fetch_object()){
            
                 <a><button type="button" id="tombol_edit_hasil_pengujian_kh" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_edit_hasil_pengujian_kh" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i>&nbsp;&nbsp;Edit</button></a>
 
-                <a class="btn btn-warning btn-xs" href="./lab_parasit/views/edit_hasil_pengujian_kh.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'" target="_blank"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
+                <a class="btn btn-warning btn-xs" href="./lab_parasit/views/edit_hasil_pengujian_kh.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
                 
-                <a href="./lab_parasit/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+                <a href="./lab_parasit/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
             }
              
@@ -278,9 +311,9 @@ while($data2 = $query->fetch_object()){
                 
                 <a><button type="button" id="tombol_edit_hasil_pengujian_kh" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_edit_hasil_pengujian_kh" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i>&nbsp;&nbsp;Edit</button></a>
 
-                <a class="btn btn-warning btn-xs" href="./lab_parasit/views/edit_hasil_pengujian_kh.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'" target="_blank"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
+                <a class="btn btn-warning btn-xs" href="./lab_parasit/views/edit_hasil_pengujian_kh.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
                 
-                <a href="./lab_parasit/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+                <a href="./lab_parasit/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
 
             }else{
@@ -292,7 +325,7 @@ while($data2 = $query->fetch_object()){
 
                 <a class="btn btn-warning btn-xs btn-not-allowed"><i class="fa fa-pencil fa-fw"></i>&nbsp;&nbsp;Edit Hasil Uji</a>
 
-                <a href="./lab_parasit/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';
+                <a href="./lab_parasit/report/print/print_sertifikat.php?id='.$data2->id.'&no_sertifikat='.$data2->no_sertifikat.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';
             }
 
         }

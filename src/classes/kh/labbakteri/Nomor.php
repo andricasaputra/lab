@@ -87,12 +87,19 @@ class Nomor extends LegacyNomor implements SuperNomor
 
     // Nomor Sertifikat
 
-    public function NomorSertifikat($noser)
+    public function NomorSertifikat($noser=null)
+    {
+        $sql   = "SELECT no_sertifikat FROM input_permohonan_kh WHERE id  = (SELECT max(id) FROM input_permohonan_kh WHERE no_sertifikat != '' AND no_sertifikat)";
+        $query = $this->db->query($sql) or die($this->db->error);
+        return $query;
+    }
+
+    /*public function NomorSertifikat($noser)
     {
         $sql   = "SELECT no_sertifikat FROM input_permohonan_kh WHERE id = $noser AND no_sertifikat !=''";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
-    }
+    }*/
 
     public function set_maxnoSer()
     {
@@ -124,12 +131,12 @@ class Nomor extends LegacyNomor implements SuperNomor
 
     }
 
-    // Nomor Sampel
+    // Nomor Sampel Khusus Potong
 
     public function NomorSampel()
     {
 
-        $sql = "SELECT no_sampel, jumlah_sampel FROM input_permohonan_kh WHERE id = (SELECT max(id) as maxid FROM input_permohonan_kh WHERE no_sampel !='') ";
+        $sql = "SELECT no_sampel, jumlah_sampel FROM input_permohonan_kh WHERE  id = (SELECT max(id) as maxid FROM input_permohonan_kh WHERE no_sampel !='' AND nama_sampel NOT LIKE '%Bibit%')";
 
         $query = $this->db->query($sql) or die($this->db->error);
 
@@ -140,7 +147,7 @@ class Nomor extends LegacyNomor implements SuperNomor
     public function PilihNoSampel($id)
     {
 
-        $sql = "SELECT no_sampel FROM input_permohonan_kh WHERE kesiapan = 'Ya' AND id = $id ";
+        $sql = "SELECT no_sampel FROM input_permohonan_kh WHERE kesiapan = 'Ya' AND nama_sampel NOT LIKE '%Bibit%' AND id = $id ";
 
         $query = $this->db->query($sql) or die($this->db->error);
 

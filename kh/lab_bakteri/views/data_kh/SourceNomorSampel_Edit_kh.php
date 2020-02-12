@@ -12,7 +12,7 @@
   }
 
 
-   $sql = "SELECT no_sampel, jumlah_sampel FROM input_permohonan_kh WHERE id = '".$_GET['id']."' "; 
+   $sql = "SELECT no_sampel, jumlah_sampel FROM input_permohonan_kh WHERE nama_sampel != 'Darah Sapi Bibit' AND id = '".$_GET['id']."' "; 
 
 
    $result = $conn->query($sql);

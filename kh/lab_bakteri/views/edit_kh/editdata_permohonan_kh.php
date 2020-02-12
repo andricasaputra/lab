@@ -495,8 +495,6 @@ $(document).ready(function(e){
 
          success : function(response){
 
-         	console.log(response);
-
             $('#tb_permohonan_kh').DataTable().ajax.reload(null, false),
 
               swal({

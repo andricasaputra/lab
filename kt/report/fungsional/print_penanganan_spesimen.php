@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -165,15 +163,11 @@ $content ='
 
         $num = $qu2->num_rows;
 
-        $tampil3 = $objectPrint->Scan(@$_GET['id']);
+        $scanTtd = $objectPrint->Scan(@$_GET['id']);
 
-        while($data3 = $tampil3->fetch_object()):
+        $ttd_penyelia_data_teknis = $scanTtd['ttd_penyelia_data_teknis'];
 
-                $ttd_penyelia_data_teknis = $data3->ttd_penyelia_data_teknis;
-
-                $ttd_analis_data_teknis = $data3->ttd_analis_data_teknis;
-
-        endwhile;
+        $ttd_analis_data_teknis = $scanTtd['ttd_analis_data_teknis'];
 
         }else {
 
@@ -196,13 +190,7 @@ $content ='
         }
 
         
-
-
 $content .= '
-
-
-
-
 
     <div align="center">
 
@@ -232,10 +220,10 @@ $content .= '
 
             </tr>
 
-
             ';
-                $no=1;
-                while ($data=$tampil->fetch_object()):
+
+            $no=1;
+            while ($data=$tampil->fetch_object()):
 
             $content .='
 
@@ -253,33 +241,78 @@ $content .= '
 
                 <td style="width: 10%">'.$data->nama_patogen.'<br>'.$data->target_optk.'</td>
 
-                <td style="width: 10%">'.$data->bagian_tumbuhan.'<br>'.$data->target_optk.'</td>
-
                 ';
 
+                if($data->bagian_tumbuhan != ''){
+
+                     $content .='
+
+                    <td style="width: 10%">'.$data->bagian_tumbuhan.'</td>
+
+                    ';
+
+                }else{
+
+                     $content .='
+
+                    <td style="width: 10%">'.$data->vektor.'</td>
+
+                    ';
+
+                }
+
+               
+
                     if ($data->nama_patogen == 'Serangga' || $data->nama_patogen == 'Myte/Tungau' || $data->nama_patogen == 'Lalat Buah') {
+
+                        if ($data->bagian_tumbuhan != '') {
+
+                            $content .='   
+
+                              <td style="width: 10%; text-align: left">
+                                  
+                                    Spesimen '.$data->bagian_tumbuhan.'  '.$data->nama_sampel.' disimpan pada plastik kedap udara , diberi penomoran sampel
+                                  
+                              </td>
+
+                             ';
+
+                        }else{
+
+                            $content .='   
+
+                              <td style="width: 10%; text-align: left">
+                                  
+                                    Spesimen '.$data->bagian_tumbuhan.'  '.$data->nama_sampel.' disimpan didalam botol vial mini berakohol,diberi penomoran sampel
+                                  
+                              </td>
+
+                             ';
+ 
+                        }
                          
-                         $content .='   
+                         
+                    }elseif($data->nama_sampel == 'Kedelai'){
 
-                          <td style="width: 10%; text-align: left">
-                              
-                                Disimpan didalam botol vial mini berakohol,
-                                Penomoran Sampel / Spesimen,
-                                Simpan didalam lemari pendingin
-                              
-                          </td>
+                            $content .='   
 
-                         ';
+                              <td style="width: 10%; text-align: left">
+                                  
+                                    Spesimen '.$data->bagian_tumbuhan.'  '.$data->nama_sampel.' diberikan nomor sampel, kemudian disimpan di dalam vial plastik untuk keperluan uji washing test.
+                                  
+                              </td>
+
+                             ';
+ 
                     }else{
 
                         $content .='   
 
                           <td style="width: 10%; text-align: left">
                             
-                                Bungkus Koran,
-                                Simpan di dalam plastik kedap udara,
-                                Penomoran Sampel / Spesimen,
-                                Simpan didalam lemari pendingin
+                               Spesimen '.$data->bagian_tumbuhan.'  '.$data->nama_sampel.' disimpan di dalam plastik kedap udara,
+                                penomoran sampel / spesimen,
+                                simpan didalam lemari pendingin
                               
                           </td>
 
@@ -287,11 +320,10 @@ $content .= '
 
                     }
 
+
                 $content .='
 
-               
-
-                <td style="width: 8%">0.010</td>
+                <td style="width: 8%">0.08</td>
             </tr>
 
        ';
@@ -304,11 +336,7 @@ $content .= '
 
     <br><br><br>
     
-
-
     <table class="lower" style="top: auto" >
-
-
 
         <tr>
 
@@ -320,8 +348,6 @@ $content .= '
 
         </tr>
 
-
-
         <tr>
 
             <td style="width: 215px"></td>
@@ -331,7 +357,6 @@ $content .= '
             <td style="width: 215px"></td>
 
         </tr>
-
 
         <tr>
 
@@ -341,9 +366,7 @@ $content .= '
 
             <td style="width: 215px;text-align: center">Petugas Pelaksana</td>
 
-        </tr>
-
-                    
+        </tr>          
 
         <tr>
             ';
@@ -353,24 +376,16 @@ $content .= '
 
 
                     <td style="width: 215px; text-align: center;"><div style="position: relative; z-index: -1; left: -120px">'.$ttd.'</div></td>
-
-                        
-
-
+     
 
                 <td style="width: 180px"></td>
                 
-
                 ';
 
                 $ttd = '<img src="../../../assets/img/andrica.png" width="170">';
                 $content .='
 
-
-                         <td style="width: 215px;text-align: center"><div style="position: relative; z-index: -1; left: -120px">'.$ttd.'</div></td>
-
-                        
-
+                    <td style="width: 215px;text-align: center"><div style="position: relative; z-index: -1; left: -120px">'.$ttd.'</div></td>
 
         </tr>
 
@@ -384,8 +399,6 @@ $content .= '
 
         </tr>
 
-
-
         <tr>
 
             <td style="width: 215px; text-align: center"> NIP. 19801209 200912 2 004 </td>
@@ -395,8 +408,6 @@ $content .= '
             <td style="width: 215px; text-align: center">NIP. 19940110 201403 1 001</td>
 
         </tr>
-
-
 
         <tr>
 
@@ -409,7 +420,6 @@ $content .= '
         </tr>
 
     </table>
-
 
 </page>
 

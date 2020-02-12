@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['loginadminkt'])) {
-    header("Location: ../index.php");
+    header("Location: ../index");
     exit;
 }
 
@@ -27,7 +27,7 @@ require_once 'templates/header.php';
                 <button id="menu-toggle2" type="button" data-toggle="button" class="btn btn-info2 btn-xs btn-circle">
                 <span class="push"><i class="fa fa-chevron-right"></i></span>
                 </button>
-                <a class="navbar-brand" href="#"><img src="../assets/img/silelogo.jpg" width="40px" class="gambarBrand"><span class="brand2">Sistem Informasi</span> <span class="brand">LABORATORIUM Elektronik</span></a>
+                <a class="navbar-brand" href="#"><img src="../assets/img/silelogo.jpg" width="40px" class="gambarBrand" alt="silebrand"><span class="brand2">Sistem Informasi</span> <span class="brand">LABORATORIUM Elektronik</span></a>
 
             </div>
             <!-- /.navbar-header -->

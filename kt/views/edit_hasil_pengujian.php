@@ -4,7 +4,7 @@ require_once '../templates/header_hasil.php';
 ?>
 <body>
 <?php
-$tgl     = tgl_indo(date('Y-m-d'));
+$tgl     = $objectTanggal->tgl_indo(date('Y-m-d'));
 $tgl_acu = date("Y-m-d");
 if (@$_GET['id'] && $_GET['no_sampel'] !== '') {
     $tampil = $objectHasil->tampil(@$_GET['id'], @$_GET['no_sampel']);

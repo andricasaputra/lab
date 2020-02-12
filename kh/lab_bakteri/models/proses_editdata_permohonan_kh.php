@@ -49,7 +49,34 @@ require_once('header_proses.php');
 
 	$nip_pemohon				=htmlspecialchars($conn->real_escape_string(trim($_POST['nip_pemohon'])));
 
+	if (strpos($nama_sampel, "Bibit") === false) {
+
 	$no_sampel					=htmlspecialchars($conn->real_escape_string(trim($_POST['no_sampel'])));
+
+	}else{
+
+		if (strpos($no_sampel_awal, "-") !== false) {
+
+			$x = explode("-", $no_sampel_awal);
+
+			$awal = "0".ltrim($x[0] , "0");
+
+			$akhir = "0".ltrim($x[1] , "0");
+
+			$no_sampel = $awal."-".$akhir;
+
+		}elseif (strpos($no_sampel_awal, ",") !== false) {
+
+			$x = explode(",", $no_sampel_awal);
+
+			$awal = "0".ltrim($x[0] , "0");
+
+			$akhir = "0".ltrim($x[1] , "0");
+
+			$no_sampel = $awal."-".$akhir;
+
+		}
+	}
 
 
 	/*Jika post id  lebih kecil dari max id di dalam database*/
@@ -76,7 +103,7 @@ require_once('header_proses.php');
 
 		/*loop sesuai jumlah id sisa)*/
 
-		foreach ($ids as $key => $value) {
+		foreach ($ids as $key => $value) :
 
 			$nextid = $value;
 
@@ -84,7 +111,7 @@ require_once('header_proses.php');
 
 			$resultnosampel = $pilihnoSampel->fetch_object();
 
-			$resno_sampel = $resultnosampel->no_sampel;
+			@$resno_sampel = $resultnosampel->no_sampel;
 
 			if (strpos($resno_sampel, "-") !== false) {
 
@@ -103,9 +130,14 @@ require_once('header_proses.php');
 				$newno_sampel = $akhir;
 			}
 
-			$objectData->edit("UPDATE input_permohonan_kh SET no_sampel = '$newno_sampel' WHERE id ='$nextid'");
+			if (strpos($nama_sampel, "Bibit") === false){
 
-		}
+				$objectData->edit("UPDATE input_permohonan_kh SET no_sampel = '$newno_sampel' WHERE nama_sampel NOT LIKE '%Bibit%' AND id ='$nextid'");
+			}
+
+			
+
+		endforeach;
 
 
 	}

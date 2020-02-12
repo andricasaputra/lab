@@ -120,7 +120,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='nonuji'>".$data2->no_surat_tugas."</span>"; 
 
-            $subdata[] = "<span class='nonuji'>".$data2->no_sampel."</span>";
+            $subdata[] = "<span class='nonuji'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
             if ($data2->target_pengujian3 != '') {
 
@@ -142,7 +142,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='kosong'>".$data2->no_surat_tugas."</span>"; 
 
-            $subdata[] = "<span class='kosong'>".$data2->no_sampel."</span>"; 
+            $subdata[] = "<span class='kosong'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>"; 
 
             if ($data2->target_pengujian3 != '') {
 
@@ -163,7 +163,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='proses'>".$data2->no_surat_tugas."</span>"; 
 
-            $subdata[] = "<span class='proses'>".$data2->no_sampel."</span>";  
+            $subdata[] = "<span class='proses'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";  
 
             if ($data2->target_pengujian3 != '') {
 
@@ -188,7 +188,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='selesai'>".$data2->no_surat_tugas."</span>"; 
 
-            $subdata[] = "<span class='selesai'>".$data2->no_sampel."</span>";  
+            $subdata[] = "<span class='selesai'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";  
 
             if ($data2->target_pengujian3 != '') {
 

@@ -139,7 +139,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='kosong'>".$data2->kode_sampel."</span>";
 
-            $subdata[] = "<span class='kosong'>".$data2->no_sampel."</span>";
+            $subdata[] = "<span class='kosong'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
             $subdata[] = "<span class='kosong'>".$data2->nama_sampel."</span>"; 
 
@@ -162,7 +162,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='proses'>".$data2->kode_sampel."</span>"; 
 
-            $subdata[] = "<span class='proses'>".$data2->no_sampel."</span>"; 
+            $subdata[] = "<span class='proses'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>"; 
 
             $subdata[] = "<span class='proses'>".$data2->nama_sampel."</span>"; 
 
@@ -185,7 +185,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='selsesai'>".$data2->kode_sampel."</span>"; 
 
-            $subdata[] = "<span class='selsesai'>".$data2->no_sampel."</span>";
+            $subdata[] = "<span class='selsesai'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
             $subdata[] = "<span class='selsesai'>".$data2->nama_sampel."</span>"; 
 
@@ -210,15 +210,7 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }/*elseif (empty($result_tanggal_pengujian) && empty($result_rekomendasi) && $id2 > $result_id) {
-           
-            $subdata[] = '
-
-                <i class="fa fa-exclamation-circle kosong"></i> <i>Waiting In Order </i>
-
-                ';
-
-        }*/elseif (strlen($selesai) == 0) {
+        }elseif (strlen($selesai) == 0) {
 
             if (strlen($isi) == 0) {
 
@@ -249,7 +241,7 @@ while($data2 = $query->fetch_object()){
            
                 <button type="button" id="tombol_edit_data_teknis_kh" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_edit_data_teknis_kh" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i> Edit</button>
                 
-                <a href="./lab_parasit/report/print/print_data_teknis.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+                <a href="./lab_parasit/report/print/print_data_teknis.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
             }
              
@@ -262,7 +254,7 @@ while($data2 = $query->fetch_object()){
                 
                 <button type="button" id="tombol_edit_data_teknis_kh" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_edit_data_teknis_kh" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i> Edit</button>
                 
-                <a href="./lab_parasit/report/print/print_data_teknis.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
+                <a href="./lab_parasit/report/print/print_data_teknis.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
 
             }else{
@@ -271,7 +263,7 @@ while($data2 = $query->fetch_object()){
 
                 <button type="button" id="tombol_edit_data_teknis_kh" class="btn btn-kusuccess btn-xs btn-not-allowed"><i class="fa fa-edit fa-fw"></i> Edit</button>
 
-                <a href="./lab_parasit/report/print/print_data_teknis.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';
+                <a href="./lab_parasit/report/print/print_data_teknis.php?id='.$data2->id.'&no_sampel='.$data2->no_sampel.'&nama_sampel='.$data2->nama_sampel.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';
             }
 
         }

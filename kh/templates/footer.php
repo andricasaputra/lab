@@ -39,6 +39,8 @@
 
     <script src="../assets/js/numbers_no_ellipses.js"></script>
 
+   <!--  <script src="../assets/js/main.js"></script> -->
+
 
 <?php 
 

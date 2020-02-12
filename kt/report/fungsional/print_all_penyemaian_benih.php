@@ -2,8 +2,6 @@
 
 require_once ('header.php');
 
-$tanggal = tgl_indo(date('Y-m-d'));
-
 $content ='
 
 <style>
@@ -209,7 +207,7 @@ $content ='
 
         while ($data=$tampil->fetch_object()):
 
-        $bilangan = ucwords(Nomor::bilangan($data->jumlah_sampel));
+        $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
 $content .= '
 

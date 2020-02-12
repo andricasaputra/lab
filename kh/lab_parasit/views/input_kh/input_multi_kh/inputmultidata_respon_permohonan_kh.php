@@ -83,7 +83,7 @@ endif;
 
                                           while ($t=$i->fetch_object()) : 
 
-                                            if ($t->nama_pejabat == 'Muhammad Tamrin') : ?>
+                                            if ($t->nama_pejabat == 'Andik Akrimil Fata, SP') : ?>
 
                                           <option selected><?=$t->nama_pejabat ;?></option>
 

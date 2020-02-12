@@ -38,9 +38,13 @@ header("Content-Type: application/vnd.ms-excel");
 
 						<th align="right"><b>Nama Ilmiah</b></th>
 
+						<th align="center"><b>No Permohonan</b></th>
+
 			     		<th align="center"><b>Kode Sampel</b></th>
 
                         <th align="center"><b>No Sampel</b></th>
+
+                        <th align="center"><b>Daerah Asal</b></th>
 
                         <th align="center"><b>Tanggal</b></th>
 
@@ -49,6 +53,8 @@ header("Content-Type: application/vnd.ms-excel");
                         <th align="center"><b>Vektor</b></th>
 
                         <th align="center"><b>Media</b></th>
+
+                        <th align="center"><b>Nama Patogen</b></th>
 
                         <th align="center"><b>Target Pengujian </b></th>
 
@@ -79,15 +85,11 @@ header("Content-Type: application/vnd.ms-excel");
 					</tr>
 
 
-			
-
-					
-
 					<?php
 
 					$no =1;
 
-					$tampil = $objectData->tampil();
+					$tampil = $objectData->tampil(null, 'id');
 
 					while ($data = $tampil->fetch_object()){
 
@@ -105,9 +107,13 @@ header("Content-Type: application/vnd.ms-excel");
 
 						echo "<td>"."<em>".$data->nama_ilmiah."</em>"."</td>";
 
+						echo "<td>".$data->no_permohonan."</td>";
+
 						echo "<td>".$data->kode_sampel."</td>";
 
 						echo "<td>".$data2->no_sampel."</td>";
+
+						echo "<td>".$data->daerah_asal."</td>";
 
 						echo "<td>".$data->tanggal_sertifikat."</td>";
 
@@ -116,6 +122,8 @@ header("Content-Type: application/vnd.ms-excel");
 						echo "<td>".$data->vektor."</td>";
 
 						echo "<td>".$data->media."</td>";
+
+						echo "<td>".$data->nama_patogen."</td>";
 
 						echo "<td><i>".$data2->target_optk."<br>".$data2->target_optk2."<br>".$data2->target_optk3."</i></td>";
 

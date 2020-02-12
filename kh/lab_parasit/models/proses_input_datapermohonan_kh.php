@@ -48,7 +48,57 @@ $pemohon					=htmlspecialchars($conn->real_escape_string(trim($_POST['pemohon'])
 
 $nip_pemohon				=htmlspecialchars($conn->real_escape_string(trim($_POST['nip_pemohon'])));
 
-$no_sampel					=htmlspecialchars($conn->real_escape_string(trim($_POST['no_sampel'])));
+if (strpos($nama_sampel, "Bibit") === false) {
+
+	$no_sampel					=htmlspecialchars($conn->real_escape_string(trim($_POST['no_sampel'])));
+
+}else{
+
+	if (strpos($no_sampel_awal, "-") !== false) {
+
+		$x = explode("-", $no_sampel_awal);
+
+		$awal = "0".ltrim($x[0] , "0");
+
+		$akhir = "0".ltrim($x[1] , "0");
+
+		$no_sampel = $awal."-".$akhir;
+
+	}elseif (strpos($no_sampel_awal, ",") !== false) {
+
+		$x = explode(",", $no_sampel_awal);
+
+		sort($x);
+
+		// $awal = "0".ltrim($x[0] , "0");
+
+		// $akhir = "0".ltrim(end($x) , "0");
+
+		// $no_sampel = $awal."-".$akhir;
+
+		// $no_sampel = array_map(function($item){
+		// 	$item = '0'.$item;
+
+		// 	return $item;
+
+		// }, $x);
+
+
+		// 	return $item;
+
+		// }, $x);
+
+		$no_sampel = implode(',', $x);
+
+		//var_dump($no_sampel); 
+
+		//$no_sampel = json_encode($akhir);
+
+		//var_dump($akhir);
+
+	}
+}
+
 
 
 $sql = $conn->query("SELECT no_permohonan FROM input_permohonan_kh_lab_parasit WHERE no_permohonan ='$no_permohonan'");
