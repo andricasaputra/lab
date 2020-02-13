@@ -57,7 +57,7 @@ class Source2 extends Database
     public function input($id_patogen, $patogen, $nama_latin_penyakit)
     {
 
-        $this->db->query("INSERT INTO penyakit VALUES ('', '$id_patogen', '$patogen' ,'$nama_latin_penyakit')") or die($this->db->error);
+        $this->db->query("INSERT INTO penyakit (id_patogen, patogen, nama_latin_penyakit) VALUES ('$id_patogen', '$patogen' ,'$nama_latin_penyakit')") or die($this->db->error);
 
     }
 

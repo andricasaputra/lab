@@ -94,9 +94,6 @@ if (strpos($nama_sampel, "Bibit") === false) {
 	}
 }
 
-//die();
-
-
 $sql = $conn->query("SELECT no_permohonan FROM input_permohonan_kh WHERE no_permohonan ='$no_permohonan'");
 
 $cek = $sql->num_rows;

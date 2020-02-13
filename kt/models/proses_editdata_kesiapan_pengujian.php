@@ -96,7 +96,7 @@ require_once('header_proses.php');
 
 	 	endfor;
 
-	 		$objectData->edit("UPDATE input_permohonan SET no_sampel = '' WHERE id ='$id'");
+	 		$objectData->edit("UPDATE input_permohonan SET no_sampel = NULL WHERE id ='$id'");
 
 
 	 		/*Jika Tidak Ada Id Yang lebih tinggi masuk sini*/
@@ -104,7 +104,7 @@ require_once('header_proses.php');
 		}else{
 
 
-			$objectData->edit("UPDATE input_permohonan SET no_sampel = '' WHERE id ='$id'");
+			$objectData->edit("UPDATE input_permohonan SET no_sampel = NULL WHERE id ='$id'");
 
 		}
 
@@ -124,7 +124,7 @@ require_once('header_proses.php');
 
 			$datas = array();
 
-			$query = $conn->query("SELECT id, nama_sampel, jumlah_sampel,no_sampel FROM input_permohonan WHERE id >= $id AND no_sampel != ''");
+			$query = $conn->query("SELECT id, nama_sampel, jumlah_sampel,no_sampel FROM input_permohonan WHERE id >= $id AND no_sampel IS NOT NULL");
 
 			while($result = $query->fetch_object()):
 
@@ -193,7 +193,7 @@ require_once('header_proses.php');
 
 			/*Set No Sampel ID Selanjutnya*/
 
-			$objectData->edit("UPDATE input_permohonan SET no_sampel = '' WHERE id ='$ids'");
+			$objectData->edit("UPDATE input_permohonan SET no_sampel = NULL WHERE id ='$ids'");
 
 			endforeach;
 
@@ -201,7 +201,7 @@ require_once('header_proses.php');
 
 			foreach ($nextid as $nid) :
 
-				$query = $conn->query("SELECT no_sampel, jumlah_sampel FROM input_permohonan WHERE id = (SELECT max(id) FROM input_permohonan WHERE nama_sampel NOT LIKE '%Bibit%' AND no_sampel != '') ");
+				$query = $conn->query("SELECT no_sampel, jumlah_sampel FROM input_permohonan WHERE id = (SELECT max(id) FROM input_permohonan WHERE nama_sampel NOT LIKE '%Bibit%' AND no_sampel IS NOT NULL) ");
 
 				$result = $query->fetch_object();
 
@@ -263,7 +263,7 @@ require_once('header_proses.php');
 
 		}else{
 
-			$query = $conn->query("SELECT id, nama_sampel, jumlah_sampel, no_sampel FROM input_permohonan WHERE id = (SELECT max(id) FROM input_permohonan WHERE no_sampel != '')");
+			$query = $conn->query("SELECT id, nama_sampel, jumlah_sampel, no_sampel FROM input_permohonan WHERE id = (SELECT max(id) FROM input_permohonan WHERE no_sampel IS NOT NULL)");
 
 			while($result = $query->fetch_object()):
 

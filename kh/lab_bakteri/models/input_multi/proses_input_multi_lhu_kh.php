@@ -2,7 +2,7 @@
 
 require_once('../header_proses.php');
 
-$sql = $conn->query("SELECT no_sertifikat,no_agenda FROM input_permohonan_kh WHERE no_sertifikat != '' AND no_agenda = ''");
+$sql = $conn->query("SELECT no_sertifikat,no_agenda FROM input_permohonan_kh WHERE no_sertifikat IS NOT NULL AND no_agenda IS NULL");
 
 $cek = $sql->num_rows;
 

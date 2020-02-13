@@ -57,7 +57,7 @@ class Source extends Database
     public function input($nama_tumbuhan, $nama_ilmiah_tumbuhan)
     {
 
-        $this->db->query("INSERT INTO tumbuhan VALUES ('', '$nama_tumbuhan', '$nama_ilmiah_tumbuhan')") or die($this->db->error);
+        $this->db->query("INSERT INTO tumbuhan (nama_tumbuhan, nama_ilmiah_tumbuhan) VALUES ('$nama_tumbuhan', '$nama_ilmiah_tumbuhan')") or die($this->db->error);
 
     }
 

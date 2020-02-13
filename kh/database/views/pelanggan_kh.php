@@ -144,9 +144,7 @@ if(@$_GET['act']==''){
 
     if(@$_POST['input']) {
 
-      
-
-
+    
     $nama_pelanggan       =htmlspecialchars($conn->real_escape_string(trim($_POST['nama_pelanggan'])));
 
     $alamat_pelanggan      =htmlspecialchars($conn->real_escape_string(trim($_POST['alamat_pelanggan'])));
@@ -156,8 +154,7 @@ if(@$_GET['act']==''){
 
     if($nama_pelanggan !==""){
 
-      $input = $objectSource4->input($nama_pelanggan, $alamat);
-
+      $objectSource4->input($nama_pelanggan, $alamat);
 
       echo "<script>alert('Data Berhasil Ditambah!')
 

@@ -54,7 +54,7 @@ class Hasil extends LegacyData implements SuperHasil, HasilKH
     public function tampil3()
     {
         $tgl   = date('m');
-        $sql   = "SELECT no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat !=' ' ORDER BY id DESC ";
+        $sql   = "SELECT no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat IS NOT NULL ORDER BY id DESC ";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
@@ -223,14 +223,14 @@ class Hasil extends LegacyData implements SuperHasil, HasilKH
 
     public function checkHasilPengujian($id = null)
     {
-        $sql   = "SELECT id,no_sertifikat,positif_negatif FROM hasil_kh_lab_parasit WHERE positif_negatif != '' AND id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat = '')";
+        $sql   = "SELECT id,no_sertifikat,positif_negatif FROM hasil_kh_lab_parasit WHERE positif_negatif IS NOT NULL AND id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat IS NULL)";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function checkHasilPengujianBibit($id = null)
     {
-        $sql   = "SELECT id,no_sertifikat,positif_negatif FROM hasil_kh_bibit_lab_parasit WHERE positif_negatif != '' AND id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat = '')";
+        $sql   = "SELECT id,no_sertifikat,positif_negatif FROM hasil_kh_bibit_lab_parasit WHERE positif_negatif IS NOT NULL AND id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat IS NULL)";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }

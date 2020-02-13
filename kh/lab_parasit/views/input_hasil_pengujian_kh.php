@@ -245,7 +245,7 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           $j = $_GET['no_sampel'] ;
 
-                          if (count($j) > 1) {
+                      
                              if (strpos($j, '-') !== false) {
 
                               $x = explode("-", $j);
@@ -283,12 +283,10 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                             }else{
 
-                                $r = $x;
+                                $r = [$j];
 
                             }
-                          } else {
-                            $r = [$j];
-                          }
+                       
 
                       }
                       

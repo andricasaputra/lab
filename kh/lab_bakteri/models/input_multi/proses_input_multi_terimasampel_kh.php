@@ -23,7 +23,7 @@ $nip_penerima_sampel	=htmlspecialchars($conn->real_escape_string(trim($_POST['ni
 $target_pengujian2		=htmlspecialchars($conn->real_escape_string(trim($_POST['target_pengujian2'])));
 
 
-$sql = $conn->query("SELECT penerima_sampel FROM input_permohonan_kh WHERE penerima_sampel = ''");
+$sql = $conn->query("SELECT penerima_sampel FROM input_permohonan_kh WHERE penerima_sampel IS NULL");
 
 $cek = $sql->num_rows;
 
@@ -33,7 +33,7 @@ if ($cek == 0) {
 	
 if (!empty($penerima_sampel) && !empty($tanggal_diterima)){
 
-	 $objectData->edit("UPDATE input_permohonan_kh SET tanggal_diterima='$tanggal_diterima', jam_diterima='$jam_diterima', cara_pengiriman ='$cara_pengiriman', nama_pengirim ='$pengantar',  jumlah_kontainer = '$jumlah_kontainer',  lama_pengujian ='$lama_pengujian', penerima_sampel = '$penerima_sampel', nip_penerima_sampel='$nip_penerima_sampel', target_pengujian2 ='$target_pengujian2' WHERE penerima_sampel =''");
+	 $objectData->edit("UPDATE input_permohonan_kh SET tanggal_diterima='$tanggal_diterima', jam_diterima='$jam_diterima', cara_pengiriman ='$cara_pengiriman', nama_pengirim ='$pengantar',  jumlah_kontainer = '$jumlah_kontainer',  lama_pengujian ='$lama_pengujian', penerima_sampel = '$penerima_sampel', nip_penerima_sampel='$nip_penerima_sampel', target_pengujian2 ='$target_pengujian2' WHERE penerima_sampel IS NULL");
 	 
  }
 								

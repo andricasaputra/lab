@@ -26,7 +26,7 @@ require_once('../header_proses.php');
 
 	$kesiapan			=htmlspecialchars($conn->real_escape_string(trim($_POST['kesiapan'])));
 
-$sql = $conn->query("SELECT kode_sampel,mt FROM input_permohonan WHERE kode_sampel !='' AND mt = ''");
+$sql = $conn->query("SELECT kode_sampel,mt FROM input_permohonan WHERE kode_sampel IS NOT NULL AND mt IS NULL");
 
 $cek = $sql->num_rows;
 
@@ -36,7 +36,7 @@ if ($cek == 0) {
 
  if($mt !=="") {
 
-	 $objectData->edit("UPDATE input_permohonan SET kondisi_sampel='$kondisi_sampel', mt='$mt', nip_mt='$nip_mt', penyelia='$penyelia', penyelia2='$penyelia2', analis='$analis',  analis2='$analis2' , bahan='$bahan', bahan2='$bahan2', alat='$alat', alat2='$alat2', kesiapan='$kesiapan' WHERE kode_sampel != '' AND mt = ''");
+	 $objectData->edit("UPDATE input_permohonan SET kondisi_sampel='$kondisi_sampel', mt='$mt', nip_mt='$nip_mt', penyelia='$penyelia', penyelia2='$penyelia2', analis='$analis',  analis2='$analis2' , bahan='$bahan', bahan2='$bahan2', alat='$alat', alat2='$alat2', kesiapan='$kesiapan' WHERE kode_sampel IS NOT NULL AND mt IS NULL");
 	 
 
  }

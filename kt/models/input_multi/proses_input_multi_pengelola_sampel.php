@@ -2,7 +2,7 @@
 
 require_once('../header_proses.php');
 
-$sql = $conn->query("SELECT lab_penguji,yang_menerimalab FROM input_permohonan WHERE lab_penguji != '' AND yang_menerimalab = ''");
+$sql = $conn->query("SELECT lab_penguji,yang_menerimalab FROM input_permohonan WHERE lab_penguji IS NOT NULL AND yang_menerimalab IS NULL");
 
 $cek = $sql->num_rows;
 

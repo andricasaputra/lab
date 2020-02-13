@@ -105,7 +105,7 @@ require_once('header_proses.php');
 
 		 	endfor;
 
-		 		$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '' WHERE id ='$id'");
+		 		$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = NULL WHERE id ='$id'");
 
 
 		 		/*Jika Tidak Ada Id Yang lebih tinggi masuk sini*/
@@ -113,7 +113,7 @@ require_once('header_proses.php');
 			}else{
 
 
-				$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '' WHERE id ='$id'");
+				$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = NULL WHERE id ='$id'");
 
 			}
 
@@ -122,7 +122,7 @@ require_once('header_proses.php');
 			
 		}else{
 
-			$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = '' WHERE id ='$id'");
+			$objectDataParasit->edit("UPDATE input_permohonan_kh_lab_parasit SET no_sampel = NULL WHERE id ='$id'");
 		}
 
 	endif;

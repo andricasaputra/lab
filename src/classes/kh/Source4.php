@@ -35,7 +35,7 @@ class Source4 extends Database
     public function input($nama_pelanggan, $alamat_pelanggan)
     {
 
-        $this->db->query("INSERT INTO pelanggan_kh VALUES ('', '$nama_pelanggan', '$alamat_pelanggan')") or die($this->db->error);
+        $t = $this->db->query("INSERT INTO pelanggan_kh(nama_pelanggan, alamat_pelanggan) VALUES ('$nama_pelanggan', '$alamat_pelanggan')") or die($this->db->error);
 
     }
 

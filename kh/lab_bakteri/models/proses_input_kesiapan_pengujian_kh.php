@@ -105,7 +105,7 @@ require_once('header_proses.php');
 
 		 	endfor;
 
-		 		$objectData->edit("UPDATE input_permohonan_kh SET no_sampel = '' WHERE id ='$id'");
+		 		$objectData->edit("UPDATE input_permohonan_kh SET no_sampel = NULL WHERE id ='$id'");
 
 
 		 		/*Jika Tidak Ada Id Yang lebih tinggi masuk sini*/
@@ -113,7 +113,7 @@ require_once('header_proses.php');
 			}else{
 
 
-				$objectData->edit("UPDATE input_permohonan_kh SET no_sampel = '' WHERE id ='$id'");
+				$objectData->edit("UPDATE input_permohonan_kh SET no_sampel = NULL WHERE id ='$id'");
 
 			}
 
@@ -122,7 +122,7 @@ require_once('header_proses.php');
 			
 		}else{
 
-			$objectData->edit("UPDATE input_permohonan_kh SET no_sampel = '' WHERE id ='$id'");
+			$objectData->edit("UPDATE input_permohonan_kh SET no_sampel = NULL WHERE id ='$id'");
 		}
 
 	endif;

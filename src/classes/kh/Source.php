@@ -46,7 +46,7 @@ class Source extends Database
     public function input($nama_hewan, $nama_ilmiah_hewan)
     {
 
-        $this->db->query("INSERT INTO hewan (id_hewan, nama_hewan, nama_ilmiah_hewan) VALUES ('', '$nama_hewan', '$nama_ilmiah_hewan')") or die($this->db->error);
+        $this->db->query("INSERT INTO hewan (nama_hewan, nama_ilmiah_hewan) VALUES ('$nama_hewan', '$nama_ilmiah_hewan')") or die($this->db->error);
 
     }
 

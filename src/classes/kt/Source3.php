@@ -36,7 +36,7 @@ class Source3 extends Database
     public function input($nama_pejabat, $nip_pejabat)
     {
 
-        $this->db->query("INSERT INTO pejabat2 VALUES ('', '$nama_pejabat', '$nip_pejabat')") or die($this->db->error);
+        $this->db->query("INSERT INTO pejabat2 (nama_pejabat, nip_pejabat) VALUES ('$nama_pejabat', '$nip_pejabat')") or die($this->db->error);
 
     }
 

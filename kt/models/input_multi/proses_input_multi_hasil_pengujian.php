@@ -2,7 +2,7 @@
 
 require_once('../header_proses.php');
 
-$sql = $conn->query("SELECT tanggal_pengujian,no_sertifikat FROM input_permohonan WHERE tanggal_pengujian != '' AND no_sertifikat = ''");
+$sql = $conn->query("SELECT tanggal_pengujian,no_sertifikat FROM input_permohonan WHERE tanggal_pengujian IS NOT NULL AND no_sertifikat IS NULL");
 
 $cek = $sql->num_rows;
 

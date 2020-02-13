@@ -239,7 +239,7 @@ class Data extends LegacyData implements SuperData
     public function per_selesai()
     {
 
-        $sql = "SELECT tanggal_lhu FROM input_permohonan_kh_lab_parasit WHERE tanggal_lhu !=''";
+        $sql = "SELECT tanggal_lhu FROM input_permohonan_kh_lab_parasit WHERE tanggal_lhu IS NOT NULL";
 
         $query = $this->db->query($sql) or die($this->db->error);
 
@@ -252,7 +252,7 @@ class Data extends LegacyData implements SuperData
     public function per_pending()
     {
 
-        $sql = "SELECT tanggal_lhu FROM input_permohonan_kh_lab_parasit WHERE tanggal_lhu=''";
+        $sql = "SELECT tanggal_lhu FROM input_permohonan_kh_lab_parasit WHERE tanggal_lhu IS NULL";
 
         $query = $this->db->query($sql) or die($this->db->error);
 
@@ -301,7 +301,7 @@ class Data extends LegacyData implements SuperData
 
     public function KosongDataSertifikat()
     {
-        $sql   = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat !='' LIMIT 5";
+        $sql   = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat IS NOT NULL LIMIT 5";
         $query = $this->db->query($sql) or die($this->db->error);
         $num   = $query->num_rows;
 
@@ -316,19 +316,19 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,penerima_sampel,no_sampel_awal FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel = '')";
+            $sql   = "SELECT id,penerima_sampel,no_sampel_awal FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == "select") {
 
-            $sql   = "SELECT id,penerima_sampel,no_sampel_awal FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel = ''";
+            $sql   = "SELECT id,penerima_sampel,no_sampel_awal FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,penerima_sampel,no_sampel_awal FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel = ''";
+            $sql   = "SELECT id,penerima_sampel,no_sampel_awal FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -341,19 +341,19 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,kode_sampel FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel !='' AND kode_sampel = '')";
+            $sql   = "SELECT id,kode_sampel FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel IS NOT NULL AND kode_sampel IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,nama_sampel, kode_sampel FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel !='' AND kode_sampel = ''";
+            $sql   = "SELECT id,nama_sampel, kode_sampel FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel IS NOT NULL AND kode_sampel IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,kode_sampel FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel !='' AND kode_sampel = ''";
+            $sql   = "SELECT id,kode_sampel FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel IS NOT NULL AND kode_sampel IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -366,19 +366,19 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,ma FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE ma = '')";
+            $sql   = "SELECT id,ma FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE ma IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,nama_sampel,ma FROM input_permohonan_kh_lab_parasit WHERE ma = ''";
+            $sql   = "SELECT id,nama_sampel,ma FROM input_permohonan_kh_lab_parasit WHERE ma IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,ma FROM input_permohonan_kh_lab_parasit WHERE kode_sampel !='' AND ma = ''";
+            $sql   = "SELECT id,ma FROM input_permohonan_kh_lab_parasit WHERE kode_sampel IS NOT NULL AND ma IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -391,19 +391,19 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,penyelia,analis,saran,tanggal_selesai FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE saran = '' AND tanggal_selesai = '')";
+            $sql   = "SELECT id,penyelia,analis,saran,tanggal_selesai FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE saran IS NULL AND tanggal_selesai IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,nama_sampel,penyelia,analis FROM input_permohonan_kh_lab_parasit WHERE saran = '' AND tanggal_selesai = ''";
+            $sql   = "SELECT id,nama_sampel,penyelia,analis FROM input_permohonan_kh_lab_parasit WHERE saran IS NULL AND tanggal_selesai IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,penyelia,analis FROM input_permohonan_kh_lab_parasit WHERE mt != '' AND saran = '' ";
+            $sql   = "SELECT id,penyelia,analis FROM input_permohonan_kh_lab_parasit WHERE mt IS NOT NULL AND saran IS NULL ";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -416,19 +416,19 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,kondisi_sampel,mt FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE kondisi_sampel = '' AND mt = '')";
+            $sql   = "SELECT id,kondisi_sampel,mt FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE kondisi_sampel IS NULL AND mt IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,nama_sampel,kondisi_sampel,mt FROM input_permohonan_kh_lab_parasit WHERE kondisi_sampel = '' AND mt = ''";
+            $sql   = "SELECT id,nama_sampel,kondisi_sampel,mt FROM input_permohonan_kh_lab_parasit WHERE kondisi_sampel IS NULL AND mt IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,kondisi_sampel,mt FROM input_permohonan_kh_lab_parasit WHERE kondisi_sampel = '' AND mt = ''";
+            $sql   = "SELECT id,kondisi_sampel,mt FROM input_permohonan_kh_lab_parasit WHERE kondisi_sampel IS NULL AND mt IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -441,25 +441,25 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,lab_penguji,nama_penyelia,nama_analis, no_surat_tugas FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND mt != '' AND lab_penguji = '')";
+            $sql   = "SELECT id,lab_penguji,nama_penyelia,nama_analis, no_surat_tugas FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND mt IS NOT NULL AND lab_penguji IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,nama_sampel,lab_penguji,nama_penyelia,nama_analis, no_surat_tugas FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND no_surat_tugas != '')";
+            $sql   = "SELECT id,nama_sampel,lab_penguji,nama_penyelia,nama_analis, no_surat_tugas FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND no_surat_tugas IS NOT NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'getid') {
 
-            $sql   = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND mt != '' AND no_surat_tugas = ''";
+            $sql   = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND mt IS NOT NULL AND no_surat_tugas IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,lab_penguji,nama_penyelia,nama_analis, no_surat_tugas FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND mt != '' AND lab_penguji = ''";
+            $sql   = "SELECT id,lab_penguji,nama_penyelia,nama_analis, no_surat_tugas FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND mt IS NOT NULL AND lab_penguji IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -472,25 +472,25 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,nama_sampel_lab,yang_menerimalab,no_sampel,nama_sampel,nama_analis FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE lab_penguji != '' AND yang_menerimalab = '')";
+            $sql   = "SELECT id,nama_sampel_lab,yang_menerimalab,no_sampel,nama_sampel,nama_analis FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE lab_penguji IS NOT NULL AND yang_menerimalab IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,nama_sampel,nama_sampel_lab,yang_menerimalab,no_sampel,nama_sampel,nama_analis FROM input_permohonan_kh_lab_parasit  WHERE lab_penguji != '' AND yang_menerimalab = ''";
+            $sql   = "SELECT id,nama_sampel,nama_sampel_lab,yang_menerimalab,no_sampel,nama_sampel,nama_analis FROM input_permohonan_kh_lab_parasit  WHERE lab_penguji IS NOT NULL AND yang_menerimalab IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'getid') {
 
-            $sql   = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE lab_penguji != '' AND yang_menerimalab = ''";
+            $sql   = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE lab_penguji IS NOT NULL AND yang_menerimalab IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,nama_sampel_lab,yang_menerimalab,no_sampel,nama_sampel,nama_analis FROM input_permohonan_kh_lab_parasit WHERE lab_penguji != '' AND yang_menerimalab = '' AND yang_menyerahkanlab = ''";
+            $sql   = "SELECT id,nama_sampel_lab,yang_menerimalab,no_sampel,nama_sampel,nama_analis FROM input_permohonan_kh_lab_parasit WHERE lab_penguji IS NOT NULL AND yang_menerimalab IS NULL AND yang_menyerahkanlab IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -503,25 +503,25 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,tanggal_pengujian,rekomendasi,ket_kesimpulan,nama_penyelia,nama_analis,tanggal_penyerahan FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE yang_menerimalab != '' AND tanggal_pengujian = '')";
+            $sql   = "SELECT id,tanggal_pengujian,rekomendasi,ket_kesimpulan,nama_penyelia,nama_analis,tanggal_penyerahan FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE yang_menerimalab IS NOT NULL AND tanggal_pengujian IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,nama_sampel,tanggal_pengujian,rekomendasi,ket_kesimpulan,nama_penyelia,nama_analis,tanggal_penyerahan FROM input_permohonan_kh_lab_parasit  WHERE yang_menerimalab != '' AND tanggal_pengujian = ''";
+            $sql   = "SELECT id,nama_sampel,tanggal_pengujian,rekomendasi,ket_kesimpulan,nama_penyelia,nama_analis,tanggal_penyerahan FROM input_permohonan_kh_lab_parasit  WHERE yang_menerimalab IS NOT NULL AND tanggal_pengujian IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'getid') {
 
-            $sql   = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE yang_menerimalab != '' AND tanggal_pengujian = ''";
+            $sql   = "SELECT id FROM input_permohonan_kh_lab_parasit WHERE yang_menerimalab IS NOT NULL AND tanggal_pengujian IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,tanggal_pengujian,rekomendasi,ket_kesimpulan,nama_penyelia,nama_analis,tanggal_penyerahan FROM input_permohonan_kh_lab_parasit WHERE yang_menerimalab != '' AND tanggal_pengujian = ''";
+            $sql   = "SELECT id,tanggal_pengujian,rekomendasi,ket_kesimpulan,nama_penyelia,nama_analis,tanggal_penyerahan FROM input_permohonan_kh_lab_parasit WHERE yang_menerimalab IS NOT NULL AND tanggal_pengujian IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -534,37 +534,37 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,no_sertifikat,waktu_apdate_sertifikat,nama_penyelia,nama_analis,tanggal_pengujian,rekomendasi,ket_kesimpulan,mt,nip_penyelia,nip_analis,nip_mt,jumlah_sampel,no_sampel,kode_sampel,target_pengujian2,target_pengujian3 FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian != '' AND no_sertifikat = '')";
+            $sql   = "SELECT id,no_sertifikat,waktu_apdate_sertifikat,nama_penyelia,nama_analis,tanggal_pengujian,rekomendasi,ket_kesimpulan,mt,nip_penyelia,nip_analis,nip_mt,jumlah_sampel,no_sampel,kode_sampel,target_pengujian2,target_pengujian3 FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian IS NOT NULL AND no_sertifikat IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,nama_sampel,no_sertifikat,waktu_apdate_sertifikat,nama_penyelia,nama_analis,tanggal_pengujian,rekomendasi,ket_kesimpulan,mt,nip_penyelia,nip_analis,nip_mt,jumlah_sampel,no_sampel,kode_sampel,target_pengujian2,target_pengujian3 FROM input_permohonan_kh_lab_parasit  WHERE tanggal_pengujian != '' AND hasil_pengujian = '' AND no_sertifikat = ''";
+            $sql   = "SELECT id,nama_sampel,no_sertifikat,waktu_apdate_sertifikat,nama_penyelia,nama_analis,tanggal_pengujian,rekomendasi,ket_kesimpulan,mt,nip_penyelia,nip_analis,nip_mt,jumlah_sampel,no_sampel,kode_sampel,target_pengujian2,target_pengujian3 FROM input_permohonan_kh_lab_parasit  WHERE tanggal_pengujian IS NOT NULL AND hasil_pengujian IS NULL AND no_sertifikat IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'anotherselect') {
 
-            $sql   = "SELECT id,nama_sampel,no_sertifikat,waktu_apdate_sertifikat,nama_penyelia,nama_analis,tanggal_pengujian,rekomendasi,ket_kesimpulan,mt,nip_penyelia,nip_analis,nip_mt,jumlah_sampel,no_sampel,kode_sampel,target_pengujian2 FROM input_permohonan_kh_lab_parasit  WHERE tanggal_pengujian != ''  AND no_sertifikat = ''";
+            $sql   = "SELECT id,nama_sampel,no_sertifikat,waktu_apdate_sertifikat,nama_penyelia,nama_analis,tanggal_pengujian,rekomendasi,ket_kesimpulan,mt,nip_penyelia,nip_analis,nip_mt,jumlah_sampel,no_sampel,kode_sampel,target_pengujian2 FROM input_permohonan_kh_lab_parasit  WHERE tanggal_pengujian IS NOT NULL  AND no_sertifikat IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'getid') {
 
-            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian != '' AND no_sertifikat != '')";
+            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian IS NOT NULL AND no_sertifikat IS NOT NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'getminid') {
 
-            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian != '' AND no_sertifikat = '')";
+            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian IS NOT NULL AND no_sertifikat IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,no_sertifikat,waktu_apdate_sertifikat,nama_penyelia,nama_analis,tanggal_pengujian,rekomendasi,ket_kesimpulan,mt,nip_penyelia,nip_analis,nip_mt,jumlah_sampel,no_sampel,kode_sampel,target_pengujian2,target_pengujian3 FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian != '' AND no_sertifikat = ''";
+            $sql   = "SELECT id,no_sertifikat,waktu_apdate_sertifikat,nama_penyelia,nama_analis,tanggal_pengujian,rekomendasi,ket_kesimpulan,mt,nip_penyelia,nip_analis,nip_mt,jumlah_sampel,no_sampel,kode_sampel,target_pengujian2,target_pengujian3 FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian IS NOT NULL AND no_sertifikat IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 
@@ -577,31 +577,31 @@ class Data extends LegacyData implements SuperData
 
         if ($select == null) {
 
-            $sql   = "SELECT id,no_sertifikat,no_agenda,kepala_plh2,nip_kepala_plh2 FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat != '' AND no_agenda = '')";
+            $sql   = "SELECT id,no_sertifikat,no_agenda,kepala_plh2,nip_kepala_plh2 FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat IS NOT NULL AND no_agenda IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'select') {
 
-            $sql   = "SELECT id,no_permohonan,nama_sampel,no_sertifikat,no_agenda,kepala_plh2,nip_kepala_plh2 FROM input_permohonan_kh_lab_parasit  WHERE no_sertifikat != '' AND no_agenda = ''";
+            $sql   = "SELECT id,no_permohonan,nama_sampel,no_sertifikat,no_agenda,kepala_plh2,nip_kepala_plh2 FROM input_permohonan_kh_lab_parasit  WHERE no_sertifikat IS NOT NULL AND no_agenda IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'getid') {
 
-            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat != '' AND no_agenda = '')";
+            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT max(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat IS NOT NULL AND no_agenda IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } elseif ($select == 'getminid') {
 
-            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat != '' AND no_agenda = '')";
+            $sql   = "SELECT id,no_sertifikat FROM input_permohonan_kh_lab_parasit WHERE id = (SELECT min(id) FROM input_permohonan_kh_lab_parasit WHERE no_sertifikat IS NOT NULL AND no_agenda IS NULL)";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query;
 
         } else {
 
-            $sql   = "SELECT id,no_sertifikat,no_agenda,kepala_plh2,nip_kepala_plh2 FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian != '' AND no_agenda = ''";
+            $sql   = "SELECT id,no_sertifikat,no_agenda,kepala_plh2,nip_kepala_plh2 FROM input_permohonan_kh_lab_parasit WHERE tanggal_pengujian IS NOT NULL AND no_agenda IS NULL";
             $query = $this->db->query($sql) or die($this->db->error);
             return $query->num_rows;
 

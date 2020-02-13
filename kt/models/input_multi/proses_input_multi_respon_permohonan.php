@@ -18,7 +18,7 @@ if($saran == '' || $tanggal_selesai == ''){
  }
 
 
- $objectData->edit("UPDATE input_permohonan SET  ma='$ma', nip_ma='$nip_ma', saran='$saran', tanggal_selesai='$tanggal_selesai' WHERE ma !='' AND saran = ''");
+ $objectData->edit("UPDATE input_permohonan SET  ma='$ma', nip_ma='$nip_ma', saran='$saran', tanggal_selesai='$tanggal_selesai' WHERE ma IS NOT NULL AND saran IS NULL");
 
 
 

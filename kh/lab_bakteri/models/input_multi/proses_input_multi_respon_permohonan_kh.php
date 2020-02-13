@@ -12,7 +12,7 @@ $saran					=htmlspecialchars($conn->real_escape_string(trim($_POST['saran'])));
 $tanggal_selesai		=htmlspecialchars($conn->real_escape_string(trim($_POST['tanggal_selesai'])));
 
 
-$sql = $conn->query("SELECT ma,saran FROM input_permohonan_kh WHERE ma !='' AND saran = ''");
+$sql = $conn->query("SELECT ma,saran FROM input_permohonan_kh WHERE ma IS NOT NULL AND saran IS NULL");
 
 $cek = $sql->num_rows;
 
@@ -22,7 +22,7 @@ if ($cek == 0) {
 
   if($penyelia !=="") {
 
-	 $objectData->edit2("UPDATE input_permohonan_kh SET  ma='$ma', nip_ma='$nip_ma', saran='$saran', tanggal_selesai='$tanggal_selesai' WHERE ma != '' AND saran = ''");
+	 $objectData->edit2("UPDATE input_permohonan_kh SET  ma='$ma', nip_ma='$nip_ma', saran='$saran', tanggal_selesai='$tanggal_selesai' WHERE ma IS NOT NULL AND saran IS NULL");
 
  }
 

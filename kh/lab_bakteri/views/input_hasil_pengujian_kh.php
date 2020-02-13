@@ -255,7 +255,7 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           }else{
 
-                              $r = $x;
+                              $r = [$j];
 
                           }
 

@@ -49,7 +49,7 @@ class Nomor extends LegacyNomor implements SuperNomor
     public function set_maxno()
     {
 
-        $sql   = "SELECT max(id) as Maxid FROM input_permohonan WHERE no_surat_tugas !=''";
+        $sql   = "SELECT max(id) as Maxid FROM input_permohonan WHERE no_surat_tugas IS NOT NULL";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
@@ -58,7 +58,7 @@ class Nomor extends LegacyNomor implements SuperNomor
     {
 
         if ($no_surat_tugas != null) {
-            $sql = "SELECT max(id) as Maxid FROM input_permohonan WHERE no_surat_tugas !=''";
+            $sql = "SELECT max(id) as Maxid FROM input_permohonan WHERE no_surat_tugas IS NOT NULL";
         } else {
             $sql = "SELECT max(id) as Maxid FROM input_permohonan";
         }
@@ -78,7 +78,7 @@ class Nomor extends LegacyNomor implements SuperNomor
 
     public function NomorSertifikat($noser=null)
     {
-        $sql   = "SELECT no_sertifikat FROM input_permohonan WHERE id  = (SELECT max(id) FROM input_permohonan WHERE no_sertifikat != '' AND no_sertifikat)";
+        $sql   = "SELECT no_sertifikat FROM input_permohonan WHERE id  = (SELECT max(id) FROM input_permohonan WHERE no_sertifikat IS NOT NULL AND no_sertifikat)";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
@@ -112,7 +112,7 @@ class Nomor extends LegacyNomor implements SuperNomor
     public function NomorSampel()
     {
 
-        $sql = "SELECT no_sampel, jumlah_sampel FROM input_permohonan WHERE id = (SELECT max(id) as maxid FROM input_permohonan WHERE no_sampel !='') ";
+        $sql = "SELECT no_sampel, jumlah_sampel FROM input_permohonan WHERE id = (SELECT max(id) as maxid FROM input_permohonan WHERE no_sampel IS NOT NULL) ";
 
         $query = $this->db->query($sql) or die($this->db->error);
 
@@ -158,7 +158,7 @@ class Nomor extends LegacyNomor implements SuperNomor
     public function set_maxnoAgenda()
     {
 
-        $sql   = "SELECT max(id) as Maxid FROM input_permohonan WHERE no_agenda !=''";
+        $sql   = "SELECT max(id) as Maxid FROM input_permohonan WHERE no_agenda IS NOT NULL";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
@@ -167,7 +167,7 @@ class Nomor extends LegacyNomor implements SuperNomor
     {
 
         if ($no_agenda != null) {
-            $sql = "SELECT max(id) as Maxid FROM input_permohonan WHERE no_agenda !=''";
+            $sql = "SELECT max(id) as Maxid FROM input_permohonan WHERE no_agenda IS NOT NULL";
         } else {
             $sql = "SELECT max(id) as Maxid FROM input_permohonan";
         }
@@ -194,7 +194,7 @@ class Nomor extends LegacyNomor implements SuperNomor
     public function KosongdataSertifikat()
     {
 
-        $sql   = "SELECT no_sertifikat FROM input_permohonan WHERE waktu_apdate_sertifikat = (SELECT max(waktu_apdate_sertifikat) FROM input_permohonan WHERE no_sertifikat !='')";
+        $sql   = "SELECT no_sertifikat FROM input_permohonan WHERE waktu_apdate_sertifikat = (SELECT max(waktu_apdate_sertifikat) FROM input_permohonan WHERE no_sertifikat IS NOT NULL)";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }

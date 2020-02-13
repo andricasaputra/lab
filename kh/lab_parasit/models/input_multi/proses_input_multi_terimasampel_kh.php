@@ -28,7 +28,7 @@ $target_pengujian2		=htmlspecialchars($conn->real_escape_string(trim($_POST['tar
 $target_pengujian3		=htmlspecialchars($conn->real_escape_string(trim($_POST['target_pengujian3'])));
 
 
-$sql = $conn->query("SELECT penerima_sampel FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel = ''");
+$sql = $conn->query("SELECT penerima_sampel FROM input_permohonan_kh_lab_parasit WHERE penerima_sampel IS NULL");
 
 $cek = $sql->num_rows;
 

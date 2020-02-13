@@ -2,7 +2,7 @@
 
 require_once('../header_proses.php');
 
-$sql = $conn->query("SELECT penerima_sampel,kode_sampel FROM input_permohonan_kh WHERE penerima_sampel != '' AND kode_sampel = ''");
+$sql = $conn->query("SELECT penerima_sampel,kode_sampel FROM input_permohonan_kh WHERE penerima_sampel IS NOT NULL AND kode_sampel IS NULL");
 
 $cek = $sql->num_rows;
 
