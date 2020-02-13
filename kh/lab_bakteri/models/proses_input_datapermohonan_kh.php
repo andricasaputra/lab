@@ -114,8 +114,7 @@ if ($cek > 0) {
 
 	if($nama_sampel !==""){
 
-		$objectData->input($no_permohonan, $tanggal_permohonan, $tanggal_acu_permohonan , $jenis_permohonan , $nama_sampel, $jumlah_sampel, $satuan ,$no_sampel_awal, $bagian_hewan, $produk_hewan, $metode_pengujian, $biaya_pengujian, $waktu_pengambilan_sampel, $area_asal, $cara_pengambilan_sampel, $target_pengujian, $lama_pengujian, $nama_pemilik, $alamat_pemilik, $dokumen_pendukung, $pemohon, $nip_pemohon, $no_sampel);
-
+		$input  = $objectData->input($no_permohonan, $tanggal_permohonan, $tanggal_acu_permohonan , $jenis_permohonan , $nama_sampel, $jumlah_sampel, $satuan ,$no_sampel_awal, $bagian_hewan, $produk_hewan, $metode_pengujian, $biaya_pengujian, $waktu_pengambilan_sampel, $area_asal, $cara_pengambilan_sampel, $target_pengujian, $lama_pengujian, $nama_pemilik, $alamat_pemilik, $dokumen_pendukung, $pemohon, $nip_pemohon, $no_sampel);
 
 		echo 'goal';
 
