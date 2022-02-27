@@ -92,7 +92,7 @@ endwhile;
 
                                   <label class="control-label" for="tanggal_permohonan">Tanggal Permohonan</label>
 
-                                  <input type="text" name="tanggal_permohonan" class="form-control" id="tanggal_permohonan_input" value="<?=$tanggal_permohonan;?>" disabled="disabled">
+                                  <input type="text" name="tanggal_permohonan" class="form-control" id="tanggal_permohonan_input" value="<?=$tanggal_permohonan;?>" />
 
                               </div>
 

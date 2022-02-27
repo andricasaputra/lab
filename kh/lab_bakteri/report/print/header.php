@@ -13,6 +13,7 @@ use Lab\classes\kh\labbakteri\Hasil as HasilKh;
 use Lab\classes\kh\labbakteri\Cetak as CetakKh;
 use Lab\classes\kh\labbakteri\Nomor as NomorKh;
 use Lab\classes\init; 
+use Spipu\Html2Pdf\Html2Pdf;
 
 require_once (dirname(dirname(dirname(dirname(__DIR__)))).'/vendor/autoload.php');
    
@@ -48,14 +49,11 @@ $checkfix = $objectPrint->getCheckFix();
 
 $check = $objectPrint->getCheck();
 
-$html2pdf = $objectPrint->getHtml2pdf();
-
-$scan = $objectPrint->getscan();
-
 $tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
 
 $bulan = $objectTanggal->bulan(date("m")); 
-
 $tahun = date('Y');
+
+$html2pdf = new Html2Pdf('P','A4','en', 'UTF-8');
 
 ?>

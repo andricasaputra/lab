@@ -45,9 +45,9 @@ foreach ($_POST['no_sampel'] as $key => $value) :
 
     $hasil_pengujian2    = htmlspecialchars($conn->real_escape_string($_POST['hasil_pengujian2']));
 
-    $objectHasil->input1($id, $tanggal_acu_hasil , $no_sampel, $bagian_tumbuhan, $vektor, $media, $target_optk, $target_optk2, $target_optk3, $metode_pengujian, $metode_pengujian2, $metode_pengujian3, null ,$positif_negatif, $hasil_pengujian);
+    $insert = $objectHasil->input1($id, $tanggal_acu_hasil , $no_sampel, $bagian_tumbuhan, $vektor, $media, $target_optk, $target_optk2, $target_optk3, $metode_pengujian, $metode_pengujian2, $metode_pengujian3, null ,$positif_negatif, $hasil_pengujian);
 
-
+   
 endforeach;	
 
 

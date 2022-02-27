@@ -7,18 +7,19 @@ use Lab\config\Database;
 use Lab\interfaces\SuperCetak;
 
 $basepath = init::basePath();
+$imagesPath = init::imagesPath();
 
-define("LOGO", $basepath . "/assets/img/logolabfix.jpg");
-define("LOGOSKP", $basepath . "/assets/img/logoskp4.jpg");
-define("LOGOSKPBIASA", $basepath . "/assets/img/logoskpfix.png");
-define("LOGOKAN", $basepath . "/assets/img/logolabfixkan.png");
-define("LOGOSKPKAN", $basepath . "/assets/img/logoskpkan.png");
-define("LOGOHORIZONTAL", $basepath . "/assets/img/logolabhorizontal.png");
-define("BOXFIX", $basepath . "/assets/img/boxfix.png");
-define("CHECKFIX", $basepath . "/assets/img/checkfix.png");
-define("CHECK", $basepath . "/assets/img/check1.png");
-define("HTML2PDF", $basepath . "/assets/html2pdf/html2pdf2.class.php");
-define("SCANTTD", $basepath . "/assets/img/");
+define("LOGO", $imagesPath . "/logolabfix.jpg");
+define("LOGOSKP", $imagesPath . "/logoskp4.jpg" );
+define("LOGOSKPBIASA", $imagesPath . "/logoskpfix.png");
+define("LOGOKAN", $imagesPath . "/logolabfixkan.png");
+define("LOGOSKPKAN", $imagesPath . "/logoskpkan.png");
+define("LOGOHORIZONTAL", $imagesPath . "/logolabhorizontal.png");
+define("BOXFIX", $imagesPath . "/boxfix.png");
+define("CHECKFIX", $imagesPath . "/checkfix.png");
+define("CHECK", $imagesPath . "/check1.png");
+define("HTML2PDF", $basepath . "/vendor/spipu/html2pdf/src/Html2Pdf.php");
+define("SCANTTD", $imagesPath);
 
 abstract class LegacyCetak extends Database implements SuperCetak
 {
@@ -62,49 +63,54 @@ abstract class LegacyCetak extends Database implements SuperCetak
 
     }
 
+    public function getProtocol()
+    {
+        return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://");
+    }
+
     public function getLogo()
     {
-        return $this->logo;
+        return $this->getProtocol() . $this->logo;
     }
 
     public function getLogoSkp()
     {
-        return $this->logoskp;
+        return $this->getProtocol() . $this->logoskp;
     }
 
     public function getLogoSkpBiasa()
     {
-        return $this->logoskpbiasa;
+        return $this->getProtocol() . $this->logoskpbiasa;
     }
 
     public function getLogoKan()
     {
-        return $this->logokan;
+        return $this->getProtocol() . $this->logokan;
     }
 
     public function getLogoSkpKan()
     {
-        return $this->logoskpkan;
+        return $this->getProtocol() . $this->logoskpkan;
     }
 
     public function getLogoHorizontal()
     {
-        return $this->logohorizontal;
+        return $this->getProtocol() . $this->logohorizontal;
     }
 
     public function getBoxFix()
     {
-        return $this->boxfix;
+        return $this->getProtocol() . $this->boxfix;
     }
 
     public function getCheckFix()
     {
-        return $this->checkfix;
+        return $this->getProtocol() . $this->checkfix;
     }
 
     public function getCheck()
     {
-        return $this->check;
+        return $this->getProtocol() . $this->check;
     }
 
     public function getHtml2pdf()
@@ -112,79 +118,28 @@ abstract class LegacyCetak extends Database implements SuperCetak
         return $this->html2pdf;
     }
 
-    public function getscan()
+    public function getScanTtd($nip = NULL, $nama = NULL)
     {
-        return $this->scan;
+        $ttd = "SELECT gambar FROM tbl_ttd WHERE nip = '$nip' AND nama = '$nama' ";
+
+        $query = $this->db->query($ttd) or die($this->db->error);
+
+        $fetch =  $query->fetch_object();
+
+        $path = $this->getProtocol() . $this->scan ;
+
+        $gambar = $fetch->gambar ?? 'blank.png';
+
+        return  $path . '/' . $gambar;
     }
 
-    /*Print Scan Tanda Tangan*/
-
-    public function gambar($nama)
+    public function getPejabat($nip_kepala_plh)
     {
+        $query = "SELECT * FROM pejabat_kh WHERE nip = '$nip_kepala_plh'; ";
 
-        $sql = "SELECT nama, ttd FROM gambar WHERE nama = '$nama'";
+        $query = $this->db->query($query) or die($this->db->error);
 
-        $query = $this->db->query($sql) or die($this->db->error);
-
-        $ambil = $query->fetch_object();
-
-        $ttd = $ambil->ttd;
-
-        return $ttd;
+        return  $query->fetch_object();
     }
-
-    public function setPageHTML2PDF($backbottom = null, $backtop = null, $backleft = null, $backright = null)
-    {
-
-        $sql = "UPDATE html2pdf SET ";
-
-        if ($backtop != null) {
-
-            $this->backtop = $backtop;
-
-            $sql .= " backtop = $backtop ";
-        }
-
-        if ($backbottom != null) {
-
-            $this->backbottom = $backbottom;
-
-            $sql .= ", backbottom = $backbottom ";
-        }
-
-        if ($backleft != null) {
-
-            $sql .= ", backleft = $backleft ";
-        }
-
-        if ($backright != null) {
-
-            $sql .= ", backright = $backright ";
-        }
-
-        $query = $this->db->query($sql) or die($this->db->error);
-
-        return $query;
-
-    }
-
-    public function getPageHTML2PDF()
-    {
-
-        $sql = "SELECT * FROM html2pdf";
-
-        $query = $this->db->query($sql) or die($this->db->error);
-
-        $page = $query->fetch_object(); 
-
-        $this->backtop    = $page->backtop;
-        $this->backbottom = $page->backbottom;
-        $this->backleft   = $page->backleft;
-        $this->backright  = $page->backright;
-
-        return $this;
-
-    }
-
-    
+  
 }

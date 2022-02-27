@@ -130,7 +130,7 @@ $content ='
 
             <hr width="75%">
 
-            <i>F.5.4.4.2 Ter.1; Rev.1;26/07/2017</i>
+            <i>F.5.4.4.2 Ter.3;Rev.0; 07/04/2021</i>
 
         </div>
 
@@ -895,10 +895,6 @@ $content .='
 </page>
 
 ';
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en');
 
 $html2pdf->WriteHTML($content);
 

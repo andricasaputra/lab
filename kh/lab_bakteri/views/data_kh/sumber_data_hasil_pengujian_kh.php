@@ -63,7 +63,7 @@ if(isset($_POST["order"]))
 }
 else
 {
- $sql .= 'ORDER BY id DESC ';
+ $sql .= ' ORDER BY id DESC ';
 }
 
 $sql1 = '';
@@ -74,7 +74,7 @@ if(@$_POST["length"] != -1)
 }
 
 $query = $conn->query($sql);
-
+//var_dump($query); die;
 $totalData = $query->num_rows;
 
 $query = $conn->query($sql . $sql1);
@@ -109,7 +109,7 @@ while($data2 = $query->fetch_object()){
 
         $has = $qu->fetch_assoc();
 
-        $f = $has['positif_negatif'];
+        $f = $has['positif_negatif'] ?? NULL;
 
         $r = $data2->no_sampel;
 
@@ -123,16 +123,16 @@ while($data2 = $query->fetch_object()){
         $qu = $objectHasil->tampil_hasil($id2);
 
         $has = $qu->fetch_assoc();
-
-        $f = $has['positif_negatif'];
-
+       
+        $f = $has['positif_negatif'] ?? NULL;
+     
         if($banyak_sampel != 1 && $j !== ''){   
 
           $x = explode("-", $j);
 
           $k = $x[0];
 
-          $l = $x[1];
+          $l = $x[1] ?? 0;
 
           $r = $k.'-'.$l;
 
@@ -152,7 +152,9 @@ while($data2 = $query->fetch_object()){
 
     $subdata = array();
 
-        if (strlen($f) == 0 || strlen($isi) == 0) {
+        if (strlen($f) === 0 || strlen($isi) === 0 ) {
+
+
 
             $subdata[] = "<span class='kosong'>".$dat['no']."</span>"; 
 
@@ -168,7 +170,7 @@ while($data2 = $query->fetch_object()){
 
                           
             // || $banyak_sampel > $num
-        }elseif (strlen($f) == 0) {
+        }elseif (strlen($f) === 0) {
 
             $subdata[] = "<span class='nonuji'>".$dat['no']."</span>"; 
 
@@ -184,7 +186,7 @@ while($data2 = $query->fetch_object()){
 
               
 
-        }elseif (strlen($selesai) == 0) {
+        }elseif (strlen($selesai) === 0) {
 
             $subdata[] = "<span class='proses'>".$dat['no']."</span>"; 
 
@@ -219,7 +221,7 @@ while($data2 = $query->fetch_object()){
         }
 
 
-        if(strlen($rek) == 0){
+        if(strlen($rek) === 0){
 
             $subdata[] = '
 
@@ -227,9 +229,9 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif (strlen($selesai) == 0) {
+        }elseif (strlen($selesai) === 0) {
             //|| $banyak_sampel > $num
-            if (strlen($f) == 0 ) {
+            if (strlen($f) === 0 ) {
 
                 $subdata[] = '
 
@@ -240,7 +242,7 @@ while($data2 = $query->fetch_object()){
                 <a href="#"><button type="button" class="btn btn-danger btn-xs btn-not-allowed" disabled><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
 
-            }elseif(strlen($isi) == 0){
+            }elseif(strlen($isi) === 0){
 
 
             $subdata[] = '

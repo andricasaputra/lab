@@ -436,8 +436,6 @@ $content .='
 
 ';
 
-require_once($html2pdf);
-
 $html2pdf = new HTML2PDF ('L','A4','en','UTF-8');
 
 $html2pdf->WriteHTML($content);

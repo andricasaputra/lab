@@ -125,7 +125,7 @@ $content ='
 
             <hr width="75%">
 
-            <i>F.5.4.4.2 Ter.1; Rev.1;26/07/2017</i>
+            <i>F.5.4.4.2 Ter.3;Rev.0; 07/04/2021</i>
 
         </div>
 
@@ -154,7 +154,6 @@ if(@$_GET['id'] && $_GET['no_sertifikat'] !== '' && $_GET['nama_sampel'] !== '')
     }
 
     $ttd = $objectPrint->scan(@$_GET['id']);
-
 
 }else {
 
@@ -793,13 +792,12 @@ $content .= '
 
             ';
 
-
                 if ($ttd["ttd_mt_hasil_uji"] == 'Ya') {
                     
 
                     $content .='
 
-                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->mt).' style="width: 90%;"></td>
+                        <td style="width: 215px"><img src='.$objectPrint->getScanTtd($data->nip_mt, $data->mt).' style="width: 90%;"></td>
 
                     ';
                     
@@ -829,7 +827,7 @@ $content .= '
 
                     $content .='
 
-                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_penyelia).' style="width: 90%;"></td>
+                        <td style="width: 215px"><img src='. $objectPrint->getScanTtd($data->nip_penyelia, $data->nama_penyelia) .' style="width: 90%;"></td>
 
                     ';
                     
@@ -904,10 +902,6 @@ $content .='
 </page>
 
 ';
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en');
 
 $html2pdf->WriteHTML($content);
 

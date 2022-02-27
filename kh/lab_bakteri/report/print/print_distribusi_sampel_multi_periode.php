@@ -449,10 +449,6 @@ endwhile;
 
 ';
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
-
 $html2pdf->WriteHTML($content);
 
 $html2pdf->pdf->setTitle($title);

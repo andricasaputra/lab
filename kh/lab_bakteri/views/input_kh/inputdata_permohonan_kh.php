@@ -40,7 +40,6 @@ $id = $fetch->maxkode;
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 
 				<h4 class="modal-title"><i class="fa fa-gear fa-fw"></i>Tambah Data Permohonan Pengujian</h4>
-
 			</div>
 
 
@@ -64,7 +63,7 @@ $id = $fetch->maxkode;
 
 						$no_sampel = $no->fetch_assoc();
 
-						$sampel = $no_sampel['no_permohonan'];
+						$sampel = $no_sampel['no_permohonan'] ?? 0;
 
 						$nourut= 0;
 
@@ -126,6 +125,8 @@ $id = $fetch->maxkode;
 								<?php 
 
 									$i = $objectData->tampil_hewan();
+
+
 
 									while ($t=$i->fetch_object()) : ?>
 
@@ -298,7 +299,9 @@ $id = $fetch->maxkode;
 
 								  <option>Mikal</option>
 
-					              <option selected>Bakterial</option>
+					              <option>Bakterial</option>
+
+					              <option selected>Antibodi</option>
 
 					              <option>Parasit</option>
 

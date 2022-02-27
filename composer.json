@@ -1,5 +1,8 @@
 {
     "autoload": {
         "psr-4": {"Lab\\": "src/"}
+    },
+    "require": {
+        "spipu/html2pdf": "^5.2"
     }
 }

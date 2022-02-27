@@ -156,7 +156,7 @@ $content ='
 
                 <hr width="75%">
 
-                <i>F.5.4.4.3.H; Ter.1;Rev.1; 26/07/2017</i>
+                <i>F.5.4.4.3.H; Ter.3; Rev.0;07/04/2021 </i>
 
             </div>
 
@@ -209,6 +209,8 @@ $content ='
             $arrID[] = $data->id;
 
             $totalID = count($arrID);
+
+            $pejabat = $objectPrint->getPejabat($data->nip_kepala_plh2);
 
         $content .='
 
@@ -725,55 +727,12 @@ $content ='
 
             ';
 
-
-
-            if ($data->kepala_plh2 == 'drh. Ida Bagus Putu Raka Ariana') {
-
-
+            if ($pejabat->jabfung != 'Kepala Stasiun') {
 
                 $content .='
 
-
-
-                <td style="width: 215px; padding-bottom: 60px">Kepala Stasiun <br></td>
-
-
-
+                <td style="width: 250px; padding-bottom: 60px">Plh. Kepala Stasiun<br>' . $pejabat->jabfung .'</td>
                 ';
-
-
-
-            }elseif($data->kepala_plh2 == 'Andik Akrimil Fata, SP'){
-
-
-
-                $content .='
-
-
-
-                <td style="width: 215px; padding-bottom: 60px">An Kepala Stasiun <br>Manajer Administrasi Laboratorium</td>
-
-
-
-                ';
-
-
-
-            }elseif($data->kepala_plh2 == 'Abdul Salam, SP'){
-
-
-
-                $content .='
-
-
-
-               <td style="width: 215px; padding-bottom: 60px">An Kepala Stasiun <br>Manajer Mutu Laboratorium</td>
-
-
-
-                ';
-
-
 
             }else{
 
@@ -781,19 +740,13 @@ $content ='
 
 
 
-                <td style="width: 215px; padding-bottom: 60px">An. Kepala Stasiun <br></td>
-
-
+                <td style="width: 215px; padding-bottom: 60px">Kepala Stasiun <br></td>
 
                 ';
 
             }
 
-
-
             $content .='
-
-            
 
         </tr>
 
@@ -810,8 +763,6 @@ $content ='
             <td style="width: 215px">'.$data->kepala_plh2.'</td>
 
         </tr>
-
-
 
         <tr>
 
@@ -862,13 +813,6 @@ endwhile;
 
 
 ';
-
-
-
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en');
 
 $html2pdf->WriteHTML($content);
 

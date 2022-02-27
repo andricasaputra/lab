@@ -65,7 +65,7 @@ $id = $fetch->maxkode;
 
 						$no_sampel = $no->fetch_assoc();
 
-						$sampel = $no_sampel['no_permohonan'];
+						$sampel = $no_sampel['no_permohonan'] ?? 0;
 
 						$nourut= 0;
 

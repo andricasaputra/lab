@@ -405,22 +405,7 @@ if (strpos($nama_sampel, "Darah") !== false) {
 
            success : function(data){
 
-
-                $('#tb_pengelola_sampel_kh').DataTable().ajax.reload(null, false),
-
-                swal({
-
-                  title: "Sukses",
-
-                  text: "Data Berhasil Di Input",
-
-                  type: "success"
-
-              }).then(function(){
-
-                  $('#modal_edit_pengelola_sampel_kh').modal('hide')
-
-              });
+zz
 
            }  
          })

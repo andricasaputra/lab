@@ -213,7 +213,7 @@ $content .= '
 
         <td width="0" style="border-right:0px"><img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;Lab KT &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$checkfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Lab KH</td>
 
-        <td width="200" style="border-right:0px;"><img <img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;Lab Kehati Hewani/Nabati</td>
+        <td width="200" style="border-right:0px;"> <img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;Lab Kehati Hewani/Nabati</td>
 
         <td width="0" style="border-right:0px; border-left: 0px;"></td>
 
@@ -351,10 +351,6 @@ $b = $data->tanggal_penunjukan;
 $content .='    
 
 </page>';
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en','UTF-8');
 
 $html2pdf->WriteHTML($content);
 

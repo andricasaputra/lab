@@ -5,6 +5,8 @@ require_once('header_proses.php');
 
 $id						=$_POST['id'];
 
+$tanggal_permohonan = htmlspecialchars($conn->real_escape_string(trim($_POST['tanggal_permohonan'])));
+
 $tanggal_diterima		=htmlspecialchars($conn->real_escape_string(trim($_POST['tanggal_diterima'])));
 
 $jam_diterima			=htmlspecialchars($conn->real_escape_string(trim($_POST['jam_diterima'])));
@@ -33,7 +35,7 @@ $target_pengujian2		=htmlspecialchars($conn->real_escape_string(trim($_POST['tar
 
 
 
- $objectData->edit("UPDATE input_permohonan_kh SET tanggal_diterima='$tanggal_diterima', jam_diterima='$jam_diterima', cara_pengiriman ='$cara_pengiriman', nama_pengirim ='$pengantar',  jumlah_kontainer = '$jumlah_kontainer',  lama_pengujian ='$lama_pengujian', penerima_sampel = '$penerima_sampel', nip_penerima_sampel='$nip_penerima_sampel', nama_pelanggan='$nama_pelanggan', alamat_pelanggan='$alamat_pelanggan', jenis_sampel='$jenis_sampel', target_pengujian2 ='$target_pengujian2' WHERE id ='$id'");
+ $objectData->edit("UPDATE input_permohonan_kh SET tanggal_permohonan = '$tanggal_permohonan',tanggal_diterima='$tanggal_diterima', jam_diterima='$jam_diterima', cara_pengiriman ='$cara_pengiriman', nama_pengirim ='$pengantar',  jumlah_kontainer = '$jumlah_kontainer',  lama_pengujian ='$lama_pengujian', penerima_sampel = '$penerima_sampel', nip_penerima_sampel='$nip_penerima_sampel', nama_pelanggan='$nama_pelanggan', alamat_pelanggan='$alamat_pelanggan', jenis_sampel='$jenis_sampel', target_pengujian2 ='$target_pengujian2' WHERE id ='$id'");
 
 	
 

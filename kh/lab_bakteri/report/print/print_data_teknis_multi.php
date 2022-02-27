@@ -448,7 +448,7 @@ $content .= '
 
                     $content .='
 
-                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_penyelia).' style="width: 90%;"></td>
+                        <td style="width: 215px"><img src='.$objectPrint->getScanTtd($data->nip_penyelia, $data->nama_penyelia).' style="width: 90%;"></td>
 
                     ';
                     
@@ -473,12 +473,11 @@ $content .= '
             ';
 
 
-                if ($ttd["ttd_analis_data_teknis"] == 'Ya') {
-                    
+                if ($ttd["ttd_analis_data_teknis"] == 'Ya') { 
 
                     $content .='
 
-                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_analis).' style="width: 90%;"></td>
+                        <td style="width: 215px"><img src='.$objectPrint->getScanTtd($data->nip_analis, $data->nama_analis).' style="width: 90%;"></td>
 
                     ';
                     
@@ -571,9 +570,6 @@ endwhile;
 
 ';
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en');
 
 $html2pdf->WriteHTML($content);
 

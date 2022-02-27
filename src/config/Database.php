@@ -8,8 +8,8 @@ class Database
     private static $instance;
     private $host     = "localhost";
     private $username = "root";
-    private $password = "@Stakabad0123";
-    private $database = "lab_db_2020";
+    private $password = "";
+    private $database = "lab_db";
 
     public static function getInstance()
     {
