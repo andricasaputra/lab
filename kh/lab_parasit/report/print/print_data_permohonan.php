@@ -6,8 +6,6 @@ $content ='
 
 <style>
 
-
-
 	div#lower{
 
 	margin-left: 370px;
@@ -1407,11 +1405,6 @@ endwhile;
 
 
 ';
-
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 

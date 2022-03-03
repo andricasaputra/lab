@@ -2,10 +2,6 @@
 
 include_once ("header_source.php");
 
-$kosong = $objectDataParasit->kosongData();
-
-$kosongHasil = $objectHasilParasit->kosongData();
-
 $col =array(
 
     0   =>  'id',
@@ -13,12 +9,11 @@ $col =array(
     2   =>  'no_sertifikat',
     3   =>  'no_sampel',
     4   =>  'kode_sampel',
-    5   =>  'nama_sampel',
+    5   =>  'nama_sampel_lab',
     6   =>  'waktu_apdate_sertifikat'
 
 
-); 
-
+);  
 
 $othersql = $objectDataParasit->infoHasilPengujian();
 
@@ -34,21 +29,18 @@ if ($fetch != null) {
 
 }else{
 
-
     $result_no_sertifikat = '1';
 
     $result_waktu_apdate_sertifikat = '1';
 
     $result_id = 0;
-} 
-
+}
 
 $sql = "SELECT * FROM input_permohonan_kh_lab_parasit WHERE kesiapan = 'Ya' AND ";
 
 include_once ("sortir_hasil.php");
 
 if(isset($_POST["search"]["value"])){
-
 
     $sql .="  (id LIKE '%".@$_POST['search']['value']."%' ";
 
@@ -58,9 +50,10 @@ if(isset($_POST["search"]["value"])){
 
     $sql .=" OR kode_sampel LIKE '%".@$_POST['search']['value']."%' ";
 
-    $sql .=" OR nama_sampel LIKE '%".@$_POST['search']['value']."%' ";
+    $sql .=" OR nama_sampel_lab LIKE '%".@$_POST['search']['value']."%' ";
 
     $sql .=" OR no_sampel LIKE '%".@$_POST['search']['value']."%' )";
+
 }
 
 if(isset($_POST["order"]))
@@ -70,7 +63,7 @@ if(isset($_POST["order"]))
 }
 else
 {
- $sql .= 'ORDER BY id DESC ';
+ $sql .= ' ORDER BY id DESC ';
 }
 
 $sql1 = '';
@@ -80,9 +73,8 @@ if(@$_POST["length"] != -1)
  $sql1 = 'LIMIT ' . @$_POST['start'] . ', ' . @$_POST['length'];
 }
 
-
 $query = $conn->query($sql);
-
+//var_dump($query); die;
 $totalData = $query->num_rows;
 
 $query = $conn->query($sql . $sql1);
@@ -91,10 +83,7 @@ $data = array();
 
 $nomor = 1;
 
-$sql3 = "SELECT no_sampel FROM hasil_kh_lab_parasit";
-
 while($data2 = $query->fetch_object()){
-
 
     $id2 =  $data2->id;
 
@@ -104,38 +93,13 @@ while($data2 = $query->fetch_object()){
 
     $rek = $data2->rekomendasi;
 
+    /*Input Lebih Dari 1 Hasil Pengujian*/
+
     $banyak_sampel = $data2->jumlah_sampel;
 
     $j = $data2->no_sampel;
 
-
-    if (strpos($data2->nama_sampel, "Bibit") !== false) {
-
-        // $qu2 = $objectHasilParasit->input_ulang_bibit($id2);
-
-        // $num = $qu2->num_rows;
-
-        // $qu = $objectHasilParasit->tampil_hasil_bibit($id2);
-
-        // $has = $qu->fetch_assoc();
-
-        // $f = $has['positif_negatif'];
-
-        // if($banyak_sampel != 1 && $j !== ''){   
-
-        //   $x = explode("-", $j);
-
-        //   $k = ltrim($x[0], "0") + $num;
-
-        //   $l = ltrim($x[1], "0");
-
-        //   $r = "0".$k.'-'."0".$l;
-
-        // }else{
-
-        //   $r = $data2->no_sampel;
-
-        // }
+    if (strpos($data2->nama_sampel_lab, "Bibit") !== false) {
 
         $qu2 = $objectHasilParasit->input_ulang_bibit($id2);
 
@@ -145,9 +109,10 @@ while($data2 = $query->fetch_object()){
 
         $has = $qu->fetch_assoc();
 
-        $f = $has['positif_negatif'];
+        $f = $has['positif_negatif'] ?? NULL;
 
         $r = $data2->no_sampel;
+
 
     }else{
 
@@ -158,16 +123,16 @@ while($data2 = $query->fetch_object()){
         $qu = $objectHasilParasit->tampil_hasil($id2);
 
         $has = $qu->fetch_assoc();
-
-        $f = $has['positif_negatif'];
-
+       
+        $f = $has['positif_negatif'] ?? NULL;
+     
         if($banyak_sampel != 1 && $j !== ''){   
 
           $x = explode("-", $j);
 
           $k = $x[0];
 
-          $l = $x[1];
+          $l = $x[1] ?? 0;
 
           $r = $k.'-'.$l;
 
@@ -187,7 +152,9 @@ while($data2 = $query->fetch_object()){
 
     $subdata = array();
 
-        if (strlen($f) == 0 || strlen($isi) == 0) {
+        if (strlen($f) === 0 || strlen($isi) === 0 ) {
+
+
 
             $subdata[] = "<span class='kosong'>".$dat['no']."</span>"; 
 
@@ -199,11 +166,11 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='kosong'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
-            $subdata[] = "<span class='kosong'>".$data2->nama_sampel."</span>";
+            $subdata[] = "<span class='kosong'>".$data2->nama_sampel_lab."</span>";
 
                           
-
-        }elseif (strlen($f) == 0) {
+            // || $banyak_sampel > $num
+        }elseif (strlen($f) === 0) {
 
             $subdata[] = "<span class='nonuji'>".$dat['no']."</span>"; 
 
@@ -215,11 +182,11 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='nonuji'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>"; 
 
-            $subdata[] = "<span class='nonuji'>".$data2->nama_sampel."</span>";
+            $subdata[] = "<span class='nonuji'>".$data2->nama_sampel_lab."</span>";
 
               
 
-        }elseif (strlen($selesai) == 0) {
+        }elseif (strlen($selesai) === 0) {
 
             $subdata[] = "<span class='proses'>".$dat['no']."</span>"; 
 
@@ -231,7 +198,7 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='proses'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>"; 
 
-            $subdata[] = "<span class='proses'>".$data2->nama_sampel."</span>";
+            $subdata[] = "<span class='proses'>".$data2->nama_sampel_lab."</span>";
 
               
 
@@ -248,13 +215,13 @@ while($data2 = $query->fetch_object()){
 
             $subdata[] = "<span class='selsesai'><div style='word-wrap: break-word'>".$data2->no_sampel."</div></span>";
 
-            $subdata[] = "<span class='selesai'>".$data2->nama_sampel."</span>";
+            $subdata[] = "<span class='selesai'>".$data2->nama_sampel_lab."</span>";
 
          
         }
 
 
-        if(strlen($rek) == 0){
+        if(strlen($rek) === 0){
 
             $subdata[] = '
 
@@ -262,9 +229,9 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif (strlen($selesai) == 0) {
-
-            if (strlen($f) == 0) {
+        }elseif (strlen($selesai) === 0) {
+            //|| $banyak_sampel > $num
+            if (strlen($f) === 0 ) {
 
                 $subdata[] = '
 
@@ -275,7 +242,7 @@ while($data2 = $query->fetch_object()){
                 <a href="#"><button type="button" class="btn btn-danger btn-xs btn-not-allowed" disabled><i class="fa fa-print fa-fw"></i> Print</button></a>
                 ';
 
-            }elseif(strlen($isi) == 0){
+            }elseif(strlen($isi) === 0){
 
 
             $subdata[] = '
@@ -336,7 +303,7 @@ while($data2 = $query->fetch_object()){
 
 function get_all_data($conn)
 {
- $query = "SELECT id FROM input_permohonan_kh_lab_parasit";
+ $query = "SELECT id FROM input_permohonan_kh";
  $result = $conn->query($query);
  return $result->num_rows;
 }

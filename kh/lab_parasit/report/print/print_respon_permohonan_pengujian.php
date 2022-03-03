@@ -113,7 +113,7 @@ $content ='
 
         <div style="margin-left: 34px">
 
-            <strong><img src='.$logo.' width="698px; height:150px"></strong>
+            <img src='.$logo.' width="698px; height:150px">
 
         </div>
 
@@ -125,7 +125,7 @@ $content ='
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>F.4.4.1. 3; Ter.1; Rev.0;03/08/2015</i></span>
 
         </div>
 
@@ -150,7 +150,7 @@ $content ='
 
     $rtitle = "respon permohonan pengujian";
 
-    while ($data=$tampil->fetch_object()){
+    while ($data=$tampil->fetch_object()) :
 
         $title = ucwords($rtitle).' | '.$data->no_permohonan;
     
@@ -180,89 +180,85 @@ $content .= '
 
             <span style="margin-left:30px"><b>Tempat</b></span>
 
-    </div>
+    </div>';
 
-     ';
 
-    if ($data->kesiapan == 'Ya') {
+    if ($data->kesiapan == 'Ya') :
         $content .='
 
             <p style="text-indent: 0.3in;">Bersama ini kami beritahukan bahwa sampel media pembawa yang saudara kirimkan <span style="text-decoration: line-through;">ditolak/</span> dilanjutkan*) pengujian laboratorium sebagai berikut:</p>
 
 
         ';
-    }else{
+    else :
 
         $content .='
 
             <p style="text-indent: 0.3in;">Bersama ini kami beritahukan bahwa sampel media pembawa yang saudara kirimkan ditolak/<span style="text-decoration: line-through;"> dilanjutkan</span>*) pengujian laboratorium sebagai berikut:</p>
 
-
         ';
 
-        
-    }
+    endif;
 
-    $content .='
-
+$content .= '
 
 
 <table cellpadding="10" class="tabel1">
 
-    <tr>
+<tr>
 
-       <td width="0" style="border-right:0px"> No. Surat Pengantar</td>
+    <td width="0" style="border-right:0px"> No. Surat Pengantar</td>
 
-        <td width="18" align="center" style="border-right:0px; border-left: 0px"> :</td>
+    <td width="18" align="center" style="border-right:0px; border-left: 0px"> :</td>
 
-        <td width="316"><b>'.$data->no_permohonan.'</b></td>
+    <td width="316"><b>'.$data->no_permohonan.'</b></td>
 
-    </tr>
-
- 
-    <tr>
-
-     <td width="0" style="border-right:0px">Jenis Sampel</td>
-
-        <td width="18" align="center" style="border-right:0px; border-left: 0px"> :</td>
-
-        <td width="316"><b>'.$data->nama_sampel.'</b></td>
-
-    </tr>
-
-    <tr>
-
-        <td width="0" style="border-right:0px">Laboratorium*)</td>
-
-        <td width="18"  align="center" style="border-right:0px; border-left: 0px;">:</td>
-
-        <td width="444.2"><img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;Lab KT &nbsp;&nbsp;<img src='.$checkfix.' style="width: 15px">&nbsp;&nbsp;Lab KH &nbsp;&nbsp;<img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;Lab Kehati Hewani/Nabati</td>
-
-    </tr>
+</tr>
 
 
+<tr>
 
-     <tr>
+    <td width="0" style="border-right:0px">Jenis Sampel</td>
 
-     <td width="0" style="border-right:0px; border-bottom:0px">Pengujian Diterima/Ditolak</td>
+    <td width="18" align="center" style="border-right:0px; border-left: 0px"> :</td>
 
-        <td width="0" align="center" style="border-right:0px; border-left: 0px; border-bottom:0px"> :</td>
+    <td width="316"><b>'.$data->nama_sampel.'</b></td>
 
-        <td width="0" style=" border-bottom:0px">Dengan Pertimbangan :</td>
+</tr>
 
-    </tr>
+<tr>
 
-    <tr>
+    <td width="0" style="border-right:0px">Laboratorium*)</td>
+
+    <td width="18" align="center" style="border-right:0px; border-left: 0px;">:</td>
+
+    <td width="444.2"><img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;Lab KT &nbsp;&nbsp;<img src='.$checkfix.' style="width: 15px">&nbsp;&nbsp;Lab KH &nbsp;&nbsp;<img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;Lab Kehati Hewani/Nabati</td>
+
+</tr>
+
+
+
+<tr>
+
+    <td width="0" style="border-right:0px; border-bottom:0px">Pengujian Diterima/Ditolak</td>
+
+    <td width="0" align="center" style="border-right:0px; border-left: 0px; border-bottom:0px"> :</td>
+
+    <td width="0" style=" border-bottom:0px">Dengan Pertimbangan :</td>
+
+</tr>
+
+<tr>
 
 
 
     <td width="0" style="border-right:0px; border-bottom:0px"></td>
 
-        <td width="0" align="center" style="border-right:0px; border-left: 0px; border-bottom:0px"></td>
+    <td width="0" align="center" style="border-right:0px; border-left: 0px; border-bottom:0px"></td>
 
-        <td width="0" style=" border-bottom:0px">Metode Pengujian :<b>  '.$data->metode_pengujian.' </b></td>
+    <td width="0" style=" border-bottom:0px">Metode Pengujian :<b> '.$data->metode_pengujian.' </b></td>
 
-    </tr>
+</tr>
 
 
 
@@ -276,7 +272,7 @@ $content .= '
 
     <tr>
 
-        <td  style="border-right:0px; border-bottom:0px; border-top: 0px"><span style="margin-left:205px">Penyelia</span></td>
+        <td style="border-right:0px; border-bottom:0px; border-top: 0px"><span style="margin-left:205px">Penyelia</span></td>
 
 
 
@@ -284,159 +280,41 @@ $content .= '
 
 
 
-        if ($data->penyelia == 'Kompeten') { 
-
-
-
-            $content .='
-
-
-
-            <td  style="border-bottom:0px; padding-left: -100px; border-top: 0px">Kompeten&nbsp;&nbsp;&nbsp;&nbsp; <img src='.$checkfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Tidak Kompeten&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$boxfix.' style="width: 15px">
-
-            </td>
-
-
-
-            ';
-
-        }else{
-
-
-
-            $content .='
-
-
-
-
-
-            <td  style="border-bottom:0px; padding-left: -100px; border-top: 0px">Kompeten&nbsp;&nbsp;&nbsp;&nbsp; <img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Tidak Kompeten&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$checkfix.' style="width: 15px">
-
-
-
-            
-
-            </td> 
-
-            ';
-
-
-
-        }
+        if ($data->penyelia == 'Kompeten') {
 
 
 
         $content .='
 
-        
-
-    </tr>
 
 
+        <td style="border-bottom:0px; padding-left: -100px; border-top: 0px">Kompeten&nbsp;&nbsp;&nbsp;&nbsp; <img src='.$checkfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Tidak Kompeten&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$boxfix.' style="width: 15px">
 
-            <tr>
-
-                <td  style="border-right:0px; border-bottom:0px "></td>
-
-
-
-            ';
-
-
-
-            if ($data->penyelia2 == 'Ada') { 
-
-
-
-                $content .='
-
-
-
-                <td  style="; padding-left: -100px; border-bottom:0px">Ada<span style="margin-left:55px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$boxfix.' style="width: 15px"></span>
-
-                </td>
-
-
-
-                ';
-
-            }else{
-
-
-
-                $content .='
-
-
-
-
-
-                <td  style="; padding-left: -100px; border-bottom:0px">Ada<span style="margin-left:55px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$checkfix.' style="width: 15px"></span>
-
-                </td>
-
-                ';
-
-
-
-            }
-
-
-
-            $content .='
-
-
-
-            </tr>
-
-
-
-
-
-     <tr>
-
-        <td  style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Analis</span></td>
+        </td>
 
 
 
         ';
 
-
-
-        if ($data->analis == 'Kompeten') { 
-
-
-
-            $content .='
-
-
-
-            <td  style="border-bottom:0px; padding-left: -100px; border-top: 0px">Kompeten&nbsp;&nbsp;&nbsp;&nbsp; <img src='.$checkfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Tidak Kompeten&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$boxfix.' style="width: 15px">
-
-            </td>
-
-
-
-            ';
-
         }else{
 
 
 
-            $content .='
+        $content .='
 
 
 
 
 
-            <td  style="border-bottom:0px; padding-left: -100px; border-top: 0px">Kompeten&nbsp;&nbsp;&nbsp;&nbsp; <img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Tidak Kompeten&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$checkfix.' style="width: 15px">
+        <td style="border-bottom:0px; padding-left: -100px; border-top: 0px">Kompeten&nbsp;&nbsp;&nbsp;&nbsp; <img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Tidak Kompeten&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$checkfix.' style="width: 15px">
 
 
 
-            
 
-            </td> 
 
-            ';
+        </td>
+
+        ';
 
 
 
@@ -452,95 +330,47 @@ $content .= '
 
 
 
-            <tr>
-
-                <td  style="border-right:0px; border-bottom:0px "></td>
-
-                ';
-
-
-
-                if ($data->analis2 == 'Ada') { 
-
-
-
-                    $content .='
-
-
-
-                    <td  style="; padding-left: -100px; border-bottom:0px">Ada<span style="margin-left:55px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$boxfix.' style="width: 15px"></span>
-
-                    </td>
-
-
-
-                    ';
-
-                }else{
-
-
-
-                    $content .='
-
-
-
-
-
-                <td  style="; padding-left: -100px; border-bottom:0px">Ada<span style="margin-left:55px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$checkfix.' style="width: 15px"></span>
-
-                </td>
-
-                ';
-
-
-
-            }
-
-
-
-            $content .='
-
-
-
-            </tr>
-
-
-
     <tr>
 
-        <td  style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Bahan</span></td>
+        <td style="border-right:0px; border-bottom:0px "></td>
+
+
 
         ';
 
 
 
-        if ($data->bahan2 == 'Ada') { 
+        if ($data->penyelia2 == 'Ada') {
 
 
 
-            $content .='
+        $content .='
 
 
 
-            <td  style="border-bottom:0px;  padding-left: -100px">Ada<span style="margin-left:55px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$boxfix.' style="width: 15px"></span></td>
+        <td style="; padding-left: -100px; border-bottom:0px">Ada<span style="margin-left:55px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$boxfix.' style="width: 15px"></span>
+
+        </td>
 
 
 
-            ';
+        ';
 
         }else{
 
 
 
-            $content .='
+        $content .='
 
 
 
 
 
-            <td  style="border-bottom:0px;  padding-left: -100px">Ada<span style="margin-left:55px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$checkfix.' style="width: 15px"></span></td>
+        <td style="; padding-left: -100px; border-bottom:0px">Ada<span style="margin-left:55px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$checkfix.' style="width: 15px"></span>
 
-            ';
+        </td>
+
+        ';
 
 
 
@@ -550,103 +380,59 @@ $content .= '
 
         $content .='
 
-        
 
-       
 
     </tr>
 
 
 
-            <tr>
-
-                <td  style="border-right:0px; border-bottom:0px "></td>
-
-
-
-                ';
-
-
-
-                if ($data->bahan == 'Baik') { 
-
-
-
-                    $content .='
-
-
-
-                    <td  style="; padding-left: -100px; border-bottom:0px">Baik<span style="margin-left:53px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Kadaluarsa</span><span style="margin-left:45px"><img src='.$boxfix.' style="width: 15px"></span></td>
-
-
-
-                    ';
-
-                }else{
-
-
-
-                    $content .='
-
-
-
-
-
-                <td  style="; padding-left: -100px; border-bottom:0px">Baik<span style="margin-left:53px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Kadaluarsa</span><span style="margin-left:45px"><img src='.$checkfix.' style="width: 15px"></span></td>
-
-                ';
-
-
-
-            }
-
-
-
-            $content .='
-
-
-
-                
-
-            </tr>
-
 
 
     <tr>
 
-        <td  style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Alat</span></td>
+        <td style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Analis</span></td>
+
+
 
         ';
 
 
 
-        if ($data->alat == 'Ada') { 
+        if ($data->analis == 'Kompeten') {
 
 
 
-            $content .='
+        $content .='
 
 
 
-            <td  style="border-bottom:0px;  padding-left: -100px">Ada<span style="margin-left:55px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$boxfix.' style="width: 15px"></span></td>
+        <td style="border-bottom:0px; padding-left: -100px; border-top: 0px">Kompeten&nbsp;&nbsp;&nbsp;&nbsp; <img src='.$checkfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Tidak Kompeten&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$boxfix.' style="width: 15px">
+
+        </td>
 
 
 
-            ';
+        ';
 
         }else{
 
 
 
-            $content .='
+        $content .='
 
 
 
 
 
-            <td  style="border-bottom:0px;  padding-left: -100px">Ada<span style="margin-left:55px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$checkfix.' style="width: 15px"></span></td>
+        <td style="border-bottom:0px; padding-left: -100px; border-top: 0px">Kompeten&nbsp;&nbsp;&nbsp;&nbsp; <img src='.$boxfix.' style="width: 15px">&nbsp;&nbsp;&nbsp;&nbsp;Tidak Kompeten&nbsp;&nbsp;&nbsp;&nbsp;<img src='.$checkfix.' style="width: 15px">
 
-            ';
+
+
+
+
+        </td>
+
+        ';
 
 
 
@@ -656,73 +442,7 @@ $content .= '
 
         $content .='
 
-        
 
-       
-
-    </tr>
-
-
-
-            <tr>
-
-                <td  style="border-right:0px; border-bottom:0px "></td>
-
-                ';
-
-
-
-                if ($data->alat2 == 'Baik') { 
-
-
-
-                    $content .='
-
-
-
-                    <td  style="; padding-left: -100px ; border-bottom:0px">Baik<span style="margin-left:53px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Rusak </span><span style="margin-left:71px"><img src='.$boxfix.' style="width: 15px"></span></td>
-
-
-
-                    ';
-
-                }else{
-
-
-
-                    $content .='
-
-
-
-
-
-                <td  style="; padding-left: -100px ; border-bottom:0px">Baik<span style="margin-left:53px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Rusak </span><span style="margin-left:71px"><img src='.$checkfix.' style="width: 15px"></span></td>
-
-                ';
-
-
-
-            }
-
-
-
-            $content .='
-
-                
-
-            </tr>
-
-
-
-
-
-    <tr>
-
-        <td  style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Tanggal Selesai Pengujian :  '.$data->tanggal_selesai.'</span></td>
-
-        <td  style="border-bottom:0px;  padding-left: -100px"><span style="margin-left:55px"></span><span style="margin-left:15px"></span><span style="margin-left:52px"></span></td>
-
-       
 
     </tr>
 
@@ -730,25 +450,263 @@ $content .= '
 
     <tr>
 
-        <td  style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Persetujuan Pelanggan :</span></td>
+        <td style="border-right:0px; border-bottom:0px "></td>
 
-        <td  style="; padding-left: -100px; border-bottom:0px"><span style="margin-left:30px">Setuju </span><span style="margin-left:50px"><img src='.$boxfix.' style="width: 15px"></span></td>
+        ';
 
-       
+
+
+        if ($data->analis2 == 'Ada') {
+
+
+
+        $content .='
+
+
+
+        <td style="; padding-left: -100px; border-bottom:0px">Ada<span style="margin-left:55px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$boxfix.' style="width: 15px"></span>
+
+        </td>
+
+
+
+        ';
+
+        }else{
+
+
+
+        $content .='
+
+
+
+
+
+        <td style="; padding-left: -100px; border-bottom:0px">Ada<span style="margin-left:55px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$checkfix.' style="width: 15px"></span>
+
+        </td>
+
+        ';
+
+
+
+        }
+
+
+
+        $content .='
+
+
 
     </tr>
 
 
 
-             <tr>
+    <tr>
 
-                <td  style="border-right:0px; "></td>
+        <td style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Bahan</span></td>
 
-                <td  style="; padding-left: -100px"</span><span style="margin-left:30px">Tidak Setuju</span><span style="margin-left:17px"><img src='.$boxfix.' style="width: 15px"></span></td>
-
-            </tr>
+        ';
 
 
+
+        if ($data->bahan2 == 'Ada') {
+
+
+
+        $content .='
+
+
+
+        <td style="border-bottom:0px;  padding-left: -100px">Ada<span style="margin-left:55px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$boxfix.' style="width: 15px"></span></td>
+
+
+
+        ';
+
+        }else{
+
+
+
+        $content .='
+
+
+
+
+
+        <td style="border-bottom:0px;  padding-left: -100px">Ada<span style="margin-left:55px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$checkfix.' style="width: 15px"></span></td>
+
+        ';
+
+
+
+        }
+
+
+
+        $content .='
+
+
+
+
+
+    </tr>
+
+
+
+    <tr>
+
+        <td style="border-right:0px; border-bottom:0px "></td>
+
+
+
+        ';
+
+
+
+        if ($data->bahan == 'Baik') {
+
+
+
+        $content .='
+
+
+
+        <td style="; padding-left: -100px; border-bottom:0px">Baik<span style="margin-left:53px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Kadaluarsa</span><span style="margin-left:45px"><img src='.$boxfix.' style="width: 15px"></span></td>
+
+
+
+        ';
+
+        }else{
+
+
+
+        $content .='
+
+
+
+
+
+        <td style="; padding-left: -100px; border-bottom:0px">Baik<span style="margin-left:53px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Kadaluarsa</span><span style="margin-left:45px"><img src='.$checkfix.' style="width: 15px"></span></td>
+
+        ';
+
+
+
+        }
+
+
+
+        $content .='
+
+
+
+
+
+    </tr>
+
+
+
+    <tr>
+
+        <td style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Alat</span></td>
+
+        ';
+
+
+
+        if ($data->alat == 'Ada') {
+
+
+
+        $content .='
+
+
+
+        <td style="border-bottom:0px;  padding-left: -100px">Ada<span style="margin-left:55px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$boxfix.' style="width: 15px"></span></td>
+
+
+
+        ';
+
+        }else{
+
+
+
+        $content .='
+
+
+
+
+
+        <td style="border-bottom:0px;  padding-left: -100px">Ada<span style="margin-left:55px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Tidak Ada</span><span style="margin-left:52px"><img src='.$checkfix.' style="width: 15px"></span></td>
+
+        ';
+
+
+
+        }
+
+
+
+        $content .='
+
+
+
+
+
+    </tr>
+
+
+
+    <tr>
+
+        <td style="border-right:0px; border-bottom:0px "></td>
+
+        ';
+
+
+
+        if ($data->alat2 == 'Baik') {
+
+
+
+        $content .='
+
+
+
+        <td style="; padding-left: -100px ; border-bottom:0px">Baik<span style="margin-left:53px"><img src='.$checkfix.' style="width: 15px"></span><span style="margin-left:15px">Rusak </span><span style="margin-left:71px"><img src='.$boxfix.' style="width: 15px"></span></td>
+
+
+
+        ';
+
+        }else{
+
+
+
+        $content .='
+
+
+
+
+
+        <td style="; padding-left: -100px ; border-bottom:0px">Baik<span style="margin-left:53px"><img src='.$boxfix.' style="width: 15px"></span><span style="margin-left:15px">Rusak </span><span style="margin-left:71px"><img src='.$checkfix.' style="width: 15px"></span></td>
+
+        ';
+
+
+
+        }
+
+
+
+        $content .='
+
+
+
+    </tr>
 
 
 
@@ -756,177 +714,163 @@ $content .= '
 
     <tr>
 
-        <td  style="border-right:0px; border-bottom:0px"><span style="margin-left:0px">&nbsp;Penyampaian Persetujuan Pelanggan :</span></td>
+        <td style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Tanggal Selesai Pengujian : '.$data->tanggal_selesai.'</span></td>
 
-        <td  style="; padding-left: -100px; border-bottom:0px"><span style="margin-left:-70px">Telepon </span><span style="margin-left:14px"><img src='.$boxfix.' style="width: 15px"></span> <span style="margin-left:30px"><em>Contact Person</em> :<b> '.$data->pemohon.'</b></span></td> 
+        <td style="border-bottom:0px;  padding-left: -100px"><span style="margin-left:55px"></span><span style="margin-left:15px"></span><span style="margin-left:52px"></span></td>
+
+
 
     </tr>
-
-
-
-            <tr>
-
-                <td  style="border-right:0px; border-bottom: 0px"></td>
-
-                <td  style="; padding-left: -100px; border-bottom: 0px"</span><span style="margin-left:-70px">Fax</span><span style="margin-left:44px"><img src='.$boxfix.' style="width: 15px"></span></td>
-
-            </tr>
-
-
-
-            <tr>
-
-                <td  style="border-right:0px; border-top: 0px "></td>
-
-                <td  style="; padding-left: -100px; border-top: 0px"</span><span style="margin-left:-70px">Lainnya</span><span style="margin-left:19px"><img src='.$boxfix.' style="width: 15px"></span></td>
-
-            </tr>
-
-
 
 
 
     <tr>
 
-        <td  style="border-right:0px; "><span style="margin-left:0px">&nbsp;Saran</span><span style="margin-left:84px">:</span>&nbsp;&nbsp;&nbsp;&nbsp;'.$data->saran.'</td>
+        <td style="border-right:0px; border-bottom:0px"><span style="margin-left:205px">Persetujuan Pelanggan :</span></td>
 
-        <td  style="; padding-left: -100px;"><span style="margin-left:-70px"></span></td> 
-
-    </tr>
-
-
-
-     <tr>
-
-        <td  style="border-right:0px; ">&nbsp;<img src='.$boxfix.' style="width: 15px"><span style="margin-left:10px">Status Sampel :</span></td>
-
-        <td  style="; padding-left: -100px; "><span style="margin-left:-200px"> Sudah diterima pada tanggal <b>'.$data->tanggal_diterima.' </b></span></td> 
+        <td style="; padding-left: -100px; border-bottom:0px"><span style="margin-left:30px">Setuju </span><span style="margin-left:50px"><img src='.$boxfix.' style="width: 15px"></span></td>
 
     </tr>
 
+    <tr>
+
+        <td style="border-right:0px; "></td>
+
+        <td style="; padding-left: -100px"><span style="margin-left:30px">Tidak Setuju</span><span style="margin-left:17px"><img src='.$boxfix.' style="width: 15px"></span></td>
+
+    </tr>
+
+    <tr>
+        <td style="border-right:0px; border-bottom:0px"><span style="margin-left:0px">&nbsp;Penyampaian Persetujuan Pelanggan :</span></td>
+
+        <td style="; padding-left: -100px; border-bottom:0px"><span style="margin-left:-70px">Telepon </span><span style="margin-left:14px"><img src='.$boxfix.' style="width: 15px"></span> <span style="margin-left:30px"><em>Contact Person</em> :<b> '.$data->pemohon.'</b></span></td>
+
+    </tr>
+
+    <tr>
+        <td style="border-right:0px; border-bottom: 0px"></td>
+
+        <td style="; padding-left: -100px; border-bottom: 0px"><span style="margin-left:-70px">Fax</span><span style="margin-left:44px"><img src='.$boxfix.' style="width: 15px"></span></td>
+
+    </tr>
+
+    <tr>
+
+        <td style="border-right:0px; border-top: 0px "></td>
+
+        <td style="; padding-left: -100px; border-top: 0px"><span style="margin-left:-70px">Lainnya</span><span style="margin-left:19px"><img src='.$boxfix.' style="width: 15px"></span></td>
+
+    </tr>
+
+    <tr>
+
+        <td style="border-right:0px; "><span style="margin-left:0px">&nbsp;Saran</span><span style="margin-left:84px">:</span>&nbsp;&nbsp;&nbsp;&nbsp;'.$data->saran.'</td>
+
+        <td style="; padding-left: -100px;"><span style="margin-left:-70px"></span></td>
+
+    </tr>
+
+    <tr>
+
+        <td style="border-right:0px; ">&nbsp;<img src='.$boxfix.' style="width: 15px"><span style="margin-left:10px">Status Sampel :</span></td>
+
+        <td style="; padding-left: -100px; "><span style="margin-left:-200px"> Sudah diterima pada tanggal <b>'.$data->tanggal_diterima.' </b></span></td>
+
+    </tr>
+
+</table> 
+
+<br />
+
+<div>
+
+    Keterangan: <sup>*)</sup> Coret yang tidak perlu
+
+</div>
+
+<div id="lower2">
+
+    <sup>**)</sup> Beri tanda check (<img src='.$check.' width="25px; height:25px;">) pada tempat yang sesuai <br><br>
+
+    <span style="margin-left:-85px"> Demikian disampaikan untuk dapat diketahui </span>
+
+</div>
 
 
-</table>
+<div id="lower">
 
+    <p></p>
 
+    Sumbawa Besar, '.$data->tanggal_diterima.'
 
-    <br/>
+    <br />
 
-        
+    ';
+    $ma = $data->ma;
 
-            
+    if ($ma == 'Muhammad Ridwan') {
 
-        <div>
+    $content .='
 
-            Keterangan:  <sup>*)</sup> Coret yang tidak perlu 
+    Manajer Administrasi,<br />
 
-        </div>
+    <br>
 
-        <div id="lower2">
+    <p></p>
 
-            <sup>**)</sup> Beri tanda check (<img src='.$check.' width="25px; height:25px;">) pada tempat yang sesuai <br><br>
+    <p></p>
 
-             <span style="margin-left:-85px"> Demikian disampaikan untuk dapat diketahui </span>
+    <p></p>
 
-        </div>
+    ('.$data->ma.')<br />
 
+    NIP. '.$data->nip_ma.'
 
-
-           
-
-
-
-
-        <div  id="lower">
-
-            <p></p>
-
-
-
-            Sumbawa Besar, '.$data->tanggal_diterima.' 
-
-            <br/>
-
-            ';
-            $ma = $data->ma;
-
-            if ($ma == 'Andik Akrimil Fata, SP') {
-               
-               $content .='
-
-                    Manajer Administrasi,<br/>
-
-                        <br>
-
-                        <p></p>
-
-                        <p></p>
-
-                        <p></p>
-
-                        
-
-                        ('.$data->ma.')<br/>
-
-                        NIP. '.$data->nip_ma.'
-
-                    </div> 
-
-               ';
-
-
-            }else{
-
-                $content .='
-
-                    <span style="margin-left: -24px">An.</span> Manajer Administrasi,<br/>
-
-                        Deputi MA
-
-                        <p></p>
-
-                        <p></p>
-
-                        <p></p>
-
-                        
-
-                        ('.$data->ma.')<br/>
-
-                        NIP. '.$data->nip_ma.'
-
-                    </div> 
-
-
-                ';
-
-
-            }
-         
-
-
-$a = $data->nama_sampel;
-
-$b = $data->tanggal_diterima;                
-
-}
-
-
-$content .='
-                   
-</page>
+</div>
 
 ';
 
-require_once($html2pdf);
 
-$html2pdf = new HTML2PDF ('P','A4','en','UTF-8');
+}else{
+
+$content .='
+
+<span style="margin-left: -24px">An.</span> Manajer Administrasi,<br />
+
+Deputi MA
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+('.$data->ma.')<br />
+
+NIP. '.$data->nip_ma.'
+
+</div>
+
+
+';
+
+}
+
+$a = $data->nama_sampel;
+
+$b = $data->tanggal_diterima;
+
+endwhile;
+
+$content .= '
+                   
+</page>';
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle('fdf');
 
-$html2pdf->Output('Respon_Permohonan_Pengujian'.' '.$a.' '.$b.'.pdf');
+$html2pdf->Output('Respon_Permohonan_Pengujian.pdf');
 
 require_once('footer.php');
 

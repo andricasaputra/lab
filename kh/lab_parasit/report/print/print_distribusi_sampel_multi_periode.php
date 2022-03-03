@@ -2,6 +2,8 @@
 
 require_once ('header.php');
 
+use Lab\classes\kh\labparasit\Nomor as NomorKh;
+
 $content ='
 
 <style>
@@ -468,10 +470,6 @@ endwhile;
 </page>
 
 ';
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 

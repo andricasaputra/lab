@@ -8,27 +8,28 @@ ini_set('max_execution_time', 300);
 
 use Lab\config\Database;
 use Lab\classes\tanggal;
-use Lab\classes\kh\labparasit\Data as DataKhlabparasit;
-use Lab\classes\kh\labparasit\Hasil as HasilKhlabparasit;
-use Lab\classes\kh\labparasit\Cetak as CetakKhlabparasit;
-use Lab\classes\kh\labparasit\Nomor as NomorKhlabparasit;
-use Lab\classes\init;
+use Lab\classes\kh\labparasit\Data as DataKh;
+use Lab\classes\kh\labparasit\Hasil as HasilKh;
+use Lab\classes\kh\labparasit\Cetak as CetakKh;
+use Lab\classes\kh\labparasit\Nomor as NomorKh;
+use Lab\classes\init; 
+use Spipu\Html2Pdf\Html2Pdf;
 
 require_once (dirname(dirname(dirname(dirname(__DIR__)))).'/vendor/autoload.php');
-
+   
 $connection = Database::getInstance();
 
 $conn = $connection->getConnection();
 
 $basepath = init::basePath()."/assets/img/";
 
-$objectData = new DataKhlabparasit;
+$objectData = new DataKh($connection);
 
-$objectHasil = new HasilKhlabparasit;
+$objectHasil = new HasilKh($connection);
 
-$objectNomor = new NomorKhlabparasit;
+$objectNomor = new NomorKh($connection);
 
-$objectPrint = new CetakKhlabparasit;
+$objectPrint = new CetakKh($connection);
 
 $objectTanggal = new tanggal;
 
@@ -50,14 +51,11 @@ $checkfix = $objectPrint->getCheckFix();
 
 $check = $objectPrint->getCheck();
 
-$html2pdf = $objectPrint->getHtml2pdf();
-
-$scan = $objectPrint->getscan();
-
 $tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
 
 $bulan = $objectTanggal->bulan(date("m")); 
-
 $tahun = date('Y');
+
+$html2pdf = new Html2Pdf('P','A4','en', 'UTF-8');
 
 ?>
