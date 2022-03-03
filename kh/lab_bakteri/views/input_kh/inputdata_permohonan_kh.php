@@ -40,7 +40,6 @@ $id = $fetch->maxkode;
 				<button type="button" class="close" data-dismiss="modal">&times;</button>
 
 				<h4 class="modal-title"><i class="fa fa-gear fa-fw"></i>Tambah Data Permohonan Pengujian</h4>
-
 			</div>
 
 
@@ -126,6 +125,8 @@ $id = $fetch->maxkode;
 								<?php 
 
 									$i = $objectData->tampil_hewan();
+
+
 
 									while ($t=$i->fetch_object()) : ?>
 

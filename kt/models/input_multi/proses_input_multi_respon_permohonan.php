@@ -12,13 +12,13 @@ $saran					=htmlspecialchars($conn->real_escape_string(trim($_POST['saran'])));
 $tanggal_selesai		=htmlspecialchars($conn->real_escape_string(trim($_POST['tanggal_selesai'])));
 
 
-if($saran == '' || $tanggal_selesai == ''){
+if($saran == NULL || $tanggal_selesai == NULL){
  	echo "false";
  	exit;
  }
 
 
- $objectData->edit("UPDATE input_permohonan SET  ma='$ma', nip_ma='$nip_ma', saran='$saran', tanggal_selesai='$tanggal_selesai' WHERE ma IS NOT NULL AND saran IS NULL");
+ $objectData->edit("UPDATE input_permohonan SET  ma='$ma', nip_ma='$nip_ma', saran='$saran', tanggal_selesai='$tanggal_selesai' WHERE ma !='' AND saran = ''");
 
 
 
