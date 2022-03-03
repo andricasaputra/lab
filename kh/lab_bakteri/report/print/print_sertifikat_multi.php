@@ -782,7 +782,7 @@ $content .= '
 
                     $content .='
 
-                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->mt).' style="width: 90%;"></td>
+                        <td style="width: 215px"><img src='. $objectPrint->getScanTtd($data->nip_mt, $data->mt) .' style="width: 90%;"></td>
 
                     ';
                     
@@ -812,7 +812,7 @@ $content .= '
 
                     $content .='
 
-                        <td style="width: 215px"><img src='.$basepath.$objectPrint->gambar($data->nama_penyelia).' style="width: 90%;"></td>
+                        <td style="width: 215px"><img src='. $objectPrint->getScanTtd($data->nip_penyelia, $data->nama_penyelia) .' style="width: 90%;"></td>
 
                     ';
                     
