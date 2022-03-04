@@ -8,6 +8,7 @@ ATAU
 
 2. copy script berikut ke console phpmyadmin -> SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
+
 --ERROR 1118 (42000) at line 1852:    
 Row size too large (> 8126). Changing some columns to TEXT or 
      BLOB may help. In current row format, BLOB prefix of 0 bytes is stored inline.
@@ -15,4 +16,5 @@ Row size too large (> 8126). Changing some columns to TEXT or
 SOLUTION 
 
 SET GLOBAL innodb_strict_mode = 0;
+
 

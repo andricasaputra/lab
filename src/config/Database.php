@@ -11,6 +11,7 @@ class Database
     private $password = "";
     private $database = "lab_db";
 
+
     public static function getInstance()
     {
         if (!self::$instance) {
