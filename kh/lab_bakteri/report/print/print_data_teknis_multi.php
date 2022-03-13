@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
@@ -138,7 +142,7 @@ $content ='
 
             <hr width="75%">
 
-            <i>F.5.4.4.1; Ter.1; Rev.0; 03/08/2015</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -178,10 +182,6 @@ if ($tampil->num_rows === 0) {
         return false;
 }
 
-$rtitle = "data teknis hasil pengujian laboratorium karantina hewan";
-
-$title = ucwords($rtitle);
-
 $num = $tampil->num_rows;
 
 $arrID = array();
@@ -215,7 +215,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong><br>
+        <strong>'.$objectPrint->title_dokumen.'</strong><br>
 
     </div>
 
@@ -573,7 +573,7 @@ endwhile;
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Data_Teknis.pdf');
 

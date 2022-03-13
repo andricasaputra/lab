@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -154,7 +158,7 @@ $content .= '
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -174,11 +178,9 @@ $content .= '
 
     }
 
-    $rtitle = "kesiapan pengujian";
-
     while ($data=$tampil->fetch_object()):
 
-        $title = ucwords($rtitle).' | '.$data->no_permohonan;
+        $title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
 
 
 $content .= '
@@ -189,7 +191,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
     </div>
 
@@ -794,7 +796,7 @@ $content .= '
 
             <br/>
 
-            Manajer Teknis
+            Korfung KH/KT**,
 
             <p></p>
 

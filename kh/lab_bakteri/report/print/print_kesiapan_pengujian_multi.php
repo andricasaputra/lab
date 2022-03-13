@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -126,6 +130,11 @@ $content ='
 
     }
 
+    .html2pdf__page-break2 {
+
+      height: 10000px;
+
+    }
 
 
 </style>
@@ -154,7 +163,7 @@ $content .= '
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -163,18 +172,13 @@ $content .= '
 
      $no=1;   
 
-    if(isset($_POST['print_data'])){
+    if(@$_POST['print_data']){
 
-
-        $tampil = $objectPrint->cetak(@$_POST['tanggal']);
-
-        $kode = $objectPrint->cetakKode(@$_POST['tanggal']);
-       
-        $jumlah_sampel = $kode->num_rows;
-
+        $tampil = $objectPrint->print_kesiapan_pengujian(@$_POST['tgl_a'], @$_POST['tgl_b']);
 
     }else {
 
+        $tampil = $objectPrint->tampil();
         exit;
 
     }
@@ -184,20 +188,16 @@ $content .= '
         return false;
     }
 
-    $rtitle = "kesiapan pengujian";
+    $num = $tampil->num_rows;
 
-    $title = ucwords($rtitle);
+    $arrID = array();
 
-        while ($data = $tampil->fetch_object()):
+    while ($data=$tampil->fetch_object()):
 
-        $id = $data->id;
+        $arrID[] = $data->id;
 
-        $target = $objectPrint->cetakTargetTbKesiapan(@$_POST['tanggal']);
-
-        $metode = $objectPrint->cetakMetodeTbKesiapan(@$_POST['tanggal']); 
-
-        $lama = $objectPrint->cetakLamaTbKesiapan(@$_POST['tanggal']);
-
+        $totalID = count($arrID);
+        
 $content .= '
 
 
@@ -206,7 +206,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
     </div>
 
@@ -238,77 +238,9 @@ $content .= '
 
         <td width="18" align="center" style="border-right:0px; border-left: 0px"> :</td>
 
-        
-
         <td width="316">
-            ';
-
-            $kodesmpl = array();
-
-            while ($data2 = $kode->fetch_object()):
-
-                $kd = $data2->kode_sampel;
-
-                $x = explode("/", $kd);
-            
-                if (in_array("sp", $x)) {
-
-                    $kodesmpl["asapi"][] = $data2->kode_sampel_sapi;
-
-                   
-                }
-
-                if (in_array("spbbt", $x)) {
-
-                    $kodesmpl["bbibit"][] = $data2->kode_sampel_sapi_bibit;
-
-                   
-                }
-
-                if (in_array("kb", $x)) {
-
-                    $kodesmpl["ckerbau"][] = $data2->kode_sampel_kerbau;
-
-                   
-                }
-
-                if (in_array("kd", $x)) {
-
-                    $kodesmpl["dkuda"][] = $data2->kode_sampel_kuda;
-
-                   
-                }
-
-                
-            endwhile;
-
-            ksort($kodesmpl);
-
-            foreach ($kodesmpl as $key) {
-
-                if (count($key) > 1) {
-
-                    $pertama = $key[0];
-                    $terakhir = end($key);
-
-                    $content .= '
-                        '.$pertama.' - '.$terakhir.'<br>
-                    ';
-
-                }else{
-
-                   $pertama = $key[0];
-
-                   $content .= '
-                        '.$pertama.'<br>
-                    ';
-
-                }     
-  
-            }
-
-            $content .='
-
+        
+            '.$data->kode_sampel.'
 
         </td>
 
@@ -334,7 +266,7 @@ $content .= '
         <td width="18" align="center" style="border-right:0px; border-left: 0px"> :</td>
 
         <td width="316">
-            '.$jumlah_sampel.'
+            '.$data->jumlah_sampel.'
         </td>
 
     </tr>
@@ -360,61 +292,18 @@ $content .= '
 
               </tr>
 
+
+
               <tr>
 
                 <td style="width:5%;">1</td>
 
-                <td style="width:45%"><em><b>
-                ';
-                  
-                while ($tr = $target->fetch_object()):
+                <td style="width:45%"><em><b>'.$data->target_pengujian2.'</b></em></td>
 
-                    $content .='
-
-                    '.$tr->target_pengujian2.'<br>
-
-                    ';
-
-                endwhile;
-
-
-                $content .='
-
-                
-                </b></em></td>
-
-                <td style="width:30%;">';
-                  
-                while ($me = $metode->fetch_object()):
-
-                    $content .='
-
-                    '.$me->metode_pengujian.'<br>
-
-                    ';
-
-                endwhile;
-
-
-                $content .='
-                </td>
+                 <td style="width:30%;">'.$data->metode_pengujian.'  </td>
 
                 <td style="width:20%;">
-                ';
-                  
-                while ($lm = $lama->fetch_object()):
-
-                    $content .='
-
-                    '.$lm->lama_pengujian.'<br>
-
-                    ';
-
-                endwhile;
-
-
-                $content .='
-
+                    '.$data->lama_pengujian.'
                 </td>                     
 
               </tr>
@@ -921,7 +810,7 @@ $content .= '
 
             <br/>
 
-            Manajer Teknis
+            Korfung KH/KT
 
             <p></p>
 
@@ -937,10 +826,18 @@ $content .= '
 
         </div>
 
-
-
         ';
-               
+
+        if ($totalID < $num) {
+
+            $content .= '
+
+                 <div class="html2pdf__page-break2"></div>  
+
+            ';
+
+        }  
+              
 
 endwhile;
             
@@ -948,13 +845,11 @@ endwhile;
 
 </page>
 
-
-
 ';
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Kesiapan_Pengujian.pdf');
 

@@ -238,12 +238,12 @@ class Cetak extends LegacyCetak implements CetakKH
 
         $scan = array(
 
-            "ttd_yang_menyerahkan_pengelola_sampel" => $data->ttd_yang_menyerahkan_pengelola_sampel,
-            "ttd_yang_menerima_pengelola_sampel"    => $data->ttd_yang_menerima_pengelola_sampel,
-            "ttd_penyelia_data_teknis"              => $data->ttd_penyelia_data_teknis,
-            "ttd_analis_data_teknis"                => $data->ttd_analis_data_teknis,
-            "ttd_penyelia_hasil_uji"                => $data->ttd_penyelia_hasil_uji,
-            "ttd_mt_hasil_uji"                      => $data->ttd_mt_hasil_uji,
+            "ttd_yang_menyerahkan_pengelola_sampel" => $data->ttd_yang_menyerahkan_pengelola_sampel ?? 'Tidak',
+            "ttd_yang_menerima_pengelola_sampel"    => $data->ttd_yang_menerima_pengelola_sampel ?? 'Tidak',
+            "ttd_penyelia_data_teknis"              => $data->ttd_penyelia_data_teknis ?? 'Tidak',
+            "ttd_analis_data_teknis"                => $data->ttd_analis_data_teknis ?? 'Tidak',
+            "ttd_penyelia_hasil_uji"                => $data->ttd_penyelia_hasil_uji ?? 'Tidak',
+            "ttd_mt_hasil_uji"                      => $data->ttd_mt_hasil_uji ?? 'Tidak',
 
         );
 

@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -83,7 +87,7 @@ $content ='
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>F.4.1.1 2; Ter.1; Rev.1;01/02/2018</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -108,19 +112,17 @@ $content .= '
 
 	}
 
-	$rtitle = "tanda terima sampel";
-
 	while ($data=$tampil->fetch_object()){
 
 		$cara = $data->cara_pengiriman;
 
-		$title = ucwords($rtitle).' | '.$data->no_permohonan;
+		$title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
 
 $content .= '
 
 		<div align="center">
 
-			<strong>'.strtoupper($rtitle).'</strong>
+			<strong>'.$objectPrint->title_dokumen.'</strong>
 
 		</div>
 

@@ -189,7 +189,7 @@ require_once($objectPath->realPath().'/kh/labbakteri/nomor_sampel_kh.php');
 
           <div id="responsive-form" class="clearfix">
 
-                <form action="./lab_bakteri/report/print/print_distribusi_sampel_multi_periode.php" method="post" target="_blank">
+                <form action="./lab_bakteri/report/print/print_distribusi_sampel_multi.php" method="post" target="_blank">
 
                   <table>
 

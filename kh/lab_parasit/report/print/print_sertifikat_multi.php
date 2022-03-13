@@ -2,6 +2,8 @@
 
 require_once ('header.php');
 
+$footer = trim("F. 5.4.4.2.H; Ter.4; Rev.0; 12/01/2022");
+
 $content ='
 
 <style>
@@ -124,16 +126,25 @@ $content ='
 
     </page_header>
 
+   
     <page_footer>
 
-        <div id="garis">
+        <hr width="75%">
 
-            <hr width="75%">
+        <table>
+            <tr>
+                <td style="width: 650">
+                       <i>'.$footer.'</i> 
+                </td>
+                <td style="style="width: 500px", text-align: right">
+                       <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
 
-        </div>
+                </td>
+            </tr>
+        </table>
+
 
     </page_footer>
-
      ';         
 
 if(isset($_POST['print_data'])){
@@ -842,11 +853,11 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px">Penyelia Laboratorium</td>
+            <td style="width: 215px">Ketua Pokja KH & KT</td>
 
             <td style="width: 180px"></td>
 
-            <td style="width: 215px">Analis</td>
+            <td style="width: 215px">Penyelia</td>
 
         </tr>
 
@@ -856,7 +867,38 @@ $content .= '
             ';
 
 
+                if ($ttd["ttd_mt_hasil_uji"] == 'Ya') {
+                    
+
+                    $content .='
+
+                        <td style="width: 215px"><img src='. $objectPrint->getScanTtd($data->nip_kepala_plh, $data->kepala_plh) .' style="width: 90%;"></td>
+
+                    ';
+                    
+                }else{
+
+
+                    $content .='
+
+                        <td style="width: 215px; padding-bottom: 70px"></td>
+
+                    ';
+
+                }
+
+
+
+            $content .='
+
+
+            <td style="width: 180px"></td>
+
+            ';
+
+
                 if ($ttd["ttd_penyelia_hasil_uji"] == 'Ya') {
+
                     
 
                     $content .='
@@ -866,38 +908,7 @@ $content .= '
                     ';
                     
                 }else{
-
-
-                    $content .='
-
-                        <td style="width: 215px; padding-bottom: 70px"></td>
-
-                    ';
-
-                }
-
-
-
-            $content .='
-
-
-            <td style="width: 180px"></td>
-
-            ';
-
-
-                if ($ttd["ttd_analis_data_teknis"] == 'Ya') {
-                    
-
-                    $content .='
-
-                        <td style="width: 215px"><img src='. $objectPrint->getScanTtd($data->nip_analis, $data->nama_analis) .' style="width: 90%;"></td>
-
-                    ';
-                    
-                }else{
-
-
+    
                     $content .='
 
                         <td style="width: 215px; padding-bottom: 70px"></td>
@@ -916,61 +927,30 @@ $content .= '
 
 
         <tr>
+
+            <td style="width: 215px">('.$data->kepala_plh.')</td>
+
+            <td style="width: 180px"></td>
 
             <td style="width: 215px">('.$data->nama_penyelia.')</td>
 
-            <td style="width: 180px"></td>
-
-            <td style="width: 215px">('.$data->nama_analis.')</td>
-
         </tr>
 
 
 
         <tr>
 
-            <td style="width: 215px> NIP. '.$data->nip_penyelia.'</td>
+            <td style="width: 215px> NIP. '.$data->nip_kepala_plh.'</td>
 
             <td style="width: 180px"></td>
 
-            <td style="width: 215px">NIP. '.$data->nip_analis.'</td>
-
-        </tr>
-
-
-
-        <tr>
-
-            <td style="width: 215px; text-align: left; padding-top: 10px;"><span style="font-size: 7pt">**) Coret yang tidak perlu</span></td>
-
-            <td style="width: 180px"></td>
-
-            <td style="width: 215px"></td>
+            <td style="width: 215px">NIP. '.$data->nip_penyelia.'</td>
 
         </tr>
 
 
 
     </table> 
-
-    <table>
-
-        <tr>
-
-            <td style="width: 615px; text-align: left; padding-top: 10px; font-size: 9pt; line-height: 1.2;">
-               <i> <b>Catatan : </b>
-                <ol>
-                    <li style="padding-bottom: 5px">Hasil pemeriksaan pengujian sampel ini hanya berlaku untuk sampel yang diuji</li>
-                    <li>Hasil laporan pengujian contoh ini hanya berlaku terhadap contoh yang diuji dan hasil laporan pengujian ini tidak boleh digandakan tanpa persetujuan tertulis dari Kepala Stasiun Karantina Pertanian Kelas I Sumbawa Besar</li>
-                </ol></i>
-            </td>
-
-
-        </tr>
-
-
-
-    </table>
 
     ';
 

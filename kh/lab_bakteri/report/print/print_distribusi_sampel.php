@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
@@ -192,7 +196,7 @@ $content .= '
 
             <hr width="75%">
 
-            <i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -219,16 +223,12 @@ if(@$_GET['id'] !== ''){
 
 }
 
-$rtitle = "tanda terima distribusi sampel pengujian <br/> laboratorium karantina hewan";
-
 while ($data=$tampil->fetch_object()){
 
 
     $bil = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-    $r = str_replace("<br/>", "", $rtitle);
-
-    $title = ucwords($r).' | '.$data->kode_sampel;
+    $title = $objectPrint->title_dokumen.' | '.$data->kode_sampel;
 
 
 $content .= '
@@ -239,7 +239,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
     </div>
 
@@ -416,7 +416,7 @@ $b = $data->tanggal_diterima;
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Tanda_Terima_Distribusi_Sampel_Pengujian'.' '.$a.' '.$b.'.pdf');
 

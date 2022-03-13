@@ -37,6 +37,8 @@ $logo = $objectPrint->getLogo();
 
 $logoskp = $objectPrint->getLogoSkp();
 
+$logoskpbiasa = $objectPrint->getLogoSkpBiasa();
+
 $logokan = $objectPrint->getLogoKan();
 
 $logoskpkan = $objectPrint->getLogoSkpKan();
@@ -47,11 +49,14 @@ $boxfix = $objectPrint->getBoxFix();
 
 $checkfix = $objectPrint->getCheckFix();
 
+$logokanbaru = $objectPrint->getLogoKanBaru();
+
 $check = $objectPrint->getCheck();
 
 $tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));
 
 $bulan = $objectTanggal->bulan(date("m")); 
+
 $tahun = date('Y');
 
 $html2pdf = new Html2Pdf('P','A4','en', 'UTF-8');

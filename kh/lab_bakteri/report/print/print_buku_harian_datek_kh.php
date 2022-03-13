@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -72,7 +76,7 @@ $content .= '
 
             <hr width="75%">
 
-            <i>F.5.4.1.2; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -112,16 +116,11 @@ if ($tampil->num_rows === 0) {
         return false;
 }
 
-$rtitle = "buku harian laboratorium";
-
-$title = ucwords(str_replace("<br/>", "", $rtitle));
-
-
 $content .= '
 
     <div align="center">
 
-        <strong><h3>'.strtoupper($rtitle).'</h3></strong>
+        <strong><h3>'.$objectPrint->title_dokumen.'</h3></strong>
 
     </div>
 
@@ -304,7 +303,7 @@ endforeach;
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Buku_Harian-'.$objectTanggal->tgl_indo($_POST['tgl_a']).'.pdf');
 

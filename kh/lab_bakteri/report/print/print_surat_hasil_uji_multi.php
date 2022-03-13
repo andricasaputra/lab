@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
@@ -144,7 +148,7 @@ $content ='
 
             <div id="logo">
 
-            <span style="position: absolute; margin-top: 10px"><img src='.$logoskpkan.' width="744px; height:132px"></span>    
+            <span style="position: absolute; margin-top: 10px"><img src='.$logoskpbiasa.' width="744px; height:132px"></span>    
 
             </div>
 
@@ -152,13 +156,19 @@ $content ='
 
         <page_footer>
 
-            <div id="garis">
+        <hr width="75%">
 
-                <hr width="75%">
+            <table>
+                <tr>
+                    <td style="width: 650">
+                           <i>'.$objectPrint->kode_dokumen.'</i> 
+                    </td>
+                    <td style="style="width: 500px", text-align: right">
+                           <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
 
-                <i>F.5.4.4.3.H; Ter.3; Rev.0;07/04/2021 </i>
-
-            </div>
+                    </td>
+                </tr>
+            </table>
 
         </page_footer>
 
@@ -198,11 +208,7 @@ $content ='
 
         $arrID = array();
 
-        $rtitle = "surat hasil pengujian laboratorium karantina hewan";
-
         while ($data=$tampil->fetch_object()):
-
-            $title = ucwords($rtitle);
 
             $id = $data->id;
 
@@ -243,7 +249,7 @@ $content ='
 
     <div align="center">
 
-        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+        <strong><u>'.$objectPrint->title_dokumen.'</u></strong><br>
 
         ';
 
@@ -816,7 +822,7 @@ endwhile;
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Surat_Hasil_Pengujian.pdf');
 

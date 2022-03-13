@@ -184,7 +184,7 @@
 
           <div id="responsive-form" class="clearfix">
 
-                <form action="./lab_bakteri/report/print/print_usulan_penunjukan_multi_periode.php" method="post" target="_blank">
+                <form action="./lab_bakteri/report/print/print_usulan_penunjukan_multi.php" method="post" target="_blank">
 
                   <table>
 
@@ -501,7 +501,7 @@
 
           <div id="responsive-form" class="clearfix">
 
-                <form action="./lab_bakteri/report/print/print_surat_tugas_multi_periode.php" method="post" target="_blank">
+                <form action="./lab_bakteri/report/print/print_surat_tugas_multi.php" method="post" target="_blank">
 
                   <table>
 

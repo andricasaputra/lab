@@ -204,7 +204,7 @@ endfor;
 
                   while ($t=$i->fetch_object()) : 
 
-                    if ($t->nama_pejabat == 'drh. I Gede Wira Adipredana') : ?>
+                    if ($t->nama_pejabat == 'drh. Ardiyanto Chandra Wijaya') : ?>
 
                     <option selected><?=$t->nama_pejabat ;?></option>
 

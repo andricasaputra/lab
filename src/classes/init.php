@@ -4,7 +4,6 @@ namespace Lab\classes;
 
 define("BASEPATH", dirname(dirname(__DIR__)));
 define("REALPATH", __DIR__);
-
 define("FULL_URL_IMAGES_PATH", dirname($_SERVER["SERVER_NAME"] . "/lab/assets/img/logoskp4.jpg"));
 
 class Init

@@ -2,6 +2,8 @@
 
 require_once ('header.php');
 
+$footer = trim("F. 5.4.4.3.H; Ter.4; Rev.0; 12/01/2022");
+
 $content ='
 
 <style>
@@ -151,13 +153,22 @@ $content ='
 
         <page_footer>
 
-            <div id="garis">
+        <hr width="75%">
 
-                <hr width="75%">
+        <table>
+            <tr>
+                <td style="width: 650">
+                       <i>'.$footer.'</i> 
+                </td>
+                <td style="style="width: 500px", text-align: right">
+                       <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
 
-            </div>
+                </td>
+            </tr>
+        </table>
 
-        </page_footer>
+
+    </page_footer>
 
 
         ';
@@ -206,6 +217,9 @@ $content ='
             $arrID[] = $data->id;
 
             $totalID = count($arrID);
+
+            $jabatan = $objectPrint->getPejabat($data->nip_kepala_plh2);
+
 
         $content .='
 
@@ -735,11 +749,7 @@ $content ='
 
     </table>
 
-
-
     <table>
-
-
 
          <tr>
 
@@ -751,8 +761,6 @@ $content ='
 
         </tr>
 
-
-
         <tr>
 
             <td style="width: 215px; padding-bottom: 60px"></td>
@@ -761,81 +769,28 @@ $content ='
 
             ';
 
+            if ($jabatan->jabfung != 'Kepala Stasiun') {
 
+                 $content .='
 
-            if ($data->kepala_plh2 == 'drh. Ida Bagus Putu Raka Ariana') {
-
-
-
-                $content .='
-
-
-
-                <td style="width: 215px; padding-bottom: 60px">Kepala Stasiun <br></td>
-
-
+                <td style="width: 215px; padding-bottom: 60px">Plh. Kepala Stasiun <br>'.$jabatan->jabfung.'
+                </td>
 
                 ';
-
-
-
-            }elseif($data->kepala_plh2 == 'Andik Akrimil Fata, SP'){
-
-
-
-                $content .='
-
-
-
-                <td style="width: 215px; padding-bottom: 60px">An Kepala Stasiun <br>Manajer Administrasi Laboratorium</td>
-
-
-
-                ';
-
-
-
-            }elseif($data->kepala_plh2 == 'Abdul Salam, SP'){
-
-
-
-                $content .='
-
-
-
-               <td style="width: 215px; padding-bottom: 60px">An Kepala Stasiun <br>Manajer Mutu Laboratorium</td>
-
-
-
-                ';
-
-
 
             }else{
 
                 $content .='
 
-
-
-                <td style="width: 215px; padding-bottom: 60px">An. Kepala Stasiun <br></td>
-
-
+                <td style="width: 215px; padding-bottom: 60px">Kepala Stasiun <br></td>
 
                 ';
 
             }
 
-
-
             $content .='
 
-            
-
         </tr>
-
-
-
-
 
         <tr>
 
@@ -846,8 +801,6 @@ $content ='
             <td style="width: 215px">'.$data->kepala_plh2.'</td>
 
         </tr>
-
-
 
         <tr>
 

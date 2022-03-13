@@ -2,6 +2,8 @@
 
 require_once ('header.php');
 
+$footer = trim("F.4.1.1.1 H; Ter.4; Rev.0; 12/01/2022");
+
 $content ='
 
 <style>
@@ -60,13 +62,12 @@ $content .= '
 
             <hr width="75%">
 
+            <span style="margin-left: 10px;"><i>'.$footer.'</i></span>
+
         </div>
 
     </page_footer> ';
 
-
-
-				
 
 	if(@$_GET['id'] && @$_GET['no_permohonan']!== ''){
 

@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
@@ -203,11 +207,9 @@ $content ='
 
         $no =1;
 
-        $rtitle = "surat hasil pengujian laboratorium karantina hewan";
-
         while ($data=$tampil->fetch_object()):
 
-            $title = ucwords($rtitle).' | '.$data->no_permohonan;
+            $title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
 
             $pejabat = $objectPrint->getPejabat($data->nip_kepala_plh2);
 
@@ -227,26 +229,28 @@ $content ='
 
         $content .='
 
-            <span style="position: absolute; margin-top: 10px"><img src='.$logoskpkan.' width="744px; height:132px"></span>    
-
-
+            <span style="position: absolute; margin-top: 10px"><img src='.$logoskpbiasa.' width="744px; height:132px"></span>    
 
         </div>
 
     </page_header>
 
 
-
     <page_footer>
 
-        <div id="garis">
+        <hr width="75%">
 
-            <hr width="75%">
+        <table>
+            <tr>
+                <td style="width: 650">
+                       <i>'.$objectPrint->kode_dokumen.'</i> 
+                </td>
+                <td style="style="width: 500px", text-align: right">
+                       <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
 
-            <i>F.5.4.4.3.H; Ter.3; Rev.0;07/04/2021 </i>
-
-
-        </div>
+                </td>
+            </tr>
+        </table>
 
     </page_footer>
 
@@ -262,7 +266,7 @@ $content .= '
 
     <div align="center">
 
-        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+        <strong><u>'.$objectPrint->title_dokumen.'</u></strong><br>
 
         ';
 

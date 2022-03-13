@@ -9,16 +9,17 @@ use Lab\interfaces\SuperCetak;
 $basepath = init::basePath();
 $imagesPath = init::imagesPath();
 
-define("LOGO", $imagesPath . "/logolabfix.jpg");
-define("LOGOSKP", $imagesPath . "/logoskp4.jpg" );
+define("LOGO", $imagesPath . "/logolab.png");
+define("LOGOSKP", $imagesPath . "/logoskp.png" );
 define("LOGOSKPBIASA", $imagesPath . "/logoskpfix.png");
-define("LOGOKAN", $imagesPath . "/logolabfixkan.png");
+define("LOGOKAN", $imagesPath . "/logolabkan.png");
 define("LOGOSKPKAN", $imagesPath . "/logoskpkan.png");
 define("LOGOHORIZONTAL", $imagesPath . "/logolabhorizontal.png");
 define("BOXFIX", $imagesPath . "/boxfix.png");
 define("CHECKFIX", $imagesPath . "/checkfix.png");
 define("CHECK", $imagesPath . "/check1.png");
 define("HTML2PDF", $basepath . "/vendor/spipu/html2pdf/src/Html2Pdf.php");
+define("LOGOKANBARU", $imagesPath . "/logo-kan-baru.png");
 define("SCANTTD", $imagesPath);
 
 abstract class LegacyCetak extends Database implements SuperCetak
@@ -34,11 +35,20 @@ abstract class LegacyCetak extends Database implements SuperCetak
     $checkfix       = CHECKFIX,
     $check          = CHECK,
     $html2pdf       = HTML2PDF,
-    $scan           = SCANTTD;
+    $scan           = SCANTTD,
+    $logokanbaru    = LOGOKANBARU;
 
-    protected $db, $conn;
+    protected $db, $conn, $prootocol = 'http://';
     
-    public $backtop, $backleft, $backright, $backbottom;
+    public  $backtop, 
+    $backleft, 
+    $backright, 
+    $backbottom, 
+    $title_dokumen,
+    $rev = '; Ter.4; Rev.0; 12/01/2022',
+    $jenis_karantina = 'kh',
+    $kode_dokumen   = '',
+    $kode_karantina = 'H'; // "H = Hewan, T = Tumbuhan"
 
     abstract protected function tampil($id = null);
 
@@ -61,56 +71,61 @@ abstract class LegacyCetak extends Database implements SuperCetak
 
         $this->db = $this->conn->getConnection();
 
-    }
+        $this->prootocol = (isset($_SERVER['HTTPS']) 
+            && $_SERVER['HTTPS'] === 'on' 
+            ? "https://" 
+            : $this->prootocol);
 
-    public function getProtocol()
-    {
-        return (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https://" : "http://");
     }
 
     public function getLogo()
     {
-        return $this->getProtocol() . $this->logo;
+        return $this->prootocol . $this->logo;
     }
 
     public function getLogoSkp()
     {
-        return $this->getProtocol() . $this->logoskp;
+        return $this->prootocol . $this->logoskp;
     }
 
     public function getLogoSkpBiasa()
     {
-        return $this->getProtocol() . $this->logoskpbiasa;
+        return $this->prootocol . $this->logoskpbiasa;
     }
 
     public function getLogoKan()
     {
-        return $this->getProtocol() . $this->logokan;
+        return $this->prootocol . $this->logokan;
     }
 
     public function getLogoSkpKan()
     {
-        return $this->getProtocol() . $this->logoskpkan;
+        return $this->prootocol . $this->logoskpkan;
     }
 
     public function getLogoHorizontal()
     {
-        return $this->getProtocol() . $this->logohorizontal;
+        return $this->prootocol . $this->logohorizontal;
     }
 
     public function getBoxFix()
     {
-        return $this->getProtocol() . $this->boxfix;
+        return $this->prootocol . $this->boxfix;
     }
 
     public function getCheckFix()
     {
-        return $this->getProtocol() . $this->checkfix;
+        return $this->prootocol . $this->checkfix;
     }
 
     public function getCheck()
     {
-        return $this->getProtocol() . $this->check;
+        return $this->prootocol . $this->check;
+    }
+
+    public function getLogoKanBaru()
+    {
+        return $this->prootocol . $this->logokanbaru;
     }
 
     public function getHtml2pdf()
@@ -126,20 +141,50 @@ abstract class LegacyCetak extends Database implements SuperCetak
 
         $fetch =  $query->fetch_object();
 
-        $path = $this->getProtocol() . $this->scan ;
+        $path = $this->prootocol . $this->scan ;
 
         $gambar = $fetch->gambar ?? 'blank.png';
 
         return  $path . '/' . $gambar;
     }
 
-    public function getPejabat($nip_kepala_plh)
+    public function getPejabat($nip)
     {
-        $query = "SELECT * FROM pejabat_kh WHERE nip = '$nip_kepala_plh'; ";
+        $query = "SELECT * FROM pejabat_kh WHERE nip = '$nip'; ";
 
         $query = $this->db->query($query) or die($this->db->error);
 
         return  $query->fetch_object();
+    }
+
+    public function setNamaDokumen($alias = NULL, $jenis = NULL)
+    {
+        if (str_contains($alias, 'multi')) {
+            $alias = str_replace('_multi', '', $alias);
+        }
+
+        $query = "SELECT * FROM kode_dokumen WHERE alias = '$alias'; ";
+
+        $query = $this->db->query($query) or die($this->db->error);
+
+        $data = $query->fetch_object();
+
+        $namalab = '';
+
+        if ($jenis !== NULL) {
+
+           $this->kode_karantina = $jenis == 'kh' ? 'H' : 'T';
+
+            if ($this->kode_karantina == 'H') {
+                $namalab = 'Karantina Hewan';
+            } else {
+                $namalab = 'Karantina Tumbuhan';
+            }
+        }   
+
+        $this->title_dokumen = $data->nama_dokumen . ' '. strtoupper($namalab);
+
+        $this->kode_dokumen = $data->kode . ' ' . $this->kode_karantina . $this->rev;
     }
   
 }

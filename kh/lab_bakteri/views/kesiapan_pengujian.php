@@ -180,7 +180,7 @@
 
                                     <th>Kondisi Sampel</th>
 
-                                    <th>Manajer Teknis</th>
+                                    <th>Korfung KH/KT,</th>
 
                                     <th>NIP</th>
 
@@ -218,7 +218,7 @@
 
           <div id="responsive-form" class="clearfix">
 
-                <form action="./lab_bakteri/report/print/print_kesiapan_pengujian_multi_periode.php" method="post" target="_blank">
+                <form action="./lab_bakteri/report/print/print_kesiapan_pengujian_multi.php" method="post" target="_blank">
 
                   <table>          
 

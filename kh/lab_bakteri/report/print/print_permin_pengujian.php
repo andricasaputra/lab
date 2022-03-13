@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -113,7 +117,7 @@ $content .= '
 
             <hr>
 
-            <span style="margin-left: 10px;"><i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -132,15 +136,11 @@ $content .= '
 
     }
 
-    $rtitle = "permintaan kesiapan pengujian";
-
     while ($data=$tampil->fetch_object()):
-
-
 
         $bil = $data->jumlah_sampel;
 
-        $title = ucwords($rtitle).' | '.$data->kode_sampel;
+        $title = $objectPrint->title_dokumen.' | '.$data->kode_sampel;
 
         $bilangan = ucwords($objectNomor->bilangan($bil));
 
@@ -150,7 +150,7 @@ $content .= '
 
         <div align="center">
 
-            <strong>'.strtoupper($rtitle).'</strong>
+            <strong>'.$objectPrint->title_dokumen.'</strong>
 
         </div>
 
@@ -272,8 +272,33 @@ $content .= '
         </div>
 
 
+        ';
 
-        <div  id="lower">
+$a = $data->nama_sampel;
+
+$b = $data->tanggal_diterima;                
+
+endwhile;
+
+                
+$content .='    
+
+</page>
+
+';
+
+$html2pdf->WriteHTML($content);
+
+$html2pdf->pdf->setTitle($title);
+
+$html2pdf->Output('Permintaan_Kesiapan_Pengujian'.' '.$a.' '.$b.'.pdf');
+
+require_once('footer.php');
+
+
+?>
+<!-- 
+<div  id="lower"> -->
 
             <p></p>
 
@@ -332,38 +357,4 @@ $content .= '
 
             NIP. '.$data->nip_ma.'
 
-        </div>      
-
-
-
-        ';
-
-$a = $data->nama_sampel;
-
-$b = $data->tanggal_diterima;                
-
-endwhile;
-
-                   
-
-$content .='    
-
-
-<div style="page-break-after:always; clear:both"></div> 
-
-</page>
-
-
-
-';
-
-$html2pdf->WriteHTML($content);
-
-$html2pdf->pdf->setTitle($title);
-
-$html2pdf->Output('Permintaan_Kesiapan_Pengujian'.' '.$a.' '.$b.'.pdf');
-
-require_once('footer.php');
-
-
-?>
+        </div>  

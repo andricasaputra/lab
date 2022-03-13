@@ -49,6 +49,8 @@ $boxfix = $objectPrint->getBoxFix();
 
 $checkfix = $objectPrint->getCheckFix();
 
+$logokanbaru = $objectPrint->getLogoKanBaru();
+
 $check = $objectPrint->getCheck();
 
 $tanggal = $objectTanggal->tgl_indo(date('Y-m-d'));

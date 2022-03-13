@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
@@ -112,7 +116,7 @@ $content .= '
 
             <hr width="75%">
 
-            <i>F.5.7.1. 2; Ter.1; Rev.0;03/08/2018</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -143,8 +147,6 @@ $content .= '
         return false;
     }
 
-    $rtitle = "penyerahan sampel pengujian laboratorium karatina hewan";
-    $title = ucwords($rtitle);
     $num = $tampil->num_rows;
     $arrID = array();
 
@@ -163,7 +165,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong> <br>
+        <strong>'.$objectPrint->title_dokumen.'</strong> <br>
 
         Nomor :&nbsp;&nbsp;'.$data->no_permohonan.'
 
@@ -784,7 +786,7 @@ endwhile;
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Penyerahan_Sampel_Pengujian.pdf');
 

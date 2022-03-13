@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -68,7 +72,7 @@ $content .= '
 
             <hr width="75%">
 
-            <i>F.5.4.1.1 H; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -96,16 +100,11 @@ if ($tampil->num_rows === 0) {
         return false;
 }
 
-$rtitle = "buku agenda pengujian laboratorium karantina hewan <br/> laboratorium bakteri";
-
-$title = ucwords(str_replace("<br/>", "", $rtitle));
-
-
 $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
     </div>
 
@@ -199,7 +198,7 @@ $html2pdf = new \spipu\Html2Pdf\Html2Pdf('L','A4','en','UTF-8');
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Buku_Agenda-'.$objectTanggal->tgl_indo($_POST['tgl_a']).'-s/d-'.$objectTanggal->tgl_indo($_POST['tgl_b']).'.pdf');
 

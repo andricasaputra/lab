@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
@@ -118,7 +122,7 @@ $content ='
 
         <div style="margin-left: 34px">
 
-            <strong><img src='.$logokan.' width="698px; height:150px"></strong>
+            <strong><img src='.$logo.' width="698px; height:150px"></strong>
 
         </div>
 
@@ -126,13 +130,20 @@ $content ='
 
     <page_footer>
 
-        <div id="garis">
+        <hr width="75%">
 
-            <hr width="75%">
+        <table>
+            <tr>
+                <td style="width: 650">
+                       <i>'.$objectPrint->kode_dokumen.'</i> 
+                </td>
+                <td style="style="width: 500px", text-align: right">
+                       <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
 
-            <i>F.5.4.4.2 Ter.3;Rev.0; 07/04/2021</i>
+                </td>
+            </tr>
+        </table>
 
-        </div>
 
     </page_footer>
 
@@ -168,10 +179,6 @@ if ($tampil->num_rows === 0) {
         return false;
 }
 
-$rtitle = "sertifikat hasil pengujian laboratorium karantina hewan";
-
-$title = ucwords($rtitle);
-
 $num = $tampil->num_rows;
 
 $arrID = array();
@@ -190,7 +197,7 @@ $content .= '
 
     <div align="center">
 
-        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+        <strong><u>'.$objectPrint->title_dokumen.'</u></strong><br>
 
         Nomor : '.$data->no_sertifikat.'
 
@@ -763,7 +770,7 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px">Manajer Teknis/ Plh Manajer Teknis</td>
+            <td style="width: 215px">Ketua Pokja KH & KT</td>
 
             <td style="width: 180px"></td>
 
@@ -782,7 +789,7 @@ $content .= '
 
                     $content .='
 
-                        <td style="width: 215px"><img src='. $objectPrint->getScanTtd($data->nip_mt, $data->mt) .' style="width: 90%;"></td>
+                        <td style="width: 215px"><img src='. $objectPrint->getScanTtd($data->nip_kepala_plh, $data->kepala_plh) .' style="width: 90%;"></td>
 
                     ';
                     
@@ -858,20 +865,6 @@ $content .= '
 
         </tr>
 
-
-
-        <tr>
-
-            <td style="width: 215px; text-align: left; padding-top: 0px;"><span style="font-size: 7pt">**) Coret yang tidak perlu</span></td>
-
-            <td style="width: 180px"></td>
-
-            <td style="width: 215px"></td>
-
-        </tr>
-
-
-
     </table> 
 
     ';
@@ -898,7 +891,7 @@ $content .='
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Sertifikat_Pengujian.pdf');
 

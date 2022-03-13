@@ -343,7 +343,7 @@ endwhile;
 
             <div class="column-half">
 
-               <label class="control-label" for="mt">Manajer Teknis</label>
+               <label class="control-label" for="mt">Korfung KH/KT</label>
 
                 <select class="form-control" name="mt" id="mt_input" required>
 
