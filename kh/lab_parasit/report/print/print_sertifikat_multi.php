@@ -2,7 +2,9 @@
 
 require_once ('header.php');
 
-$footer = trim("F. 5.4.4.2.H; Ter.4; Rev.0; 12/01/2022");
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
 
 $content ='
 
@@ -134,7 +136,7 @@ $content ='
         <table>
             <tr>
                 <td style="width: 650">
-                       <i>'.$footer.'</i> 
+                       <i>'.$objectPrint->kode_dokumen.'</i> 
                 </td>
                 <td style="style="width: 500px", text-align: right">
                        <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
@@ -142,7 +144,6 @@ $content ='
                 </td>
             </tr>
         </table>
-
 
     </page_footer>
      ';         
@@ -177,10 +178,6 @@ if ($tampil->num_rows === 0) {
         return false;
 }
 
-$rtitle = "hasil pengujian laboratorium karantina hewan";
-
-$title = ucwords($rtitle);
-
 $num = $tampil->num_rows;
 
 $arrID = array();
@@ -199,7 +196,7 @@ $content .= '
 
     <div align="center">
 
-        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+        <strong><u>'.$objectPrint->title_dokumen.'</u></strong><br>
 
         Nomor : '.$data->no_sertifikat.'
 
@@ -977,7 +974,7 @@ $content .='
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Sertifikat_Pengujian.pdf');
 

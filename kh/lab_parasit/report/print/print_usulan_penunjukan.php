@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -72,7 +76,7 @@ $content ='
 
        margin-bottom:20px;
 
-       height : 500px;
+       height : 400px;
 
     }
 
@@ -147,6 +151,8 @@ $content ='
 
             <hr width="75%">
 
+            <i>'.$objectPrint->kode_dokumen.'</i>
+
         </div>
 
 
@@ -186,18 +192,16 @@ $content ='
 
     }
 
-    $rtitle = "Form Usulan Penunjukan Penyelia dan Analis Pengujian";
-
     while ($data=$tampil->fetch_object()){
 
-        $title = ucwords($rtitle).' | '.$data->kode_sampel;
+        $title = $objectPrint->title_dokumen.' | '.$data->kode_sampel;
 
 $content .= '
 
 
     <div align="center">
 
-        <strong><h4>'.$rtitle.'</h4></strong>
+        <strong><h4>'.$objectPrint->title_dokumen.'</h4></strong>
 
     </div>
 
@@ -311,6 +315,16 @@ $content .= '
 
         </table>
 
+        <br>
+
+    <div>
+
+        Keterangan: 
+            <br>
+            <sup>*)</sup> Coret Yang Tidak Perlu  
+
+    </div>
+
    <br/>
 
  
@@ -321,7 +335,7 @@ $content .= '
 
             <br/>
 
-            Manajer Teknis
+            Korfung KH/KT*
 
             <p></p>
 

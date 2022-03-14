@@ -2,7 +2,9 @@
 
 require_once ('header.php');
 
-$footer = trim("F.4.1.1.1 H; Ter.4; Rev.0; 12/01/2022");
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
 
 $content ='
 
@@ -62,7 +64,7 @@ $content .= '
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>'.$footer.'</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -94,11 +96,9 @@ $content .= '
 
 	}
 
-	$rtitle = "permohonan pengujian laboratorium karantina hewan";
-
 	while ($data=$tampil->fetch_object()):
 
-		$title = ucwords($rtitle).' | '.$data->no_permohonan;
+		$title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
 
 		$satuan = $data->satuan;
 
@@ -106,7 +106,7 @@ $content .= '
 
 		<div align="center">
 
-			<strong><u>'.strtoupper($rtitle).'</u></strong>
+			<strong><u>'.$objectPrint->title_dokumen.'</u></strong>
 
 			<br> Nomor: '.$data->no_permohonan.', Tanggal: '.$data->tanggal_permohonan.'
 

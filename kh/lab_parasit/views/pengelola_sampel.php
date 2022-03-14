@@ -189,7 +189,7 @@ require_once($objectPath->realPath().'/kh/labparasit/nomor_sampel_kh_lab_parasit
 
           <div id="responsive-form" class="clearfix">
 
-                <form action="./lab_parasit/report/print/print_distribusi_sampel_multi_periode.php" method="post" target="_blank">
+                <form action="./lab_parasit/report/print/print_distribusi_sampel_multi.php" method="post" target="_blank">
 
                   <table>
 

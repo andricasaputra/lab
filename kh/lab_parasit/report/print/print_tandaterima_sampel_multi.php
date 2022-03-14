@@ -2,7 +2,9 @@
 
 require_once ('header.php');
 
-$footer = trim("F.4.1.1.2; Ter.4; Rev.0; 12/01/2022");
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
 
 $content ='
 
@@ -101,7 +103,7 @@ $content ='
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>'.$footer.'</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -132,10 +134,6 @@ $content .= '
         return false;
 	}
 
-	$rtitle = "tanda terima sampel";
-
-	$title = ucwords($rtitle);
-
 	$num = $tampil->num_rows;
 
     $arrID = array();
@@ -151,7 +149,7 @@ $content .= '
 
 		<div align="center">
 
-			<strong>'.strtoupper($rtitle).'</strong>
+			<strong>'.$objectPrint->title_dokumen.'</strong>
 
 		</div>
 
@@ -647,7 +645,7 @@ $content .='
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Tanda_Terima_Sampel.pdf');
 

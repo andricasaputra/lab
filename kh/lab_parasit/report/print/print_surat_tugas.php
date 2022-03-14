@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -124,6 +128,8 @@ $content .= '
 
             <hr width="75%">
 
+            <i>'.$objectPrint->kode_dokumen.'</i>
+
         </div>
 
 
@@ -167,11 +173,9 @@ $tampil = $objectPrint->tampil(@$_GET['id'], @$_GET['no_surat_tugas']);
 
 }
 
-$rtitle = "surat penyelia dan analis";
-
 while ($data=$tampil->fetch_object()){
 
-    $title = ucwords($rtitle).' | '.$data->no_surat_tugas;
+    $title = $objectPrint->title_dokumen.' | '.$data->no_surat_tugas;
 
     if (strpos($data->nama_analis, "&") != false) {
 
@@ -201,7 +205,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
         <br>No : '.$data->no_surat_tugas.'
 
@@ -290,7 +294,9 @@ $content .= '
                                 '.$data->no_sampel.'
                             </td>
 
-                            <td style="width:17%;border-bottom:0px; "> <em>'.$data->target_pengujian2.' </em></td>
+                            <td style="width:17%;border-bottom:0px; "> 
+                            <em>'.$data->target_pengujian2.' </em>
+                            </td>
 
                             <td style="width:15%;border-bottom:0px; ">'.$data->metode_pengujian.' </td>
 
@@ -321,7 +327,11 @@ $content .= '
                                 '.$data->no_sampel.'
                             </td>
 
-                            <td style="width:17%;border-bottom:0px; "> <em>'.$data->target_pengujian2.' </em></td>
+                            <td style="width:17%;border-bottom:0px; "> 
+                            <em>'.$data->target_pengujian2.' </em>
+                            <br/>
+                            <em>'.$data->target_pengujian3.' </em>
+                            </td>
 
                             <td style="width:15%;border-bottom:0px; ">'.$data->metode_pengujian.' </td>
 
@@ -417,7 +427,11 @@ $content .= '
 
         <div>
 
-            Keterangan: <sup>*)</sup> Beri tanda Check (<img src='.$check.' width="25px; height:30px;">) pada tempat yang sesuai
+            Keterangan: 
+                <br>
+                <sup>*)</sup> Beri tanda Check (<img src='.$check.' width="25px; height:30px;">) pada tempat yang sesuai
+                <br>
+                <sup>**)</sup> Coret Yang tidak Perlu    
 
         </div>
 
@@ -430,12 +444,7 @@ $content .= '
             <p></p>
 
 
-
-            Manajer Teknis
-
-
-
-            <p></p>
+            Korfung KH/KT**,
 
             <p></p>
 

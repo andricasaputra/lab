@@ -2,9 +2,19 @@
 
 require_once ('header.php');
 
+use Lab\classes\kh\labparasit\Nomor as NomorKh;
+
+$objectNomor = new NomorKh();
+
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
+
+
 
     table {
 
@@ -15,6 +25,8 @@ $content ='
         width: 100%;
 
     }
+
+
 
     th{
 
@@ -27,10 +39,15 @@ $content ='
     }
 
 
+
     td{
 
         border: 0.7px solid black;
+
+
+
     }
+
 
 
     .tabel1 td {
@@ -39,19 +56,32 @@ $content ='
 
     }
 
+
+
+
+
     .table2  {
 
         text-align: center;
 
+
+
     }
 
-  .table2 th {
+
+
+      .table2 th {
 
        padding-top: 10px;
 
        padding-bottom: 10px;
 
+
+
+
+
     }
+
 
 
      .table2 td {
@@ -64,15 +94,12 @@ $content ='
 
        margin-bottom:20px;
 
+       height: 400px;
+
 
 
     }
 
-
-    .kosong{
-        border: none;
-        height: 100px;
-    }
 
 
      .tabel3 td {
@@ -80,9 +107,13 @@ $content ='
         padding: 5px 5px 8px;
 
         width: 314px;
+
+
+
     }
 
         
+
     div#garis {
 
         width: 90%;
@@ -94,6 +125,7 @@ $content ='
         padding-bottom: 20px
 
     }
+
 
 
     hr {
@@ -108,15 +140,44 @@ $content ='
 
     }
 
-    .lower td{
-        border: none;
-        padding-bottom:3px;
-        text-align: center;
+
+
+    div#lower{
+
+        position: absolute; 
+
+        margin-left: 455px;
+
+        padding-top :720px;
+
     }
+
+
+
+    div#lower1{
+
+        position: absolute; 
+
+        margin-left: 30px;
+
+        padding-top :734px;
+
+    }
+
+ 
+    .html2pdf__page-break2 {
+
+        height: 2000px;
+
+    }
+
+
+
 
 </style>
 
 ';
+
 
 
 $content .= '
@@ -139,6 +200,7 @@ $content .= '
 
             <hr width="75%">
 
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -154,40 +216,58 @@ $content .= '
 
                 
 
-    if(@$_GET['id'] && @$_GET['tanggal'] !== ''){
+    if(@$_POST['print_data']){
 
-        $tampil = $objectPrint->tampil(@$_GET['id']);
-
-        $tampil2 = $objectPrint->cetak2(@$_GET['tanggal']);
-
-        $tampil3 = $objectPrint->cetak2(@$_GET['tanggal']);
-
-        $tampil4 = $objectPrint->cetak2(@$_GET['tanggal']);
+        $tampil = $objectPrint->print_distribusi_sampel(@$_POST['tgl_a'], @$_POST['tgl_b']);
 
     }else {
 
-        $tampil=$data->tampil();
-
+        $tampil = $objectPrint->tampil();
     }
 
     if ($tampil->num_rows === 0) {
         echo '<script>alert("Tidak Ada Data Untuk Di Cetak! Periksa Kembali Pemilihan Tanggal");window.close();</script>';
         return false;
-    }   
+    }
 
-        while ($data=$tampil->fetch_object()){
+    $num = $tampil->num_rows;
+
+    $arrID = array();
+
+    while ($data=$tampil->fetch_object()):
+
+            $id = $data->id;
+
+            $arrID[] = $data->id;
+
+            $totalID = count($arrID);
+
+            $bil = ucwords($objectNomor->bilangan($data->jumlah_sampel));
+
 
 $content .= '
 
+
+
+
+
     <div align="center">
 
-        <strong>TANDA TERIMA DISTRIBUSI SAMPEL PENGUJIAN <br> LABORATORIUM KARANTINA TUMBUHAN</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
     </div>
 
     <p></p>
 
+
+
+
+
+
+
     <table class="tabel1">
+
+
 
     <tr>
 
@@ -206,6 +286,7 @@ $content .= '
     </tr>
 
 
+
     <tr>
 
         <td width="0" style="border-right: 0px">Kode Sampel</td>
@@ -213,151 +294,7 @@ $content .= '
         <td width="0" align="center" style="border-right: 0px">:</td>
 
         <td width="176">
-        ';
-
-             while ($data2 = $tampil2->fetch_object()):
-
-
-                $arr  = $data2->kode_sampel_sapi;
-
-                $arr2 = $data2->kode_sampel_sapi_bibit;
-
-                $arr3 = $data2->kode_sampel_kerbau;
-
-                $arr4 = $data2->kode_sampel_kuda;
-
-                $arr5 = $data2->kode_sampel_lain;
-                            
-                $r[] = $arr;
-                $s[] = $arr2;
-                $t[] = $arr3;
-                $u[] = $arr4;
-                $v[] = $arr5;
-
-                $filter  = array_filter($r);
-                $filter2 = array_filter($s);
-                $filter3 = array_filter($t);
-                $filter4 = array_filter($u);
-                $filter5 = array_filter($v);
-
-                $curr   = current($filter);
-                $end    = end($filter); 
-
-                $curr2  = current($filter2);
-                $end2   = end($filter2); 
-
-                $curr3  = current($filter3);
-                $end3   = end($filter3); 
-
-                $curr4  = current($filter4);
-                $end4   = end($filter4); 
-
-                $curr5  = current($filter5);
-                $end5   = end($filter5); 
-    
-                endwhile;
-
-                if (count(array_filter($r)) !== 0) {
-
-                    if (count($filter) == 1) {
-
-                        $content .='
-
-                        '.$curr.'<br>
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr.' s/d '.$end.'<br>
-
-                        ';
-                    }
-
-                }
-
-                if (count(array_filter($s))  !== 0) {
-                    if (count($filter2) == 1) {
-
-                        $content .='
-
-                        '.$curr2.'<br>
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr2.' s/d '.$end2.'<br>
-
-                        ';
-                    }
-
-                }
-
-                if (count(array_filter($t))  !== 0) {
-                    if (count($filter3) == 1) {
-
-                        $content .='
-
-                        '.$curr3.'<br>
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr3.' s/d '.$end3.'<br>
-
-                        ';
-                    }
-
-                }
-
-                if (count(array_filter($u))  !== 0) {
-                    if (count($filter4) == 1) {
-
-                        $content .='
-
-                        '.$curr4.'<br>
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr4.' s/d '.$end4.'<br>
-
-                        ';
-                    }
-
-                }
-
-                if (count(array_filter($v))  !== 0) {
-                    if (count($filter5) == 1) {
-
-                        $content .='
-
-                        '.$curr5.'
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr5.' s/d '.$end5.'
-
-                        ';
-                    }
-                }
-
-            $content .='
+            '.$data->kode_sampel.'
         </td>
 
         <td width="0" style="border-right: 0px">Jumlah Sampel</td>
@@ -365,28 +302,7 @@ $content .= '
         <td width="0" align="center" style="border-right: 0px">:</td>
 
         <td width="176">
-        ';
-
-                while ($data3 = $tampil3->fetch_object()) {
-
-                    $jum = $data3->jumlah_sampel;
-
-                    $array[] = $jum;
-
-                }
-
-                
-                $jml = (array_sum($array));
-
-                $bil = ucwords($objectNomor->bilangan($jml));
-
-                $content .='
-
-                '.$jml.'&nbsp;('.$bil.')
-
-                ';
-
-        $content .='
+            '.$data->jumlah_sampel.'&nbsp;('.$bil.')
         </td>
 
     </tr>
@@ -417,10 +333,6 @@ $content .= '
 
         <p></p>
 
-   
-
-
-
 
 
         <table class="table2" style=" width: 100%; word-wrap:break-word;
@@ -441,27 +353,18 @@ $content .= '
 
               </tr>
 
-              ';
-
-
-                while ($data4 = $tampil4->fetch_object()) :
-
-
-                $content .='
-
-
 
               <tr>
 
                 
 
-                <td>'.$no++.'</td>
+                <td>1</td>
 
-                <td>'.$data4->no_sampel.'</td>    
+                <td>'.$data->no_sampel.'</td>    
 
                 <td>
 
-                '.$data4->nama_sampel.'
+                '.$data->nama_sampel.'
 
                 </td> 
 
@@ -493,85 +396,86 @@ $content .= '
 
                 </td>
 
-                <td> '.$data4->metode_pengujian.' </td> 
+                <td> '.$data->metode_pengujian.' </td> 
 
 
 
               </tr>
 
-              ';
-
-                endwhile;
-
-                $content.='  
-
-             
         </table>
 
    <br/>
 
 
-<table class="lower">
-    
-    <tr>
-        <td style="padding-bottom: 50px">Yang Menerima</td>
-        <td style="width: 280px"></td>
-        <td></td>
-        <td></td>
-        <td style="padding-bottom: 50px">Yang Menyerahkan</td>
-    </tr>
-       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td></td>
-    </tr>
-    <tr>
-        <td>'.$data->yang_menerimalab.'</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>'.$data->yang_menyerahkanlab.'</td>
-    </tr>
+       <div  id="lower1" align="center">
 
-    <tr>
-        <td>(NIP. '.$data->nip_yang_menerimalab.')</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>(NIP. '.$data->nip_yang_menyerahkanlab.')</td>
-    </tr>
+            <p></p>
 
+            Yang Menerima
 
-</table>
+            <p></p>
 
-'; 
+            <p></p>
+
+            <p></p>
+
             
 
-}
-       
-    $content .='    
+            ('.$data->yang_menerimalab.')<br/>
 
+            NIP. '.$data->nip_yang_menerimalab.'
+
+        </div>
+
+
+
+        <div  id="lower"  align="center">
+
+            <p></p>
+
+            <br>
+
+            Yang Menyerahkan
+
+            <p></p>
+
+            <p></p>
+
+            <p></p>
+
+            
+
+            ('.$data->yang_menyerahkanlab.')<br/>
+
+            NIP. '.$data->nip_yang_menyerahkanlab.'
+
+        </div>
+
+
+        ';
+
+        if ($totalID < $num) {
+
+            $content .= '
+
+                 <div class="html2pdf__page-break2"></div>  
+
+            ';
+
+        } 
+           
+
+endwhile;
+            
+    $content .='    
 
 </page>
 
-
 ';
 
-
 $html2pdf->WriteHTML($content);
+
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Tanda_Terima_Distribusi_Sampel_Pengujian.pdf');
 

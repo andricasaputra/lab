@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
@@ -108,6 +112,8 @@ $content .= '
 
             <hr width="75%">
 
+            <i>'.$objectPrint->kode_dokumen.'</i>
+
         </div>
 
 
@@ -133,12 +139,10 @@ $content .= '
 
     }
 
-    $rtitle = "penyerahan sampel pengujian laboratorium karatina hewan";
-
     while ($data=$tampil->fetch_object()):
 
         $jum = $data->jumlah_sampel;
-        $title = ucwords($rtitle).' | '.$data->no_permohonan;
+        $title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
         $bilangan = ucwords($objectNomor->bilangan($jum));
 
 
@@ -149,7 +153,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong> <br>
+        <strong>'.$objectPrint->title_dokumen.'</strong> <br>
 
         Nomor :&nbsp;&nbsp;'.$data->no_permohonan.'
 

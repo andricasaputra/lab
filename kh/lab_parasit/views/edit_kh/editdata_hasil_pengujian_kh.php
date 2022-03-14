@@ -158,7 +158,7 @@ $ttd_penyelia_hasil_uji = $checkScan["ttd_penyelia_hasil_uji"];
 
                       <div class="column-half">
 
-                        <label class="control-label" for="kepala_plh">Kepala/Plh/MT</label>
+                        <label class="control-label" for="kepala_plh">Ketua Pokja KH & KT</label>
 
                         <select class="form-control" name="kepala_plh" id="kepala_plh_edit" required>
 
@@ -212,7 +212,7 @@ $ttd_penyelia_hasil_uji = $checkScan["ttd_penyelia_hasil_uji"];
 
                       <div class="column-half">
 
-                            <label class="control-label" for="nip_kepala_plh">NIP Kepala/Plh/MT</label>
+                            <label class="control-label" for="nip_kepala_plh">NIP Ketua Pokja KH & KT</label>
 
                               <select class="form-control" name="nip_kepala_plh" id="nip_kepala_plh_edit" required>
 

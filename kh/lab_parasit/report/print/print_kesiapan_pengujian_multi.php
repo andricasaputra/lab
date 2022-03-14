@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -154,6 +158,8 @@ $content .= '
 
             <hr width="75%">
 
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
+
         </div>
 
     </page_footer> ';
@@ -182,19 +188,15 @@ $content .= '
         return false;
     }
 
-    $rtitle = "kesiapan pengujian";
+    while ($data = $tampil->fetch_object()):
 
-    $title = ucwords($rtitle);
+    $id = $data->id;
 
-        while ($data = $tampil->fetch_object()):
+    $target = $objectPrint->cetakTargetTbKesiapan(@$_POST['tanggal']);
 
-        $id = $data->id;
+    $metode = $objectPrint->cetakMetodeTbKesiapan(@$_POST['tanggal']); 
 
-        $target = $objectPrint->cetakTargetTbKesiapan(@$_POST['tanggal']);
-
-        $metode = $objectPrint->cetakMetodeTbKesiapan(@$_POST['tanggal']); 
-
-        $lama = $objectPrint->cetakLamaTbKesiapan(@$_POST['tanggal']);
+    $lama = $objectPrint->cetakLamaTbKesiapan(@$_POST['tanggal']);
 
 $content .= '
 
@@ -204,7 +206,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
     </div>
 
@@ -907,27 +909,21 @@ $content .= '
 
         </div>
 
-
-
         <div  id="lower"  align="center">
 
              <br>
-
-
 
             Sumbawa Besar, '.$data->tanggal_diterima.' 
 
             <br/>
 
-            Manajer Teknis
+            Korfung KH/KT**,
 
             <p></p>
 
             <p></p>
 
             <p></p>
-
-            
 
             ('.$data->mt.')<br/>
 
@@ -953,7 +949,7 @@ endwhile;
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Kesiapan_Pengujian.pdf');
 

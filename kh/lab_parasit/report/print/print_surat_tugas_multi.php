@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -27,7 +31,6 @@ $content ='
 
     }
 
-
     td{
 
         border: 0.7px solid black;
@@ -39,7 +42,6 @@ $content ='
         vertical-align: text-top;
 
         padding-top: 3px;
-
     }
 
     
@@ -48,8 +50,8 @@ $content ='
         width: 95%;
 
         margin-left: 35px;
-    }
 
+    }
 
     hr {
 
@@ -62,6 +64,7 @@ $content ='
         background-color: black;
 
     }
+
 
     div#lower{
 
@@ -76,6 +79,11 @@ $content ='
 
     }
 
+    .html2pdf__page-break2 {
+
+        height: 2000px;
+
+    }
 
 </style>
 
@@ -97,69 +105,70 @@ $content ='
 
             <hr width="75%">
 
+            <i>'.$objectPrint->kode_dokumen.'</i>
+
         </div>
 
 
 
     </page_footer>
 
-
-
-
-
      ';
-
-     
-
     $no=1;
 
-                
+    if(@$_POST['print_data']){
 
-    if(@$_GET['id'] && @$_GET['no_surat_tugas'] && @$_GET['tanggal'] !== ''){
+        $tampil = $objectPrint->print_surat_tugas(@$_POST['tgl_a'], @$_POST['tgl_b']);
 
-        $tampil = $objectPrint->cetakSuratTugas(@$_GET['tanggal']);
+    }else {
 
-        $tampil2 = $objectPrint->cetak(@$_GET['tanggal']);
-
-        $tampil3 = $objectPrint->cetak(@$_GET['tanggal']);
-
-        $tampil4 = $objectPrint->cetak(@$_GET['tanggal']);
-
-        }else {
-
-           if(@$_SESSION['loginadminkh']) {
-
-                echo "<script>alert('Nomor Surat Tugas Belum Diisi!')
-
-                window.location='../admin.php?page=penyelia_analis'</script>";
-
-            }else {
-
-                echo "<script>alert('Nomor Surat Tugas Belum Diisi!')
-
-                window.location='../manajer_teknis.php?page=penyelia_analis'</script>";
-
-            }
-
+        $tampil = $objectPrint->tampil();
         exit;
 
+    }
+
+    if ($tampil->num_rows === 0) {
+        echo '<script>alert("Tidak Ada Data Untuk Di Cetak! Periksa Kembali Pemilihan Tanggal");window.close();</script>';
+        return false;
+    }
+
+    $num = $tampil->num_rows;
+
+    $arrID = array();
+
+    while ($data=$tampil->fetch_object()):
+
+        $arrID[] = $data->id;
+
+        $totalID = count($arrID);
+
+        if (strpos($data->nama_analis, "&") != false) {
+
+        $x = explode("&", $data->nama_analis);
+
+        $nama_analis = $x[0];
+
+        $nama_analis2 = $x[1];
+        
         }
 
-        if ($tampil->num_rows === 0) {
-            echo '<script>alert("Tidak Ada Data Untuk Di Cetak! Periksa Kembali Pemilihan Tanggal");window.close();</script>';
-            return false;
+        if (strpos($data->jab_analis, "&") != false) {
+            
+            $x = explode("&", $data->jab_analis);
+
+            $jab_analis = $x[0];
+
+            $jab_analis2 = $x[1];
+
         }
 
-        while ($data=$tampil->fetch_object()){
-
-  
 
 $content .= '
 
 
     <div align="center">
 
-        <strong>SURAT PENYELIA DAN ANALIS</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
         <br>No : '.$data->no_surat_tugas.'
 
@@ -169,158 +178,12 @@ $content .= '
 
     <div>
 
-         Pada hari ini&nbsp;&nbsp;'.$data->hari.'&nbsp;&nbsp;Bulan '.$data->bulan.'&nbsp;&nbsp;Tahun '.$data->tahun.'&nbsp;&nbsp; ,ditugaskan penyelia dan analis dengan nama dan jabatan fungsional untuk melakukan pengujian sampel dengan kode :&nbsp;
-            ';
-
-             while ($data2 = $tampil2->fetch_object()):
-
-
-                $arr  = $data2->kode_sampel_sapi;
-
-                $arr2 = $data2->kode_sampel_sapi_bibit;
-
-                $arr3 = $data2->kode_sampel_kerbau;
-
-                $arr4 = $data2->kode_sampel_kuda;
-
-                $arr5 = $data2->kode_sampel_lain;
-                            
-                $r[] = $arr;
-                $s[] = $arr2;
-                $t[] = $arr3;
-                $u[] = $arr4;
-                $v[] = $arr5;
-
-                $filter  = array_filter($r);
-                $filter2 = array_filter($s);
-                $filter3 = array_filter($t);
-                $filter4 = array_filter($u);
-                $filter5 = array_filter($v);
-
-                $curr   = current($filter);
-                $end    = end($filter); 
-
-                $curr2  = current($filter2);
-                $end2   = end($filter2); 
-
-                $curr3  = current($filter3);
-                $end3   = end($filter3); 
-
-                $curr4  = current($filter4);
-                $end4   = end($filter4); 
-
-                $curr5  = current($filter5);
-                $end5   = end($filter5); 
-    
-                endwhile;
-
-                if (count(array_filter($r)) !== 0) {
-
-                    if (count($filter) == 1) {
-
-                        $content .='
-
-                        '.$curr.'&nbsp;,
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr.' s/d '.$end.'&nbsp;,
-
-                        ';
-                    }
-
-                }
-
-                if (count(array_filter($s))  !== 0) {
-                    if (count($filter2) == 1) {
-
-                        $content .='
-
-                        '.$curr2.'&nbsp;,
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr2.' s/d '.$end2.'&nbsp;,
-
-                        ';
-                    }
-
-                }
-
-                if (count(array_filter($t))  !== 0) {
-                    if (count($filter3) == 1) {
-
-                        $content .='
-
-                        '.$curr3.'&nbsp;,
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr3.' s/d '.$end3.'&nbsp;,
-
-                        ';
-                    }
-
-                }
-
-                if (count(array_filter($u))  !== 0) {
-                    if (count($filter4) == 1) {
-
-                        $content .='
-
-                        '.$curr4.'&nbsp;,
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr4.' s/d '.$end4.'&nbsp;,
-
-                        ';
-                    }
-
-                }
-
-                if (count(array_filter($v))  !== 0) {
-                    if (count($filter5) == 1) {
-
-                        $content .='
-
-                        '.$curr5.'
-
-                        ';
-
-                    }else{
-
-                        $content .='
-
-                        '.$curr5.' s/d '.$end5.'
-
-                        ';
-                    }
-                }
-
-
-            $content .='
+         Pada hari ini&nbsp;&nbsp;'.$data->hari.'&nbsp;&nbsp;Bulan '.$data->bulan.'&nbsp;&nbsp;Tahun '.$data->tahun.'&nbsp;&nbsp; ,ditugaskan penyelia dan analis dengan nama dan jabatan fungsional untuk melakukan pengujian sampel dengan kode :&nbsp;'.$data->kode_sampel.'
             &nbsp;sesuai rincian sebagaimana tersebut dibawah ini :
 
     </div>
 
-     <p></p>
+        <p></p>
 
         <table style="text-align: center">
 
@@ -372,112 +235,148 @@ $content .= '
 
               <tr >
 
-                
-
-                <td style="width:5%; border-bottom:0px; ">1 <br><br><br> 2</td>
-
-                <td style="width:10%;border-bottom:0px; ">'.$data->nama_penyelia.'<br><br>'.$data->nama_analis.'</td>   
-
-                <td style="width:5%;border-bottom:0px;  "><img src='.$check.' width="25px; height:25px;"></td>
-
-                <td style="width:5%;border-bottom:0px; "><br><br><br><img src='.$check.' width="25px; height:25px;"></td>
-
-                <td style="width:10%;border-bottom:0px; ">'.$data->jab_penyelia.'<br><br>'.$data->jab_analis.'</td>
-
-                <td style="width:10%;border-bottom:0px; ">
                 ';
 
-             while ($data3 = $tampil3->fetch_object()):
-
-
-                $arr2  = $data3->no_sampel;
-                            
-                $ar[] = $arr2;
-
-                $filter2  = $ar;
-
-                $curr2   = current($filter2);
-                $end2    = end($filter2); 
-
-
-
-    
-                endwhile;
-
-
-                    if (count($filter2) == 1) {
+                    if (strpos($data->nama_analis, "&") != false) {
 
                         $content .='
 
-                        '.$curr2.'
+
+                            <td style="width:5%; border-bottom:0px; ">1 <br><br><br> 2 <br><br><br><br> 3</td>
+
+                            <td style="width:10%;border-bottom:0px; ">'.$data->nama_penyelia.'<br><br>'.$nama_analis.'<br><br><br><br>'.$nama_analis2.'</td>   
+
+                            <td style="width:5%;border-bottom:0px;  "><img src='.$check.' width="25px; height:25px;"></td>
+
+                            <td style="width:5%;border-bottom:0px; "><br><br><br><img src='.$check.' width="25px; height:25px;"><br><br><br><img src='.$check.' width="25px; height:25px;"></td>
+
+                            <td style="width:10%;border-bottom:0px; ">'.$data->jab_penyelia.'<br><br>'.$jab_analis.'<br><br>'.$jab_analis2.'</td>
+
+                            <td style="width:10%;border-bottom:0px; ">
+                                '.$data->no_sampel.'
+                            </td>
+
+                            <td style="width:17%;border-bottom:0px; "> <em>'.$data->target_pengujian2.' </em></td>
+
+                            <td style="width:15%;border-bottom:0px; ">'.$data->metode_pengujian.' </td>
+
+                            <td style="width:10%;border-bottom:0px;">
+                                '.$data->jumlah_sampel.'
+                            </td>
+
 
                         ';
-
+                        
                     }else{
 
+
                         $content .='
 
-                        '.$curr2.'&nbsp;s/d&nbsp;'.$end2.'
+
+                            <td style="width:5%; border-bottom:0px; ">1 <br><br><br> 2</td>
+
+                            <td style="width:10%;border-bottom:0px; ">'.$data->nama_penyelia.'<br><br>'.$data->nama_analis.'</td>   
+
+                            <td style="width:5%;border-bottom:0px;  "><img src='.$check.' width="25px; height:25px;"></td>
+
+                            <td style="width:5%;border-bottom:0px; "><br><br><br><img src='.$check.' width="25px; height:25px;"></td>
+
+                            <td style="width:10%;border-bottom:0px; ">'.$data->jab_penyelia.'<br><br>'.$data->jab_analis.'</td>
+
+                            <td style="width:10%;border-bottom:0px; ">
+                                '.$data->no_sampel.'
+                            </td>
+
+                            <td style="width:17%;border-bottom:0px; "> 
+                            <em>'.$data->target_pengujian2.' </em>
+                            <br/>
+                            <em>'.$data->target_pengujian3.' </em>
+
+                            </td>
+
+                            <td style="width:15%;border-bottom:0px; ">'.$data->metode_pengujian.' </td>
+
+                            <td style="width:10%;border-bottom:0px;">
+                                '.$data->jumlah_sampel.'
+                            </td>
+
 
                         ';
-                    }
 
 
-            $content .='
-                </td>
-
-                <td style="width:17%;border-bottom:0px; "> <em>'.$data->target_pengujian2.' </em></td>
-
-                <td style="width:15%;border-bottom:0px; ">'.$data->metode_pengujian.' </td>
-
-                <td style="width:10%;border-bottom:0px;">
-                ';
-
-
-                    while ($data4 = $tampil4->fetch_object()) {
-
-                        $jum = $data4->jumlah_sampel;
-
-                        $array[] = $jum;
 
                     }
 
-                    
-                    $jml = (array_sum($array));
+                $content .='
+                
 
-                    $content .='
-
-                    '.$jml.'
-
-                    ';
-
-
-        $content .='
-                </td>
-
-               
 
               </tr>
 
               <tr>
 
-                    <td style="border-top:0px; padding-bottom: 80px"></td>
+                ';
 
-                    <td style="border-top:0px"></td>
+                    if (strpos($data->nama_analis, "&") != false) {
 
-                    <td style="border-top:0px"></td>
+                        $content .='
 
-                    <td style="border-top:0px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px; padding-bottom: 10px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px"></td>
 
-                    <td style="border-top:0px"></td>
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+
+                        ';
+                        
+                    }else{
+
+
+                        $content .='
+
+
+                            <td style="border-top:0px; padding-bottom: 80px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+                            <td style="border-top:0px"></td>
+
+
+                        ';
+
+
+
+                    }
+
+                $content .='
+
+                    
 
               </tr>
 
@@ -489,7 +388,11 @@ $content .= '
 
         <div>
 
-            Keterangan: <sup>*)</sup> Beri tanda Check (<img src='.$check.' width="25px; height:30px;">) pada tempat yang sesuai
+            Keterangan: 
+            <br>
+                <sup>*)</sup> Beri tanda Check (<img src='.$check.' width="25px; height:30px;">) pada tempat yang sesuai
+                <br>
+                <sup>**)</sup> Coret Yang tidak Perlu 
 
         </div>
 
@@ -503,11 +406,9 @@ $content .= '
 
 
 
-            Manajer Teknis
+           Korfung KH/KT**,
 
 
-
-            <p></p>
 
             <p></p>
 
@@ -519,13 +420,23 @@ $content .= '
 
             NIP. '.$data->nip_mt.'
 
-        </div>';  
+        </div>
 
+        ';
+
+        if ($totalID < $num) {
+
+            $content .= '
+
+                 <div class="html2pdf__page-break2"></div>  
+
+            ';
+
+        }  
        
 
-}
+endwhile;
 
-                
 $content .='    
 
 </page>
@@ -535,6 +446,8 @@ $content .='
 $html2pdf = new \spipu\Html2Pdf\Html2Pdf('L','A4','en','UTF-8');
 
 $html2pdf->WriteHTML($content);
+
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Surat_Tugas.pdf');
 

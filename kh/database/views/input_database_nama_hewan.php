@@ -205,7 +205,3 @@ if(@$_GET['act']==''){
 
 
 
-$objectSource->destroy();
-
-
-

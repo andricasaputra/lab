@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0]);
+
 $content ='
 
 <style>
@@ -109,6 +113,8 @@ $content ='
 
             <hr>
 
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
+
         </div>
 
     </page_footer> ';
@@ -135,10 +141,6 @@ $content ='
         return false;
     }
 
-    $rtitle = "permintaan kesiapan pengujian";
-
-    $title = ucwords($rtitle);
-
     $num = $tampil->num_rows;
 
     $arrID = array();
@@ -161,7 +163,7 @@ $content .= '
 
         <div align="center">
 
-            <strong>'.strtoupper($rtitle).'</strong>
+            <strong>'.$objectPrint->title_dokumen.'</strong>
 
         </div>
 
@@ -305,9 +307,40 @@ $content .= '
 
         </div>
 
+        ';
+
+        if ($totalID < $num) {
+
+            $content .= '
+
+                 <div class="html2pdf__page-break2"></div>  
+
+            ';
+
+        }
+
+endwhile;
+      
+$content .='    
+
+</page>
+
+';
 
 
-        <div  id="lower">
+$html2pdf->WriteHTML($content);
+
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
+
+$html2pdf->Output('Permintaan_Kesiapan_Pengujian.pdf');
+
+require_once('footer.php');
+
+
+
+?>
+
+<!-- <div  id="lower">
 
             <p></p>
 
@@ -358,58 +391,11 @@ $content .= '
                 }
 
 
-
             $content .='
 
            
-
-            
-
             ('.$data->ma.')<br/>
 
             NIP. '.$data->nip_ma.'
 
-        </div>      
-
-
-        ';
-
-        if ($totalID < $num) {
-
-            $content .= '
-
-                 <div class="html2pdf__page-break2"></div>  
-
-            ';
-
-        }
-         
-
-endwhile;
-
-                   
-
-$content .='    
-
-
-
-<div style="page-break-after:always; clear:both"></div> 
-
-</page>
-
-
-
-';
-
-
-$html2pdf->WriteHTML($content);
-
-$html2pdf->pdf->setTitle($title);
-
-$html2pdf->Output('Permintaan_Kesiapan_Pengujian.pdf');
-
-require_once('footer.php');
-
-
-
-?>
+        </div>  -->

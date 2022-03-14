@@ -335,6 +335,3 @@ if(@$_GET['act']=='del') {
 
 }
 
-
-
-$objectSource3->destroy();

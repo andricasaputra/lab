@@ -2,7 +2,9 @@
 
 require_once ('header.php');
 
-$footer = trim("F.4.1.1.1 H; Ter.4; Rev.0; 12/01/2022");
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
 
 $content ='
 
@@ -68,7 +70,7 @@ $content .= '
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>'.$footer.'</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -84,10 +86,6 @@ $content .= '
 		exit();
 
 	}
-
-	$rtitle = "permohonan pengujian laboratorium karantina hewan";
-
-	$title = ucwords($rtitle);
 
 	$num = $tampil->num_rows;
 
@@ -106,7 +104,7 @@ $content .= '
 
 
 
-			<strong><u>'.strtoupper($rtitle).'</u></strong>
+			<strong><u>'.$objectPrint->title_dokumen.'</u></strong>
 
 			<br> Nomor: '.$data->no_permohonan.', Tanggal: '.$data->tanggal_permohonan.'
 
@@ -1465,7 +1463,7 @@ endwhile;
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Data_Permohonan.pdf');
 

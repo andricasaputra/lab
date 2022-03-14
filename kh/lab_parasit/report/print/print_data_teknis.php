@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
+
 $content ='
 
 <style>
@@ -173,6 +177,8 @@ $content .= '
 
             <hr width="75%">
 
+            <i>'.$objectPrint->kode_dokumen.'</i>
+
         </div>
 
     </page_footer>
@@ -216,11 +222,9 @@ if(@$_GET['id'] && $_GET['no_sampel'] !== ''){
 
 }
 
-$rtitle = "data teknis hasil pengujian laboratorium karantina hewan";
-
 while ($data=$tampil->fetch_object()):
 
-    $title = ucwords($rtitle).' | '.$data->kode_sampel;
+    $title = $objectPrint->title_dokumen.' | '.$data->kode_sampel;
 
     if (strpos($data->nama_sampel, "Darah") !== false) {
 
@@ -244,7 +248,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong><br>
+        <strong>'.$objectPrint->title_dokumen.'</strong><br>
 
     </div>
 

@@ -2,7 +2,9 @@
 
 require_once ('header.php');
 
-$footer = trim("F. 5.4.4.3.H; Ter.4; Rev.0; 12/01/2022");
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kh');
 
 $content ='
 
@@ -141,24 +143,24 @@ $content ='
 
 <page backtop="35mm" backleft="12mm" backright="10mm" backbottom="15mm">
 
-        <page_header> 
+    <page_header> 
 
-            <div id="logo">
+        <div id="logo">
 
-            <span style="position: absolute; margin-top: 10px"><img src='.$logoskpbiasa.' width="744px; height:132px"></span>    
+        <span style="position: absolute; margin-top: 10px"><img src='.$logoskpbiasa.' width="744px; height:132px"></span>    
 
-            </div>
+        </div>
 
-        </page_header>
+    </page_header>
 
-        <page_footer>
+    <page_footer>
 
         <hr width="75%">
 
         <table>
             <tr>
                 <td style="width: 650">
-                       <i>'.$footer.'</i> 
+                       <i>'.$objectPrint->kode_dokumen.'</i> 
                 </td>
                 <td style="style="width: 500px", text-align: right">
                        <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
@@ -166,7 +168,6 @@ $content ='
                 </td>
             </tr>
         </table>
-
 
     </page_footer>
 
@@ -206,11 +207,9 @@ $content ='
 
         $arrID = array();
 
-        $rtitle = "surat hasil pengujian laboratorium karantina hewan";
-
         while ($data=$tampil->fetch_object()):
 
-            $title = ucwords($rtitle);
+            $title = $objectPrint->title_dokumen;
 
             $id = $data->id;
 
@@ -252,7 +251,7 @@ $content ='
 
     <div align="center">
 
-        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+        <strong><u>'.$objectPrint->title_dokumen.'</u></strong><br>
 
         ';
 

@@ -196,9 +196,3 @@ if(@$_GET['act']==''){
 
 }
 
-
-
-$objectSource4->destroy();
-
-
-
