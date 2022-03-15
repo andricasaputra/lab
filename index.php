@@ -7,12 +7,12 @@ require_once 'header_login.php';
 <body id="hal-login">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4 col-md-offset-4" id="top-form">
+			<div class="col-sm-4 col-sm-offset-4" id="top-form">
 				<div class="login-panel panel panel-default">
 					<div id="body-form">
 						<br>
-						<img src="assets/img/logo_karantina.png" width="70%">
-						<img src="assets/img/silelogo.jpg" width="50%">
+						<!-- <img src="assets/img/logo_karantina.png" width="50%"> -->
+						<img src="assets/img/silelogo.jpg" width="30%">
 						<hr width="80%">
 					</div>
 					<div class="panel-body radius">
@@ -73,9 +73,9 @@ require_once 'header_login.php';
 			<font color="white">Stasiun Karantina Pertanian Kelas I Sumbawa Besar</font>
 			</b>
 		</div>
-		<div id="footer">
-			<img src="assets/img/foot2.png" width="55%">
-		</div>
+		<!-- <div id="footer" style="margin-left:  0%;">
+			<img src="assets/img/footer-bg.png" width="55%">
+		</div> -->
 	</div>
 	<script src="assets/js/time.js"></script>
 	<!-- <script src="assets/js/main.js"></script> -->
