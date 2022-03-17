@@ -21,8 +21,6 @@ $connection = Database::getInstance();
 
 $conn = $connection->getConnection();
 
-$basepath = init::basePath()."/assets/img/";
-
 $objectData = new DataKh($connection);
 
 $objectHasil = new HasilKh($connection);

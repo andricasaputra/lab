@@ -99,8 +99,6 @@ $content .= '
 
 <div>';
 
-				
-
 	if(@$_GET['id'] !== ''){
 
 		$tampil = $objectPrint->tampil(@$_GET['id']);

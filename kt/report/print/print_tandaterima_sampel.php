@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt', false);
+
 $content ='
 
 <style>
@@ -85,19 +89,16 @@ $content ='
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>F.4.1.1 2; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
     </page_footer>		 ';
 
 
-
 $content .= '
 
 <div>';
-
-				
 
 	if(@$_GET['id'] !== ''){
 
@@ -108,10 +109,7 @@ $content .= '
 		echo "<script>window.close()</script>";
 
        	exit;
-
 	}
-
-	$rtitle = "tanda terima sampel";
 
 	while ($data=$tampil->fetch_object()):
 
@@ -119,15 +117,13 @@ $content .= '
 
 		$cara = $data->cara_pengiriman;
 
-		$title = ucwords($rtitle).' | '.$data->no_permohonan;
-
-
+		$title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
 
 $content .= '
 
 		<div align="center">
 
-			<strong>'.strtoupper($rtitle).'</strong>
+			<strong>'.$objectPrint->title_dokumen.'</strong>
 
 		</div>
 
@@ -939,13 +935,7 @@ $content .='
 
 </page>
 
-
-
 ';
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 

@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
@@ -89,7 +93,7 @@ $content .= '
 
 		<div id="logo">
 
-			<img src="'.$logoskpbiasa.'" width="744px; height:132px">
+			<img src="'.$logoskp.'" width="744px; height:132px">
 
 		</div>
 
@@ -101,7 +105,7 @@ $content .= '
 
             <hr>
 
-            <span style="margin-left: 10px;"><i>F.4.1.1 H; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -123,27 +127,17 @@ $content .= '
 
 	}
 
-	$rtitle = "permohonan pengujian laboratorium karantina tumbuhan";
-
-
 	while ($data=$tampil->fetch_object()):
-
-
-		$title = ucwords($rtitle).' | '.$data->no_permohonan;
 
 		$bag = $data->bagian_tumbuhan;
 
 		$bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-
-
 $content .= '
-
-
 
 <div id="judul">
 
-	<u>'.strtoupper($rtitle).'</u>
+	<u>'.$objectPrint->title_dokumen.'</u>
 
 </div>
 
@@ -1206,13 +1200,9 @@ endwhile;
 
 ';
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
-
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Data_Permohonan'.' '.$b.' '.$a.'.pdf');
 

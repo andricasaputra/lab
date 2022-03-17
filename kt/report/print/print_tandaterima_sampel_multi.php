@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt', false);
+
 $content ='
 
 <style>
@@ -99,7 +103,7 @@ $content ='
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>F.4.1.1 2; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
 
         </div>
 
@@ -127,14 +131,9 @@ $content ='
 
     $arrID = array();
 
-    $rtitle = "tanda terima sampel";
-
-    $title = ucwords($rtitle);
-
 	while ($data=$tampil->fetch_object()):
 
 	$bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
-
 
 		$cara = $data->cara_pengiriman;
 
@@ -142,14 +141,11 @@ $content ='
 
         $totalID = count($arrID);
 
-
-
-
 $content .= '
 
 		<div align="center" id="judul">
 
-			<strong>'.strtoupper($rtitle).'</strong>
+			<strong>'.$objectPrint->title_dokumen.'</strong>
 
 		</div>
 
@@ -1010,19 +1006,11 @@ endwhile;
 
 </page>
 
-
-
 ';
-
-
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Tanda_Terima_Sampel.pdf');
 

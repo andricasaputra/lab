@@ -221,7 +221,7 @@ endwhile;
 
                                   <select class="form-control" name="jabatan" id="jabatan" required>
 
-                                    <option>Tri Suparyanto, A.Md</option>
+                                    <option>Wulida Fakhrina, SP</option>
                                     
                                     <?php 
 
@@ -269,7 +269,7 @@ endwhile;
 
                                     <select class="form-control" name="nip_penerima_sampel" id="nip_penerima_sampel" required>
 
-                                      <option>19861015 201503 1 001</option>
+                                      <option>-</option>
 
                                     </select>
 

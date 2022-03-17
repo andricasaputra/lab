@@ -157,9 +157,9 @@ abstract class LegacyCetak extends Database implements SuperCetak
         return  $query->fetch_object();
     }
 
-    public function setNamaDokumen($alias = NULL, $jenis = NULL)
+    public function setNamaDokumen($alias = NULL, $jenis = NULL, $kt = true)
     {
-        if (str_contains($alias, 'multi')) {
+        if (strpos($alias, 'multi')) {
             $alias = str_replace('_multi', '', $alias);
         }
 
@@ -169,18 +169,30 @@ abstract class LegacyCetak extends Database implements SuperCetak
 
         $data = $query->fetch_object();
 
-        $namalab = '';
+        if($jenis == NULL){
 
-        if ($jenis !== NULL) {
+            $this->kode_karantina = 'H';
 
-           $this->kode_karantina = $jenis == 'kh' ? 'H' : 'T';
+            $namalab = '';
 
-            if ($this->kode_karantina == 'H') {
-                $namalab = 'Karantina Hewan';
-            } else {
-                $namalab = 'Karantina Tumbuhan';
-            }
-        }   
+        } elseif($jenis == 'kh') {
+
+            $this->kode_karantina = 'H';
+
+            $namalab = 'Karantina Hewan';
+        
+        } elseif($jenis == 'kt' && $kt === true) {
+
+            $this->kode_karantina = 'T';
+
+            $namalab = 'Karantina Tumbuhan';
+
+        }  else {
+
+            $this->kode_karantina = 'T';
+
+            $namalab = '';
+        } 
 
         $this->title_dokumen = $data->nama_dokumen . ' '. strtoupper($namalab);
 
