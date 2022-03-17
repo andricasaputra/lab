@@ -230,7 +230,7 @@ $id = $fetch->maxkode;
 
 						<label class="control-label" for="metode_pengujian">Metode Pengujian</label>
 
-						<input type="text" name="metode_pengujian" class="form-control" id="metode_pengujian"  required value="RBT">
+						<input type="text" name="metode_pengujian" class="form-control" id="metode_pengujian"  required value="Rose Bengal Test (RBT)">
 
 					</div>
 

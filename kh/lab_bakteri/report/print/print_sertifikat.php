@@ -155,11 +155,11 @@ if(@$_GET['id'] && $_GET['no_sertifikat'] !== '' && $_GET['nama_sampel'] !== '')
 
     if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
 
-        $tampil2 = $objectPrint->tampilHasilBibit(@$_GET['id']);
+        $fetch_hasil = $objectPrint->tampilHasilBibit(@$_GET['id']);
 
     }else{
 
-        $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
+        $fetch_hasil = $objectPrint->tampilHasil(@$_GET['id']);
     
     }
 
@@ -189,11 +189,9 @@ while ($data=$tampil->fetch_object()):
 
     $title = $objectPrint->title_dokumen.' | '.$data->no_sertifikat;
 
+    $pejabat = $objectPrint->getPejabat($data->nip_kepala_plh);
+
 $content .= '
-
-
-
-
 
     <div align="center">
 
@@ -204,8 +202,6 @@ $content .= '
     </div>
 
     <p></p>
-
-
 
     <strong>A. Keterangan sampel/ media pembawa :</strong><br>
 
@@ -641,6 +637,18 @@ $content .= '
         </tr>
 
 
+        <tr>
+
+            <td width="10" style="vertical-align: text-top">6.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal pemeriksaan sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_pengujian.'</td>
+
+        </tr>
+
 
     </table>
 
@@ -660,11 +668,11 @@ $content .= '
 
             <th style="width:15%;">Identitas Sampel</th>
 
-            <th style="width:25%;" >Target Pengujian</th>
+            <th style="width:20%;" >Target Pengujian</th>
 
-            <th style="width:10%;">Metode Pengujian</th>
+            <th style="width:25%;">Metode Pengujian</th>
 
-            <th style="width:27%;">Hasil Pengujian*)</th>
+            <th style="width:22%;">Hasil Pengujian*)</th>
 
           </tr>
 
@@ -673,23 +681,23 @@ $content .= '
           ';
 
 
-            while ($data2 = $tampil2->fetch_object()):
+            while ($hasil = $fetch_hasil->fetch_object()):
 
           $content .='
 
           <tr>
 
         
-            <td style="width:5%; ">'.$no++.'</td>
+            <td>'.$no++.'</td>
 
-            <td style="width:13%; ">
+            <td>
                 ';
 
                 if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
 
                    $content .= '
 
-                    '.$data2->no_sampel_bibit.'
+                    '.$hasil->no_sampel_bibit.'
 
                    ';
 
@@ -697,7 +705,7 @@ $content .= '
 
                     $content .= '
 
-                    '.$data2->no_sampel.'
+                    '.$hasil->no_sampel.'
 
                    ';
                 }
@@ -706,13 +714,13 @@ $content .= '
 
             </td>    
 
-            <td style="width:20%; ">'.$data->nama_sampel_lab.'</td>
+            <td>'.$data->nama_sampel_lab.'</td>
 
-            <td style="width:22%; "><em>'.$data->target_pengujian2.'</em></td>
+            <td style="width:8%; "><em>'.$data->target_pengujian2.'</em></td>
 
-            <td style="width:12%; "> '.$data->metode_pengujian.' </td>    
+            <td> '.$data->metode_pengujian.' </td>    
 
-            <td style="width:23%;">'.$data2->positif_negatif.'</td>  
+            <td>'.$hasil->positif_negatif.'</td>  
 
           </tr>
 
@@ -761,7 +769,7 @@ $content .= '
 
         <tr>
 
-            <td></td>
+            <td>Mengetahui,</td>
 
             <td style="width: 100px"></td>
 
@@ -777,7 +785,7 @@ $content .= '
 
             <td style="width: 180px"></td>
 
-            <td style="width: 215px">Mengetahui,</td>
+            <td style="width: 215px"></td>
 
         </tr>
 
@@ -785,7 +793,7 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px">Ketua Pokja KH & KT</td>
+            <td style="width: 215px">'. $pejabat->jabfung .'</td>
 
             <td style="width: 180px"></td>
 

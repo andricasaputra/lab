@@ -2,12 +2,14 @@
 
 namespace Lab\classes;
 
+use Lab\config\Database;
+
 define("BASEPATH", dirname(dirname(__DIR__)));
 define("REALPATH", __DIR__);
-define("FULL_URL_IMAGES_PATH", dirname($_SERVER["SERVER_NAME"] . "/lab/assets/img/logoskp4.jpg"));
 
-class Init
+class Init 
 {
+    protected static $production = false;
 
     public static function basePath()
     {
@@ -21,7 +23,14 @@ class Init
 
     public static function imagesPath()
     {
-        return FULL_URL_IMAGES_PATH;
+        if(self::$production)
+        {
+            return dirname($_SERVER["SERVER_NAME"] . "/assets/img/logoskp4.jpg");
+            
+        } else {
+
+            return dirname($_SERVER["SERVER_NAME"] . "/lab/assets/img/logoskp4.jpg");
+        }
     }
 
     public static function SorceDataPath()

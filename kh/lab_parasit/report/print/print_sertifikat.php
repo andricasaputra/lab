@@ -153,11 +153,11 @@ if(@$_GET['id'] && $_GET['no_sertifikat'] !== ''){
 
     if (strpos($_GET['nama_sampel'], 'Bibit')  !== false) {
 
-        $tampil2 = $objectPrint->tampilHasilBibit(@$_GET['id']);
+        $fetch_hasil = $objectPrint->tampilHasilBibit(@$_GET['id']);
 
     }else{
 
-        $tampil2 = $objectPrint->tampilHasil(@$_GET['id']);
+        $fetch_hasil = $objectPrint->tampilHasil(@$_GET['id']);
     }
 
     $ttd = $objectPrint->scan(@$_GET['id']);
@@ -185,6 +185,8 @@ if(@$_GET['id'] && $_GET['no_sertifikat'] !== ''){
 while ($data=$tampil->fetch_object()):
 
     $title = $objectPrint->title_dokumen.' | '.$data->no_sertifikat;
+
+    $pejabat = $objectPrint->getPejabat($data->nip_kepala_plh);
 
 $content .= '
 
@@ -634,6 +636,17 @@ $content .= '
 
         </tr>
 
+        <tr>
+
+            <td width="10" style="vertical-align: text-top">6.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal pemeriksaan sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_pengujian.'</td>
+
+        </tr>
 
 
     </table>
@@ -667,7 +680,7 @@ $content .= '
           ';
 
 
-            while ($data2 = $tampil2->fetch_object()):
+            while ($hasil = $fetch_hasil->fetch_object()):
 
                 if (!empty($data->target_pengujian3)) :
                    
@@ -688,7 +701,7 @@ $content .= '
 
                    $content .= '
 
-                    '.$data2->no_sampel_bibit.'
+                    '.$hasil->no_sampel_bibit.'
 
                    ';
 
@@ -696,7 +709,7 @@ $content .= '
 
                     $content .= '
 
-                    '.$data2->no_sampel.'
+                    '.$hasil->no_sampel.'
 
                    ';
                 }
@@ -714,7 +727,7 @@ $content .= '
 
                 <td style="width:18%;">
 
-                <b>'.$data2->positif_negatif.'</b>
+                <b>'.$hasil->positif_negatif.'</b>
                 
 
                 </td>  
@@ -730,7 +743,7 @@ $content .= '
 
                 <td style="width:23%;">
 
-                <b> '.$data2->positif_negatif_target3.'</b>
+                <b> '.$hasil->positif_negatif_target3.'</b>
                 
 
                 </td>  
@@ -749,7 +762,7 @@ $content .= '
             
                 <td style="width:5%;>'.$no++.'</td>
 
-                <td style="width:13%;>'.$data2->no_sampel.'</td>    
+                <td style="width:13%;>'.$hasil->no_sampel.'</td>    
 
                 <td style="width:15%;>'.$data->nama_sampel.'</td>
 
@@ -760,7 +773,7 @@ $content .= '
 
                 <td style="width:23%;">
 
-                <b>'.$data2->positif_negatif.'</b>
+                <b>'.$hasil->positif_negatif.'</b>
                 
                 </td>  
 
@@ -857,7 +870,7 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px">Ketua Pokja KH & KT</td>
+            <td style="width: 215px">'.$pejabat->jabfung.'</td>
 
             <td style="width: 180px"></td>
 

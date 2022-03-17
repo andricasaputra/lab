@@ -502,13 +502,21 @@ $content ='
 
         </tr>
 
+        <tr>
 
+            <td width="10" style="vertical-align: text-top">7.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal pemeriksaan sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_pengujian.'</td>
+
+        </tr>
 
     </table>
 
     <br>
-
-
 
     <strong>B. Hasil Pengujian :</strong><br><br>
 
@@ -538,14 +546,14 @@ $content ='
 
             if (strpos($data->nama_sampel, "Bibit") !== false) {
 
-                $tampil2 = $objectHasil->print_pertanggal_sertifikat_bibit($id);
+                $fetch_hasil = $objectHasil->print_pertanggal_sertifikat_bibit($id);
 
             }else{
 
-                $tampil2 = $objectHasil->print_pertanggal_sertifikat($id);
+                $fetch_hasil = $objectHasil->print_pertanggal_sertifikat($id);
             }
 
-            while ($data2 =$tampil2->fetch_object()):
+            while ($hasil =$fetch_hasil->fetch_object()):
 
 
 
@@ -570,7 +578,7 @@ $content ='
 
                             $content .= '
 
-                            '.$data2->no_sampel_bibit.'
+                            '.$hasil->no_sampel_bibit.'
 
                             ';
 
@@ -578,7 +586,7 @@ $content ='
                             
                             $content .= '
 
-                            '.$data2->no_sampel.'
+                            '.$hasil->no_sampel.'
 
                             ';
                         }
@@ -593,7 +601,7 @@ $content ='
 
                         <td style="width:23%;">
 
-                        <b>'.$data2->positif_negatif.'</b>
+                        <b>'.$hasil->positif_negatif.'</b>
                         
 
                         </td>  
@@ -609,7 +617,7 @@ $content ='
 
                         <td style="width:23%;">
 
-                        <b> '.$data2->positif_negatif_target3.'</b>
+                        <b> '.$hasil->positif_negatif_target3.'</b>
                         
 
                         </td>  
@@ -637,7 +645,7 @@ $content ='
 
                             $content .= '
 
-                            '.$data2->no_sampel_bibit.'
+                            '.$hasil->no_sampel_bibit.'
 
                             ';
 
@@ -645,7 +653,7 @@ $content ='
                             
                             $content .= '
 
-                            '.$data2->no_sampel.'
+                            '.$hasil->no_sampel.'
 
                             ';
                         }
@@ -660,7 +668,7 @@ $content ='
 
                         <td style="width:23%;">
 
-                        <b>'.$data2->positif_negatif.'</b>
+                        <b>'.$hasil->positif_negatif.'</b>
                         
                         </td>  
 

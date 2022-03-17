@@ -517,7 +517,17 @@ $content .= '
 
         </tr>
 
+        <tr>
 
+            <td width="10" style="vertical-align: text-top">7.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal pemeriksaan sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_pengujian.'</td>
+
+        </tr>
 
     </table>
 

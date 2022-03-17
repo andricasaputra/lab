@@ -192,7 +192,7 @@ endwhile;
 
                                   <label class="control-label" for="target_pengujian2">Target Pengujian</label>
 
-                                  <em><input type="text" name="target_pengujian2" class="form-control" value="<?='Bakteri Brucella sp';?>" id="target_pengujian2_input" required></em>
+                                  <em><input type="text" name="target_pengujian2" class="form-control" value="<?='Antibodi Brucella';?>" id="target_pengujian2_input" required></em>
 
                               </div>
 
@@ -201,7 +201,7 @@ endwhile;
                                   <label class="control-label" for="penerima_sampel">Penerima Sampel</label>
 
                                   <select class="form-control" name="penerima_sampel" id="penerima_sampel_input" required>
-                                        <option>Musallamatun</option>
+                                        <option>Wulida Fakhrina, SP</option>
                                         <?php 
 
                                           $i = $objectData->tampil_jabfung();
@@ -222,7 +222,7 @@ endwhile;
                                   <label class="control-label" for="nip_penerima_sampel">NIP</label>
 
                                   <select class="form-control" name="nip_penerima_sampel" id="nip_penerima_sampel_input">
-                                    <option>19781124 200501 2 001</option>
+                                    <option>-</option>
 
                                   </select>
 

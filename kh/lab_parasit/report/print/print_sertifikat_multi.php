@@ -184,6 +184,9 @@ $arrID = array();
 
 while ($data=$tampil->fetch_object()):
 
+$pejabat = $objectPrint->getPejabat($data->nip_kepala_plh);
+
+
 $id = $data->id;
 
 $ttd = $objectPrint->scan($id);
@@ -637,7 +640,17 @@ $content .= '
 
         </tr>
 
+         <tr>
 
+            <td width="10" style="vertical-align: text-top">6.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal pemeriksaan sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_pengujian.'</td>
+
+        </tr>
 
     </table>
 
@@ -850,7 +863,7 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px">Ketua Pokja KH & KT</td>
+            <td style="width: 215px">'.$pejabat->jabfung.'</td>
 
             <td style="width: 180px"></td>
 
