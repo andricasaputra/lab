@@ -53,7 +53,7 @@ $objectTanggal = new tanggal;
     <link href="../../assets/css/style.css" rel="stylesheet">
     <link href="../../assets/dataTables/datatables.min.css" rel="stylesheet">
     <link href="../../assets/dataTables/DataTables-1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../../assets/sweetalert2-master/dist/sweetalert2.css" rel="stylesheet">
+    <link href="../../assets/sweetalert2.css" rel="stylesheet">
     <script src="../../assets/js/jquery-3.2.1.min.js"></script>
     <style >
      body { overflow-x: hidden; }
