@@ -25,7 +25,7 @@
 
     <script src="../assets/js/sb-admin.js"></script>
 
-    <script src="../assets/sweetalert2-master/dist/sweetalert2.js"></script>
+    <script src="../assets/sweetalert2.js"></script>
 
     <script src="../assets/js/bootstrap-datepicker.js"></script>
 

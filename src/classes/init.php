@@ -9,7 +9,7 @@ define("REALPATH", __DIR__);
 
 class Init 
 {
-    protected static $production = false;
+    protected static $production = true;
 
     public static function basePath()
     {
