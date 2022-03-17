@@ -25,4 +25,9 @@ SET GLOBAL innodb_strict_mode = 0;
 4. KASUBSIE YANOPS -> KEPALA URUSAN TEKNIS
 5. KEPALA/PLH/MT -> KETUA POKJA KH & KT
 
+MYSQL IMPORT BULK DATABASE
+
+1. mysql -uusername -p db_name < path_to_sql_file
+2. mysql --login-path=your-user db_name < path_to_sql_file
+
 

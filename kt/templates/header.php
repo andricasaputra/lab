@@ -57,6 +57,6 @@ $objectAdmin = new Admin;
     <link href="../assets/css/bootstrap-datepicker.css" rel="stylesheet">
     <link href="../assets/dataTables/datatables.min.css" rel="stylesheet">
     <link href="../assets/dataTables/DataTables-1.10.16/css/dataTables.bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/sweetalert2-master/dist/sweetalert2.css" rel="stylesheet">
+    <link href="../asset/sweetalert2.css" rel="stylesheet">
     <script src="../assets/js/jquery-3.2.1.min.js"></script>
 </head>

@@ -101,7 +101,7 @@ $objectPath = new init;
 
     <link href="../assets/css/bootstrap-select.min.css" rel="stylesheet">
 
-    <link href="../assets/sweetalert2-master/dist/sweetalert2.css" rel="stylesheet">
+    <link href="../assets/sweetalert2.css" rel="stylesheet">
 
     <script src="../assets/js/jquery-3.2.1.min.js"></script>
 
