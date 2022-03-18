@@ -36,13 +36,13 @@ if ($fetch != null) {
     $result_id = 0;
 }
 
-$sql = "SELECT * FROM input_permohonan_kh WHERE kesiapan = 'Ya' AND ";
+$sql = "SELECT * FROM input_permohonan_kh WHERE kesiapan = 'Ya' ";
 
 include_once ("sortir_hasil.php");
 
-if(isset($_POST["search"]["value"])){
+if(@$_POST["search"]["value"] != NULL){
 
-    $sql .="  (id LIKE '%".@$_POST['search']['value']."%' ";
+    $sql .=" AND  (id LIKE '%".@$_POST['search']['value']."%' ";
 
     $sql .=" OR tanggal_sertifikat LIKE '%".@$_POST['search']['value']."%' ";
 
@@ -68,13 +68,17 @@ else
 
 $sql1 = '';
 
-if(@$_POST["length"] != -1)
+if(@$_POST["length"] != -1 && @$_POST["length"] !== NULL)
 {
  $sql1 = 'LIMIT ' . @$_POST['start'] . ', ' . @$_POST['length'];
 }
 
 $query = $conn->query($sql);
-//var_dump($query); die;
+
+if (! $query) {
+    trigger_error($conn->error);
+}
+
 $totalData = $query->num_rows;
 
 $query = $conn->query($sql . $sql1);
