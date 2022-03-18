@@ -636,7 +636,7 @@ $content .= '
 
             <td width="10"  style="vertical-align: text-top">:</td>
 
-            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_penyerahan.'</td>
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_penyerahan_lab.'</td>
 
         </tr>
 
