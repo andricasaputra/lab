@@ -8,8 +8,8 @@ class Database
     private static $instance;
     private $host     = "localhost";
     private $username = "root";
-    private $password = "@Stakabad0123";
-    private $database = "lab_2022";
+    private $password = "";
+    private $database = "";
 
     private function __construct()
     {
