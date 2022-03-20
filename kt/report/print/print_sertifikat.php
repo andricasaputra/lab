@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
@@ -125,13 +129,19 @@ $content ='
 
     <page_footer>
 
-        <div id="garis">
+        <hr width="75%">
 
-            <hr width="75%">
+        <table>
+            <tr>
+                <td style="width: 650">
+                       <i>'.$objectPrint->kode_dokumen.'</i> 
+                </td>
+                <td style="style="width: 500px", text-align: right">
+                       <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
 
-            <i>F.4.4.1 1; Ter.1; Rev.0;</i>
-
-        </div>
+                </td>
+            </tr>
+        </table>
 
     </page_footer>
 
@@ -160,19 +170,19 @@ $content ='
 
     }
 
-    $rtitle = "sertifikat hasil pengujian laboratorium karantina tumbuhan";
-
-        while ($data=$tampil->fetch_object()):
+    while ($data=$tampil->fetch_object()):
 
         $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-        $title = ucwords($rtitle).' | '.$data->no_sertifikat;
+        $title = $objectPrint->title_dokumen .' | '.$data->no_sertifikat;
+
+        $pejabat = $objectPrint->getPejabat($data->nip_kepala_plh);
 
 $content .= '
 
     <div align="center">
 
-        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+        <strong><u>'.$objectPrint->title_dokumen.'</u></strong><br>
 
         Nomor : '.$data->no_sertifikat.'
 
@@ -654,6 +664,17 @@ $content .= '
 
         </tr>
 
+        <tr>
+
+            <td width="10" style="vertical-align: text-top">7.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal pengujian sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_pengujian.'</td>
+
+        </tr>
 
 
     </table>
@@ -696,7 +717,6 @@ $content .= '
 
           <tr>
 
-            
 
             <td style="width:5%; ">'.$no++.'</td>
 
@@ -874,7 +894,7 @@ $content .= '
 
                    <tr>
 
-                        <td style="width: 215px; padding-bottom: 80px;position : relative; z-index: 1">Manajer Teknis</td>
+                        <td style="width: 215px; padding-bottom: 80px;position : relative; z-index: 1">'.$pejabat->jabfung.'</td>
 
                         <td style="width: 180px"></td>
 
@@ -895,7 +915,7 @@ $content .= '
 
                     <tr>
 
-                        <td style="width: 215px;position : relative; z-index: 1">Manajer Teknis</td>
+                        <td style="width: 215px;position : relative; z-index: 1">'.$pejabat->jabfung.'</td>
 
                         <td style="width: 180px"></td>
 
@@ -921,11 +941,7 @@ $content .= '
 
                     $content .='
 
-                        <td style="width: 215px; text-align: center;">
-                            <div style="position : relative;z-index: -1; left: -120px">
-                                <img src="'.$basepath.$objectPrint->gambar($data->kepala_plh).'" style="width: 100%">
-                            </div>
-                        </td> 
+                        <td style="width: 215px"><img src='.$objectPrint->getScanTtd($data->nip_kepala_plh, $data->kepala_plh).' style="width: 90%;"></td>
 
                     ';
 
@@ -950,11 +966,7 @@ $content .= '
                     $content .='
 
 
-                        <td style="width: 215px;text-align: center">
-                            <div style="position : relative;z-index: -1; left: -120px">
-                                <img src="'.$basepath.$objectPrint->gambar($data->nama_penyelia).'" style="width: 100%">
-                            </div>
-                        </td>
+                        <td style="width: 215px"><img src='. $objectPrint->getScanTtd($data->nip_penyelia, $data->nama_penyelia) .' style="width: 90%;"></td>
                    
 
                     ';
@@ -996,6 +1008,16 @@ $content .= '
 
         </tr>
 
+        <tr>
+
+            <td style="width: 215px></td>
+
+            <td style="width: 180px"></td>
+
+            <td style="width: 215px"></td>
+
+        </tr>
+
 
 
         <tr>
@@ -1021,10 +1043,6 @@ $content .='
 </page>
 
 ';
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 

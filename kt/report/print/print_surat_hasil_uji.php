@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
@@ -30,7 +34,7 @@ $content ='
 
     .tabel1 td {
 
-        padding:8px;
+        padding:4px;
 
         vertical-align: text-bottom;
 
@@ -51,9 +55,9 @@ $content ='
 
     .table2 th {
 
-       padding-top: 10px;
+       padding-top: 2px;
 
-       padding-bottom: 10px;
+       padding-bottom: 2px;
 
     }
 
@@ -64,7 +68,7 @@ $content ='
 
        text-align: center;
 
-       padding:  7px 5px;
+       padding:  3px 5px;
 
        border: 0.7px solid black;
 
@@ -82,7 +86,7 @@ $content ='
 
         margin-left:-3px;
 
-        margin-bottom: 20px
+        margin-bottom: 10px
 
     }
 
@@ -137,11 +141,17 @@ $content ='
 
     }
 
+    .html2pdf__page-break2 {
+
+      height: 2000px;
+
+    }
+
 
 </style>
 
 
-<page backtop='.$page->backtop.' mm backleft='.$page->backleft.' mm backright='.$page->backright.' mm backbottom='.$page->backbottom.' mm>
+<page backtop="35mm" backleft="12mm" backright="10mm" backbottom="15mm">
 
      <page_header> 
 
@@ -164,13 +174,13 @@ $content ='
             exit;
         }
 
-        $rtitle = "surat hasil pengujian laboratorium karantina tumbuhan";
-
         while ($data = $tampil->fetch_object()):
 
         $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-        $title = ucwords($rtitle).' | '.$data->no_permohonan;
+        $title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
+
+        $pejabat = $objectPrint->getPejabat($data->nip_kepala_plh2);
 
         $content .='
 
@@ -185,32 +195,33 @@ $content ='
         </table>
 
 
-            <span style="position: absolute; margin-top: 10px"><img src="'.$logoskpbiasa.'" width="744px; height:132px"></span>    
-
-
+        <span style="position: absolute; margin-top: 10px"><img src="'.$logoskpbiasa.'" width="744px; height:132px"></span>    
 
         </div>
 
     </page_header>
 
-
-
     <page_footer>
 
-        <div id="garis">
+        <hr width="75%">
 
-            <hr width="75%">
+        <table>
+            <tr>
+                <td style="width: 650">
+                       <i>'.$objectPrint->kode_dokumen.'</i> 
+                </td>
+                <td style="style="width: 500px", text-align: right">
+                       <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
 
-            <i>F.5.4.4.3.H; Ter.1;Rev.0; 03/08/2015</i>
-
-        </div>
+                </td>
+            </tr>
+        </table>
 
     </page_footer>
 
-
     <div align="center">
 
-        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+        <strong><u>'.$objectPrint->title_dokumen.'</u></strong><br>
 
         ';
 
@@ -241,9 +252,7 @@ $content ='
 
     </div>
 
-    <p></p>
-
-
+    <br>
 
     <div>
 
@@ -745,6 +754,18 @@ $content ='
 
 
 
+        <tr>
+
+            <td width="10" style="vertical-align: text-top">8.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal pengujian sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data->tanggal_pengujian.'</td>
+
+        </tr>
+
     </table>
 
     <br>
@@ -892,7 +913,31 @@ $content ='
 
         <tr>
 
-            <td style=" text-align: left"><span style="font-size: 8pt;padding-bottom: 20px">*) Hanya untuk sampel yang diuji</span></td>
+            <td style=" text-align: left">
+
+                <span style="font-size: 8pt;padding-bottom: 0px">
+
+                    *) Hanya untuk sampel yang diuji
+
+                </span>
+                <br/>
+
+                <span style="font-size: 8pt;padding-bottom: 0px">
+
+                    **) Termasuk Ruang Lingkup Akreditasi
+            
+                </span>
+
+                <br/>
+                <br/>
+
+                <b>C. Simpulan Hasil Pengujian :</b>
+
+                <br/>
+
+                <em><b>'.$data->ket_kesimpulan.'</b></em>
+                
+            </td>
 
             <td style="width: 180px"></td>
 
@@ -900,27 +945,6 @@ $content ='
 
         </tr>
 
-
-        <tr>
-
-            <td style="text-align: left"><b>C. Simpulan Hasil Pengujian :</b></td>
-
-            <td style="width: 180px"></td>
-
-            <td style="width: 215px"></td>
-
-        </tr>
-
-
-        <tr>
-
-            <td style="text-align: left; padding-left: 17px"><em><b>'.$data->ket_kesimpulan.'</b></em></td>
-
-            <td style="width: 180px"></td>
-
-            <td style="width: 215px"></td>
-
-        </tr>
 
     </table>
 
@@ -959,50 +983,27 @@ $content ='
             ';
 
 
-            if ($data->kepala_plh2 == 'drh. Ida Bagus Putu Raka Ariana') {
-
-
+            if ($pejabat->jabfung != 'Kepala Stasiun') {
 
                 $content .='
 
-
-
-                <td style="width: 215px; padding-bottom: 60px">Mengetahui, <br> Kepala<span style="text-decoration: line-through;">/Plh.</span>**)</td>
-
-
-
+                <td style="width: 450px; padding-bottom: 50px">Plh. Kepala Stasiun<br>' . $pejabat->jabfung .'</td>
                 ';
-
-
 
             }else{
 
-
-
                 $content .='
 
-
-
-                <td style="width: 215px; padding-bottom: 60px">Mengetahui, <br>Plh Kepala**)</td>
-
-
+                <td style="width: 415px; padding-bottom: 50px">Kepala Stasiun <br></td>
 
                 ';
 
-
-
             }
 
-
-
-            $content .='
-
             
+        $content .='
 
         </tr>
-
-
-
 
 
         <tr>
@@ -1031,7 +1032,7 @@ $content ='
 
         <tr>
 
-            <td style="width: 215px; text-align: left; padding-top: 1px;"><span style="font-size: 7pt">**)Coret yang tidak perlu</span></td>
+            <td style="width: 215px; text-align: left; padding-top: 1px;"><span style="font-size: 7pt">Ket : **)Coret yang tidak perlu</span></td>
 
             <td style="width: 180px"></td>
 
@@ -1062,10 +1063,6 @@ endwhile;
 
 ';
 
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 

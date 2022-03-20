@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt', false);
+
 $content ='
 
 <style>
@@ -147,7 +151,7 @@ $content ='
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.str_replace('T;', ';', $objectPrint->kode_dokumen).'</i></span>
 
         </div>
 
@@ -171,23 +175,21 @@ $content ='
             return false;
         }
 
-        $rtitle = "kesiapan pengujian";
-
-        $title = ucwords($rtitle);
-
         $num = $tampil->num_rows;
 
         $arrID = array();
 
         while ($data=$tampil->fetch_object()):
 
-        $i = $data->kondisi_sampel;
+            $pejabat = $objectPrint->getPejabat($data->nip_mt);
 
-        $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
+            $i = $data->kondisi_sampel;
 
-        $arrID[] = $data->id;
+            $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-        $totalID = count($arrID);
+            $arrID[] = $data->id;
+
+            $totalID = count($arrID);
 
 
 $content .= '
@@ -1232,7 +1234,7 @@ $content .= '
 
             <br/>
 
-            Manajer Teknis
+            '.$pejabat->jabfung.'
 
             <p></p>
 
@@ -1267,17 +1269,12 @@ endwhile;
 
 </page>
 
-
-
 ';
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Kesiapan_Pengujian.pdf');
 

@@ -119,7 +119,7 @@ class Cetak extends LegacyCetak
 
     public function print_multi_lhu($tgl, $tgl2)
     {
-        $sql2  = "SELECT id, no_permohonan, tanggal_permohonan, nama_sampel, nama_ilmiah, kode_sampel, jumlah_sampel,  satuan, bagian_tumbuhan, media, vektor, nama_pemilik, alamat_pemilik, pemohon, tanggal_penyerahan_lab, rekomendasi, no_sertifikat, waktu_apdate_sertifikat, tanggal_sertifikat, no_agenda, no_lhu, tanggal_lhu, ket_kesimpulan, kepala_plh2, nip_kepala_plh2 FROM input_permohonan WHERE no_agenda !='' AND DATE(waktu_apdate_sertifikat) BETWEEN '$tgl 'AND '$tgl2' ORDER BY waktu_apdate_sertifikat ASC";
+        $sql2  = "SELECT id, no_permohonan, tanggal_permohonan, nama_sampel, nama_ilmiah, kode_sampel, jumlah_sampel,  satuan, bagian_tumbuhan, media, vektor, nama_pemilik, alamat_pemilik, pemohon, tanggal_penyerahan_lab, rekomendasi, no_sertifikat, waktu_apdate_sertifikat, tanggal_sertifikat, no_agenda, no_lhu, tanggal_lhu, ket_kesimpulan, kepala_plh2, nip_kepala_plh2, tanggal_pengujian FROM input_permohonan WHERE no_agenda !='' AND DATE(waktu_apdate_sertifikat) BETWEEN '$tgl 'AND '$tgl2' ORDER BY waktu_apdate_sertifikat ASC";
         $query = $this->db->query($sql2) or die($this->db->error);
         return $query;
     }

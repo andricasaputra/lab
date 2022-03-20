@@ -9,11 +9,8 @@ class Database
     private $host     = "localhost";
     private $username = "root";
     private $password = "";
-<<<<<<< HEAD
     private $database = "lab_db";
-=======
-    private $database = "";
->>>>>>> 1843a7720b3ed70f191e4ee298168c59d9e3c3af
+
 
     private function __construct()
     {

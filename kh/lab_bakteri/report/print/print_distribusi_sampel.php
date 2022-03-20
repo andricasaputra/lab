@@ -160,15 +160,6 @@ $content ='
 
     }
 
- 
-
-
-
-
-
-
-
- 
 
 </style>
 
@@ -223,8 +214,17 @@ if(@$_GET['id'] !== ''){
 
 }
 
-while ($data=$tampil->fetch_object()){
+$splitTitle = preg_split("/[^\w]*([\s]+[^\w]*|$)/", $objectPrint->title_dokumen, -1, PREG_SPLIT_NO_EMPTY);
 
+array_splice($splitTitle, 5, 0, "<br>");
+
+$titleDokumen = '';
+
+foreach ($splitTitle as $key => $t) {
+    $titleDokumen .= $t . ' ';
+}
+
+while ($data=$tampil->fetch_object()){
 
     $bil = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
@@ -234,12 +234,9 @@ while ($data=$tampil->fetch_object()){
 $content .= '
 
 
-
-
-
     <div align="center">
 
-        <strong>'.$objectPrint->title_dokumen.'</strong>
+        <strong>'.$titleDokumen.'</strong>
 
     </div>
 

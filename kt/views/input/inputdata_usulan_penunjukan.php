@@ -381,7 +381,7 @@ endwhile;
 
                         <div class="column-half">
 
-                           <label class="control-label" for="mt">Manajer Teknis</label>
+                           <label class="control-label" for="mt">Ketua Pokja KH/KT</label>
 
                             <select class="form-control" name="mt" id="mt_input" required>
 

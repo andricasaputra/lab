@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt', false);
+
 $content ='
 
 <style>
@@ -147,7 +151,7 @@ $content ='
 
             <hr>
 
-            <span style="margin-left: 10px;"><i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.str_replace('T;', ';', $objectPrint->kode_dokumen).'</i></span>
 
         </div>
 
@@ -173,15 +177,13 @@ $content ='
         return false;
     }
 
-    $rtitle = "respon permohonan pengujian";
-
-    $title = ucwords($rtitle);
-
     $num = $tampil->num_rows;
 
     $arrID = array();
 
-        while ($data=$tampil->fetch_object()):
+    while ($data=$tampil->fetch_object()):
+
+        $pejabat = $objectPrint->getPejabat($data->nip_ma);
 
         $arrID[] = $data->id;
 
@@ -190,47 +192,37 @@ $content ='
 
 $content .= '
 
-
-
-
-
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
     </div>
 
     <br>
 
-
-
     <div>
 
-            <b>Kepada</b> 
+        <b>Kepada</b> 
 
-            <br>
+        <br>
 
-            <b>Yth.</b> &nbsp;&nbsp;<b>'.$data->nama_pemilik .'</b>
+        <b>Yth.</b> &nbsp;&nbsp;<b>'.$data->nama_pemilik .'</b>
 
-            <br>
+        <br>
 
-            <b>Di</b>
+        <b>Di</b>
 
-            <br>
+        <br>
 
-            <span style="margin-left:30px"><b>Tempat</b></span>
+        <span style="margin-left:30px"><b>Tempat</b></span>
 
-         
 
     </div>
 
          <p style="text-indent: 0.3in;">Bersama ini kami beritahukan bahwa sampel media pembawa yang saudara kirimkan <span style="text-decoration: line-through;">ditolak/</span> dilanjutkan*) pengujian laboratorium sebagai berikut:</p>
 
 
-
 <table cellpadding="10" class="tabel1">
-
-
 
 
 
@@ -802,7 +794,7 @@ $content .= '
 
                 <td  style="border-right:0px; "></td>
 
-                <td  style="; padding-left: -100px"</span><span style="margin-left:30px">Tidak Setuju</span><span style="margin-left:17px"><img src="'.$boxfix.'" style="width: 15px"></span></td>
+                <td  style="; padding-left: -100px"><span style="margin-left:30px">Tidak Setuju</span><span style="margin-left:17px"><img src="'.$boxfix.'" style="width: 15px"></span></td>
 
             </tr>
 
@@ -826,23 +818,17 @@ $content .= '
 
                 <td  style="border-right:0px; border-bottom: 0px"></td>
 
-                <td  style="; padding-left: -100px; border-bottom: 0px"</span><span style="margin-left:-70px">Fax</span><span style="margin-left:44px"><img src="'.$boxfix.'" style="width: 15px"></span></td>
+                <td  style="; padding-left: -100px; border-bottom: 0px"><span style="margin-left:-70px">Fax</span><span style="margin-left:44px"><img src="'.$boxfix.'" style="width: 15px"></span></td>
 
             </tr>
-
-
 
             <tr>
 
                 <td  style="border-right:0px; border-top: 0px "></td>
 
-                <td  style="; padding-left: -100px; border-top: 0px"</span><span style="margin-left:-70px">Lainnya</span><span style="margin-left:19px"><img src="'.$boxfix.'" style="width: 15px"></span></td>
+                <td  style="; padding-left: -100px; border-top: 0px"><span style="margin-left:-70px">Lainnya</span><span style="margin-left:19px"><img src="'.$boxfix.'" style="width: 15px"></span></td>
 
             </tr>
-
-
-
-
 
     <tr>
 
@@ -900,13 +886,8 @@ $content .= '
 
             <br/>
 
-            ';
 
-            if ($data->ma == 'Muhammad Ridwan') {
-                $content .='
-
-
-                Manajer Administrasi,<br/><br/>
+                '.$pejabat->jabfung.',<br/><br/>
 
                 <p></p>
 
@@ -919,36 +900,6 @@ $content .= '
                 ('.$data->ma.')<br/>
 
                 NIP. '.$data->nip_ma.'
-
-
-                ';
-            }else{
-
-                $content .='
-
-                <span style="margin-left: -24px">An.</span> Manajer Administrasi,<br/>
-
-                Deputi MA
-
-                <p></p>
-
-                <p></p>
-
-                <p></p>
-
-                
-
-                ('.$data->ma.')<br/>
-
-                NIP. '.$data->nip_ma.'
-
-                ';
-            }
-
-
-            $content .='
-
-           
 
         </div>
 
@@ -974,16 +925,11 @@ endwhile;
 </page>
 
 
-
 ';
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Respon_Permohonan_Pengujian.pdf');
 

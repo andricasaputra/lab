@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
@@ -163,7 +167,7 @@ div#lower1{
 
             <hr width="75%">
 
-            <i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -189,9 +193,15 @@ div#lower1{
         return false;
     }
 
-    $rtitle = "tanda terima distribusi sampel pengujian <br/> laboratorium karantina tumbuhan";
+    $splitTitle = preg_split("/[^\w]*([\s]+[^\w]*|$)/", $objectPrint->title_dokumen, -1, PREG_SPLIT_NO_EMPTY);
 
-    $title = ucwords(str_replace("<br/>", "", $rtitle));
+    array_splice($splitTitle, 5, 0, "<br>");
+
+    $titleDokumen = '';
+
+    foreach ($splitTitle as $key => $t) {
+        $titleDokumen .= $t . ' ';
+    }
 
     $num = $tampil->num_rows;
 
@@ -219,7 +229,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$titleDokumen.'</strong>
 
     </div>
 
@@ -692,9 +702,6 @@ $content .= '
                 </div>
 
             ';
-
-
-            
             
         }else{
 
@@ -716,8 +723,6 @@ $content .= '
 
         }
 
- 
-
         if ($totalID < $num) {
 
             $content .= '
@@ -738,21 +743,13 @@ endwhile;
 ';
 
 
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
-
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Tanda_Terima_Distribusi_Sampel_Pengujian.pdf');
 
 require_once('footer.php');
-
-
-
 
 
 ?>

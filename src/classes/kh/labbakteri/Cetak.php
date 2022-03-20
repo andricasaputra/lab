@@ -59,70 +59,70 @@ class Cetak extends LegacyCetak implements CetakKH
 
     public function print_penerimaan_sampel($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE penerima_sampel !=''AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE penerima_sampel IS NOT NULL AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_penyerahan_sample($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE kode_sampel !=''AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE kode_sampel IS NOT NULL AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_permintaan_kesiapan($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE ma !=''AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE ma IS NOT NULL AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_respon_permohonan($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE penyelia !=''AND analis !='' AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE penyelia IS NOT NULL AND analis IS NOT NULL AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_kesiapan_pengujian($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE mt !=''AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE mt IS NOT NULL AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_surat_tugas($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE no_surat_tugas !=''AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE no_surat_tugas IS NOT NULL AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_usulan_penunjukan($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE lab_penguji !=''AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE lab_penguji IS NOT NULL AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_distribusi_sampel($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE yang_menyerahkanlab !='' AND yang_menerimalab !='' AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE yang_menyerahkanlab IS NOT NULL AND yang_menerimalab IS NOT NULL AND tanggal_acu_permohonan BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_multi_sertifikat($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE no_sertifikat !='' AND DATE(waktu_apdate_sertifikat) BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE no_sertifikat IS NOT NULL AND DATE(waktu_apdate_sertifikat) BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }
 
     public function print_multi_lhu($tgl, $tgl2)
     {
-        $sql   = "SELECT * FROM input_permohonan_kh WHERE no_lhu !='' AND DATE(waktu_apdate_sertifikat) BETWEEN '$tgl' AND '$tgl2'";
+        $sql   = "SELECT * FROM input_permohonan_kh WHERE no_lhu IS NOT NULL AND DATE(waktu_apdate_sertifikat) BETWEEN '$tgl' AND '$tgl2'";
         $query = $this->db->query($sql) or die($this->db->error);
         return $query;
     }

@@ -6,6 +6,7 @@ $file = explode('.', basename(__FILE__));
 
 $set = $objectPrint->setNamaDokumen($file[0]);
 
+
 $content ='
 
 <style>
@@ -130,6 +131,11 @@ $content ='
 
     }
 
+    .html2pdf__page-break2 {
+
+      height: 10000px;
+
+    }
 
 
 </style>
@@ -153,12 +159,12 @@ $content .= '
     </page_header>
 
     <page_footer>
-
+    
         <div id="garis">
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
+            <span style="margin-left: 10px;"><i>'.str_replace('H;', ';', $objectPrint->kode_dokumen).'</i></span>
 
         </div>
 
@@ -167,18 +173,13 @@ $content .= '
 
      $no=1;   
 
-    if(isset($_POST['print_data'])){
+    if(@$_POST['print_data']){
 
-
-        $tampil = $objectPrint->cetak(@$_POST['tanggal']);
-
-        $kode = $objectPrint->cetakKode(@$_POST['tanggal']);
-       
-        $jumlah_sampel = $kode->num_rows;
-
+        $tampil = $objectPrint->print_kesiapan_pengujian(@$_POST['tgl_a'], @$_POST['tgl_b']);
 
     }else {
 
+        $tampil = $objectPrint->tampil();
         exit;
 
     }
@@ -188,16 +189,19 @@ $content .= '
         return false;
     }
 
-    while ($data = $tampil->fetch_object()):
 
-    $id = $data->id;
+    $num = $tampil->num_rows;
 
-    $target = $objectPrint->cetakTargetTbKesiapan(@$_POST['tanggal']);
+    $arrID = array();
 
-    $metode = $objectPrint->cetakMetodeTbKesiapan(@$_POST['tanggal']); 
+    while ($data=$tampil->fetch_object()):
 
-    $lama = $objectPrint->cetakLamaTbKesiapan(@$_POST['tanggal']);
+        $arrID[] = $data->id;
 
+        $totalID = count($arrID);
+
+        $pejabat = $objectPrint->getPejabat($data->nip_mt);
+        
 $content .= '
 
 
@@ -238,77 +242,9 @@ $content .= '
 
         <td width="18" align="center" style="border-right:0px; border-left: 0px"> :</td>
 
-        
-
         <td width="316">
-            ';
-
-            $kodesmpl = array();
-
-            while ($data2 = $kode->fetch_object()):
-
-                $kd = $data2->kode_sampel;
-
-                $x = explode("/", $kd);
-            
-                if (in_array("sp", $x)) {
-
-                    $kodesmpl["asapi"][] = $data2->kode_sampel_sapi;
-
-                   
-                }
-
-                if (in_array("spbbt", $x)) {
-
-                    $kodesmpl["bbibit"][] = $data2->kode_sampel_sapi_bibit;
-
-                   
-                }
-
-                if (in_array("kb", $x)) {
-
-                    $kodesmpl["ckerbau"][] = $data2->kode_sampel_kerbau;
-
-                   
-                }
-
-                if (in_array("kd", $x)) {
-
-                    $kodesmpl["dkuda"][] = $data2->kode_sampel_kuda;
-
-                   
-                }
-
-                
-            endwhile;
-
-            ksort($kodesmpl);
-
-            foreach ($kodesmpl as $key) {
-
-                if (count($key) > 1) {
-
-                    $pertama = $key[0];
-                    $terakhir = end($key);
-
-                    $content .= '
-                        '.$pertama.' - '.$terakhir.'<br>
-                    ';
-
-                }else{
-
-                   $pertama = $key[0];
-
-                   $content .= '
-                        '.$pertama.'<br>
-                    ';
-
-                }     
-  
-            }
-
-            $content .='
-
+        
+            '.$data->kode_sampel.'
 
         </td>
 
@@ -334,7 +270,7 @@ $content .= '
         <td width="18" align="center" style="border-right:0px; border-left: 0px"> :</td>
 
         <td width="316">
-            '.$jumlah_sampel.'
+            '.$data->jumlah_sampel.'
         </td>
 
     </tr>
@@ -360,61 +296,40 @@ $content .= '
 
               </tr>
 
+
+
               <tr>
 
                 <td style="width:5%;">1</td>
 
-                <td style="width:45%"><em><b>
                 ';
-                  
-                while ($tr = $target->fetch_object()):
 
-                    $content .='
+                if ($data->target_pengujian3 != '') {
 
-                    '.$tr->target_pengujian2.'<br>
+                    $content .= '
+
+                    <td style="width:45%"><em><b>'.$data->target_pengujian2.' & '.$data->target_pengujian3.'</b></em></td>
+
+
+                    ';
+                   
+                }else{
+
+                    $content .= '
+
+                    <td style="width:45%"><em><b>'.$data->target_pengujian2.'</b></em></td>
+
 
                     ';
 
-                endwhile;
-
-
-                $content .='
-
-                
-                </b></em></td>
-
-                <td style="width:30%;">';
-                  
-                while ($me = $metode->fetch_object()):
-
-                    $content .='
-
-                    '.$me->metode_pengujian.'<br>
-
-                    ';
-
-                endwhile;
-
+                }
 
                 $content .='
-                </td>
+
+                 <td style="width:30%;">'.$data->metode_pengujian.'  </td>
 
                 <td style="width:20%;">
-                ';
-                  
-                while ($lm = $lama->fetch_object()):
-
-                    $content .='
-
-                    '.$lm->lama_pengujian.'<br>
-
-                    ';
-
-                endwhile;
-
-
-                $content .='
-
+                    '.$data->lama_pengujian.'
                 </td>                     
 
               </tr>
@@ -909,21 +824,27 @@ $content .= '
 
         </div>
 
+
+
         <div  id="lower"  align="center">
 
              <br>
+
+
 
             Sumbawa Besar, '.$data->tanggal_diterima.' 
 
             <br/>
 
-            Korfung KH/KT**,
+            '.$pejabat->jabfung.'
 
             <p></p>
 
             <p></p>
 
             <p></p>
+
+            
 
             ('.$data->mt.')<br/>
 
@@ -931,18 +852,24 @@ $content .= '
 
         </div>
 
-
-
         ';
-               
+
+        if ($totalID < $num) {
+
+            $content .= '
+
+                 <div class="html2pdf__page-break2"></div>  
+
+            ';
+
+        }  
+              
 
 endwhile;
             
     $content .='    
 
 </page>
-
-
 
 ';
 
