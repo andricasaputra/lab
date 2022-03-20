@@ -42,11 +42,7 @@ include_once ("sortir_hasil.php");
 
 if(@$_POST["search"]["value"] != NULL){
 
-<<<<<<< HEAD
     $sql .=" AND  (id LIKE '%".@$_POST['search']['value']."%' ";
-=======
-    $sql .=" AND (id LIKE '%".@$_POST['search']['value']."%' ";
->>>>>>> 97e7ea3151ca0c3750b8840d92096683a81bca43
 
     $sql .=" OR tanggal_sertifikat LIKE '%".@$_POST['search']['value']."%' ";
 
