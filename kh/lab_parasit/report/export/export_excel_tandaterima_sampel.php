@@ -4,7 +4,7 @@ require_once ('header.php');
 
 $fileName = "Tanda_Terima_Sampel-(".date('d-m-Y').").xls";
 
-header("Content-Disposition: attachment; filename='$fileName'");
+header("Content-Disposition: attachment; filename=\"$fileName\"");
 
 header("Content-Type: application/vnd.ms-excel");
 

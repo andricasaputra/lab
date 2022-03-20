@@ -3,6 +3,7 @@
         "psr-4": {"Lab\\": "src/"}
     },
     "require": {
-        "spipu/html2pdf": "^5.2"
+        "spipu/html2pdf": "^5.2",
+        "phpoffice/phpspreadsheet": "^1.22"
     }
 }
