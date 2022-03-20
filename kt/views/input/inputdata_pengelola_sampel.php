@@ -137,7 +137,7 @@ endwhile;
 
                           <select class="form-control" name="yang_menyerahkanlab" id="yang_menyerahkanlab_input" required> 
 
-                            <option>Andrica Ismi Eka Saputra</option>
+                            <option>Tri Suparyanto, A.Md</option>
 
                               <?php 
 
@@ -188,7 +188,7 @@ endwhile;
 
                               <select class="form-control" name="nip_yang_menyerahkanlab" id="nip_yang_menyerahkanlab_input" required>
 
-                                    <option>19940110 201403 1 001</option>
+                                    <option>19861015 201503 1 001</option>
 
                               </select>
 

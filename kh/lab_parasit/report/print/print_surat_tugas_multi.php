@@ -105,7 +105,7 @@ $content ='
 
             <hr width="75%">
 
-            <i>'.$objectPrint->kode_dokumen.'</i>
+            <i>'.str_replace('H;', ';', $objectPrint->kode_dokumen).'</i>
 
         </div>
 

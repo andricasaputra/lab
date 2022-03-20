@@ -113,7 +113,7 @@ $content ='
 
             <hr>
 
-            <span style="margin-left: 10px;"><i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i></span>
+            <span style="margin-left: 10px;"><i>'.str_replace('T;', ';', $objectPrint->kode_dokumen).'</i></span>
 
         </div>
 
@@ -140,6 +140,8 @@ $content ='
     $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
     $title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
+
+    $pejabat = $objectPrint->getPejabat($data->nip_ma);
 
 
 $content .= '
@@ -557,13 +559,8 @@ $content .= '
 
             <br/>
 
-            ';
 
-            if ($data->ma == 'Muhammad Ridwan') {
-                $content .='
-
-
-                Manajer Administrasi,<br/><br/>
+                '.$pejabat->jabfung.',<br/><br/>
 
                 <p></p>
 
@@ -576,34 +573,6 @@ $content .= '
                 ('.$data->ma.')<br/>
 
                 NIP. '.$data->nip_ma.'
-
-
-                ';
-            }else{
-
-                $content .='
-
-                <span style="margin-left: -24px">An.</span> Manajer Administrasi,<br/>
-
-                Deputi MA
-
-                <p></p>
-
-                <p></p>
-
-                <p></p>
-
-                
-
-                ('.$data->ma.')<br/>
-
-                NIP. '.$data->nip_ma.'
-
-                ';
-            }
-
-
-            $content .='
 
         
         </div>      

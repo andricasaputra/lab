@@ -15,14 +15,14 @@ $col =array(
 
 );  
 
-$sql = "SELECT * FROM input_permohonan WHERE kesiapan = 'Ya' AND ";
+$sql = "SELECT * FROM input_permohonan WHERE kesiapan = 'Ya' ";
 
 include_once ("sortir_hasil.php");
 
 if(isset($_POST["search"]["value"])){
 
 
-    $sql .=" (id LIKE '%".@$_POST['search']['value']."%' ";
+    $sql .=" AND (id LIKE '%".@$_POST['search']['value']."%' ";
 
     $sql .=" OR tanggal_sertifikat LIKE '%".@$_POST['search']['value']."%' ";
 
@@ -47,7 +47,7 @@ else
 
 $sql1 = '';
 
-if(@$_POST["length"] != -1)
+if(isset($_POST["length"]) && @$_POST["length"] != -1)
 {
  $sql1 = 'LIMIT ' . @$_POST['start'] . ', ' . @$_POST['length'];
 }
@@ -57,6 +57,8 @@ $query = $conn->query($sql);
 $totalData = $query->num_rows;
 
 $query = $conn->query($sql . $sql1);
+
+
 
 $data = array();
 
@@ -105,7 +107,7 @@ while($data2 = $query->fetch_object()){
 
     $has = $qu->fetch_assoc();
 
-    $f = $has['hasil_pengujian'];
+    $f = $has['hasil_pengujian'] ?? 0;
 
     $nmr = $nomor++;
 
@@ -115,7 +117,7 @@ while($data2 = $query->fetch_object()){
 
     $subdata = array();
 
-        if (strlen($f) == 0 || strlen($isi) == 0) {
+        if (strlen($f) == 0 || is_null($isi)) {
 
             $subdata[] = "<span class='kosong'>".$dat['no']."</span>"; 
 
@@ -192,7 +194,7 @@ while($data2 = $query->fetch_object()){
 
         } elseif (strlen($selesai) == 0) {
 
-           if(strlen($isi) == 0){
+           if(is_null($isi)){
 
 
             $subdata[] = '

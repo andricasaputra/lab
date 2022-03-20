@@ -142,7 +142,7 @@ endwhile;
 
                                 while ($t=$i->fetch_object()) : 
 
-                                  if ($t->nama_pejabat == 'Andrica Ismi Eka Saputra') {
+                                  if ($t->nama_pejabat == 'Tri Suparyanto, A.Md') {
 
                                     echo '<option value="'.$t->nama_pejabat.'" selected>'.$t->nama_pejabat.'</option>';
 
@@ -205,7 +205,7 @@ endwhile;
 
                                     while ($t = $i->fetch_object()) : 
 
-                                      if ($t->nama_pejabat == 'Andrica Ismi Eka Saputra') {
+                                      if ($t->nama_pejabat == 'Tri Suparyanto, A.Md') {
 
                                         echo '<option value="'.$t->nip_pejabat.'" selected>'.$t->nip_pejabat.'</option>';
 

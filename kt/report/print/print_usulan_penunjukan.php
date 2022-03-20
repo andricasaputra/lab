@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt', false);
+
 $content ='
 
 <style>
@@ -155,7 +159,7 @@ $content ='
 
             <hr width="75%">
 
-            <i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.str_replace('T;', ';', $objectPrint->kode_dokumen).'/2015</i>
 
         </div>
 
@@ -183,24 +187,21 @@ $content ='
 
     }
 
-    $rtitle = "Form Usulan Penunjukan Penyelia dan Analis Pengujian";
 
-        while ($data=$tampil->fetch_object()){
+    while ($data=$tampil->fetch_object()){
 
         $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-        $title = ucwords($rtitle).' | '.$data->kode_sampel;
+        $title = $objectPrint->title_dokumen.' | '.$data->kode_sampel;
 
-    
-
-
+        $pejabat = $objectPrint->getPejabat($data->nip_mt);
 
 $content .= '
 
 
     <div align="center">
 
-        <strong><h4>'.$rtitle.'</h4></strong>
+        <strong><h4>'.$objectPrint->title_dokumen.'</h4></strong>
 
     </div>
 
@@ -557,8 +558,7 @@ $content .= '
 
             <br/>
 
-            Manajer Teknis
-
+            '.$pejabat->jabfung.'
             <p></p>
 
             <p></p>
@@ -566,7 +566,6 @@ $content .= '
             <p></p>
 
             
-
             ('.$data->mt.')<br/>
 
             NIP. '.$data->nip_mt.'
@@ -587,9 +586,6 @@ $content .='
 
 </page>';
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 

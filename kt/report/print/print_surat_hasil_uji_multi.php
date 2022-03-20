@@ -2,9 +2,14 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
+
 
 
     .table1 {
@@ -29,11 +34,13 @@ $content ='
 
     .tabel1 td {
 
-        padding:8px;
+        padding:4px;
 
         vertical-align: text-bottom;
 
     }
+
+
 
     .table2  {
 
@@ -46,12 +53,11 @@ $content ='
     }
 
 
-
     .table2 th {
 
-       padding-top: 10px;
+       padding-top: 2px;
 
-       padding-bottom: 10px;
+       padding-bottom: 2px;
 
     }
 
@@ -62,11 +68,11 @@ $content ='
 
        text-align: center;
 
-       padding:  7px 5px;
+       padding:  3px 5px;
 
        border: 0.7px solid black;
 
-       align: bottom;   
+       align: bottom;
 
     }
 
@@ -80,9 +86,10 @@ $content ='
 
         margin-left:-3px;
 
-        margin-bottom: 20px
+        margin-bottom: 10px
 
     }
+
 
 
     hr {
@@ -98,7 +105,6 @@ $content ='
     }
 
 
-
     .lower th td {
 
        border: 0px;
@@ -112,6 +118,7 @@ $content ='
     }
 
 
+
     div#logo {
 
         margin-left: 0px;
@@ -119,7 +126,8 @@ $content ='
     }
 
 
-    .agenda td {
+
+     .agenda td {
 
         border : 0.7px solid black;
 
@@ -133,15 +141,12 @@ $content ='
 
     }
 
-
-
     .html2pdf__page-break2 {
 
       height: 2000px;
 
     }
 
- 
 
 </style>
 
@@ -159,22 +164,26 @@ $content ='
     </page_header>
 
 
-
     <page_footer>
+    
+        <hr width="75%">
 
-        <div id="garis">
+        <table>
+            <tr>
+                <td style="width: 650">
+                       <i>'.$objectPrint->kode_dokumen.'</i> 
+                </td>
+                <td style="style="width: 500px", text-align: right">
+                       <strong><img src='.$logokanbaru.' width="100px; height:150px"></strong>
 
-            <hr width="75%">
-
-            <i>F.5.4.4.3.H; Ter.1;Rev.0; 03/08/2015</i>
-
-        </div>
+                </td>
+            </tr>
+        </table>
 
     </page_footer>
 
       ';
 
-       
         if(!isset($_POST['print_data'])){
 
 
@@ -196,7 +205,6 @@ $content ='
             if ($c > $d) {
 
 
-
                 if(@$_SESSION['loginadminkt']){
 
                 echo "<script>alert('Format Nomor agenda Yang Anda Pilih Salah (Sampai dan dari)')
@@ -214,7 +222,6 @@ $content ='
                window.close()'</script>";
 
                 exit;
-
 
 
                 }else{
@@ -238,15 +245,11 @@ $content ='
         return false;
     }
 
-    $rtitle = "surat hasil pengujian laboratorium karantina tumbuhan";   
-
-    $title = ucwords($rtitle);
-
     $num = $tampil->num_rows;
 
     $arrID = array();        
 
-       while ($data2 = $tampil->fetch_object()): 
+    while ($data2 = $tampil->fetch_object()): 
 
         $id = $data2->id;  
 
@@ -255,6 +258,8 @@ $content ='
         $arrID[] = $data2->id;
 
         $totalID = count($arrID);
+
+        $pejabat = $objectPrint->getPejabat($data2->nip_kepala_plh2);
 
 $content .= '
 
@@ -285,10 +290,9 @@ $content .= '
     <br>
 
 
-
     <div align="center">
 
-        <strong><u>'.strtoupper($rtitle).'</u></strong><br>
+        <strong><u>'.$objectPrint->title_dokumen.'</u></strong><br>
 
         ';
 
@@ -327,13 +331,16 @@ $content .= '
 
         Kepada Yth.
 
-        <br>
+        
+        <br/>
 
         <b>'.$data2->pemohon.'</b>
 
         <br>Di '.$data2->alamat_pemilik.'
 
     </div>
+
+    <br/>
 
         Memenuhi Surat Permohonan Pengujian Laboratorium Saudara No. '.$data2->no_permohonan.' tanggal '.$data2->tanggal_permohonan.' , bersama ini disampaikan surat hasil pengujian laboratorium terhadap sampel/media pembawa OPT/OPTK dengan identitas sebagai berikut :
 
@@ -823,7 +830,17 @@ $content .= '
 
         </tr>
 
+        <tr>
 
+            <td width="10" style="vertical-align: text-top">8.</td>
+
+            <td width="200"  style="vertical-align: text-top">Tanggal pengujian sampel/ <br>media pembawa di laboratorium</td>
+
+            <td width="10"  style="vertical-align: text-top">:</td>
+
+            <td width="200"  style="vertical-align: text-top">'.$data2->tanggal_pengujian.'</td>
+
+        </tr>
 
     </table>
 
@@ -998,35 +1015,38 @@ $content .= '
 
         <tr>
 
-            <td style=" text-align: left"><span style="font-size: 8pt;padding-bottom: 20px">*) Hanya untuk sampel yang diuji</span></td>
+            <td style=" text-align: left">
+
+                <span style="font-size: 8pt;padding-bottom: 0px">
+
+                    *) Hanya untuk sampel yang diuji
+
+                </span>
+                <br/>
+
+                <span style="font-size: 8pt;padding-bottom: 0px">
+
+                    **) Termasuk Ruang Lingkup Akreditasi
+            
+                </span>
+
+                <br/>
+                <br/>
+
+                <b>C. Simpulan Hasil Pengujian :</b>
+
+                <br/>
+
+                <em><b>'.$data2->ket_kesimpulan.'</b></em>
+                
+            </td>
 
             <td style="width: 180px"></td>
 
-            <td style="width: 215px"></td>
+            <td style="width: 215px;height: 70px"></td>
 
         </tr>
 
-
-        <tr>
-
-            <td style="text-align: left"><b>C. Simpulan Hasil Pengujian :</b></td>
-
-            <td style="width: 180px"></td>
-
-            <td style="width: 215px"></td>
-
-        </tr>
-
-
-        <tr>
-
-            <td style="text-align: left; padding-left: 17px"><em><b>'.$data2->ket_kesimpulan.'</b></em></td>
-
-            <td style="width: 180px"></td>
-
-            <td style="width: 215px"></td>
-
-        </tr>
 
     </table>
 
@@ -1064,37 +1084,20 @@ $content .= '
 
 
 
-            if ($data2->kepala_plh2 == 'drh. Ida Bagus Putu Raka Ariana') {
-
-
+            if ($pejabat->jabfung != 'Kepala Stasiun') {
 
                 $content .='
 
-
-
-                <td style="width: 215px; padding-bottom: 60px">Mengetahui, <br> Kepala<span style="text-decoration: line-through;">/Plh.</span>**)</td>
-
-
-
+                <td style="width: 450px; padding-bottom: 50px">Plh. Kepala Stasiun<br>' . $pejabat->jabfung .'</td>
                 ';
-
-
 
             }else{
 
-
-
                 $content .='
 
-
-
-                <td style="width: 215px; padding-bottom: 60px">Mengetahui, <br>Plh Kepala**)</td>
-
-
+                <td style="width: 415px; padding-bottom: 50px">Kepala Stasiun <br></td>
 
                 ';
-
-
 
             }
 
@@ -1134,7 +1137,7 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px; text-align: left; padding-top: 1px;"><span style="font-size: 7pt">**)Coret yang tidak perlu</span></td>
+            <td style="width: 215px; text-align: left; padding-top: 1px;"><span style="font-size: 7pt">Ket: **)Coret yang tidak perlu</span></td>
 
             <td style="width: 180px"></td>
 
@@ -1149,6 +1152,7 @@ $content .= '
     ';
 
         if ($totalID < $num) {
+
 
             $content .= '
 
@@ -1170,13 +1174,9 @@ endwhile;
 ';
 
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
-
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Surat_Hasil_Pengujian.pdf');
 

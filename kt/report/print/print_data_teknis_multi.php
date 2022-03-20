@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
@@ -149,7 +153,7 @@ $content ='
 
             <hr width="75%">
 
-            <i>F.4.4.1 1; Ter.1; Rev.0;</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -158,10 +162,7 @@ $content ='
      ';
 
 
-
         if(!isset($_POST['print_data'])){
-
-
 
             if(@$_SESSION['loginadminkt']){
 
@@ -171,8 +172,6 @@ $content ='
 
                 exit;
 
-
-
             }elseif(@$_SESSION['loginsuperkt']){
 
                 echo "<script>alert('Harap tidak reload menggunakan url')
@@ -180,8 +179,6 @@ $content ='
                 window.location='../../super_admin.php?page=data_teknis'</script>";
 
                 exit;
-
-
 
             }else{
 
@@ -193,11 +190,8 @@ $content ='
 
             } 
 
-       
 
         }else{
-
-
 
             $no=1;
 
@@ -219,10 +213,6 @@ $content ='
             echo '<script>alert("Tidak Ada Data Untuk Di Cetak! Periksa Kembali Pemilihan Tanggal");window.close();</script>';
             return false;
         }
-         
-        $rtitle = "data teknis hasil pengujian laboratorium karantina tumbuhan";
-
-        $title = ucwords($rtitle);
 
         $num1 = $tampil2->num_rows;
 
@@ -248,7 +238,7 @@ $content ='
 
     <div align="center" id="judul">
 
-        <strong>'.strtoupper($rtitle).'</strong><br>
+        <strong>'.$objectPrint->title_dokumen.'</strong><br>
 
     </div>
 
@@ -872,7 +862,7 @@ $content ='
 
                         $content .='
 
-                        <td style="width: 215px; text-align: center;"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$basepath.$objectPrint->gambar($data2->nama_penyelia).'" style="width: 100%"></div></td>
+                        <td style="width: 215px; text-align: center;"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$objectPrint->getScanTtd($data2->nip_penyelia, $data2->nama_penyelia).'" style="width: 100%"></div></td>
 
 
                         ';
@@ -899,7 +889,7 @@ $content ='
 
                     $content .='
 
-                        <td style="width: 215px;text-align: center"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$basepath.$objectPrint->gambar($data2->nama_analis).'" style="width: 100%"></div></td>
+                        <td style="width: 215px;text-align: center"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$objectPrint->getScanTtd($data2->nip_analis, $data2->nama_analis).'" style="width: 100%"></div></td>
       
 
                         ';
@@ -996,13 +986,9 @@ endwhile;
 
 ';
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en');
-
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Data_Teknis.pdf');
 

@@ -93,7 +93,7 @@ endwhile;
 
                            <div class="column-half">
 
-                                 <label class="control-label" for="ma">Manajer Administrasi</label>
+                                 <label class="control-label" for="ma">Penanggungjawab Kesekretariatan</label>
 
                                  <select class="form-control" name="ma" id="ma_input" required>
 

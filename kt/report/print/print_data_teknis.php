@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
@@ -135,7 +139,7 @@ $content ='
 
             <hr width="75%">
 
-            <i>F.4.4.1 1; Ter.1; Rev.0;</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -144,10 +148,8 @@ $content ='
      ';
 
 
-
     $no=1;
 
-                
 
     if(@$_GET['id'] !== '' && $_GET['no_sampel'] !== ''){
 
@@ -181,11 +183,9 @@ $content ='
 
         }
 
-        $rtitle = "data teknis hasil pengujian laboratorium karantina tumbuhan";
-
         while ($data=$tampil->fetch_object()):
 
-            $title = ucwords($rtitle).' | '.$data->kode_sampel;
+            $title = $objectPrint->title_dokumen.' | '.$data->kode_sampel;
 
             $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
@@ -197,7 +197,7 @@ $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong><br>
+        <strong>'.$objectPrint->title_dokumen.'</strong><br>
 
     </div>
 
@@ -891,7 +891,7 @@ $content .= '
                         $content .='
 
 
-                                <td style="width: 215px; text-align: center;"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$basepath.$objectPrint->gambar($data->nama_penyelia).'" style="width: 100%;"></div></td>
+                                <td style="width: 215px; text-align: center;"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$objectPrint->getScanTtd($data->nip_penyelia, $data->nama_penyelia).'" style="width: 100%;"></div></td>
   
 
                         ';
@@ -917,14 +917,10 @@ $content .= '
 
                 if ($ttd["ttd_analis_data_teknis"] == 'Ya') {
 
-
                         $content .='
 
+                                <td style="width: 215px;text-align: center"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$objectPrint->getScanTtd($data->nip_analis, $data->nama_analis).'" style="width: 100%;"></div></td>
 
-                                <td style="width: 215px;text-align: center"><div style="position: relative; z-index: -1; left: -120px"><img src="'.$basepath.$objectPrint->gambar($data->nama_analis).'" style="width: 100%;"></div></td>
-
-
-                            
 
                         ';
 
@@ -1021,10 +1017,6 @@ endwhile;
 
 ';
 
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en');
 
 $html2pdf->WriteHTML($content);
 

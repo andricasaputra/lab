@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt', false);
+
 $content ='
 
 <style>
@@ -101,7 +105,7 @@ $content ='
 
             <hr width="75%">
 
-            <i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.str_replace('T;', ';', $objectPrint->kode_dokumen).'</i>
 
         </div>
 
@@ -127,23 +131,20 @@ $content ='
 
     }
 
-    $rtitle = "surat penyelia dan analis";
 
-        while ($data=$tampil->fetch_object()){
+    while ($data=$tampil->fetch_object()){
+
+        $pejabat = $objectPrint->getPejabat($data->nip_mt);
 
         $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-        $title = ucwords($rtitle).' | '.$data->no_surat_tugas;
+        $title = $objectPrint->title_dokumen.' | '.$data->no_surat_tugas;
 
 $content .= '
 
-
-
-
-
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
 
         <br>No : '.$data->no_surat_tugas.'
 
@@ -553,7 +554,7 @@ $content .= '
 
 
 
-            Manajer Teknis
+            '.$pejabat->jabfung.'
 
 
 
@@ -586,10 +587,8 @@ $content .='
 
 ';
 
+$html2pdf = new \spipu\Html2Pdf\Html2Pdf('L','A4','en','UTF-8');
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('L','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 

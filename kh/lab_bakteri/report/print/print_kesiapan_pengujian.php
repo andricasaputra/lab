@@ -158,7 +158,7 @@ $content .= '
 
             <hr width="75%">
 
-            <span style="margin-left: 10px;"><i>'.$objectPrint->kode_dokumen.'</i></span>
+            <span style="margin-left: 10px;"><i>'.str_replace('H;', ';', $objectPrint->kode_dokumen).'</i></span>
 
         </div>
 
@@ -185,10 +185,6 @@ $content .= '
         $pejabat = $objectPrint->getPejabat($data->nip_mt);
 
 $content .= '
-
-
-
-
 
     <div align="center">
 

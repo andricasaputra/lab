@@ -11,7 +11,6 @@ class Database
     private $password = "@Stakabad0123";
     private $database = "lab_2022";
 
-
     private function __construct()
     {
       

@@ -210,11 +210,11 @@ endif;
 
                            <div class="column-half">
 
-                                 <label class="control-label" for="mt">Manajer Teknis</label>
+                                 <label class="control-label" for="mt">Ketua Pokja KH/KT</label>
 
                                   <select class="form-control" name="mt" id="mt" required>
 
-                                    <option>I Ketut Sindia, SP</option>
+                                    <option>drh. Priono</option>
 
                                         <?php 
 
@@ -240,7 +240,7 @@ endif;
 
                                     <select class="form-control" name="nip_mt" id="nip_mt" required>
 
-                                          <option>19740929 200112 1 002</option>
+                                          <option>19810224 201101 1 008</option>
 
                                     </select>
 

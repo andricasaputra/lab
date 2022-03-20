@@ -234,6 +234,16 @@ $content .= '
 
     $arrID = array();
 
+    $splitTitle = preg_split("/[^\w]*([\s]+[^\w]*|$)/", $objectPrint->title_dokumen, -1, PREG_SPLIT_NO_EMPTY);
+
+    array_splice($splitTitle, 5, 0, "<br>");
+
+    $titleDokumen = '';
+
+    foreach ($splitTitle as $key => $t) {
+        $titleDokumen .= $t . ' ';
+    }
+
     while ($data=$tampil->fetch_object()):
 
             $id = $data->id;
@@ -248,26 +258,15 @@ $content .= '
 $content .= '
 
 
-
-
-
     <div align="center">
 
-        <strong>'.$objectPrint->title_dokumen.'</strong>
+        <strong>'.$titleDokumen.'</strong>
 
     </div>
 
     <p></p>
 
-
-
-
-
-
-
     <table class="tabel1">
-
-
 
     <tr>
 

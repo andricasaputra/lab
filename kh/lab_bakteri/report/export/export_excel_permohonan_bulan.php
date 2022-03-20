@@ -9,8 +9,7 @@ $awal = $_POST['tgl_a'];
 $sampai = $_POST['tgl_b'];
 
 $fileName = "Data_Permohonan-(". $awal .'-'.'SD'.'-'. $sampai.").xls";
-
-header("Content-Disposition: attachment; filename='$fileName'");
+header("Content-Disposition: attachment; filename=\"$fileName\"");
 
 header("Content-Type: application/vnd.ms-excel");
 

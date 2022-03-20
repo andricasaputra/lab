@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 <style>
 
@@ -97,7 +101,7 @@ $content ='
     <page_footer>
         <div id="garis">
             <hr width="75%">
-            <i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
         </div>
 
     </page_footer>
@@ -118,19 +122,27 @@ $content ='
 
     }
 
-        $rtitle = "tanda terima distribusi sampel pengujian <br/> laboratorium karantina tumbuhan";
+    $splitTitle = preg_split("/[^\w]*([\s]+[^\w]*|$)/", $objectPrint->title_dokumen, -1, PREG_SPLIT_NO_EMPTY);
 
-        while ($data=$tampil->fetch_object()):
+    array_splice($splitTitle, 5, 0, "<br>");
 
-        $title = ucwords(str_replace("<br/>", "", $rtitle)).' | '.$data->no_sampel;
+    $titleDokumen = '';
 
-        $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
+    foreach ($splitTitle as $key => $t) {
+        $titleDokumen .= $t . ' ';
+    }
+
+    while ($data=$tampil->fetch_object()):
+
+    $title = $objectPrint->title_dokumen .' | '.$data->no_sampel;
+
+    $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
 $content .= '
 
 
     <div align="center">
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$titleDokumen.'</strong>
     </div>
     <p></p>
 
@@ -444,11 +456,12 @@ $content .='
 
 ';
 
-require_once($html2pdf);
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 $html2pdf->WriteHTML($content);
-$html2pdf->pdf->setTitle($title);
+
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
+
 $html2pdf->Output('Tanda_Terima_Distribusi_Sampel_Pengujian'.' '.$a.' '.$b.'.pdf');
+
 require_once('footer.php');
 
 ?>
