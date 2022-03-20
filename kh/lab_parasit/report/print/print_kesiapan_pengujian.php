@@ -182,6 +182,8 @@ $content .= '
 
         $title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
 
+        $pejabat = $objectPrint->getPejabat($data->nip_mt);
+
 
 $content .= '
 
@@ -818,7 +820,7 @@ $content .= '
 
             <br/>
 
-            Korfung KH/KT**,
+            '.$pejabat->jabfung.'
 
             <p></p>
 

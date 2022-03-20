@@ -167,6 +167,7 @@ $content ='
 
     while ($data=$tampil->fetch_object()):
 
+        $pejabat = $objectPrint->getPejabat($data->nip_mt);
 
         $count[$data->id] = $data->id;
 
@@ -319,7 +320,7 @@ $content .= '
 
             <br/>
 
-            Korfung KH/KT*
+            '.$pejabat->jabfung.'
 
             <p></p>
 

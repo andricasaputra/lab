@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt', false);
+
 $content ='
 
 <style>
@@ -131,13 +135,11 @@ $content ='
 
     }
 
-    $rtitle = "permintaan kesiapan pengujian";
+    while ($data=$tampil->fetch_object()){
 
-        while ($data=$tampil->fetch_object()){
+    $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-        $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
-
-        $title = ucwords($rtitle).' | '.$data->no_permohonan;
+    $title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
 
 
 $content .= '
@@ -145,7 +147,7 @@ $content .= '
 
         <div align="center">
 
-            <strong>'.strtoupper($rtitle).'</strong>
+            <strong>'.$objectPrint->title_dokumen.'</strong>
 
         </div>
 
@@ -603,11 +605,8 @@ $content .= '
 
             $content .='
 
-           
-
+        
         </div>      
-
-
 
         ';
 
@@ -620,17 +619,10 @@ $b = $data->tanggal_diterima;
                    
 $content .='    
 
-
-
 </page>
 
 
 ';
-
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 

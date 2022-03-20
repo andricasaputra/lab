@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt', false);
+
 $content ='
 
 <style>
@@ -144,21 +148,17 @@ $content ='
         return false;
     }
 
-    $rtitle = "permintaan kesiapan pengujian";
-
-    $title = ucwords($rtitle);
-
     $num = $tampil->num_rows;
 
     $arrID = array();
 
-        while ($data=$tampil->fetch_object()):
+    while ($data=$tampil->fetch_object()):
 
-        $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
+    $bilangan = ucwords($objectNomor->bilangan($data->jumlah_sampel));
 
-        $arrID[] = $data->id;
+    $arrID[] = $data->id;
 
-        $totalID = count($arrID);
+    $totalID = count($arrID);
 
 $content .= '
 
@@ -166,7 +166,7 @@ $content .= '
 
      <div align="center">
 
-            <strong>'.strtoupper($rtitle).'</strong>
+            <strong>'.$objectPrint->title_dokumen.'</strong>
 
         </div>
 
@@ -638,23 +638,14 @@ endwhile;
 
 </page>
 
-
-
 ';
-
-
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Permintaan_Kesiapan_Pengujian.pdf');
 
 require_once('footer.php');
 
-
-
-?>
+?> 

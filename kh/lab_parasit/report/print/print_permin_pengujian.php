@@ -143,6 +143,8 @@ $content .= '
 
         $bilangan = ucwords($objectNomor->bilangan($bil));
 
+        $pejabat = $objectPrint->getPejabat($data->nip_ma);
+
 
 $content .= '
 
@@ -290,6 +292,37 @@ $content .= '
             <sup>**)</sup> Beri tanda Check (<img src='.$check.' width="25px; height:30px;">) pada tempat yang sesuai
 
         </div>
+
+        <div  id="lower">
+
+            <p></p>
+
+            <p></p>
+
+            Sumbawa Besar, '.$data->tanggal_diterima.' 
+
+            <br/>
+
+            ';
+
+            $content .='
+
+            <span>'.$pejabat->jabfung.'</span>
+            <p></p>
+
+            <p></p>
+
+            <p></p>
+
+            ';
+
+            $content .='
+
+            ('.$data->ma.')<br/>
+
+            NIP. '.$data->nip_ma.'
+
+        </div> 
 
         ';
 

@@ -124,7 +124,7 @@ endwhile;
 
                              <select class="form-control" name="yang_menyerahkan" id="yang_menyerahkan_input" required>
 
-                                <option>Tri Suparyanto, A.Md</option>
+                                <option>Wulida Fakhrina, SP</option>
 
                                   <?php 
 
@@ -176,7 +176,7 @@ endwhile;
 
                             <select class="form-control" name="nip_ygmenyerahkan" id="nip_ygmenyerahkan_input" required>
 
-                              <option>19861015 201503 1 001</option>
+                              <option>-</option>
  
                             </select>
 

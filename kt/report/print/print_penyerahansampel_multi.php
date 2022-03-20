@@ -2,11 +2,13 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
-
-
 
     table td{
 
@@ -20,14 +22,11 @@ $content ='
 
     }
 
-
-
     .kotak td {
 
         padding: 5px;
 
     }
-
 
     div#garis {
 
@@ -81,10 +80,7 @@ $content ='
 
     }
 
-
-
 </style>
-
 
 <page backtop="35mm" backleft="12mm" backright="10mm" backbottom="10mm">
 
@@ -104,16 +100,13 @@ $content ='
 
             <hr width="75%">
 
-            <i>F.4.4.1 1; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
-
-
 
     </page_footer>
 
      ';
-
 
 
     $no=1;               
@@ -133,10 +126,6 @@ $content ='
         echo '<script>alert("Tidak Ada Data Untuk Di Cetak! Periksa Kembali Pemilihan Tanggal");window.close();</script>';
         return false;
     }
-
-    $rtitle = "penyerahan sampel pengujian laboratorium karantina tumbuhan";
-
-    $title = ucwords($rtitle);
 
     $num = $tampil->num_rows;
 
@@ -1116,13 +1105,9 @@ endwhile;
 
 ';
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('P','A4','en', 'UTF-8');
-
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
 $html2pdf->Output('Penyerahan_Sampel_Pengujian.pdf');
 

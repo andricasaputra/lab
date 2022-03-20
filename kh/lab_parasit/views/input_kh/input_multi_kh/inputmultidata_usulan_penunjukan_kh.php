@@ -289,7 +289,7 @@ endfor;
 
             <div class="column-half">
 
-               <label class="control-label" for="mt">Korfung KH/KT</label>
+               <label class="control-label" for="mt">Ketua Pokja KH</label>
 
                 <select class="form-control" name="mt" id="mt_input" required>
 

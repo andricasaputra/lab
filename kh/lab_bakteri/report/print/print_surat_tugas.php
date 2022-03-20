@@ -177,6 +177,8 @@ while ($data=$tampil->fetch_object()){
 
     $title = $objectPrint->title_dokumen.' | '.$data->no_surat_tugas;
 
+    $pejabat = $objectPrint->getPejabat($data->nip_mt);
+
     if (strpos($data->nama_analis, "&") != false) {
 
         $x = explode("&", $data->nama_analis);
@@ -437,7 +439,7 @@ $content .= '
 
             <p></p>
 
-            Korfung KH/KT**,
+            '.$pejabat->jabfung.',
 
             <p></p>
 

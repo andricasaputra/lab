@@ -144,6 +144,8 @@ $content .= '
 
         $bilangan = ucwords($objectNomor->bilangan($bil));
 
+        $pejabat = $objectPrint->getPejabat($data->nip_ma);
+
 
 $content .= '
 
@@ -271,7 +273,37 @@ $content .= '
 
         </div>
 
+        <div  id="lower">
 
+            <p></p>
+
+            <p></p>
+
+            Sumbawa Besar, '.$data->tanggal_diterima.' 
+
+            <br/>
+
+            ';
+
+            $content .='
+
+            <span>'.$pejabat->jabfung.'</span>
+            <p></p>
+
+            <p></p>
+
+            <p></p>
+
+            ';
+
+            $content .='
+
+            ('.$data->ma.')<br/>
+
+            NIP. '.$data->nip_ma.'
+
+        </div> 
+        
         ';
 
 $a = $data->nama_sampel;

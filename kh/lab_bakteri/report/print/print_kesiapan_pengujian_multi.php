@@ -197,6 +197,8 @@ $content .= '
         $arrID[] = $data->id;
 
         $totalID = count($arrID);
+
+        $pejabat = $objectPrint->getPejabat($data->nip_mt);
         
 $content .= '
 
@@ -810,7 +812,7 @@ $content .= '
 
             <br/>
 
-            Korfung KH/KT
+            '.$pejabat->jabfung.'
 
             <p></p>
 

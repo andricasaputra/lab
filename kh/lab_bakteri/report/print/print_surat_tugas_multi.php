@@ -138,6 +138,8 @@ $content ='
 
     while ($data=$tampil->fetch_object()):
 
+        $pejabat = $objectPrint->getPejabat($data->nip_mt);
+
         $arrID[] = $data->id;
 
         $totalID = count($arrID);
@@ -401,7 +403,7 @@ $content .= '
 
 
 
-           Korfung KH/KT**,
+           '.$pejabat->jabfung.',
 
 
 

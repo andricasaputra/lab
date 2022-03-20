@@ -155,6 +155,8 @@ $content ='
 
             $totalID = count($arrID);
 
+            $pejabat = $objectPrint->getPejabat($data->nip_ma);
+
 $content .= '
 
 
@@ -285,6 +287,37 @@ $content .= '
 
         </div>
 
+        <div  id="lower">
+
+            <p></p>
+
+            <p></p>
+
+            Sumbawa Besar, '.$data->tanggal_diterima.' 
+
+            <br/>
+
+            ';
+
+            $content .='
+
+            <span>'.$pejabat->jabfung.'</span>
+            <p></p>
+
+            <p></p>
+
+            <p></p>
+
+            ';
+
+            $content .='
+
+            ('.$data->ma.')<br/>
+
+            NIP. '.$data->nip_ma.'
+
+        </div>     
+
         ';
 
         if ($totalID < $num) {
@@ -323,66 +356,3 @@ require_once('footer.php');
 
 ?>
 
-<!-- <div  id="lower">
-
-            <p></p>
-
-            <p></p>
-
-
-
-            Sumbawa Besar, '.$data->tanggal_diterima.' 
-
-            <br/>
-
-            ';
-
-
-
-                if ($data->ma == 'Muhammad Ridwan') {
-
-                    $content .='
-
-                    Manajer Administrasi,<br/>
-
-                    <p></p>
-
-                    <p></p>
-
-                    <p></p>
-
-                    <p></p>
-
-                    ';
-
-                }else{
-
-                    $content .='
-
-                    <span style="margin-left: -24px">An.</span> Manajer Administrasi,<br/>
-
-                    Deputi MA
-
-                    <p></p>
-
-                    <p></p>
-
-                    <p></p>
-
-                    ';
-
-                }
-
-
-
-            $content .='
-
-           
-
-            
-
-            ('.$data->ma.')<br/>
-
-            NIP. '.$data->nip_ma.'
-
-        </div>     -->

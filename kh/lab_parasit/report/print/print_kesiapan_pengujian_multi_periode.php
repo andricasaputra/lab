@@ -195,6 +195,8 @@ $content .= '
         $arrID[] = $data->id;
 
         $totalID = count($arrID);
+
+        $pejabat = $objectPrint->getPejabat($data->nip_mt);
         
 $content .= '
 
@@ -830,7 +832,7 @@ $content .= '
 
             <br/>
 
-            Manajer Teknis
+            '.$pejabat->jabfung.'
 
             <p></p>
 

@@ -170,6 +170,8 @@ $content ='
 
         $totalID = count($arrID);
 
+        $pejabat = $objectPrint->getPejabat($data->nip_ma);
+
 $content .= '
 
 
@@ -641,6 +643,37 @@ $content .='
             <sup>**)</sup> Beri tanda check (<img src='.$check.' width="25px; height:25px;">) pada tempat yang sesuai <br><br>
 
              <span style="margin-left:-85px"> Demikian disampaikan untuk dapat diketahui </span>
+
+        </div>
+
+        <div id="lower">
+
+            <p></p>
+
+            Sumbawa Besar, '.$data->tanggal_diterima.'
+
+            <br />
+
+            ';
+            $ma = $data->ma;
+
+            $content .='
+
+            '.$pejabat->jabfung.'
+
+            <br />
+
+            <br>
+
+            <p></p>
+
+            <p></p>
+
+            <p></p>
+
+            ('.$data->ma.')<br />
+
+            NIP. '.$data->nip_ma.'
 
         </div>
 

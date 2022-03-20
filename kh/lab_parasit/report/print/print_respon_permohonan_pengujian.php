@@ -155,6 +155,8 @@ $content ='
     while ($data=$tampil->fetch_object()) :
 
         $title = $objectPrint->title_dokumen.' | '.$data->no_permohonan;
+
+        $pejabat = $objectPrint->getPejabat($data->nip_ma);
     
 $content .= '
 
@@ -798,8 +800,39 @@ $content .= '
 
 </div>
 
+<div id="lower">
+
+    <p></p>
+
+    Sumbawa Besar, '.$data->tanggal_diterima.'
+
+    <br />
+
+    ';
+    $ma = $data->ma;
+
+    $content .='
+
+    '.$pejabat->jabfung.'
+
+    <br />
+
+    <br>
+
+    <p></p>
+
+    <p></p>
+
+    <p></p>
+
+    ('.$data->ma.')<br />
+
+    NIP. '.$data->nip_ma.'
+
+</div>
 
 ';
+
 
 $a = $data->nama_sampel;
 
@@ -822,61 +855,3 @@ require_once('footer.php');
 
 ?>
 
-<!-- <div id="lower">
-
-    <p></p>
-
-    Sumbawa Besar, '.$data->tanggal_diterima.'
-
-    <br />
-
-    ';
-    $ma = $data->ma;
-
-    if ($ma == 'Muhammad Ridwan') {
-
-    $content .='
-
-    Manajer Administrasi,<br />
-
-    <br>
-
-    <p></p>
-
-    <p></p>
-
-    <p></p>
-
-    ('.$data->ma.')<br />
-
-    NIP. '.$data->nip_ma.'
-
-</div>
-
-';
-
-
-}else{
-
-$content .='
-
-<span style="margin-left: -24px">An.</span> Manajer Administrasi,<br />
-
-Deputi MA
-
-<p></p>
-
-<p></p>
-
-<p></p>
-
-('.$data->ma.')<br />
-
-NIP. '.$data->nip_ma.'
-
-</div>
-
-
-';
-
-} -->
