@@ -15,6 +15,10 @@ use Lab\classes\kh\labparasit\{
     Hasil as HasilKhlabparasit,
     Nomor as NomorKhlabparasit
 };
+use Lab\classes\kh\{
+    Jabatan,
+    Pejabat
+};
 
 require_once (dirname(dirname(__DIR__)).'/vendor/autoload.php');
 
@@ -39,6 +43,12 @@ $objectNomorParasit = new NomorKhlabparasit;
 $objectTanggal = new tanggal;
 
 $objectPath = new init;
+
+$objectJabatan = new Jabatan;
+
+$objectJabfung = new Jabatan;
+
+$objectPejabat = new Pejabat;
 
 ?>
 

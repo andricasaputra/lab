@@ -6,7 +6,9 @@ use Lab\classes\kh\{
 	Source as SourceKh,
 	Source2 as Source2Kh,
 	Source3 as Source3Kh,
-	Source4 as Source4Kh
+	Source4 as Source4Kh,
+	Jabatan,
+	Pejabat
 };
 
 require_once (dirname(dirname(dirname(__DIR__))).'/vendor/autoload.php');
@@ -22,3 +24,10 @@ $objectSource2 = new Source2Kh;
 $objectSource3 = new Source3Kh;
 
 $objectSource4 = new Source4Kh;
+
+$objectJabatan = new Jabatan;
+
+$objectJabfung = new Jabatan;
+
+$objectPejabat = new Pejabat;
+

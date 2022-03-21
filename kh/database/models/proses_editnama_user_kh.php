@@ -2,43 +2,29 @@
 
 include_once('header_proses.php');
 
-if (isset($_POST['edit'])) :
+$id			=$_POST['id'];
 
-	$id_pejabat			=$_POST['id_pejabat'];
+$nama_pejabat		=htmlspecialchars($conn->real_escape_string(trim($_POST['nama_pejabat'])));
 
-	$nama_pejabat		=htmlspecialchars($conn->real_escape_string(trim($_POST['nama_pejabat'])));
+$jabatan		=htmlspecialchars($conn->real_escape_string(trim($_POST['jabatan'])));
 
-	$nip_pejabat		=htmlspecialchars($conn->real_escape_string(trim($_POST['nip_pejabat'])));
+$jabfung		=htmlspecialchars($conn->real_escape_string(trim($_POST['jabfung'])));
 
+$kategori		=htmlspecialchars($conn->real_escape_string(trim($_POST['kategori'])));
 
-	 if($nama_pejabat !=="") {
+$nip		=htmlspecialchars($conn->real_escape_string(trim($_POST['nip'])));
 
-		 $objectSource3->edit("UPDATE pejabat2_kh SET nama_pejabat='$nama_pejabat', nip_pejabat='$nip_pejabat' WHERE id_pejabat ='$id_pejabat'");
+if($nama_pejabat !=="") {
 
-		 	if (@$_SESSION['loginsuperkh']) {
+if (! $objectPejabat->updatePejabat($nama_pejabat, $jabatan, $jabfung, $kategori, $nip, $id)) {
 
-				$redirect = '../../super_admin.php?page=tambah_nama_user_kh';
+	throw new \Exception("Erorr");
+}
 
-			}elseif (@$_SESSION['loginadminkh']) {
-
-				$redirect = '../../admin.php?page=tambah_nama_user_kh';
-
-			}else{
-
-				$redirect = '../../index.php?page=tambah_nama_user_kh';
-			}
+return true;
+}
 
 
-		 	echo "<script>window.alert('Data Berhasil Diubah')
-
-		 	window.location='".$redirect."';</script>";
-
-		 
-
-	 }
-
-	
-endif;
 
 	
 

@@ -36,13 +36,6 @@ class Source3 extends Database
 
     }
 
-    public function input($nama_pejabat, $nip)
-    {
-
-        $this->db->query("INSERT INTO pejabat2_kh(nama_pejabat, nip) VALUES ('$nama_pejabat', '$nip')") or die($this->db->error);
-
-    }
-
     public function edit($sql)
     {
 

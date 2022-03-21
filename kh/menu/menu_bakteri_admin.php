@@ -140,7 +140,19 @@
 
                     <li>
 
-                        <a href="?page=tambah_nama_user_kh"><i class="fa fa-user fa-fw"></i>Nama User</a>
+                        <a href="?page=tambah_nama_user_kh"><i class="fa fa-user fa-fw"></i>Nama Pejabat</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="?page=tambah_jabatan"><i class="fa fa-user fa-fw"></i>Jabatan Lab</a>
+
+                    </li>
+
+                    <li>
+
+                        <a href="?page=tambah_jabfung"><i class="fa fa-user fa-fw"></i>Jabatan Fungsional</a>
 
                     </li>
 
@@ -243,6 +255,14 @@
     } elseif (@$_GET['page'] == 'surat_hasil_uji' && $_GET['lab'] == 'bakteri') {
 
         require_once "lab_bakteri/views/surat_hasil_uji.php";
+
+    } elseif (@$_GET['page'] === 'tambah_jabatan') {
+
+        require_once "./database/views/tambah_jabatan.php";
+
+    } elseif (@$_GET['page'] === 'tambah_jabfung') {
+
+        require_once "./database/views/tambah_jabfung.php";
 
     } elseif (@$_GET['page'] == 'lihat_data_permohonan') {
 

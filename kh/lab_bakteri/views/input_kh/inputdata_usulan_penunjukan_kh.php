@@ -161,7 +161,7 @@ endwhile;
 
             <label class="control-label" for="no_surat_tugas">Nomor Surat Tugas</label>
 
-            <input type="text" class="form-control" name="no_surat_tugas" id="no_surat_tugas_input" value="<?=$isiNomor?>/LKH/L.50.D/<?=$bln?>/<?=$thn?>" required> 
+            <input type="text" class="form-control" name="no_surat_tugas" id="no_surat_tugas_input" value="<?=$isiNomor?>/LKH/K.50.D/<?=$bln?>/<?=$thn?>" required> 
 
           </div>
 
@@ -193,7 +193,7 @@ endwhile;
 
                 <?php 
               
-                  $i = $objectData->tampil_jabfung();
+                  $i = $objectPejabat->index();
 
                   while ($t=$i->fetch_object()) : 
 
@@ -225,7 +225,7 @@ endwhile;
 
                 <?php 
 
-                  $i = $objectData->tampil_jabfung();
+                  $i = $objectPejabat->index();
 
                  while ($t=$i->fetch_object()) : 
 
@@ -253,7 +253,23 @@ endwhile;
 
             <select class="form-control" name="jab_penyelia" id="jab_penyelia_input" required> 
 
-              <option>Medik Veteriner Pertama</option>
+              <?php 
+              
+                  $i = $objectPejabat->index();
+
+                  while ($t=$i->fetch_object()) : 
+
+                    if ($t->nama_pejabat == 'drh. Ardiyanto Chandra Wijaya') : ?>
+
+                    <option selected><?=$t->jabfung ;?></option>
+
+                    <?php else: ?>
+
+                    <option><?=$t->jabfung ;?></option>
+
+                    <?php endif; 
+
+                   endwhile;?>
 
             </select>
 
@@ -266,7 +282,23 @@ endwhile;
 
               <select class="form-control" name="jab_analis" id="jab_analis_input" required> 
 
-                <option>Paramedik Veteriner Pelaksana Lanjutan</option>
+                <?php 
+              
+                  $i = $objectPejabat->index();
+
+                  while ($t=$i->fetch_object()) : 
+
+                    if ($t->nama_pejabat == 'Siska Murtini, A.Md') : ?>
+
+                    <option selected><?=$t->jabfung ;?></option>
+
+                    <?php else: ?>
+
+                    <option><?=$t->jabfung ;?></option>
+
+                    <?php endif; 
+
+                   endwhile;?>
 
 
               </select>

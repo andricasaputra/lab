@@ -219,7 +219,7 @@ endwhile;
 
                 <?php 
               
-                  $i = $objectData->tampil_jabfung();
+                  $i = $objectPejabat->index();
 
                   
                         while ($t=$i->fetch_object()) : ?>
@@ -246,7 +246,7 @@ endwhile;
 
                 <?php 
 
-                  $i = $objectData->tampil_jabfung();
+                  $i = $objectPejabat->index();
 
                  while ($t=$i->fetch_object()) : ?>
 

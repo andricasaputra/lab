@@ -108,7 +108,7 @@ $arrNo = array();
 
 for ($i = $No + 1 ; $i < $No + 1 + $hitungNomorKosong ; $i++) :
 
-  $arrNo[] = $i."/LKH/L.50.D/$bln/$thn";
+  $arrNo[] = $i."/LKH/K.50.D/$bln/$thn";
 
 endfor;
 
@@ -199,7 +199,7 @@ endfor;
 
                 <?php 
               
-                  $i = $objectData->tampil_jabfung();
+                  $i = $objectPejabat->index();
 
                   while ($t=$i->fetch_object()) : 
 
@@ -231,7 +231,7 @@ endfor;
 
                 <?php 
 
-                  $i = $objectData->tampil_jabfung();
+                  $i = $objectPejabat->index();
 
                  while ($t=$i->fetch_object()) : 
 
@@ -261,7 +261,23 @@ endfor;
 
             <select class="form-control" name="jab_penyelia" id="jab_penyelia_input" required> 
 
-              <option>Medik Veteriner Pertama</option>
+               <?php 
+              
+                  $i = $objectPejabat->index();
+
+                  while ($t=$i->fetch_object()) : 
+
+                    if ($t->nama_pejabat == 'drh. Ardiyanto Chandra Wijaya') : ?>
+
+                    <option selected><?=$t->jabfung ;?></option>
+
+                    <?php else: ?>
+
+                    <option><?=$t->jabfung ;?></option>
+
+                    <?php endif; 
+
+                   endwhile;?>
 
             </select>
 
@@ -275,7 +291,23 @@ endfor;
 
               <select class="form-control" name="jab_analis" id="jab_analis_input" required> 
 
-                <option>Paramedik Veteriner Pelaksana Lanjutan</option>
+                <?php 
+              
+                  $i = $objectPejabat->index();
+
+                  while ($t=$i->fetch_object()) : 
+
+                    if ($t->nama_pejabat == 'Siska Murtini, A.Md') : ?>
+
+                    <option selected><?=$t->jabfung ;?></option>
+
+                    <?php else: ?>
+
+                    <option><?=$t->jabfung ;?></option>
+
+                    <?php endif; 
+
+                   endwhile;?>
 
 
               </select>

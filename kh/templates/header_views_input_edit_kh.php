@@ -18,6 +18,11 @@ use Lab\classes\kh\labparasit\{
 	Cetak as CetakKhlabparasit
 };
 
+use Lab\classes\kh\{
+	Jabatan,
+	Pejabat
+};
+
 require_once (dirname(dirname(__DIR__)).'/vendor/autoload.php');
 
 $connection = Database::getInstance();
@@ -43,6 +48,12 @@ $objectPrint = new CetakKh;
 $objectPrintParasit = new CetakKhlabparasit;
 
 $objectSource4 = new Source4 ($connection);
+
+$objectJabatan = new Jabatan;
+
+$objectJabfung = new Jabatan;
+
+$objectPejabat = new Pejabat;
 
 if (strpos($_SERVER['REQUEST_URI'], "parasit")) {
 	require_once (init::basePath()."/src/classes/kh/labparasit/nomor_sampel_kh_lab_parasit.php");
