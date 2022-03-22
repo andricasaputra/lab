@@ -242,7 +242,6 @@ while($data2 = $query->fetch_object()){
                 
                 <a href="./lab_bakteri/report/print/print_distribusi_sampel.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
 
-                <a href="./lab_bakteri/report/print/print_distribusi_sampel_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>
                 ';
             }
              
@@ -257,7 +256,6 @@ while($data2 = $query->fetch_object()){
                 
                 <a href="./lab_bakteri/report/print/print_distribusi_sampel.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
 
-                <a href="./lab_bakteri/report/print/print_distribusi_sampel_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>
 
               
                 ';
@@ -271,9 +269,7 @@ while($data2 = $query->fetch_object()){
 
                 <button type="button" id="tombol_edit_pengelola_sampel_kh" class="btn btn-kusuccess btn-xs btn-not-allowed"><i class="fa fa-edit fa-fw"></i> Edit</button>
 
-                <a href="./lab_bakteri/report/print/print_distribusi_sampel.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
-
-                <a href="./lab_bakteri/report/print/print_distribusi_sampel_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>';
+                <a href="./lab_bakteri/report/print/print_distribusi_sampel.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>';
             }
 
         }

@@ -54,7 +54,7 @@ abstract class LegacyCetak extends Database implements SuperCetak
 
     abstract protected function Scan($id);
 
-    abstract protected function print_agenda($tgl1, $tgl2);
+    abstract protected function print_agenda($tgl1, $tgl2, $lab = NULL);
 
     abstract protected function CetakForBukuHarianDatek($tgl);
 

@@ -961,9 +961,13 @@ $content ='
 
     </table>
 
-        <br>
+      <br>
 
-        Ket: *) coret bila tidak perlu 
+        <small>Ket: *) Coret bila tidak perlu    
+
+        <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; **) Termasuk Ruang Lingkup Akreditasi   
+
+        </small>
 
         ';      
 

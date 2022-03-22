@@ -223,25 +223,14 @@ endfor;
 
                             <?php                 
 
-                              $i = $objectData->tampil_jabatan();
+                              $i = $objectPejabat->showJabatan('Penyelia');
 
                               while ($t=$i->fetch_object()) : 
 
-                                if ($t->nama_pejabat == 'I Ketut Sindia, SP') {
-
-                                  echo '<option value="'.$t->nama_pejabat.'" selected>'.$t->nama_pejabat.'</option>';
-                                  
-
-                                }else{
-
-
-                                  echo '<option value="'.$t->nama_pejabat.'">'.$t->nama_pejabat.'</option>';
-
-                                }
-
-                                
+                                echo '<option value="'.$t->nama_pejabat.'">'.$t->nama_pejabat.'</option>';
 
                               endwhile;?>
+
 
                         </select>
 
@@ -253,28 +242,16 @@ endfor;
 
                          <select class="form-control" name="nama_analis" id="nama_analis_input" required> 
 
-
-                            <?php                 
-
-                              $i = $objectData->tampil_jabatan();
+                          <?php                 
+  
+                              $i = $objectPejabat->showJabatan('Analis');
 
                               while ($t=$i->fetch_object()) : 
 
-                                if ($t->nama_pejabat == 'Fatma Dya Swari, SP') {
-
-                                  echo '<option value="'.$t->nama_pejabat.'" selected>'.$t->nama_pejabat.'</option>';
-                                  
-
-                                }else{
-
-
-                                  echo '<option value="'.$t->nama_pejabat.'">'.$t->nama_pejabat.'</option>';
-
-                                }
-
-                                
+                                echo '<option value="'.$t->nama_pejabat.'">'.$t->nama_pejabat.'</option>';
 
                               endwhile;?>
+
 
 
                         </select>
@@ -290,18 +267,11 @@ endfor;
 
                           <?php                 
 
-                              $i = $objectData->tampil_jabatan();
+                              $i = $objectPejabat->showJabatan('Penyelia');
 
                               while ($t=$i->fetch_object()) : 
 
-                                if ($t->nama_pejabat == 'I Ketut Sindia, SP') {
-
-                                  echo '<option value="'.$t->jabfung.'" selected>'.$t->jabfung.'</option>';
-                                  
-
-                                }
-
-                                
+                                echo '<option value="'.$t->jabfung.'">'.$t->jabfung.'</option>';
 
                               endwhile;?>
 
@@ -317,18 +287,11 @@ endfor;
 
                             <?php                 
 
-                              $i = $objectData->tampil_jabatan();
+                              $i = $objectPejabat->showJabatan('Analis');
 
                               while ($t=$i->fetch_object()) : 
 
-                                if ($t->nama_pejabat == 'Fatma Dya Swari, SP') {
-
-                                  echo '<option value="'.$t->jabfung.'" selected>'.$t->jabfung.'</option>';
-                                  
-
-                                }
-
-                                
+                                echo '<option value="'.$t->jabfung.'">'.$t->jabfung.'</option>';
 
                               endwhile;?>
 

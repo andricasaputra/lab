@@ -249,8 +249,6 @@ if(@$_GET['act']=='del') {
 
 
 
-$objectSource2->destroy();
-
 
 
 ?>

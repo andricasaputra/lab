@@ -54,80 +54,28 @@ if(isset($_REQUEST['id'])){
 
                           $lab = 'Laboratorium Penyakit';
 
-                          $penyelia = 'I Ketut Sindia, SP';
-
-                          $analis = 'Fatma Dya Swari, SP';
-
                       }elseif ($p == 'Bakteri') {
 
                           $lab = 'Laboratorium Penyakit';
 
-                          $penyelia = 'I Ketut Sindia, SP';
-
-                          $analis = 'Fatma Dya Swari, SP';
 
                       }elseif ($p =='Virus') {
 
                           $lab = 'Laboratorium Penyakit';
 
-                          $penyelia = 'I Ketut Sindia, SP';
-
-                          $analis = 'Fatma Dya Swari, SP';
 
                       }elseif ($p == 'Serangga' || 'Lalat Buah' || 'Myte/Tungau') {
 
                           $lab = 'Laboratorium Hama';
 
-                          $penyelia = 'Fatma Dya Swari, SP';
-
-                          $analis = 'Elysa Fitri, SP';
 
                       }else{
 
                           $lab = 'Laboratorium Hama dan Penyakit';
 
-                          $penyelia = 'I Ketut Sindia, SP';
-
-                          $analis = 'Fatma Dya Swari, SP';
-
                       }
 
                   }
-
-
-
-
-
-                  if ($penyelia == 'I Ketut Sindia, SP') {
-
-                      $jab = 'POPT Ahli Muda';
-
-                  }elseif ($penyelia == 'Fatma Dya Swari, SP') {
-
-                      $jab = 'POPT Ahli Pertama';
-
-                  }else{
-
-                      $jab = 'Calon POPT Ahli Pertama';
-
-                  }
-
-
-
-                  if ($analis == 'I Ketut Sindia, SP') {
-
-                      $jaba = 'POPT Ahli Muda';
-
-                  }elseif ($analis == 'Fatma Dya Swari, SP') {
-
-                      $jaba = 'POPT Ahli Pertama';
-
-                  }else{
-
-                      $jaba = 'Calon POPT Ahli Pertama';
-
-                  }
-
 
 
 
@@ -304,11 +252,9 @@ endwhile;
 
                         <select class="form-control" name="nama_penyelia" id="nama_penyelia_input" required> 
 
-                          <option><?php echo $penyelia ?></option>
-
                             <?php                 
 
-                              $i = $objectData->tampil_jabatan();
+                              $i = $objectPejabat->showJabatan('Penyelia');
 
                               while ($t=$i->fetch_object()) : 
 
@@ -328,11 +274,9 @@ endwhile;
 
                          <select class="form-control" name="nama_analis" id="nama_analis_input" required> 
 
-                          <option><?php echo $analis ?></option>
-
                             <?php                 
 
-                              $i = $objectData->tampil_jabatan();
+                              $i = $objectPejabat->showJabatan('Analis');
 
                               while ($t=$i->fetch_object()) : 
 
@@ -355,8 +299,15 @@ endwhile;
 
                         <select class="form-control" name="jab_penyelia" id="jab_penyelia_input" required> 
 
-                          <option><?php echo $jab ?></option>
+                           <?php                 
 
+                              $i = $objectPejabat->showJabatan('Penyelia');
+
+                              while ($t=$i->fetch_object()) : 
+
+                                echo '<option value="'.$t->jabfung.'">'.$t->jabfung.'</option>';
+
+                              endwhile;?>
                         </select>
 
                       </div>
@@ -369,15 +320,19 @@ endwhile;
 
                           <select class="form-control" name="jab_analis" id="jab_analis_input" required> 
 
-                            <option><?php echo $jaba ?></option>
+                            <?php                 
+
+                              $i = $objectPejabat->showJabatan('Analis');
+
+                              while ($t=$i->fetch_object()) : 
+
+                                echo '<option value="'.$t->jabfung.'">'.$t->jabfung.'</option>';
+
+                              endwhile;?>
 
                           </select>
 
                         </div>
-
-
-
- 
 
                         <div class="column-half">
 

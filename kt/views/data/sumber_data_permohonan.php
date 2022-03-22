@@ -201,7 +201,7 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif (isset($_SESSION['loginsuperkt'])) {
+        }elseif (isset($_SESSION['loginsuperkt']) || isset($_SESSION['loginadminkt'])) {
 
             $subdata[] = '<button type="button" id="tombol_edit_permohonan" class="btn btn-kusuccess btn-xs" data-toggle="modal" data-target="#modal_permohonan" data-id="'.$data2->id.'"><i class="fa fa-edit fa-fw"></i> Edit</button>
                 

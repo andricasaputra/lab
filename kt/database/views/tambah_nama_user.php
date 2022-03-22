@@ -6,23 +6,28 @@ include_once('header_input.php');
 
 <div>
 
-	<ol class="page-header breadcrumb">
+  <ol class="page-header breadcrumb">
 
-		<div id="top">
+    <div id="top">
 
-			<button type="button" class="btn btn-kuprimary" data-toggle="modal" data-target="#input"><i class="fa fa-plus-circle fa-fw"></i>Data Baru</button>
+      <?php if (isset($_SESSION['loginsuperkt'])): ?>
 
-		</div>
+        <button type="button" class="btn btn-kuprimary" data-toggle="modal" data-target="#input"><i class="fa fa-plus-circle fa-fw"></i>Data Baru</button>
+        
+      <?php endif ?>
 
-			<i class="fa fa-info-circle fa-fw fa-lg" aria-hidden="true"></i>
 
-		<div class="judul">
+    </div>
 
-			<b><h4>Data Nama User</h4></b>
+      <i class="fa fa-info-circle fa-fw fa-lg" aria-hidden="true"></i>
 
-		</div>
+    <div class="judul">
 
-	</ol>
+      <b><h4>Data Nama_pejabat User Lab Karantina Hewan</h4></b>
+
+    </div>
+
+  </ol>
 
 </div>
 
@@ -32,83 +37,193 @@ include_once('header_input.php');
 
     <div class="col-lg-12">
 
-      	<div class="table-responsive">
+        <div class="table-responsive">
 
-      		<table class="table table-hover table-striped" id="datatables">
+          <table class="table table-hover table-striped" id="datatables">
 
-      			<thead>
+            <thead>
 
-      				<tr>
+              <tr>
 
-      					<th width= "5%">No</th>
+                <th width= "5%">No</th>
 
-      					<th width= "12%">Nama User</th>
+                <th width= "12%">Nama User</th>
 
-      					<th width= "15%">NIP</th>
+                <th width= "15%">Jabatan</th>
 
-      					<th width= "5%">Action</th>
+                <th width= "15%">Jabfung</th>
 
-      				</tr>
+                <th width= "15%">NIP</th>
 
-      			</thead>
+                <th width= "5%">Action</th>
 
-      			<tbody>
+              </tr>
 
-      				<?php
+            </thead>
 
-    					$no=1;
+            <tbody>
 
-    					$tampil = $objectSource3->tampil();
+              <?php
 
-    					while ($data = $tampil->fetch_object()){
+              $no=1;
 
-                
+              $pejabat = $objectPejabat->index();
 
-    					?>
+              while ($data = $pejabat->fetch_object()){
 
-      				<tr>
+                $id = $data->id_pejabat;
 
-      					<td><?php echo $no++ ?></td>
+              ?>
 
-      					<td><?php echo $data->nama_pejabat; ?></td>
+              <tr>
 
-      					<td><?php echo $data->nip_pejabat; ?></td>
+                <td><?php echo $no++ ?></td>
 
-      					<td>
+                <td><?php echo $data->nama_pejabat; ?></td>
 
-      						<a id="edit_data_user" data-toggle="modal" data-target="#edit" data-id_pejabat="<?php echo $data->id_pejabat?>" data-nama_pejabat="<?php echo $data->nama_pejabat ?>" data-nip_pejabat="<?php echo $data->nip_pejabat ?>">
+                <td><?php echo $data->jabatan; ?></td>
 
-      						<button class="btn btn-success btn-xs"><i class="fa fa-edit fa-fw"></i>Edit</button>
+                <td><?php echo $data->jabfung; ?></td>
 
-							     </a>
+                <td><?php echo $data->nip; ?></td>
 
-    						
+                <td>
 
-     						   <a href="?page=tambah_nama_user&act=del&id_pejabat=<?php echo $data->id_pejabat?>" onClick="return confirm('Yakin Ingin Hapus Data?')">
+                  <a id="edit_data_user" data-toggle="modal" data-target="#edit" 
 
-      						<button class="btn btn-danger btn-xs"><i class="fa fa-trash-o fa-fw"></i>Hapus</button></a>
+                  data-id="<?php echo $data->id_pejabat?>" 
+                  data-nama_pejabat="<?php echo $data->nama_pejabat ?>" data-jabatan="<?php echo $data->jabatan ?>"
+                  data-jabfung="<?php echo $data->jabfung ?>"
+                  
+                  data-nip="<?php echo $data->nip ?>
 
-      						
+                  ">
 
-      					</td>
+                  <button class="btn btn-success btn-xs"><i class="fa fa-edit fa-fw"></i>Edit</button>
 
-      				</tr>
+                   </a>               
 
-      				<?php
+                   <a href="?page=tambah_nama_user&act=del&id=<?php echo $data->id_pejabat?>" onClick="return confirm('Yakin Ingin Hapus Data?')">
 
-					   }?>
+                  <button class="btn btn-danger btn-xs"><i class="fa fa-trash-o fa-fw"></i>Hapus</button></a>
 
-     		    </tbody>
+                </td>
 
-      		</table>
+              </tr>
 
-      	</div>	
+              <?php
+
+             }?>
+
+            </tbody>
+
+          </table>
+
+        </div>  
 
     </div>
 
 </div>
 
+<div id="input" class="modal fade" role="dialog">
 
+  <div class="modal-dialog">
+
+      <div class="modal-content">
+
+        <div class="modal-header">
+
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+          <h4 class="modal-title">Tambah Nama_pejabat User</h4>
+
+        </div>
+
+    <div class="modal-body">    
+
+      <div id="responsive-form" class="clearfix" autocomplete="on">
+
+        <form action="" method="post">
+
+            <div class="column">
+
+              <label class="control-label" for="nama_pejabat">Nama Pejabat </label>
+
+              <input type="text" name="nama_pejabat" class="form-control" id="nama_pejabat">
+
+            </div>
+
+            <div class="column-half">
+
+              <label class="control-label" for="jabatan">Jabatan</label>
+
+              <select name="jabatan" id="jabatan" class="form-control">
+
+                <?php  
+                    $pejabat = $objectJabfung->jabatan();
+
+                    while($data = $pejabat->fetch_object()) :
+
+                  ?>
+                  <option value="<?php echo $data->jabatan ?>"><?php echo $data->jabatan ?></option>
+                
+                <?php endwhile; ?>
+
+                <option value="-">-</option>
+
+              </select>
+            </div>
+
+            <div class="column-half">
+
+              <label class="control-label" for="jabatan">Jabatan Fungsional</label>
+
+              <select name="jabfung" id="jabfung" class="form-control">
+
+                <?php  
+                    $pejabat = $objectJabfung->jabfung();
+
+                    while($data = $pejabat->fetch_object()) :
+
+                  ?>
+                  <option value="<?php echo $data->jabfung ?>"><?php echo $data->jabfung ?></option>
+                
+                <?php endwhile; ?>
+                <option value="-">-</option>
+
+              </select>
+            </div>
+
+            <div class="column-half">
+
+              <label class="control-label" for="nip">NIP</label>
+
+              <input type="text" name="nip" class="form-control" id="nip" >
+
+            </div>
+
+            <div class="modal-footer" id="modal-footer">
+
+              <div class="column-full" style="margin-left: auto; margin-top: 20px;">
+
+                <button type="reset" class="btn-default2 btn-danger" onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button>&nbsp;&nbsp;
+
+                <button type="submit" class="btn-default2 btn-success" name="input" value="input"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button> 
+
+              </div>  
+
+            </div>
+
+          </form>
+
+      </div> <!--end responsive-form--> 
+
+      </div>
+
+    </div>
+
+  </div> 
+</div>
 
 <div id="edit" class="modal fade" role="dialog">
 
@@ -120,49 +235,84 @@ include_once('header_input.php');
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-        <h4 class="modal-title">Edit Data Permohonan</h4>
+        <h4 class="modal-title">Edit User</h4>
 
       </div>
-
-
 
     <div class="modal-body" id="modal-edit">
 
       <div id="responsive-form" class="clearfix"> 
 
-          <form id="form_edit_user">
-
-           
-
-          <div class="column-half">
-
-            <label class="control-label" for="nama_pejabat">Nama</label>
-
-            <input type="hidden" name="id_pejabat" id="id_pejabat">
-
-            <input type="text" name="nama_pejabat" class="form-control" id="nama_pejabat">
-
-          </div>
-
-           
-
-          <div class="column-half">
-
-            <label class="control-label" for="nip_pejabat">NIP</label>
-
-            <input type="text" name="nip_pejabat" class="form-control" id="nip_pejabat" >
-
-          </div>
+          <form id="edit_form" method="post">
 
 
+            <div class="column-half">
 
+                <label class="control-label" for="nama_pejabat">Nama_pejabat</label>
+
+                <input type="hidden" name="id" id="id"> 
+
+                <input type="text" name="nama_pejabat" class="form-control" id="nama_pejabat">
+
+            </div>
+
+
+             <div class="column-half">
+
+              <label class="control-label" for="jabatan">Jabatan</label>
+
+              <select name="jabatan" id="jabatan" class="form-control">
+
+                <?php  
+                    $pejabat = $objectJabfung->jabatan();
+
+                    while($data = $pejabat->fetch_object()) :
+
+                  ?>
+                  <option value="<?php echo $data->jabatan ?>"><?php echo $data->jabatan ?></option>
+                
+                <?php endwhile; ?>
+
+                <option value="-">-</option>
+
+              </select>
+            </div>
+
+            <div class="column-half">
+
+              <label class="control-label" for="jabatan">Jabatan Fungsional</label>
+
+              <select name="jabfung" id="jabfung" class="form-control">
+
+                <?php  
+                    $pejabat = $objectJabfung->jabfung();
+
+                    while($data = $pejabat->fetch_object()) :
+
+                  ?>
+                  <option value="<?php echo $data->jabfung ?>"><?php echo $data->jabfung ?></option>
+                
+                <?php endwhile; ?>
+                <option value="-">-</option>
+
+              </select>
+            </div>
+
+            <div class="column-half">
+
+                <label class="control-label" for="nip">NIP</label>
+
+                <input type="text" name="nip" class="form-control" id="nip">
+
+            </div>
+              
           <div class="modal-footer" id="modal-footer">
 
             <div class="column-full" style="margin-left: auto; margin-top: 20px;">
 
             <button type="reset" class="btn-default2 btn-danger" onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button>&nbsp;&nbsp;
 
-            <button type="submit" class="btn-default2 btn-success" name="input" value="input"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button> 
+            <button type="submit" class="btn-default2 btn-success" name="edit" value="input"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button> 
 
             </div>  
 
@@ -180,107 +330,94 @@ include_once('header_input.php');
 
 </div>
 
+<?php
 
+if(isset($_POST['input'])) {
+ 
+$nama_pejabat =htmlspecialchars($conn->real_escape_string(trim($_POST['nama_pejabat'])));
 
-<div id="input" class="modal fade" role="dialog">
+$jabatan     =htmlspecialchars($conn->real_escape_string(trim($_POST['jabatan'])));
 
-  <div class="modal-dialog">
+$jabfung     =htmlspecialchars($conn->real_escape_string(trim($_POST['jabfung'])));
 
-    <div class="modal-content">
-
-      <div class="modal-header">
-
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-        <h4 class="modal-title">Tambah Data Nama Tumbuhan</h4>
-
-      </div>
-
-      
-
-  <div class="modal-body">    
-
-    <div id="responsive-form" class="clearfix" autocomplete="on">
-
-      <form action="" method="post">
-
-        
-
-          <div class="column-half">
-
-            <label class="control-label" for="nama_pejabat">Nama </label>
-
-            <input type="text" name="nama_pejabat" class="form-control" id="nama_pejabat">
-
-          </div>
-
-             
-
-          <div class="column-half">
-
-            <label class="control-label" for="nip_pejabat">NIP</label>
-
-            <input type="text" name="nip_pejabat" class="form-control" id="nip_pejabat" >
-
-          </div>
-
-
-
-          <div class="modal-footer" id="modal-footer">
-
-            <div class="column-full" style="margin-left: auto; margin-top: 20px;">
-
-              <button type="reset" class="btn-default2 btn-danger" onclick="return confirm('Yakin Ingin Reset Data?')"><i class="fa fa-exclamation-circle fa-fw" aria-hidden="true"></i>&nbsp;Reset</button>&nbsp;&nbsp;
-
-              <button type="submit" class="btn-default2 btn-success" name="input" value="input"><i class="fa fa-check-circle fa-fw" aria-hidden="true"></i>&nbsp;Simpan</button> 
-
-            </div>  
-
-          </div>
-
-        </form>
-
-    </div> <!--end responsive-form--> 
-
-      <?php
-
-
-        if(@$_POST['input']) {
          
-        $nama_pejabat        =htmlspecialchars($conn->real_escape_string(trim($_POST['nama_pejabat'])));
+$nip         =htmlspecialchars($conn->real_escape_string(trim($_POST['nip'])));       
 
-        $nip_pejabat         =htmlspecialchars($conn->real_escape_string(trim($_POST['nip_pejabat'])));
-                 
+if($nama_pejabat!==""){
 
-        if($nama_pejabat!==""){
+  $objectPejabat->createPejabat($nama_pejabat, $jabatan, $jabfung, $nip);
 
-          $objectSource3->input($nama_pejabat, $nip_pejabat);
+  echo "<script>alert('Data Berhasil Ditambah!')
 
-          echo "<script>alert('Data Berhasil Ditambah!')
+           window.location= '?page=tambah_nama_user'
 
-                   window.location= '?page=tambah_nama_user'
+        </script>";  
+             
+}else{
 
-                </script>";  
-                     
-        }else{
+  echo "<script>alert('Mohon Maaf Tambah Data Gagal!')
 
-          echo "<script>alert('Mohon Maaf Tambah Data Gagal!')
+          window.location= '?page=tambah_nama_user'
 
-                  window.location= '?page=tambah_nama_user'
+        </script>";
 
-                </script>";
+  }
 
-          }
+}
 
-      }
+?>   
 
-      ?>      
 
-    </div>
+<script type="text/javascript">
+  $(document).on('click', '#edit_data_user', function () {
 
-  </div>
+    let id =  $(this).data('id');
 
-</div> 
+    let nama_pejabat =  $(this).data('nama_pejabat');
+
+    let jabatan =  $(this).data('jabatan');
+
+    let jabfung =  $(this).data('jabfung')
+
+    let nip =  $(this).data('nip');
+
+    $('#modal-edit #id').val(id);
+
+    $('#modal-edit #nama_pejabat').val(nama_pejabat);
+
+    $('#modal-edit #jabatan').val(jabatan);
+
+    $('#modal-edit #jabfung').val(jabfung);
+
+    $('#modal-edit #nip').val(nip);
+
+
+  });
+
+  $('#edit_form').on('submit', function(e){
+    e.preventDefault();
+    
+    
+    $.ajax({
+        url: './database/models/proses_editnama_user.php',
+        type: 'POST',
+        dataType:'html',
+        data: new FormData(this),
+        processData: false,
+        contentType: false,
+        success: function (data, status)
+        {
+            alert("data sukses diubah");
+            location.reload();
+        },
+        error: function (xhr, desc, err)
+        {
+            console.log("error");
+        }
+    });
+
+  });
+</script>
 
 
 
@@ -288,7 +425,7 @@ include_once('header_input.php');
 
 if(@$_GET['act']=='del') {
 
-  $objectSource3->hapus($_GET['id_pejabat']);
+  $objectPejabat->deletePejabat($_GET['id']);
 
   echo "<script>alert('Data Berhasil Dihapus!')
 
@@ -298,6 +435,3 @@ if(@$_GET['act']=='del') {
 
 }
 
-
-
-$objectSource3->destroy();

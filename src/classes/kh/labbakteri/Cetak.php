@@ -127,10 +127,10 @@ class Cetak extends LegacyCetak implements CetakKH
         return $query;
     }
 
-    public function print_agenda($tgl1 = null, $tgl2 = null)
+    public function print_agenda($tgl1 = null, $tgl2 = null, $lab = NULL)
     {
 
-        $sql = "SELECT input_permohonan_kh.id, input_permohonan_kh.tanggal_permohonan ,input_permohonan_kh.kode_sampel, input_permohonan_kh.tanggal_pengujian, input_permohonan_kh.nama_sampel, input_permohonan_kh.target_pengujian2, input_permohonan_kh.metode_pengujian, input_permohonan_kh.nama_penyelia, input_permohonan_kh.nama_analis, input_permohonan_kh.nama_sampel_lab, input_permohonan_kh.tanggal_sertifikat ,hasil_kh.id ,hasil_kh.positif_negatif, hasil_kh.no_sampel, hasil_kh.no_sertifikat FROM input_permohonan_kh LEFT JOIN hasil_kh ON input_permohonan_kh.id = hasil_kh.id";
+        $sql = "SELECT input_permohonan_kh.id, input_permohonan_kh.tanggal_permohonan ,input_permohonan_kh.kode_sampel, input_permohonan_kh.tanggal_pengujian, input_permohonan_kh.nama_sampel, input_permohonan_kh.target_pengujian2, input_permohonan_kh.metode_pengujian, input_permohonan_kh.nama_penyelia, input_permohonan_kh.nama_analis, input_permohonan_kh.nama_sampel_lab, input_permohonan_kh.tanggal_sertifikat, input_permohonan_kh.tanggal_acu_permohonan, input_permohonan_kh.waktu_apdate_sertifikat, hasil_kh.id ,hasil_kh.positif_negatif, hasil_kh.no_sampel, hasil_kh.no_sertifikat FROM input_permohonan_kh LEFT JOIN hasil_kh ON input_permohonan_kh.id = hasil_kh.id";
 
         if ($tgl1 != null && $tgl2 != null) {
             $sql .= " WHERE DATE(input_permohonan_kh.waktu_apdate_sertifikat) BETWEEN '$tgl1' AND '$tgl2'";

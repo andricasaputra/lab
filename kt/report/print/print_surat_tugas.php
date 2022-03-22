@@ -512,7 +512,7 @@ $content .= '
 
               <tr>
 
-                    <td style="border-top:0px; padding-bottom: 120px"></td>
+                    <td style="border-top:0px; padding-bottom: 50px"></td>
 
                     <td style="border-top:0px"></td>
 
@@ -540,8 +540,13 @@ $content .= '
 
         <div>
 
-            Keterangan: <sup>*)</sup> Beri tanda Check (<img src="'.$check.'" width="25px; height:30px;">) pada tempat yang sesuai
-
+            <small> 
+                Keterangan:<sup>
+                <br/>
+                *)</sup> Beri tanda Check (<img src="'.$check.'" width="25px; height:30px;">) pada tempat yang sesuai
+                 <br/>
+                 <sup>**)</sup> Coret Yang tidak Perlu
+             </small>     
         </div>
 
 
@@ -554,7 +559,7 @@ $content .= '
 
 
 
-            '.$pejabat->jabfung.'
+            '.$pejabat->jabatan.'
 
 
 
@@ -588,7 +593,6 @@ $content .='
 ';
 
 $html2pdf = new \spipu\Html2Pdf\Html2Pdf('L','A4','en','UTF-8');
-
 
 $html2pdf->WriteHTML($content);
 

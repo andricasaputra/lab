@@ -64,6 +64,12 @@ header("Content-Type: application/vnd.ms-excel");
 
                         <th align="center"><b>Target Pengujian </b></th>
 
+                        <th align="center"><b>No Surat Tugas</b></th>
+
+                        <th align="center"><b>Penyelia</b></th>
+
+                        <th align="center"><b>Analis</b></th>
+
                         <th align="center"><b>Metode Pengujian</b></th>
 
                         <th align="center"><b>Metode Pengujian 2</b></th>
@@ -121,6 +127,12 @@ header("Content-Type: application/vnd.ms-excel");
 						echo "<td>".$data2->media."</td>";	
 
 						echo "<td>"."<em>".$data2->target_optk."&nbsp;".$data2->target_optk2."&nbsp;".$data2->target_optk3."</em>"."</td>";
+
+						echo "<td>".$data->no_surat_tugas."</td>";
+
+						echo "<td>".$data->nama_penyelia."</td>";
+
+						echo "<td>".$data->nama_analis."</td>";
 
 						echo "<td>".$data2->metode_pengujian."</td>";
 

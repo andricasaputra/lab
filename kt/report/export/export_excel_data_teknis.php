@@ -45,6 +45,12 @@ header("Content-Type: application/vnd.ms-excel");
 
                         <th align="center"><b>Target Pengujian </b></th>
 
+                        <th align="center"><b>No Surat Tugas</b></th>
+
+                        <th align="center"><b>Penyelia</b></th>
+
+                        <th align="center"><b>Analis</b></th>
+
                         <th align="center"><b>Metode Pengujian</b></th>
 
                         <th align="center"><b>Metode Pengujian 2</b></th>
@@ -58,23 +64,16 @@ header("Content-Type: application/vnd.ms-excel");
 
 					</tr>
 
-			
-
-					
 
 					<?php
 
 					$no =1;
 
-					$tampil = $objectData->tampil();
+					$tampil = $objectPrint->exportDatek();
+
 
 					while ($data = $tampil->fetch_object()){
 
-							$id = $data->id;
-
-							$tampil2 = $objectPrint->print_pertanggal_sertifikat($id);
-
-							while ($data2 = $tampil2->fetch_object()):
 
 					echo "<tr>";
 
@@ -88,29 +87,37 @@ header("Content-Type: application/vnd.ms-excel");
 
 						echo "<td>".$data->tanggal_pengujian."</td>";
 
-						echo "<td>".$data2->no_sampel."</td>";
+						echo "<td>".$data->no_sampel."</td>";
 
-						echo "<td>".$data2->bagian_tumbuhan."</td>";
+						echo "<td>".$data->bagian_tumbuhan."</td>";
 
-						echo "<td>".$data2->vektor."</td>";
+						echo "<td>".$data->vektor."</td>";
 
-						echo "<td>".$data2->media."</td>";	
+						echo "<td>".$data->media."</td>";	
 
-						echo "<td>"."<em>".$data2->target_optk."&nbsp;".$data2->target_optk2."&nbsp;".$data2->target_optk3."</em>"."</td>";
+						echo "<td>"."<em>".$data->target_optk."&nbsp;".$data->target_optk2."&nbsp;".$data->target_optk3."</em>"."</td>";
 
-						echo "<td>".$data2->metode_pengujian."</td>";
+						echo "<td>".$data->no_surat_tugas."</td>";
 
-						echo "<td>".$data2->metode_pengujian2."</td>";
+						echo "<td>".$data->nama_penyelia."</td>";
 
-						echo "<td>".$data2->metode_pengujian3."</td>";
+						echo "<td>".$data->nama_analis."</td>";
 
-						echo "<td>".$data2->positif_negatif."</td>";
+						echo "<td>".$data->metode_pengujian."</td>";
 
-						echo "<td>"."<em>".$data2->hasil_pengujian."<em>"."</td>";
+						echo "<td>".$data->metode_pengujian2."</td>";
+
+						
+						echo "<td>".$data->metode_pengujian3."</td>";
+
+
+
+						echo "<td>".$data->positif_negatif."</td>";
+
+						echo "<td>"."<em>".$data->hasil_pengujian."<em>"."</td>";
 
 					echo "</tr>";	
 
-						endwhile;
 
 					}
 

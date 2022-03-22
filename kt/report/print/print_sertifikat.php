@@ -840,7 +840,15 @@ $content .= '
 
         <tr>
 
-            <td style="text-align: left"><span style="font-size: 8pt;padding-bottom: 35px">*) Hanya untuk sampel yang diuji</span></td>
+            <td style="text-align: left">
+
+                <span style="font-size: 8pt;padding-bottom: 35px">
+
+                    *) Hanya untuk sampel yang diuji
+
+                </span>
+
+            </td>
 
             <td style="width: 180px"></td>
 
@@ -894,7 +902,7 @@ $content .= '
 
                    <tr>
 
-                        <td style="width: 215px; padding-bottom: 80px;position : relative; z-index: 1">'.$pejabat->jabfung.'</td>
+                        <td style="width: 215px; padding-bottom: 80px;position : relative; z-index: 1">'.$pejabat->jabatan.'</td>
 
                         <td style="width: 180px"></td>
 
@@ -915,7 +923,7 @@ $content .= '
 
                     <tr>
 
-                        <td style="width: 215px;position : relative; z-index: 1">'.$pejabat->jabfung.'</td>
+                        <td style="width: 215px;position : relative; z-index: 1">'.$pejabat->jabatan.'</td>
 
                         <td style="width: 180px"></td>
 
@@ -1022,7 +1030,20 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px; text-align: left; padding-top: 0px;"><span style="font-size: 7pt">**) Coret yang tidak perlu</span></td>
+            <td style="width: 215px; text-align: left; padding-top: 0px;">
+
+            <span style="font-size: 7pt">
+                <br/>
+
+                <small>
+                 *) Coret yang tidak perlu
+                <br/>
+                **) Termasuk ruang lingkup Akreditasi
+                </small>
+
+            </span>
+
+            </td>
 
             <td style="width: 180px"></td>
 

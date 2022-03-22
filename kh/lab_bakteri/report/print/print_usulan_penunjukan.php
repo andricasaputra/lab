@@ -338,7 +338,7 @@ $content .= '
 
             <br/>
 
-            '.$pejabat->jabfung.'
+            '.$pejabat->jabatan.'
             <p></p>
 
             <p></p>

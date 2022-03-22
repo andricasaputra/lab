@@ -403,7 +403,7 @@ $content .= '
 
 
 
-           '.$pejabat->jabfung.',
+           '.$pejabat->jabatan.',
 
 
 

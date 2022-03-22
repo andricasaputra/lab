@@ -100,19 +100,38 @@ class Cetak extends LegacyCetak
         return $query;
     }
 
-    public function print_agenda($tgl1 = null, $tgl2 = null)
+    public function print_agenda($tgl1 = null, $tgl2 = null, $lab = NULL)
     {
 
-        $sql = "SELECT input_permohonan.id, input_permohonan.tanggal_permohonan ,input_permohonan.kode_sampel, input_permohonan.tanggal_pengujian, input_permohonan.nama_sampel, input_permohonan.target_optk, input_permohonan.target_optk2, input_permohonan.target_optk3, input_permohonan.metode_pengujian, input_permohonan.nama_penyelia, input_permohonan.nama_analis, input_permohonan.nama_sampel, input_permohonan.tanggal_sertifikat ,hasil_kt.id ,hasil_kt.positif_negatif, hasil_kt.no_sampel, hasil_kt.no_sertifikat FROM input_permohonan LEFT JOIN hasil_kt ON input_permohonan.id = hasil_kt.id";
+        $sql = "SELECT input_permohonan.id, input_permohonan.tanggal_permohonan ,input_permohonan.tanggal_acu_permohonan ,input_permohonan.kode_sampel, input_permohonan.tanggal_pengujian, input_permohonan.nama_sampel, input_permohonan.target_optk, input_permohonan.target_optk2, input_permohonan.target_optk3, input_permohonan.metode_pengujian, input_permohonan.nama_penyelia, input_permohonan.lab_penguji, input_permohonan.nama_analis, input_permohonan.nama_sampel, input_permohonan.tanggal_sertifikat , input_permohonan.waktu_apdate_sertifikat ,hasil_kt.id ,hasil_kt.positif_negatif, hasil_kt.no_sampel, hasil_kt.no_sertifikat FROM input_permohonan LEFT JOIN hasil_kt ON input_permohonan.id = hasil_kt.id";
 
         if ($tgl1 != null && $tgl2 != null) {
             $sql .= " WHERE DATE(input_permohonan.waktu_apdate_sertifikat) BETWEEN '$tgl1' AND '$tgl2'";
         }
 
+        if ($lab != 'all') {
+
+            if ($lab == 'penyakit') {
+                $lab = 'Laboratorium Penyakit';
+            } elseif($lab == 'hama'){
+                $lab = 'Laboratorium Hama';
+            }
+
+            $sql .= " AND lab_penguji IN ('$lab') ";
+        }
+
         $query = $this->db->query($sql) or die($this->db->error);
 
         return $query;
+    }
 
+    public function exportDatek()
+    {
+        $sql = "SELECT input_permohonan.*, hasil_kt.* from input_permohonan JOIN hasil_kt ON input_permohonan.id = hasil_kt.id";
+
+          $query = $this->db->query($sql) or die($this->db->error);
+
+          return $query;
     }
 
     /*Print Multi lhu*/

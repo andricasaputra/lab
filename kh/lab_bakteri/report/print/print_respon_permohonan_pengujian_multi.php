@@ -659,7 +659,7 @@ $content .='
 
             $content .='
 
-            '.$pejabat->jabfung.'
+            '.$pejabat->jabatan.'
 
             <br />
 

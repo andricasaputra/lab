@@ -384,6 +384,23 @@
                           </div>
                         </td>
                       </tr>
+                      <tr>
+                        <td width="40%">
+                          <div class="form-group" align="left">Pilih Laboratorium</div>   
+                        </td>
+                        <td width="10%">
+                          <div class="form-group" align="center">:</div>
+                        </td>
+                        <td width="50%">
+                          <div class="form-group">
+                            <select name="lab" id="lab" class="form-control">
+                              <option value="all">Semua</option>
+                              <option value="penyakit">Laboratorium Penyakit</option>
+                              <option value="hama">Laboratorium Hama</option>
+                            </select>
+                          </div>
+                        </td>
+                      </tr>
                     </table>
               <div class="modal-footer" >
 

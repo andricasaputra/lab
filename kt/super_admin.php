@@ -104,105 +104,6 @@ require_once 'templates/header.php';
 
                     <li>
 
-                        <a href="#"><i class="fa fa-tasks fa-fw"></i> Manajer Administrasi<span class="fa arrow"></span></a>
-
-                        <ul class="nav nav-second-level">
-
-                            <li>
-
-                                <a href="?page=penerima_sampel"><i class="fa fa-user fa-fw"></i>Penerima Sampel</a>
-
-                            </li>
-
-                            <li>
-
-                                <a href="?page=penyerahan_sampel"><i class="fa fa-leaf fa-fw"></i>Penyerahan Sampel </a>
-
-                            </li>
-
-
-                            <li>
-
-                                <a href="?page=permintaan_kesiapan_pengujian"><i class="fa fa-dashboard fa-fw"></i>Permintaan Kesiapan</a>
-
-                            </li>
-
-
-                            <li>
-
-                                <a href="?page=respon_permohonan"><i class="fa fa-file-text-o fa-fw"></i>Respon Permohonan </a>
-
-                            </li>
-
-
-                        </ul>
-
-                        <!-- /.nav-second-level -->
-
-                    </li>
-
-                    <li>
-
-                        <a href="#"><i class="fa fa-tasks fa-fw"></i> Manajer Teknis<span class="fa arrow"></span></a>
-
-                        <ul class="nav nav-second-level">
-
-                            <li>
-
-                                <a href="?page=kesiapan_pengujian"><i class="fa fa-dashboard fa-fw"></i>Kesiapan Pengujian</a>
-
-                            </li>
-
-                            <li>
-
-                                <a href="?page=penyelia_analis"><i class="fa fa-pencil fa-fw"></i>Penunjukan Petugas</a>
-
-                            </li>
-
-                            <li>
-
-                                <a href="?page=pengelola_sampel"><i class="fa fa-user fa-fw"></i>Pengelola Sampel</a>
-
-                            </li>
-
-                        </ul>
-
-                        <!-- /.nav-second-level -->
-
-                    </li>
-
-                    <li>
-
-                        <a href="#"><i class="fa fa-flask fa-fw" ></i>Pengujian<span class="fa arrow"></span></a>
-
-                        <ul class="nav nav-second-level">
-
-                            <li>
-
-                                <a href="?page=data_teknis"><i class="fa fa-file-text fa-fw" ></i>Data Teknis</a>
-
-                            </li>
-
-                            <li>
-
-                                <a href="?page=sertifikat"><i class="fa fa-file-text-o fa-fw" ></i>Hasil Pengujian</a>
-
-                            </li>
-
-                        </ul>
-
-                        <!-- /.nav-second-level -->
-
-                    </li>
-
-                    <li>
-
-                        <a href="?page=surat_hasil_uji"><i class="fa fa-check-square fa-fw" ></i>Surat Hasil Uji</a>
-
-                    </li>
-
-                    <li>
-
                         <a href="#"><i class="fa fa-gear fa-fw"></i> Database<span class="fa arrow"></span></a>
 
                         <ul class="nav nav-second-level">
@@ -221,7 +122,18 @@ require_once 'templates/header.php';
 
                             <li>
 
-                                <a href="?page=tambah_nama_user"><i class="fa fa-user fa-fw"></i>Nama User</a>
+                                <a href="?page=tambah_nama_user"><i class="fa fa-user fa-fw"></i>Nama Pejabat</a>
+
+                            </li>
+                            <li>
+
+                                <a href="?page=tambah_jabatan"><i class="fa fa-user fa-fw"></i>Jabatan Lab</a>
+
+                            </li>
+
+                            <li>
+
+                                <a href="?page=tambah_jabfung"><i class="fa fa-user fa-fw"></i>Jabatan Fungsional</a>
 
                             </li>
 
@@ -294,15 +206,6 @@ require_once 'templates/header.php';
             } elseif (@$_GET['page'] == 'data_permohonan') {
                 require_once "views/data_permohonan.php";
 
-            } elseif (@$_GET['page'] == 'penerima_sampel') {
-                require_once "views/penerima_sampel.php";
-
-            } elseif (@$_GET['page'] == 'permintaan_kesiapan_pengujian') {
-                require_once "views/permintaan_kesiapan_pengujian.php";
-
-            } elseif (@$_GET['page'] == 'kesiapan_pengujian') {
-                require_once "views/kesiapan_pengujian.php";
-
             } elseif (@$_GET['page'] == 'input_nama_tumbuhan') {
                 require_once "database/views/input_database_nama_tumbuhan.php";
 
@@ -311,27 +214,6 @@ require_once 'templates/header.php';
 
             } elseif (@$_GET['page'] == 'tambah_nama_user') {
                 require_once "database/views/tambah_nama_user.php";
-
-            } elseif (@$_GET['page'] == 'respon_permohonan') {
-                require_once "views/respon_permohonan_pengujian.php";
-
-            } elseif (@$_GET['page'] == 'penyerahan_sampel') {
-                require_once "views/penyerahan_sampel.php";
-
-            } elseif (@$_GET['page'] == 'penyelia_analis') {
-                require_once "views/penyelia_analis.php";
-
-            } elseif (@$_GET['page'] == 'pengelola_sampel') {
-                require_once "views/pengelola_sampel.php";
-
-            } elseif (@$_GET['page'] == 'data_teknis') {
-                require_once "views/data_teknis.php";
-
-            } elseif (@$_GET['page'] == 'sertifikat') {
-                require_once "views/sertifikat.php";
-
-            } elseif (@$_GET['page'] == 'surat_hasil_uji') {
-                require_once "views/surat_hasil_uji.php";
 
             } elseif (@$_GET['page'] == 'input') {
                 require_once "views/pesan.php";
@@ -367,6 +249,14 @@ require_once 'templates/header.php';
                 echo '<div style="margin-top: 50px"></div>';
 
                 echo phpinfo();
+
+            } elseif (@$_GET['page'] === 'tambah_jabatan') {
+
+                require_once "./database/views/tambah_jabatan.php";
+
+            } elseif (@$_GET['page'] === 'tambah_jabfung') {
+
+                require_once "./database/views/tambah_jabfung.php";
 
             }
 

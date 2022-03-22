@@ -2,6 +2,10 @@
 
 require_once ('header.php');
 
+$file = explode('.', basename(__FILE__));
+
+$set = $objectPrint->setNamaDokumen($file[0], 'kt');
+
 $content ='
 
 <style>
@@ -25,7 +29,7 @@ $content ='
 
         vertical-align: baseline;
 
-        padding : 8px;
+        padding : 5px;
 
     }
 
@@ -39,7 +43,7 @@ $content ='
 
         vertical-align: text-top;
 
-        padding: 8px;
+        padding: 5px;
 
     }
 
@@ -68,7 +72,7 @@ $content .= '
 
             <hr width="75%">
 
-            <i>F.5.4.1.1 H; Ter.1; Rev.0;03/08/2015</i>
+            <i>'.$objectPrint->kode_dokumen.'</i>
 
         </div>
 
@@ -82,7 +86,15 @@ $no=1;
        
 if(isset($_POST['print_agenda'])){
 
-$tampil = $objectPrint->print_agenda($_POST['tgl_a'], $_POST['tgl_b']);
+$tampil = $objectPrint->print_agenda($_POST['tgl_a'], $_POST['tgl_b'], $_POST['lab']);
+
+if ($_POST['lab'] == 'penyakit') {
+    $lab = 'Penyakit';
+} elseif($_POST['lab'] == 'hama'){
+    $lab = 'Hama';
+}else{
+    $lab = 'Hama dan Penyakit';
+}
 
 
 }else {
@@ -96,16 +108,14 @@ if ($tampil->num_rows === 0) {
         return false;
 }
 
-$rtitle = "buku agenda pengujian laboratorium karantina hewan <br/> laboratorium bakteri";
-
-$title = ucwords(str_replace("<br/>", "", $rtitle));
-
 
 $content .= '
 
     <div align="center">
 
-        <strong>'.strtoupper($rtitle).'</strong>
+        <strong>'.$objectPrint->title_dokumen.'</strong>
+        <br/>
+        <strong>LABORATORIUM <i> '.$lab.' </i></strong>
 
     </div>
 
@@ -148,12 +158,12 @@ $content .= '
             
 
             <td>'.$no++.'</td>
-            <td>'.$objectTanggal->balik_tgl_indo2($data->tanggal_permohonan).'</td>
+            <td>'. date("d/m/Y",strtotime($data->tanggal_acu_permohonan)).'</td>
             <td>'.$data->kode_sampel.'</td>
             <td width="5%">'.$data->nama_sampel.'</td>
             <td width="15%"><em>'.$data->target_optk.' '.$data->target_optk2.' '.$data->target_optk3.'</em></td>
             <td style="width: 5%">'.$data->metode_pengujian.'</td>
-            <td width="5%">'.$objectTanggal->balik_tgl_indo2($data->tanggal_sertifikat).'</td>
+            <td width="5%">'. date("d/m/Y",strtotime($data->waktu_apdate_sertifikat)) .'</td>
             <td>'.$data->positif_negatif.'</td>
             <td width="20%">'.$data->nama_analis.'</td>
             <td width="20%">'.$data->nama_penyelia.'</td>
@@ -172,15 +182,13 @@ $content .= '
 
 ';
 
-require_once($html2pdf);
-
-$html2pdf = new HTML2PDF ('L','A4','en','UTF-8');
+$html2pdf = new \spipu\Html2Pdf\Html2Pdf('L','A4','en','UTF-8');
 
 $html2pdf->WriteHTML($content);
 
-$html2pdf->pdf->setTitle($title);
+$html2pdf->pdf->setTitle($objectPrint->title_dokumen);
 
-$html2pdf->Output('Buku_Agenda-'.$objectTanggal->tgl_indo($_POST['tgl_a']).'-s/d-'.$objectTanggal->tgl_indo($_POST['tgl_b']).'.pdf');
+$html2pdf->Output('Buku_Agenda.pdf');
 
 require_once('footer.php');
 

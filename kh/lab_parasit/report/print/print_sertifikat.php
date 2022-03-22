@@ -870,7 +870,7 @@ $content .= '
 
         <tr>
 
-            <td style="width: 215px">'.$pejabat->jabfung.'</td>
+            <td style="width: 215px">'.$pejabat->jabatan.'</td>
 
             <td style="width: 180px"></td>
 

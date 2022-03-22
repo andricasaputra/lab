@@ -362,7 +362,7 @@
 
           <div id="responsive-form" class="clearfix">
 
-                <form action="./lab_bakteri/report/print/print_buku_agenda_datek_kh.php" method="post" target="_blank">
+                <form action="./lab_bakteri/report/print/print_buku_agenda_datek.php" method="post" target="_blank">
 
                   <table>
                     <tr>

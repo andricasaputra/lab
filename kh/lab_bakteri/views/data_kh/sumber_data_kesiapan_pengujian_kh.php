@@ -205,7 +205,6 @@ while($data2 = $query->fetch_object()){
 
                 <a href="#"><button type="button" class="btn btn-warning btn-xs btn-not-allowed"><i class="fa fa-print fa-fw"></i> Print</button></a>
 
-                <a href="#"><button type="button" class="btn btn-danger btn-xs btn-not-allowed"><i class="fa fa-print fa-fw"></i> Draft</button></a>
 
                 ';
 
@@ -218,7 +217,6 @@ while($data2 = $query->fetch_object()){
                 
                 <a href="./lab_bakteri/report/print/print_kesiapan_pengujian.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
 
-                <a href="./lab_bakteri/report/print/print_kesiapan_pengujian_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>
 
                 ';
             }
@@ -235,7 +233,6 @@ while($data2 = $query->fetch_object()){
                 
                 <a href="./lab_bakteri/report/print/print_kesiapan_pengujian.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
 
-                <a href="./lab_bakteri/report/print/print_kesiapan_pengujian_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>
 
                 ';
 
@@ -248,7 +245,6 @@ while($data2 = $query->fetch_object()){
 
                 <a href="./lab_bakteri/report/print/print_kesiapan_pengujian.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-warning btn-xs"><i class="fa fa-print fa-fw"></i> Print</button></a>
 
-                <a href="./lab_bakteri/report/print/print_kesiapan_pengujian_draft.php?id='.$data2->id.'&no_permohonan='.$data2->no_permohonan.'" target="_blank"><button type="button" class="btn btn-danger btn-xs"><i class="fa fa-print fa-fw"></i> Draft</button></a>
 
 
                 ';

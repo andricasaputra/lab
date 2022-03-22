@@ -749,11 +749,11 @@ $content .= '
 
             ';
 
-            if ($pejabat->jabfung != 'Kepala Stasiun') {
+            if ($pejabat->jabatan != 'Kepala Stasiun') {
 
                 $content .='
 
-                <td style="width: 250px; padding-bottom: 60px">Plh. Kepala Stasiun<br>' . $pejabat->jabfung .'</td>
+                <td style="width: 250px; padding-bottom: 60px">Plh. Kepala Stasiun<br>' . $pejabat->jabatan .'</td>
                 ';
 
             }else{

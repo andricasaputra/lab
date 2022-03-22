@@ -127,10 +127,11 @@ class Cetak extends LegacyCetak implements CetakKH
         return $query;
     }
 
-    public function print_agenda($tgl1 = null, $tgl2 = null)
+    public function print_agenda($tgl1 = null, $tgl2 = null, $lab = NULL)
     {
 
-        $sql = "SELECT input_permohonan_kh_lab_parasit.id, input_permohonan_kh_lab_parasit.tanggal_penyerahan_lab ,input_permohonan_kh_lab_parasit.kode_sampel, input_permohonan_kh_lab_parasit.tanggal_pengujian, input_permohonan_kh_lab_parasit.nama_sampel, input_permohonan_kh_lab_parasit.target_pengujian2,input_permohonan_kh_lab_parasit.target_pengujian3, input_permohonan_kh_lab_parasit.metode_pengujian, input_permohonan_kh_lab_parasit.nama_penyelia, input_permohonan_kh_lab_parasit.nama_analis, input_permohonan_kh_lab_parasit.nama_sampel_lab, input_permohonan_kh_lab_parasit.tanggal_sertifikat ,hasil_kh_lab_parasit.id ,hasil_kh_lab_parasit.positif_negatif,hasil_kh_lab_parasit.positif_negatif_target3, hasil_kh_lab_parasit.no_sampel, hasil_kh_lab_parasit.no_sertifikat FROM input_permohonan_kh_lab_parasit INNER JOIN hasil_kh_lab_parasit ON input_permohonan_kh_lab_parasit.id = hasil_kh_lab_parasit.id";
+        $sql = "SELECT input_permohonan_kh_lab_parasit.id, input_permohonan_kh_lab_parasit.tanggal_penyerahan_lab ,input_permohonan_kh_lab_parasit.kode_sampel, input_permohonan_kh_lab_parasit.tanggal_pengujian, input_permohonan_kh_lab_parasit.nama_sampel, input_permohonan_kh_lab_parasit.target_pengujian2,input_permohonan_kh_lab_parasit.target_pengujian3, input_permohonan_kh_lab_parasit.metode_pengujian, input_permohonan_kh_lab_parasit.nama_penyelia, input_permohonan_kh_lab_parasit.nama_analis, input_permohonan_kh_lab_parasit.nama_sampel_lab, input_permohonan_kh_lab_parasit.tanggal_sertifikat ,
+            input_permohonan_kh_lab_parasit.tanggal_acu_permohonan, input_permohonan_kh_lab_parasit.waktu_apdate_sertifikat, hasil_kh_lab_parasit.id ,hasil_kh_lab_parasit.positif_negatif,hasil_kh_lab_parasit.positif_negatif_target3, hasil_kh_lab_parasit.no_sampel, hasil_kh_lab_parasit.no_sertifikat FROM input_permohonan_kh_lab_parasit INNER JOIN hasil_kh_lab_parasit ON input_permohonan_kh_lab_parasit.id = hasil_kh_lab_parasit.id";
 
         if ($tgl1 != null && $tgl2 != null) {
             $sql .= " WHERE DATE(input_permohonan_kh_lab_parasit.waktu_apdate_sertifikat) BETWEEN '$tgl1' AND '$tgl2'";

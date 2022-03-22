@@ -152,7 +152,7 @@ while($data2 = $query->fetch_object()){
     
         }
 
-        if (isset($_SESSION['loginsuperkh'])) {
+        if (isset($_SESSION['loginsuperkh']) || isset($_SESSION['loginadminkh'])) {
 
             if ($data2->kesiapan == 'Tidak') {
 
