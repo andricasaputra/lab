@@ -1045,7 +1045,7 @@ $content ='
                 <small>
                  *) Coret yang tidak perlu
                 <br/>
-                **) Termasuk ruang lingkup Akreditasi
+                **) Termasuk Ruang Lingkup Akreditasi
                 </small>
 
             </span>
