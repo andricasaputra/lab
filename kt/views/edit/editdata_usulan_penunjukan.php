@@ -173,9 +173,9 @@ endwhile;
 
                           <option><?php echo $nama_penyelia; ?></option>
 
-                            <?php                 
+                             <?php                 
 
-                              $i = $objectData->tampil_jabatan();
+                              $i = $objectPejabat->showJabatan('Penyelia');
 
                               while ($t=$i->fetch_object()) : 
 
@@ -198,9 +198,9 @@ endwhile;
 
                           <option><?php echo $nama_analis; ?></option>
 
-                            <?php                 
+                             <?php                 
 
-                              $i = $objectData->tampil_jabatan();
+                              $i = $objectPejabat->showJabatan('Analis');
 
                               while ($t=$i->fetch_object()) : 
 
