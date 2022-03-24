@@ -217,19 +217,16 @@ endwhile;
 
                 <option><?= $nama_penyelia; ?></option>
 
-                <?php 
+                
+               <?php 
               
                   $i = $objectPejabat->index();
 
-                  
-                        while ($t=$i->fetch_object()) : ?>
+                  while ($t=$i->fetch_object()) : ?>
 
-
-                        <option><?=$t->nama_pejabat ;?></option>
-
+                    <option><?=$t->nama_pejabat ;?></option>
 
                    <?php endwhile;?>
-
             </select>
 
           </div>
@@ -251,10 +248,10 @@ endwhile;
                  while ($t=$i->fetch_object()) : ?>
 
 
-                  <option><?=$t->nama_pejabat ;?></option>
+                    <option><?=$t->nama_pejabat ;?></option>
 
 
-              <?php endwhile;?>
+               <?php endwhile;?>
 
             </select>
 

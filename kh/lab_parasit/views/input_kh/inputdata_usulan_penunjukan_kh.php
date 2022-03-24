@@ -193,9 +193,9 @@ endwhile;
 
             <select class="form-control" name="nama_penyelia" id="nama_penyelia_input" required> 
 
-                <?php 
+               <?php 
               
-                  $i = $objectDataParasit->tampil_jabfung();
+                  $i = $objectPejabat->index();
 
                   while ($t=$i->fetch_object()) : 
 
@@ -211,6 +211,7 @@ endwhile;
 
                    endwhile;?>
 
+
             </select>
 
           </div>
@@ -225,9 +226,9 @@ endwhile;
 
               <option></option>
 
-                <?php 
+                 <?php 
 
-                  $i = $objectDataParasit->tampil_jabfung();
+                  $i = $objectPejabat->index();
 
                  while ($t=$i->fetch_object()) : 
 
@@ -243,6 +244,7 @@ endwhile;
 
                 endwhile;?>
 
+
             </select>
 
           </div>
@@ -257,7 +259,23 @@ endwhile;
 
             <select class="form-control" name="jab_penyelia" id="jab_penyelia_input" required> 
 
-              <option>Medik Veteriner Pertama</option>
+              <?php 
+              
+                  $i = $objectPejabat->index();
+
+                  while ($t=$i->fetch_object()) : 
+
+                    if ($t->nama_pejabat == 'drh. Ardiyanto Chandra Wijaya') : ?>
+
+                    <option selected><?=$t->jabfung ;?></option>
+
+                    <?php else: ?>
+
+                    <option><?=$t->jabfung ;?></option>
+
+                    <?php endif; 
+
+                   endwhile;?>
 
             </select>
 
@@ -271,7 +289,25 @@ endwhile;
 
               <select class="form-control" name="jab_analis" id="jab_analis_input" required> 
 
-                <option>Paramedik Veteriner Pelaksana Lanjutan</option>
+               
+                <?php 
+              
+                  $i = $objectPejabat->index();
+
+                  while ($t=$i->fetch_object()) : 
+
+                    if ($t->nama_pejabat == 'Siska Murtini, A.Md') : ?>
+
+                    <option selected><?=$t->jabfung ;?></option>
+
+                    <?php else: ?>
+
+                    <option><?=$t->jabfung ;?></option>
+
+                    <?php endif; 
+
+                   endwhile;?>
+
 
 
               </select>
@@ -292,7 +328,7 @@ endwhile;
 
                     <?php 
 
-                      $i = $objectDataParasit->tampil_pejabat();
+                      $i = $objectData->tampil_pejabat();
 
                         while ($t=$i->fetch_object()) : 
 
@@ -305,6 +341,8 @@ endwhile;
                         <option><?=$t->nama_pejabat ;?></option>
 
                       <?php endif; 
+
+                   endwhile;?>
 
                    endwhile;?>
 

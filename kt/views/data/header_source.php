@@ -1,5 +1,9 @@
 <?php 
 
+if (session_id() == '') {
+	session_start();
+}
+
 ob_start();
 
 use Lab\config\Database;

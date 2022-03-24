@@ -197,10 +197,10 @@ endfor;
             <label class="control-label" for="nama_penyelia">Penyelia</label>
 
             <select class="form-control" name="nama_penyelia" id="nama_penyelia_input" required> 
-
-                <?php 
               
-                  $i = $objectDataParasit->tampil_jabfung();
+            <?php 
+              
+                  $i = $objectPejabat->index();
 
                   while ($t=$i->fetch_object()) : 
 
@@ -215,7 +215,6 @@ endfor;
                     <?php endif; 
 
                    endwhile;?>
-
             </select>
 
           </div>
@@ -262,7 +261,23 @@ endfor;
 
             <select class="form-control" name="jab_penyelia" id="jab_penyelia_input" required> 
 
-              <option>Medik Veteriner Pertama</option>
+              <?php 
+              
+                  $i = $objectPejabat->index();
+
+                  while ($t=$i->fetch_object()) : 
+
+                    if ($t->nama_pejabat == 'drh. Ardiyanto Chandra Wijaya') : ?>
+
+                    <option selected><?=$t->jabfung ;?></option>
+
+                    <?php else: ?>
+
+                    <option><?=$t->jabfung ;?></option>
+
+                    <?php endif; 
+
+                   endwhile;?>
 
             </select>
 
@@ -276,7 +291,23 @@ endfor;
 
               <select class="form-control" name="jab_analis" id="jab_analis_input" required> 
 
-                <option>Paramedik Veteriner Pelaksana Lanjutan</option>
+                <?php 
+              
+                  $i = $objectPejabat->index();
+
+                  while ($t=$i->fetch_object()) : 
+
+                    if ($t->nama_pejabat == 'Siska Murtini, A.Md') : ?>
+
+                    <option selected><?=$t->jabfung ;?></option>
+
+                    <?php else: ?>
+
+                    <option><?=$t->jabfung ;?></option>
+
+                    <?php endif; 
+
+                   endwhile;?>
 
 
               </select>
