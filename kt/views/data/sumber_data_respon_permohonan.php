@@ -36,13 +36,12 @@ if ($fetch != null) {
     $result_id = 0;
 }  
 
-$sql = "SELECT * FROM input_permohonan WHERE ";
+$sql = "SELECT * FROM input_permohonan  ";
 
-include_once ("sortir.php");
 
 if(isset($_POST["search"]["value"])){
 
-    $sql .=" (id LIKE '%".@$_POST['search']['value']."%' ";
+    $sql .=" WHERE (id LIKE '%".@$_POST['search']['value']."%' ";
 
     $sql .=" OR tanggal_permohonan LIKE '%".@$_POST['search']['value']."%' ";
 
@@ -57,7 +56,7 @@ if(isset($_POST["search"]["value"])){
 
 if(isset($_POST["order"]))
 {
- $sql .= 'ORDER BY '.$col[@$_POST['order']['0']['column']].' '.@$_POST['order']['0']['dir'].' 
+ $sql .= ' ORDER BY '.$col[@$_POST['order']['0']['column']].' '.@$_POST['order']['0']['dir'].' 
  ';
 }
 else
@@ -67,9 +66,13 @@ else
 
 $sql1 = '';
 
+
+$start = $_POST['start'] ?? 0;
+$length = $_POST['length'] ?? ', '. 10;
+
 if(@$_POST["length"] != -1)
 {
- $sql1 = 'LIMIT ' . @$_POST['start'] . ', ' . @$_POST['length'];
+ $sql1 = 'LIMIT ' . $start  . $length;
 }
 
 $query = $conn->query($sql);
@@ -88,6 +91,8 @@ while($data2 = $query->fetch_object()){
     $id2 =  $data2->id;
 
     $isi     = $data2->tanggal_selesai;
+
+    //var_dump($isi);
 
     $selesai = $data2->no_agenda;
 
@@ -109,6 +114,8 @@ while($data2 = $query->fetch_object()){
     $subdata = array();
 
         if ($kesiapan == "Tidak") {
+
+            var_dump($kesiapan); die;
 
             $subdata[] = "<span class='nonuji'>".$dat['no']."</span>"; 
 
@@ -139,6 +146,8 @@ while($data2 = $query->fetch_object()){
 
 
         }elseif (strlen($isi) == 0) {
+
+
 
             $subdata[] = "<span class='kosong'>".$dat['no']."</span>"; 
 
@@ -237,7 +246,12 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif ($data2->mt != '' && empty($result_saran) && $id2 > $result_id) {
+        }elseif ($data2->mt != '' && is_null($result_saran) && $id2 > $result_id) {
+
+            // var_dump($data2->mt);
+            // var_dump($result_saran);
+            // var_dump($id2 > $result_id); 
+            // var_dump(strlen($pejabat2)); die;
            
             $subdata[] = '
 

@@ -1,8 +1,16 @@
-
 <?php
 
-   include_once ('header_source.php');
 
+use Lab\config\Database;
+use Lab\classes\kt\Data;
+
+require_once (dirname(dirname(dirname(__DIR__))).'/vendor/autoload.php');
+
+$connection = Database::getInstance();
+
+$conn = $connection->getConnection();
+
+$objectData = new Data;
 
    $sql = "SELECT * FROM pejabat
          WHERE nama_pejabat LIKE '%".@$_GET['id']."%'"; 
