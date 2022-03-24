@@ -1,9 +1,5 @@
 <?php
 
-if (session_id() == '') {
-    session_start();
-}
-
 
 include_once ('header_source.php');
 

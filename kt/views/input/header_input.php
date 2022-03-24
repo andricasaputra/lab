@@ -1,6 +1,5 @@
 <?php  
 
-session_start();
 
 use Lab\classes\init as basepath;
 use Lab\classes\kt\Pejabat;
