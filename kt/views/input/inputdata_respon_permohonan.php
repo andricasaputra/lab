@@ -102,7 +102,7 @@ endwhile;
 
                                 <label class="control-label" for="saran">Saran</label>
 
-                                <textarea type="text" name="saran" class="form-control" id="saran_input" rows="1">-</textarea> 
+                                <textarea type="text" name="saran" class="form-control" id="saran_input" rows="1">===</textarea> 
 
                           </div>
 
@@ -112,7 +112,7 @@ endwhile;
 
                                 <label class="control-label" for="tanggal_selesai">Tanggal Selesai</label>
 
-                                <input type="text" name="tanggal_selesai" class="form-control" id="tanggal_selesai_input" value="-">
+                                <input type="text" name="tanggal_selesai" class="form-control" id="tanggal_selesai_input" value="===">
 
                           </div>
 

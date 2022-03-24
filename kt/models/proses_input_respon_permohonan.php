@@ -27,7 +27,7 @@ $nip_ma					=htmlspecialchars($conn->real_escape_string(trim($_POST['nip_ma'])))
 
 $saran					=htmlspecialchars($conn->real_escape_string(trim($_POST['saran'])));
 
-$tanggal_selesai		=htmlspecialchars($conn->real_escape_string(trim($_POST['tanggal_selesai'])));
+$tanggal_selesai		=htmlspecialchars($conn->real_escape_string(trim($_POST['tanggal_selesai'])));z
 
 
 

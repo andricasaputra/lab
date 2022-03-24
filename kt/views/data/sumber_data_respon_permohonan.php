@@ -36,13 +36,12 @@ if ($fetch != null) {
     $result_id = 0;
 }  
 
-$sql = "SELECT * FROM input_permohonan WHERE ";
+$sql = "SELECT * FROM input_permohonan  ";
 
-include_once ("sortir.php");
 
 if(isset($_POST["search"]["value"])){
 
-    $sql .=" (id LIKE '%".@$_POST['search']['value']."%' ";
+    $sql .=" WHERE (id LIKE '%".@$_POST['search']['value']."%' ";
 
     $sql .=" OR tanggal_permohonan LIKE '%".@$_POST['search']['value']."%' ";
 
@@ -57,7 +56,7 @@ if(isset($_POST["search"]["value"])){
 
 if(isset($_POST["order"]))
 {
- $sql .= 'ORDER BY '.$col[@$_POST['order']['0']['column']].' '.@$_POST['order']['0']['dir'].' 
+ $sql .= ' ORDER BY '.$col[@$_POST['order']['0']['column']].' '.@$_POST['order']['0']['dir'].' 
  ';
 }
 else
@@ -67,9 +66,13 @@ else
 
 $sql1 = '';
 
+
+$start = $_POST['start'] ?? 0;
+$length = $_POST['length'] ?? ', '. 10;
+
 if(@$_POST["length"] != -1)
 {
- $sql1 = 'LIMIT ' . @$_POST['start'] . ', ' . @$_POST['length'];
+ $sql1 = 'LIMIT ' . $start  . $length;
 }
 
 $query = $conn->query($sql);
