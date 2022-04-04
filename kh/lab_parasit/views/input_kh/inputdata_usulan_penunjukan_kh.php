@@ -161,7 +161,7 @@ endwhile;
 
             <label class="control-label" for="no_surat_tugas">Nomor Surat Tugas</label>
 
-            <input type="text" class="form-control" name="no_surat_tugas" id="no_surat_tugas_input" value="<?=$isiNomor?>/LKH/L.50.D/<?=$bln?>/<?=$thn?>" required> 
+            <input type="text" class="form-control" name="no_surat_tugas" id="no_surat_tugas_input" value="<?=$isiNomor?>/LKH/K.50.D/<?=$bln?>/<?=$thn?>" required> 
 
           </div>
 
