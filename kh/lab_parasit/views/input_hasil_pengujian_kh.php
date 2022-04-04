@@ -235,13 +235,13 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                           /*Hitung Banyak Hasil Yang Sudah Terinput di ID yang sama*/
 
-                          $qu2 = $objectHasil->input_ulang($_GET['id']);
+                          $qu2 = $objectHasilParasit->input_ulang($_GET['id']);
 
                           $num = $qu2->num_rows; 
 
                           $tgl_acu = date("Y-m-d");
 
-                          $jum = $data->jumlah_sampel - $num;
+                          $jum = ((int)$data->jumlah_sampel) - $num;
 
                           $j = $_GET['no_sampel'] ;
 
@@ -258,7 +258,7 @@ require_once(dirname(dirname(dirname(__DIR__)))."/kh/templates/header_hasil.php"
 
                             $n = array();
 
-                            if($jum != 1){
+                            if($jum > 1){
 
                                 $awal = $x[0];
 

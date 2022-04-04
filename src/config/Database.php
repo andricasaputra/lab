@@ -47,4 +47,11 @@ class Database
 
     }
 
+    public function reparasi()
+    {
+        $sql = "SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));";
+
+        return self::$connection->query($sql) or die(self::$connection->error());
+    }
+
 }

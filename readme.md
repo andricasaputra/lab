@@ -6,7 +6,8 @@ Pada waktu input data "permohonan", jika error pada form lakukan hal berikut:
 
 ATAU
 
-2. copy script berikut ke console phpmyadmin -> SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
+2. copy script berikut ke console phpmyadmin -> 
+SET GLOBAL sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''));
 
 
 --ERROR 1118 (42000) at line 1852:    

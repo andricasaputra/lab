@@ -100,7 +100,7 @@
 
             <li>
 
-                <a href="?page=input"><i class="fa fa-gear fa-fw"></i>Pesan</a>
+                <a href="?page=reparasi"><i class="fa fa-gear fa-fw"></i>Reparasi Database</a>
 
             </li>
 
@@ -151,9 +151,9 @@
 
         require_once "database/views/tambah_nama_user_kh.php";
 
-    }  elseif (@$_GET['page'] == 'input') {
+    }  elseif (@$_GET['page'] == 'reparasi') {
 
-        require_once "lab_bakteri/views/pesan.php";
+        require_once "database/views/reparasi.php";
 
     } elseif (@$_GET['page'] === 'backup_db') {
 

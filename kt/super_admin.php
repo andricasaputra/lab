@@ -183,7 +183,7 @@ require_once 'templates/header.php';
 
                     <li>
 
-                        <a href="?page=input"><i class="fa fa-gear fa-fw"></i>Pesan</a>
+                        <a href="?page=reparasi"><i class="fa fa-gear fa-fw"></i>Reparasi Database</a>
 
                     </li>
 
@@ -215,8 +215,8 @@ require_once 'templates/header.php';
             } elseif (@$_GET['page'] == 'tambah_nama_user') {
                 require_once "database/views/tambah_nama_user.php";
 
-            } elseif (@$_GET['page'] == 'input') {
-                require_once "views/pesan.php";
+            } elseif (@$_GET['page'] == 'reparasi') {
+                require_once "views/reparasi.php";
 
             } elseif (@$_GET['page'] == 'lihat_data_permohonan') {
                 require_once 'views/lihat_data_permohonan.php';

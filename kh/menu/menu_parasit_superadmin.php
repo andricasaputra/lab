@@ -154,7 +154,7 @@
 
             <li>
 
-                <a href="?page=input"><i class="fa fa-gear fa-fw"></i>Pesan</a>
+                <a href="?page=reparasi"><i class="fa fa-gear fa-fw"></i>Reparasi Database</a>
 
             </li>
 
@@ -251,9 +251,9 @@
 
         require_once "lab_parasit/views/surat_hasil_uji.php";
 
-    } elseif (@$_GET['page'] == 'input') {
+    } elseif (@$_GET['page'] == 'reparasi') {
 
-        require_once "lab_parasit/views/pesan.php";
+        require_once "database/views/reparasi.php";
 
     } elseif (@$_GET['page'] == 'lihat_data_permohonan' && $_GET['lab'] == 'parasit') {
 
