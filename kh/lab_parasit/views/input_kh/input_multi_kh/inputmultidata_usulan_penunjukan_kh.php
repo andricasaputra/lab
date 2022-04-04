@@ -109,7 +109,7 @@ $arrNo = array();
 
 for ($i = $No + 1 ; $i < $No + 1 + $hitungNomorKosong ; $i++) :
 
-  $arrNo[] = $i."/LKH/L.50.D/$bln/$thn";
+  $arrNo[] = $i."/LKH/K.50.D/$bln/$thn";
 
 endfor;
 
