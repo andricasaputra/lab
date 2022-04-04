@@ -92,6 +92,8 @@ while($data2 = $query->fetch_object()){
 
     $isi     = $data2->tanggal_selesai;
 
+    //var_dump($isi);
+
     $selesai = $data2->no_agenda;
 
     $kode    = $data2->kode_sampel;
@@ -112,6 +114,8 @@ while($data2 = $query->fetch_object()){
     $subdata = array();
 
         if ($kesiapan == "Tidak") {
+
+            var_dump($kesiapan); die;
 
             $subdata[] = "<span class='nonuji'>".$dat['no']."</span>"; 
 
@@ -142,6 +146,8 @@ while($data2 = $query->fetch_object()){
 
 
         }elseif (strlen($isi) == 0) {
+
+
 
             $subdata[] = "<span class='kosong'>".$dat['no']."</span>"; 
 
@@ -240,7 +246,12 @@ while($data2 = $query->fetch_object()){
                 ';
 
 
-        }elseif ($data2->mt != '' && empty($result_saran) && $id2 > $result_id) {
+        }elseif ($data2->mt != '' && is_null($result_saran) && $id2 > $result_id) {
+
+            // var_dump($data2->mt);
+            // var_dump($result_saran);
+            // var_dump($id2 > $result_id); 
+            // var_dump(strlen($pejabat2)); die;
            
             $subdata[] = '
 
