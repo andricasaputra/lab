@@ -2,7 +2,7 @@
 
 session_start();
 
-use Lab\classes\init as basepath;
+use Lab\classes\Init as basepath;
 use Lab\classes\kt\Pejabat;
 
 require_once (dirname(dirname(dirname(__DIR__))).'/vendor/autoload.php');
