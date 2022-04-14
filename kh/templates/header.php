@@ -3,7 +3,7 @@
 ob_start();
 
 use Lab\config\Database;
-use Lab\classes\{tanggal,init};
+use Lab\classes\{tanggal,Init};
 use Lab\classes\kh\labbakteri\{
     Data as DataKh,
     Hasil as HasilKh,
@@ -42,7 +42,7 @@ $objectNomorParasit = new NomorKhlabparasit;
 
 $objectTanggal = new tanggal;
 
-$objectPath = new init;
+$objectPath = new Init;
 
 $objectJabatan = new Jabatan;
 

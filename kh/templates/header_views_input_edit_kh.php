@@ -3,7 +3,7 @@
 ob_start();
 
 use Lab\config\Database;
-use Lab\classes\{tanggal,init};
+use Lab\classes\{tanggal,Init};
 use Lab\classes\kh\Source4;
 use Lab\classes\kh\labbakteri\{
 	Data as DataKh,
@@ -56,9 +56,9 @@ $objectJabfung = new Jabatan;
 $objectPejabat = new Pejabat;
 
 if (strpos($_SERVER['REQUEST_URI'], "parasit")) {
-	require_once (init::basePath()."/src/classes/kh/labparasit/nomor_sampel_kh_lab_parasit.php");
+	require_once (Init::basePath()."/src/classes/kh/labparasit/nomor_sampel_kh_lab_parasit.php");
 }else {
-	require_once (init::basePath()."/src/classes/kh/labbakteri/nomor_sampel_kh.php");
+	require_once (Init::basePath()."/src/classes/kh/labbakteri/nomor_sampel_kh.php");
 }
 
 

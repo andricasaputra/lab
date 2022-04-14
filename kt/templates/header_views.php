@@ -1,6 +1,6 @@
 <?php
 ob_start();
-require_once dirname(dirname(__DIR__)) . "/init.php";
+require_once dirname(dirname(__DIR__)) . "/Init.php";
 $connection  = Database::getInstance();
 $conn        = $connection->getConnection();
 $objectData  = new Data;

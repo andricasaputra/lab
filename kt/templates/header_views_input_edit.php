@@ -3,7 +3,7 @@ ob_start();
 
 use Lab\config\Database;
 use Lab\classes\tanggal;
-use Lab\classes\init;
+use Lab\classes\Init;
 use Lab\classes\kh\Source4;
 use Lab\classes\kt\{Data, Hasil, Nomor, Admin, Cetak};
 
@@ -23,7 +23,7 @@ $objectPrint = new Cetak;
 
 $objectTanggal = new tanggal;
 
-require_once (init::basePath()."/kt/models/nomor_sampel.php");
+require_once (Init::basePath()."/kt/models/nomor_sampel.php");
 
 ?>
 

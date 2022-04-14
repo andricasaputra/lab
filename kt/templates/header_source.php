@@ -2,9 +2,9 @@
 
 ob_start();
 
-require_once dirname(dirname(__DIR__)) . "/init.php";
+require_once dirname(dirname(__DIR__)) . "/Init.php";
 
-$path = init::SorceDataPath();
+$path = Init::SorceDataPath();
 
 $connection = Database::getInstance();
 
