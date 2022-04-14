@@ -9,7 +9,7 @@ ini_set('max_execution_time', 300);
 use Lab\config\Database;
 use Lab\classes\tanggal;
 use Lab\classes\kt\{Data, Hasil, Cetak, Nomor};
-use Lab\classes\init;
+use Lab\classes\Init;
 use Spipu\Html2Pdf\Html2Pdf;
 
 require_once (dirname(dirname(dirname(__DIR__))).'/vendor/autoload.php');

@@ -12,7 +12,7 @@ use Lab\classes\kh\labparasit\Data as DataKh;
 use Lab\classes\kh\labparasit\Hasil as HasilKh;
 use Lab\classes\kh\labparasit\Cetak as CetakKh;
 use Lab\classes\kh\labparasit\Nomor as NomorKh;
-use Lab\classes\init; 
+use Lab\classes\Init; 
 use Spipu\Html2Pdf\Html2Pdf;
 
 require_once (dirname(dirname(dirname(dirname(__DIR__)))).'/vendor/autoload.php');
@@ -21,7 +21,7 @@ $connection = Database::getInstance();
 
 $conn = $connection->getConnection();
 
-$basepath = init::basePath()."/assets/img/";
+$basepath = Init::basePath()."/assets/img/";
 
 $objectData = new DataKh($connection);
 
