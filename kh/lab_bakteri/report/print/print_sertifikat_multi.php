@@ -622,18 +622,18 @@ $content .= '
     <table class="table2" style="text-align: center">
 
           <tr>
-
             <th style="width:5%;" >No</th>
 
             <th style="width:13%;">Nomor Sampel</th>
 
             <th style="width:15%;">Identitas Sampel</th>
 
-            <th style="width:25%;" >Target Pengujian</th>
+            <th style="width:20%;" >Target Pengujian</th>
 
-            <th style="width:10%;">Metode Pengujian</th>
+            <th style="width:25%;">Metode Pengujian</th>
 
-            <th style="width:27%;">Hasil Pengujian*)</th>
+            <th style="width:22%;">Hasil Pengujian*)</th>
+
 
           </tr>
 
@@ -666,7 +666,7 @@ $content .= '
 
             if ($nosmpl === 1) { $content .='
 
-                <td style="width:5%;">'.$no.'</td> ';
+                <td>'.$no.'</td> ';
 
                 break;
 
@@ -679,7 +679,7 @@ $content .= '
 
             $content .='
 
-            <td style="width:13%; ">
+            <td>
             ';
 
             if (strpos($data->nama_sampel, "Bibit") !== false) {
@@ -703,13 +703,13 @@ $content .= '
             
             </td>    
 
-            <td style="width:20%; ">'.$data->nama_sampel_lab.'</td>
+            <td>'.$data->nama_sampel_lab.'</td>
 
-            <td style="width:22%; "><em>'.$data->target_pengujian2.'</em></td>
+            <td><em>'.$data->target_pengujian2.'</em></td>
 
-            <td style="width:12%; "> '.$data->metode_pengujian.' </td>    
+            <td> '.$data->metode_pengujian.' </td>    
 
-            <td style="width:23%;">'.$data2->positif_negatif.'</td>  
+            <td>'.$data2->positif_negatif.'</td>  
 
           </tr>
 

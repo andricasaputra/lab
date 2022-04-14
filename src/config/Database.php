@@ -9,7 +9,7 @@ class Database
     private $host     = "localhost";
     private $username = "root";
     private $password = "";
-    private $database = "lab_2022";
+    private $database = "lab_db";
 
     private function __construct()
     {

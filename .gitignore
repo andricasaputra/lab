@@ -1,5 +1,5 @@
 *.sql
 /vendor
-/src/config/Database.php
+/src/config/*
 
 

@@ -10,7 +10,7 @@ $content ='
 
 <style>
 
-    .table1 {
+        .table1 {
 
         border :0px;
 
@@ -27,7 +27,6 @@ $content ='
         padding: 3px;
 
     }
-
 
     .tabel1 td {
 
@@ -48,7 +47,8 @@ $content ='
 
     }
 
-      .table2 th {
+
+    .table2 th {
 
        padding-top: 10px;
 
@@ -57,7 +57,7 @@ $content ='
     }
 
 
-     .table2 td {
+    .table2 td {
 
        vertical-align: text-top;
 
@@ -79,9 +79,7 @@ $content ='
         margin-left:-3px;
 
         margin-bottom: 20px
-
     }
-
 
     hr {
 
@@ -92,8 +90,8 @@ $content ='
         color: black; 
 
         background-color: black;
-
     }
+
 
     .lower th td {
 
@@ -106,6 +104,7 @@ $content ='
        vertical-align: text-top;
 
     }
+ 
 
 </style>
 
@@ -716,7 +715,7 @@ $content .= '
 
             <td>'.$data->nama_sampel_lab.'</td>
 
-            <td style="width:8%; "><em>'.$data->target_pengujian2.'</em></td>
+            <td><em>'.$data->target_pengujian2.'</em></td>
 
             <td> '.$data->metode_pengujian.' </td>    
 
