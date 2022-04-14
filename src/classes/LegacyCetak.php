@@ -2,12 +2,12 @@
 
 namespace Lab\classes;
 
-use Lab\classes\init;
+use Lab\classes\Init;
 use Lab\config\Database;
 use Lab\interfaces\SuperCetak;
 
-$basepath = init::basePath();
-$imagesPath = init::imagesPath();
+$basepath = Init::basePath();
+$imagesPath = Init::imagesPath();
 
 define("LOGO", $imagesPath . "/logolab.png");
 define("LOGOSKP", $imagesPath . "/logoskp.png" );
