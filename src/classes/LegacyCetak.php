@@ -152,9 +152,7 @@ abstract class LegacyCetak extends Database implements SuperCetak
     {
         $query = "SELECT * FROM pejabat_kh WHERE nip = '$nip' ";
 
-        if ($jabatan == 'jabfung') {
-            $query .= ' AND kategori = "jabfung"';
-        }else{
+        if ($jabatan == 'nonjabfung') {
             $query .= ' AND kategori = "nonjabfung"';
         }
 
