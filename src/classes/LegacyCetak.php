@@ -148,9 +148,15 @@ abstract class LegacyCetak extends Database implements SuperCetak
         return  $path . '/' . $gambar;
     }
 
-    public function getPejabat($nip)
+    public function getPejabat($nip, $jabatan = 'jabfung')
     {
-        $query = "SELECT * FROM pejabat_kh WHERE nip = '$nip'; ";
+        $query = "SELECT * FROM pejabat_kh WHERE nip = '$nip' ";
+
+        if ($jabatan == 'jabfung') {
+            $query .= ' AND kategori = "jabfung"';
+        }else{
+            $query .= ' AND kategori = "nonjabfung"';
+        }
 
         $query = $this->db->query($query) or die($this->db->error);
 

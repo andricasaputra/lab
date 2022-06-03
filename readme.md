@@ -31,4 +31,13 @@ MYSQL IMPORT BULK DATABASE
 1. mysql -uusername -p db_name < path_to_sql_file
 2. mysql --login-path=your-user db_name < path_to_sql_file
 
+SWITCH PHP VERSION 
+
+1. sudo update-alternatives --config php => CHOOSE NUMBER
+
+OR
+
+2.   sudo a2dismod php7.4 // disable
+     sudo a2enmod php8.0  // enable
+
 

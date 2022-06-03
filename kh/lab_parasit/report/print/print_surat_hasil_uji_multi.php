@@ -217,7 +217,7 @@ $content ='
 
             $totalID = count($arrID);
 
-            $jabatan = $objectPrint->getPejabat($data->nip_kepala_plh2);
+           $pejabat = $objectPrint->getPejabat($data->nip_kepala_plh2, 'nonjabfung');
 
 
         $content .='
