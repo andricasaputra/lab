@@ -22,6 +22,8 @@ class Cetak extends LegacyCetak implements CetakKH
             $sql .= " WHERE id=$id";
         }
         $query = $this->db->query($sql) or die($this->db->error);
+
+       
         return $query;
     }
 
@@ -32,7 +34,11 @@ class Cetak extends LegacyCetak implements CetakKH
 
             $sql .= " WHERE id=$id";
         }
+
+        $sql .= " ORDER BY no_sampel";
+
         $query = $this->db->query($sql) or die($this->db->error);
+
         return $query;
     }
 

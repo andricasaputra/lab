@@ -679,8 +679,11 @@ $content .= '
 
           ';
 
+          $key = 0;
 
             while ($hasil = $fetch_hasil->fetch_object()):
+
+                $key++;
 
                 if (!empty($data->target_pengujian3)) :
                    
@@ -690,8 +693,28 @@ $content .= '
 
               <tr>
 
+              ';
+
+                if($key == 10 || $key == 27 || $key == 43): 
+
+                    $content .='
+                          <td style="width:5%;padding-top: 35px; vertical-align: middle" rowspan="2">'.$no++.'</td>
+
+                     ';
+
+
+                else:
+
+                     $content .='
+
+                          <td style="width:5%; vertical-align: middle" rowspan="2">'.$no++.'</td>
+                     ';
+
+
+                endif;
+
+                $content .='
             
-                <td style="width:5%; vertical-align: middle" rowspan="2">'.$no++.'</td>
 
                 <td style="width:13%; vertical-align: middle"  rowspan="2">
 
