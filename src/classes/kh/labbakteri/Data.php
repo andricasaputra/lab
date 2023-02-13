@@ -286,7 +286,36 @@ class Data extends LegacyData implements SuperData
 
     public function hapus($id)
     {
-        $this->db->query("DELETE FROM input_permohonan_kh WHERE id='$id'") or die($this->db->error);
+
+        try {
+
+            $this->db->query("START TRANSACTION");
+
+            $check = $this->db->query("SELECT * FROM input_permohonan_kh WHERE id='$id'");
+
+            $check = $check->fetch_object();
+
+            $delete = $this->db->query("DELETE FROM input_permohonan_kh WHERE id='$id'");
+
+            if(strpos($check->nama_sampel, "Bibit") != false){
+
+                $delete_hasil = $this->db->query("DELETE FROM hasil_kh_bibit WHERE id='$id'");
+
+            } else {
+
+                $delete_hasil = $this->db->query("DELETE FROM hasil_kh WHERE id='$id'");
+
+            }
+
+            $this->db->query("COMMIT");
+            
+        } catch (\Exception $e) {
+
+            $this->db->query("ROLLBACK");
+
+            die($e->getMessage());
+            
+        }
     }
 
     public function KosongData()
