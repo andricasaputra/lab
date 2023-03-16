@@ -211,11 +211,11 @@ endwhile;
                                         <option>Wulida Fakhrina, SP</option>
                                         <?php 
 
-                                          $i = $objectDataParasit->tampil_jabfung();
+                                          $i = $objectData->tampil_jabfung();
 
                                           while ($t=$i->fetch_object()) : ?>
 
-                                          <option><?=$t->nama_pejabat ;?></option>
+                                          <option value="<?=$t->id_pejabat ;?>"><?=$t->nama_pejabat ;?></option>
 
                                         <?php endwhile;?>
 

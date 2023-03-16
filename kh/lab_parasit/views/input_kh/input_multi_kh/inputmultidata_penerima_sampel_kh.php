@@ -167,14 +167,14 @@ $waktu =  date('H:i');
                                   <label class="control-label" for="penerima_sampel">Penerima Sampel</label>
 
                                   <select class="form-control" name="penerima_sampel" id="penerima_sampel_input" required>
-                                        <option>Musallamatun</option>
+                                        <option>Wulida Fakhrina, SP</option>
                                         <?php 
 
-                                          $i = $objectDataParasit->tampil_jabfung();
+                                          $i = $objectData->tampil_jabfung();
 
                                           while ($t=$i->fetch_object()) : ?>
 
-                                          <option><?=$t->nama_pejabat ;?></option>
+                                          <option value="<?=$t->id_pejabat ;?>"><?=$t->nama_pejabat ;?></option>
 
                                         <?php endwhile;?>
 
@@ -188,7 +188,7 @@ $waktu =  date('H:i');
                                   <label class="control-label" for="nip_penerima_sampel">NIP</label>
 
                                   <select class="form-control" name="nip_penerima_sampel" id="nip_penerima_sampel_input">
-                                    <option>19781124 200501 2 001</option>
+                                    <option>-</option>
                                   </select>
 
                               </div>
