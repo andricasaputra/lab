@@ -154,7 +154,7 @@ endif;
 
                                           while ($t=$i->fetch_object()) : ?>
 
-                                          <option value="<?=$t->id_pejabat ;?>"><?=$t->nama_pejabat ;?></option>
+                                          <option value="<?=$t->nama_pejabat ;?>"><?=$t->nama_pejabat ;?></option>
 
                                         <?php endwhile;?>
 

@@ -3,7 +3,7 @@
    include_once ("header_source.php");
 
    $sql = "SELECT * FROM pejabat_kh
-         WHERE id_pejabat = '" . $_GET['id'] . "' "; 
+         WHERE nama_pejabat = '" . $_GET['id'] . "' "; 
 
    $result = $conn->query($sql);
 
