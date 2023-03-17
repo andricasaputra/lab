@@ -96,7 +96,7 @@ endwhile;
 
                                     while ($t=$i->fetch_object()) : ?>
 
-                                    <option><?=$t->nama_pejabat ;?></option>
+                                    <option value="<?=$t->nama_pejabat ;?>"><?=$t->nama_pejabat ;?></option>
 
                                   <?php endwhile;?>
 
@@ -120,7 +120,7 @@ endwhile;
 
                                     while ($t=$i->fetch_object()) : ?>
 
-                                    <option><?=$t->nama_pejabat ;?></option>
+                                    <option value="<?=$t->nama_pejabat ;?>"><?=$t->nama_pejabat ;?></option>
 
                                   <?php endwhile;?>
 
